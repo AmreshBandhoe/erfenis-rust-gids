@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as HulpBijErfenisRouteImport } from './routes/hulp-bij-erfenis'
+import { Route as BijLevenRegelenRouteImport } from './routes/bij-leven-regelen'
 import { Route as IndexRouteImport } from './routes/index'
 
 const HulpBijErfenisRoute = HulpBijErfenisRouteImport.update({
   id: '/hulp-bij-erfenis',
   path: '/hulp-bij-erfenis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BijLevenRegelenRoute = BijLevenRegelenRouteImport.update({
+  id: '/bij-leven-regelen',
+  path: '/bij-leven-regelen',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bij-leven-regelen': typeof BijLevenRegelenRoute
   '/hulp-bij-erfenis': typeof HulpBijErfenisRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bij-leven-regelen': typeof BijLevenRegelenRoute
   '/hulp-bij-erfenis': typeof HulpBijErfenisRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bij-leven-regelen': typeof BijLevenRegelenRoute
   '/hulp-bij-erfenis': typeof HulpBijErfenisRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/hulp-bij-erfenis'
+  fullPaths: '/' | '/bij-leven-regelen' | '/hulp-bij-erfenis'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/hulp-bij-erfenis'
-  id: '__root__' | '/' | '/hulp-bij-erfenis'
+  to: '/' | '/bij-leven-regelen' | '/hulp-bij-erfenis'
+  id: '__root__' | '/' | '/bij-leven-regelen' | '/hulp-bij-erfenis'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BijLevenRegelenRoute: typeof BijLevenRegelenRoute
   HulpBijErfenisRoute: typeof HulpBijErfenisRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/hulp-bij-erfenis'
       fullPath: '/hulp-bij-erfenis'
       preLoaderRoute: typeof HulpBijErfenisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bij-leven-regelen': {
+      id: '/bij-leven-regelen'
+      path: '/bij-leven-regelen'
+      fullPath: '/bij-leven-regelen'
+      preLoaderRoute: typeof BijLevenRegelenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BijLevenRegelenRoute: BijLevenRegelenRoute,
   HulpBijErfenisRoute: HulpBijErfenisRoute,
 }
 export const routeTree = rootRouteImport
