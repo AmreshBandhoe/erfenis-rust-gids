@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as KennisbankRouteImport } from './routes/kennisbank'
 import { Route as HulpBijErfenisRouteImport } from './routes/hulp-bij-erfenis'
 import { Route as BijLevenRegelenRouteImport } from './routes/bij-leven-regelen'
 import { Route as IndexRouteImport } from './routes/index'
 
+const KennisbankRoute = KennisbankRouteImport.update({
+  id: '/kennisbank',
+  path: '/kennisbank',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HulpBijErfenisRoute = HulpBijErfenisRouteImport.update({
   id: '/hulp-bij-erfenis',
   path: '/hulp-bij-erfenis',
@@ -33,34 +39,50 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bij-leven-regelen': typeof BijLevenRegelenRoute
   '/hulp-bij-erfenis': typeof HulpBijErfenisRoute
+  '/kennisbank': typeof KennisbankRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bij-leven-regelen': typeof BijLevenRegelenRoute
   '/hulp-bij-erfenis': typeof HulpBijErfenisRoute
+  '/kennisbank': typeof KennisbankRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bij-leven-regelen': typeof BijLevenRegelenRoute
   '/hulp-bij-erfenis': typeof HulpBijErfenisRoute
+  '/kennisbank': typeof KennisbankRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bij-leven-regelen' | '/hulp-bij-erfenis'
+  fullPaths: '/' | '/bij-leven-regelen' | '/hulp-bij-erfenis' | '/kennisbank'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bij-leven-regelen' | '/hulp-bij-erfenis'
-  id: '__root__' | '/' | '/bij-leven-regelen' | '/hulp-bij-erfenis'
+  to: '/' | '/bij-leven-regelen' | '/hulp-bij-erfenis' | '/kennisbank'
+  id:
+    | '__root__'
+    | '/'
+    | '/bij-leven-regelen'
+    | '/hulp-bij-erfenis'
+    | '/kennisbank'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BijLevenRegelenRoute: typeof BijLevenRegelenRoute
   HulpBijErfenisRoute: typeof HulpBijErfenisRoute
+  KennisbankRoute: typeof KennisbankRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/kennisbank': {
+      id: '/kennisbank'
+      path: '/kennisbank'
+      fullPath: '/kennisbank'
+      preLoaderRoute: typeof KennisbankRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hulp-bij-erfenis': {
       id: '/hulp-bij-erfenis'
       path: '/hulp-bij-erfenis'
@@ -89,6 +111,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BijLevenRegelenRoute: BijLevenRegelenRoute,
   HulpBijErfenisRoute: HulpBijErfenisRoute,
+  KennisbankRoute: KennisbankRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
