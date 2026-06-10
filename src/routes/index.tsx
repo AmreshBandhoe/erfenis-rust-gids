@@ -1,29 +1,47 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "De Erfeniswijzer — Uw gids bij nalatenschap en erfenis" },
+      {
+        name: "description",
+        content:
+          "Persoonlijke en deskundige begeleiding bij nalatenschap en erfenis. Van regelen bij leven tot afwikkeling na overlijden, met warmte en rust.",
+      },
+      { property: "og:title", content: "De Erfeniswijzer — Uw gids bij nalatenschap en erfenis" },
+      {
+        property: "og:description",
+        content:
+          "Wij maken nalatenschap geen bron van stress, maar een laatste daad van liefde en zorg voor nabestaanden.",
+      },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <section className="mx-auto flex max-w-3xl flex-col items-center px-4 py-28 text-center sm:px-6 lg:px-8">
+      <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+        Uw gids bij nalatenschap en erfenis
+      </p>
+      <h1 className="text-4xl leading-tight text-primary sm:text-5xl md:text-6xl">
+        De Erfeniswijzer
+      </h1>
+      <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+        De huisstijl, navigatie en lay-out staan klaar. De homepage vullen we
+        samen verder in.
+      </p>
+      <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <Button asChild size="lg" className="rounded-full bg-accent px-8 text-accent-foreground hover:bg-accent/90">
+          <Link to="/contact">Plan een gesprek</Link>
+        </Button>
+        <Button asChild size="lg" variant="outline" className="rounded-full border-primary/30 px-8 text-primary hover:bg-secondary">
+          <Link to="/hulp-bij-erfenis">Ontdek onze hulp</Link>
+        </Button>
+      </div>
+    </section>
   );
 }
