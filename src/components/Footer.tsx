@@ -3,6 +3,11 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { navItems } from "@/components/Header";
 import logoAsset from "@/assets/erfeniswijzer-logo.jpeg.asset.json";
 
+const quickLinks = [
+  ...navItems,
+  { label: "Gratis gids", to: "/gratis-gids" },
+] as const;
+
 export function Footer() {
   const year = new Date().getFullYear();
 
@@ -24,11 +29,11 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Navigatie */}
+          {/* Snelle links */}
           <div>
-            <h2 className="text-lg font-semibold text-accent">Navigatie</h2>
+            <h2 className="text-lg font-semibold text-accent">Snelle links</h2>
             <ul className="mt-5 space-y-3">
-              {navItems.map((item) => (
+              {quickLinks.map((item) => (
                 <li key={item.to}>
                   <Link
                     to={item.to}
@@ -47,7 +52,9 @@ export function Footer() {
             <ul className="mt-5 space-y-4 text-sm text-primary-foreground/80">
               <li className="flex items-start gap-3">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                <span>085 - 000 00 00</span>
+                <a href="tel:+31850000000" className="transition-colors hover:text-accent">
+                  085 - 000 00 00
+                </a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
@@ -64,11 +71,27 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-primary-foreground/15 pt-8 text-xs text-primary-foreground/60 sm:flex-row">
+        {/* Disclaimer */}
+        <p className="mt-14 max-w-3xl text-xs leading-relaxed text-primary-foreground/45">
+          Disclaimer: de informatie op deze website is met zorg samengesteld en
+          uitsluitend bedoeld als algemene voorlichting. Aan de inhoud kunnen geen
+          rechten worden ontleend. Voor advies op maat plannen wij graag een
+          persoonlijk gesprek.
+        </p>
+
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-primary-foreground/15 pt-8 text-xs text-primary-foreground/60 sm:flex-row">
           <p>© {year} De Erfeniswijzer. Alle rechten voorbehouden.</p>
-          <p className="font-display text-sm tracking-wide text-accent">
-            Uw gids bij nalatenschap en erfenis
-          </p>
+          <nav className="flex flex-wrap items-center gap-x-5 gap-y-2" aria-label="Juridisch">
+            <Link to="/contact" className="transition-colors hover:text-accent">
+              Privacybeleid
+            </Link>
+            <Link to="/contact" className="transition-colors hover:text-accent">
+              Algemene voorwaarden
+            </Link>
+            <span className="font-display text-sm tracking-wide text-accent">
+              Uw gids bij nalatenschap en erfenis
+            </span>
+          </nav>
         </div>
       </div>
     </footer>
