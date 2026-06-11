@@ -95,6 +95,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "De Erfeniswijzer — Uw gids bij nalatenschap en erfenis" },
+      { name: "description", content: "The Legacy Guide is a professional website offering guidance on estate planning and inheritance matters." },
+      { property: "og:description", content: "The Legacy Guide is a professional website offering guidance on estate planning and inheritance matters." },
+      { name: "twitter:description", content: "The Legacy Guide is a professional website offering guidance on estate planning and inheritance matters." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2cc78df2-7f07-449a-9c50-4b5ecdacbf39/id-preview-aa33f9f8--f8279d5b-d5a3-4892-a5bc-1f18ec4ec298.lovable.app-1781145112977.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2cc78df2-7f07-449a-9c50-4b5ecdacbf39/id-preview-aa33f9f8--f8279d5b-d5a3-4892-a5bc-1f18ec4ec298.lovable.app-1781145112977.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
