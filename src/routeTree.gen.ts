@@ -15,6 +15,7 @@ import { Route as HulpBijErfenisRouteImport } from './routes/hulp-bij-erfenis'
 import { Route as GratisGidsRouteImport } from './routes/gratis-gids'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BijLevenRegelenRouteImport } from './routes/bij-leven-regelen'
+import { Route as BedanktRouteImport } from './routes/bedankt'
 import { Route as IndexRouteImport } from './routes/index'
 
 const OverOnsRoute = OverOnsRouteImport.update({
@@ -47,6 +48,11 @@ const BijLevenRegelenRoute = BijLevenRegelenRouteImport.update({
   path: '/bij-leven-regelen',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BedanktRoute = BedanktRouteImport.update({
+  id: '/bedankt',
+  path: '/bedankt',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -55,6 +61,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bedankt': typeof BedanktRoute
   '/bij-leven-regelen': typeof BijLevenRegelenRoute
   '/contact': typeof ContactRoute
   '/gratis-gids': typeof GratisGidsRoute
@@ -64,6 +71,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bedankt': typeof BedanktRoute
   '/bij-leven-regelen': typeof BijLevenRegelenRoute
   '/contact': typeof ContactRoute
   '/gratis-gids': typeof GratisGidsRoute
@@ -74,6 +82,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bedankt': typeof BedanktRoute
   '/bij-leven-regelen': typeof BijLevenRegelenRoute
   '/contact': typeof ContactRoute
   '/gratis-gids': typeof GratisGidsRoute
@@ -85,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/bedankt'
     | '/bij-leven-regelen'
     | '/contact'
     | '/gratis-gids'
@@ -94,6 +104,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/bedankt'
     | '/bij-leven-regelen'
     | '/contact'
     | '/gratis-gids'
@@ -103,6 +114,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/bedankt'
     | '/bij-leven-regelen'
     | '/contact'
     | '/gratis-gids'
@@ -113,6 +125,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BedanktRoute: typeof BedanktRoute
   BijLevenRegelenRoute: typeof BijLevenRegelenRoute
   ContactRoute: typeof ContactRoute
   GratisGidsRoute: typeof GratisGidsRoute
@@ -165,6 +178,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BijLevenRegelenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bedankt': {
+      id: '/bedankt'
+      path: '/bedankt'
+      fullPath: '/bedankt'
+      preLoaderRoute: typeof BedanktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -177,6 +197,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BedanktRoute: BedanktRoute,
   BijLevenRegelenRoute: BijLevenRegelenRoute,
   ContactRoute: ContactRoute,
   GratisGidsRoute: GratisGidsRoute,
