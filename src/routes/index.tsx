@@ -429,7 +429,7 @@ function Index() {
                 size="lg"
                 className="mt-8 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground hover:bg-accent/90"
               >
-                <Link to="/kennisbank">
+                <Link to="/gratis-gids">
                   <FileDown className="mr-2 h-5 w-5" />
                   Download de gratis gids
                 </Link>
