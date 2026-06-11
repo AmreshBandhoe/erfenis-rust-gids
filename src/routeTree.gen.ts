@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as OverOnsRouteImport } from './routes/over-ons'
 import { Route as KennisbankRouteImport } from './routes/kennisbank'
 import { Route as HulpBijErfenisRouteImport } from './routes/hulp-bij-erfenis'
+import { Route as GratisGidsRouteImport } from './routes/gratis-gids'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BijLevenRegelenRouteImport } from './routes/bij-leven-regelen'
 import { Route as IndexRouteImport } from './routes/index'
@@ -29,6 +30,11 @@ const KennisbankRoute = KennisbankRouteImport.update({
 const HulpBijErfenisRoute = HulpBijErfenisRouteImport.update({
   id: '/hulp-bij-erfenis',
   path: '/hulp-bij-erfenis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GratisGidsRoute = GratisGidsRouteImport.update({
+  id: '/gratis-gids',
+  path: '/gratis-gids',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bij-leven-regelen': typeof BijLevenRegelenRoute
   '/contact': typeof ContactRoute
+  '/gratis-gids': typeof GratisGidsRoute
   '/hulp-bij-erfenis': typeof HulpBijErfenisRoute
   '/kennisbank': typeof KennisbankRoute
   '/over-ons': typeof OverOnsRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bij-leven-regelen': typeof BijLevenRegelenRoute
   '/contact': typeof ContactRoute
+  '/gratis-gids': typeof GratisGidsRoute
   '/hulp-bij-erfenis': typeof HulpBijErfenisRoute
   '/kennisbank': typeof KennisbankRoute
   '/over-ons': typeof OverOnsRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/bij-leven-regelen': typeof BijLevenRegelenRoute
   '/contact': typeof ContactRoute
+  '/gratis-gids': typeof GratisGidsRoute
   '/hulp-bij-erfenis': typeof HulpBijErfenisRoute
   '/kennisbank': typeof KennisbankRoute
   '/over-ons': typeof OverOnsRoute
@@ -78,6 +87,7 @@ export interface FileRouteTypes {
     | '/'
     | '/bij-leven-regelen'
     | '/contact'
+    | '/gratis-gids'
     | '/hulp-bij-erfenis'
     | '/kennisbank'
     | '/over-ons'
@@ -86,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/bij-leven-regelen'
     | '/contact'
+    | '/gratis-gids'
     | '/hulp-bij-erfenis'
     | '/kennisbank'
     | '/over-ons'
@@ -94,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/bij-leven-regelen'
     | '/contact'
+    | '/gratis-gids'
     | '/hulp-bij-erfenis'
     | '/kennisbank'
     | '/over-ons'
@@ -103,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BijLevenRegelenRoute: typeof BijLevenRegelenRoute
   ContactRoute: typeof ContactRoute
+  GratisGidsRoute: typeof GratisGidsRoute
   HulpBijErfenisRoute: typeof HulpBijErfenisRoute
   KennisbankRoute: typeof KennisbankRoute
   OverOnsRoute: typeof OverOnsRoute
@@ -129,6 +142,13 @@ declare module '@tanstack/react-router' {
       path: '/hulp-bij-erfenis'
       fullPath: '/hulp-bij-erfenis'
       preLoaderRoute: typeof HulpBijErfenisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gratis-gids': {
+      id: '/gratis-gids'
+      path: '/gratis-gids'
+      fullPath: '/gratis-gids'
+      preLoaderRoute: typeof GratisGidsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -159,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BijLevenRegelenRoute: BijLevenRegelenRoute,
   ContactRoute: ContactRoute,
+  GratisGidsRoute: GratisGidsRoute,
   HulpBijErfenisRoute: HulpBijErfenisRoute,
   KennisbankRoute: KennisbankRoute,
   OverOnsRoute: OverOnsRoute,
@@ -166,3 +187,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
