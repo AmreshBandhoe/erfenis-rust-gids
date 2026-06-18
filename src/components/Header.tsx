@@ -1,18 +1,21 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu } from "lucide-react";
+import { Menu, Globe } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import logoAsset from "@/assets/erfeniswijzer-logo.jpeg.asset.json";
+import { useLang } from "@/lib/i18n";
+import logo from "@/assets/erfeniswijzer-logo.jpeg";
 
-export const navItems = [
-  { label: "Home", to: "/" },
-  { label: "Hulp bij erfenis", to: "/hulp-bij-erfenis" },
-  { label: "Bij leven regelen", to: "/bij-leven-regelen" },
-  { label: "Kennisbank", to: "/kennisbank" },
-  { label: "Over ons", to: "/over-ons" },
-  { label: "Contact", to: "/contact" },
-] as const;
+export function navItems(t: ReturnType<typeof useLang>["t"]) {
+  return [
+    { label: t.nav.home, to: "/" },
+    { label: t.nav.hulpBijErfenis, to: "/hulp-bij-erfenis" },
+    { label: t.nav.bijLevenRegelen, to: "/bij-leven-regelen" },
+    { label: t.nav.kennisbank, to: "/kennisbank" },
+    { label: t.nav.overOns, to: "/over-ons" },
+    { label: t.nav.contact, to: "/contact" },
+  ] as const;
+}
 
 function Brand({ onClick }: { onClick?: () => void }) {
   return (
@@ -23,7 +26,7 @@ function Brand({ onClick }: { onClick?: () => void }) {
       aria-label="De Erfeniswijzer — naar home"
     >
       <img
-        src={logoAsset.url}
+        src={logo}
         alt="Logo De Erfeniswijzer"
         className="h-11 w-auto rounded-lg shadow-soft"
       />
@@ -31,8 +34,26 @@ function Brand({ onClick }: { onClick?: () => void }) {
   );
 }
 
+function LangToggle() {
+  const { lang, setLang, t } = useLang();
+  const target = lang === "nl" ? "en" : "nl";
+  return (
+    <button
+      type="button"
+      onClick={() => setLang(target)}
+      aria-label={t.langToggleLabel}
+      className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-foreground/80 transition-colors hover:border-accent hover:text-primary"
+    >
+      <Globe className="h-3.5 w-3.5" aria-hidden="true" />
+      {t.langToggleCode}
+    </button>
+  );
+}
+
 export function Header() {
   const [open, setOpen] = useState(false);
+  const { t } = useLang();
+  const items = navItems(t);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md">
@@ -40,7 +61,7 @@ export function Header() {
         <Brand />
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Hoofdnavigatie">
-          {navItems.map((item) => (
+          {items.map((item) => (
             <Link
               key={item.to}
               to={item.to}
@@ -65,45 +86,49 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-3 lg:flex">
+          <LangToggle />
           <Button asChild className="rounded-full bg-accent px-6 text-accent-foreground hover:bg-accent/90">
-            <Link to="/contact">Plan een gesprek</Link>
+            <Link to="/contact">{t.header.cta}</Link>
           </Button>
         </div>
 
-        <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger asChild className="lg:hidden">
-            <Button variant="ghost" size="icon" aria-label="Menu openen">
-              <Menu className="h-6 w-6" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] bg-background">
-            <div className="mt-2 mb-8">
-              <Brand onClick={() => setOpen(false)} />
-            </div>
-            <nav className="flex flex-col gap-1" aria-label="Mobiele navigatie">
-              {navItems.map((item) => (
-                <SheetClose asChild key={item.to}>
-                  <Link
-                    to={item.to}
-                    className="rounded-lg px-3 py-3 text-lg font-medium text-foreground/85 transition-colors hover:bg-secondary hover:text-primary"
-                    activeProps={{ className: "bg-secondary text-primary" }}
-                    activeOptions={{ exact: item.to === "/" }}
-                  >
-                    {item.label}
-                  </Link>
+        <div className="flex items-center gap-2 lg:hidden">
+          <LangToggle />
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" aria-label={t.header.openMenu}>
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] bg-background">
+              <div className="mt-2 mb-8">
+                <Brand onClick={() => setOpen(false)} />
+              </div>
+              <nav className="flex flex-col gap-1" aria-label="Mobiele navigatie">
+                {items.map((item) => (
+                  <SheetClose asChild key={item.to}>
+                    <Link
+                      to={item.to}
+                      className="rounded-lg px-3 py-3 text-lg font-medium text-foreground/85 transition-colors hover:bg-secondary hover:text-primary"
+                      activeProps={{ className: "bg-secondary text-primary" }}
+                      activeOptions={{ exact: item.to === "/" }}
+                    >
+                      {item.label}
+                    </Link>
+                  </SheetClose>
+                ))}
+              </nav>
+              <div className="mt-8">
+                <SheetClose asChild>
+                  <Button asChild className="w-full rounded-full bg-accent text-accent-foreground hover:bg-accent/90">
+                    <Link to="/contact">{t.header.cta}</Link>
+                  </Button>
                 </SheetClose>
-              ))}
-            </nav>
-            <div className="mt-8">
-              <SheetClose asChild>
-                <Button asChild className="w-full rounded-full bg-accent text-accent-foreground hover:bg-accent/90">
-                  <Link to="/contact">Plan een gesprek</Link>
-                </Button>
-              </SheetClose>
-            </div>
-          </SheetContent>
-        </Sheet>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );

@@ -3,6 +3,7 @@ import { CheckCircle2, Mail, Phone, BookOpen, ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/Reveal";
+import { useT } from "@/lib/i18n";
 import bedanktHero from "@/assets/bedankt-hero.jpg";
 
 export const Route = createFileRoute("/bedankt")({
@@ -25,25 +26,12 @@ export const Route = createFileRoute("/bedankt")({
   component: Bedankt,
 });
 
-const steps = [
-  {
-    icon: Mail,
-    title: "Bevestiging in uw mailbox",
-    text: "U ontvangt direct een bevestiging. Heeft u een gids aangevraagd, dan vindt u die als bijlage.",
-  },
-  {
-    icon: Phone,
-    title: "Persoonlijk contact",
-    text: "Binnen één werkdag nemen wij rustig en vrijblijvend contact met u op.",
-  },
-  {
-    icon: BookOpen,
-    title: "Samen verder kijken",
-    text: "We bespreken uw situatie en wensen, en vertellen hoe wij u kunnen ontzorgen.",
-  },
-];
+const stepIcons = [Mail, Phone, BookOpen];
 
 function Bedankt() {
+  const t = useT();
+  const h = t.bedankt;
+
   return (
     <>
       {/* Hero */}
@@ -62,42 +50,40 @@ function Bedankt() {
               <CheckCircle2 className="h-9 w-9" strokeWidth={1.75} />
             </span>
             <h1 className="mt-8 text-4xl leading-[1.1] text-primary-foreground sm:text-5xl md:text-6xl">
-              Hartelijk dank
+              {h.heroTitle}
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/90">
-              Uw bericht is goed bij ons aangekomen. Fijn dat u de stap heeft gezet —
-              wij nemen het graag rustig met u door.
+              {h.heroIntro}
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* Wat gebeurt er nu? */}
+      {/* What happens next */}
       <section className="bg-background py-24">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-              Wat gebeurt er nu?
+              {h.stepsEyebrow}
             </p>
-            <h2 className="text-3xl text-primary sm:text-4xl">
-              U hoeft verder even niets te doen
-            </h2>
+            <h2 className="text-3xl text-primary sm:text-4xl">{h.stepsTitle}</h2>
           </Reveal>
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {steps.map((step, i) => (
-              <Reveal key={step.title} delay={i * 100}>
-                <div className="flex h-full flex-col rounded-3xl border border-border/60 bg-card p-8 text-center shadow-[var(--shadow-soft)]">
-                  <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary text-primary">
-                    <step.icon className="h-7 w-7" strokeWidth={1.6} />
-                  </span>
-                  <h3 className="mt-6 text-xl text-primary">{step.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    {step.text}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
+            {h.steps.map((step, i) => {
+              const Icon = stepIcons[i];
+              return (
+                <Reveal key={step.title} delay={i * 100}>
+                  <div className="flex h-full flex-col rounded-3xl border border-border/60 bg-card p-8 text-center shadow-[var(--shadow-soft)]">
+                    <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary text-primary">
+                      <Icon className="h-7 w-7" strokeWidth={1.6} />
+                    </span>
+                    <h3 className="mt-6 text-xl text-primary">{step.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step.text}</p>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
 
           <Reveal className="mt-14 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -107,7 +93,7 @@ function Bedankt() {
               className="rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
             >
               <Link to="/kennisbank">
-                Lees onze kennisbank
+                {h.ctaKennisbank}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
@@ -117,7 +103,7 @@ function Bedankt() {
               variant="outline"
               className="rounded-full border-primary/30 px-8 py-6 text-base text-primary hover:bg-secondary"
             >
-              <Link to="/">Terug naar home</Link>
+              <Link to="/">{h.ctaHome}</Link>
             </Button>
           </Reveal>
         </div>

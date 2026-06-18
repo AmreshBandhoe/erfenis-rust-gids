@@ -23,6 +23,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Reveal } from "@/components/Reveal";
+import { useT } from "@/lib/i18n";
 import gidsHero from "@/assets/gids-hero.jpg";
 
 export const Route = createFileRoute("/gratis-gids")({
@@ -48,46 +49,27 @@ export const Route = createFileRoute("/gratis-gids")({
   component: GratisGids,
 });
 
-const gidsSchema = z.object({
-  naam: z
-    .string()
-    .trim()
-    .min(2, { message: "Vul uw naam in." })
-    .max(100, { message: "Naam mag maximaal 100 tekens zijn." }),
-  email: z
-    .string()
-    .trim()
-    .email({ message: "Vul een geldig e-mailadres in." })
-    .max(255, { message: "E-mailadres mag maximaal 255 tekens zijn." }),
-});
-
-type GidsValues = z.infer<typeof gidsSchema>;
-
-const contents = [
-  {
-    icon: ListChecks,
-    title: "Complete checklist",
-    text: "Stap voor stap overzicht van alles wat u kunt regelen — niets blijft over het hoofd gezien.",
-  },
-  {
-    icon: ScrollText,
-    title: "Uitleg per document",
-    text: "Heldere uitleg over testament, levenstestament en volmachten, in gewone taal.",
-  },
-  {
-    icon: Coins,
-    title: "Erfbelasting beperken",
-    text: "Praktische tips om erfbelasting eerlijk en binnen de regels te verminderen.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Gesprek met de familie",
-    text: "Handvatten om het gesprek over nalaten open en zonder spanning te voeren.",
-  },
-];
+const contentIcons = [ListChecks, ScrollText, Coins, HeartHandshake];
 
 function GratisGids() {
   const navigate = useNavigate();
+  const t = useT();
+  const h = t.gratisGids;
+
+  const gidsSchema = z.object({
+    naam: z
+      .string()
+      .trim()
+      .min(2, { message: h.errorName })
+      .max(100, { message: h.errorNameMax }),
+    email: z
+      .string()
+      .trim()
+      .email({ message: h.errorEmail })
+      .max(255, { message: h.errorEmailMax }),
+  });
+
+  type GidsValues = z.infer<typeof gidsSchema>;
 
   const form = useForm<GidsValues>({
     resolver: zodResolver(gidsSchema),
@@ -95,16 +77,14 @@ function GratisGids() {
   });
 
   function onSubmit(_values: GidsValues) {
-    toast.success("Gelukt! De gids is onderweg.", {
-      description: "U ontvangt de Erfeniswijzer Gids binnen enkele minuten per e-mail.",
-    });
+    toast.success(h.toastTitle, { description: h.toastDesc });
     form.reset();
     navigate({ to: "/bedankt" });
   }
 
   return (
     <>
-      {/* Hero met formulier */}
+      {/* Hero with form */}
       <section className="relative isolate overflow-hidden">
         <img
           src={gidsHero}
@@ -117,22 +97,14 @@ function GratisGids() {
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-24 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:py-28 lg:px-8">
           <div className="max-w-xl">
             <p className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-              Gratis download
+              {h.heroEyebrow}
             </p>
             <h1 className="text-4xl leading-[1.08] text-primary-foreground sm:text-5xl md:text-6xl">
-              Download de gratis Erfeniswijzer Gids
+              {h.heroTitle}
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-primary-foreground/90">
-              Een praktische checklist plus heldere uitleg over de belangrijkste
-              stappen bij nalatenschap en erfenis. Zo zet u vandaag nog rustig de
-              eerste stap.
-            </p>
+            <p className="mt-6 text-lg leading-relaxed text-primary-foreground/90">{h.heroIntro}</p>
             <ul className="mt-8 space-y-3">
-              {[
-                "Direct in uw mailbox — geen verplichtingen",
-                "Geschreven in begrijpelijke taal",
-                "Samengesteld door ervaren specialisten",
-              ].map((item) => (
+              {h.heroBullets.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-primary-foreground/90">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
                   <span className="leading-relaxed">{item}</span>
@@ -142,10 +114,8 @@ function GratisGids() {
           </div>
 
           <div className="rounded-[2rem] border border-border/60 bg-card p-8 shadow-[var(--shadow-elegant)] sm:p-10">
-            <h2 className="text-2xl text-primary">Stuur mij de gratis gids</h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Vul uw naam en e-mailadres in, dan sturen wij de gids direct toe.
-            </p>
+            <h2 className="text-2xl text-primary">{h.formTitle}</h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{h.formSubtitle}</p>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="mt-6 space-y-5">
                 <FormField
@@ -153,9 +123,9 @@ function GratisGids() {
                   name="naam"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Naam</FormLabel>
+                      <FormLabel>{h.fieldName}</FormLabel>
                       <FormControl>
-                        <Input placeholder="Uw naam" autoComplete="name" {...field} />
+                        <Input placeholder={h.fieldNamePlaceholder} autoComplete="name" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -166,11 +136,11 @@ function GratisGids() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>E-mail</FormLabel>
+                      <FormLabel>{h.fieldEmail}</FormLabel>
                       <FormControl>
                         <Input
                           type="email"
-                          placeholder="uw@email.nl"
+                          placeholder={h.fieldEmailPlaceholder}
                           autoComplete="email"
                           {...field}
                         />
@@ -186,47 +156,43 @@ function GratisGids() {
                   className="w-full rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
                 >
                   <FileDown className="mr-2 h-5 w-5" />
-                  Download de gratis gids
+                  {h.submitLabel}
                 </Button>
-                <p className="text-center text-xs text-muted-foreground">
-                  Wij gaan zorgvuldig en vertrouwelijk om met uw gegevens.
-                </p>
+                <p className="text-center text-xs text-muted-foreground">{h.privacy}</p>
               </form>
             </Form>
           </div>
         </div>
       </section>
 
-      {/* Wat staat erin? */}
+      {/* Contents */}
       <section className="bg-background py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-              Een voorproefje
+              {h.contentsEyebrow}
             </p>
-            <h2 className="text-3xl text-primary sm:text-4xl">Wat staat er in de gids?</h2>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              Alles wat u nodig heeft om met vertrouwen te beginnen — overzichtelijk
-              en zonder jargon.
-            </p>
+            <h2 className="text-3xl text-primary sm:text-4xl">{h.contentsTitle}</h2>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.contentsIntro}</p>
           </Reveal>
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2">
-            {contents.map((item, i) => (
-              <Reveal key={item.title} delay={i * 90}>
-                <div className="flex h-full gap-5 rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] transition-shadow hover:shadow-[var(--shadow-elegant)]">
-                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-                    <item.icon className="h-7 w-7" strokeWidth={1.6} />
-                  </span>
-                  <div>
-                    <h3 className="text-xl text-primary">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      {item.text}
-                    </p>
+            {h.contents.map((item, i) => {
+              const Icon = contentIcons[i];
+              return (
+                <Reveal key={item.title} delay={i * 90}>
+                  <div className="flex h-full gap-5 rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] transition-shadow hover:shadow-[var(--shadow-elegant)]">
+                    <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+                      <Icon className="h-7 w-7" strokeWidth={1.6} />
+                    </span>
+                    <div>
+                      <h3 className="text-xl text-primary">{item.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+                    </div>
                   </div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>

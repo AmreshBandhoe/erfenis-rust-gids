@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { ContentHero } from "@/components/ContentHero";
 import { CtaSection } from "@/components/CtaSection";
+import { useT } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import heroImg from "@/assets/kennisbank-hero.jpg";
 
@@ -30,98 +31,36 @@ export const Route = createFileRoute("/kennisbank")({
 
 type Category = "voorbereiding" | "afwikkeling";
 
-const articles: {
-  title: string;
-  excerpt: string;
-  category: Category;
-  readingTime: string;
-}[] = [
-  {
-    title: "Wat doet een executeur precies?",
-    excerpt:
-      "De taken, verantwoordelijkheden en bevoegdheden van een executeur helder uitgelegd.",
-    category: "afwikkeling",
-    readingTime: "5 min",
-  },
-  {
-    title: "Hoe werkt erfbelasting?",
-    excerpt:
-      "Wie betaalt hoeveel, welke vrijstellingen gelden er en hoe doet u aangifte?",
-    category: "afwikkeling",
-    readingTime: "6 min",
-  },
-  {
-    title: "Levenstestament: waarom is het belangrijk?",
-    excerpt:
-      "Regel bij leven wie er namens u beslist als u dat zelf niet meer kunt.",
-    category: "voorbereiding",
-    readingTime: "4 min",
-  },
-  {
-    title: "Nalatenschap bij een samengesteld gezin",
-    excerpt:
-      "Voorkom onbedoelde gevolgen en zorg dat iedereen eerlijk wordt meegenomen.",
-    category: "voorbereiding",
-    readingTime: "7 min",
-  },
-  {
-    title: "Wat te doen bij overlijden: de checklist",
-    excerpt:
-      "Een overzichtelijk stappenplan voor de eerste dagen en weken na een overlijden.",
-    category: "afwikkeling",
-    readingTime: "5 min",
-  },
-  {
-    title: "Crypto en digitale bezittingen in een erfenis",
-    excerpt:
-      "Hoe gaat u om met cryptovaluta, accounts en digitale bezittingen in een nalatenschap?",
-    category: "voorbereiding",
-    readingTime: "6 min",
-  },
-  {
-    title: "Schenken bij leven: slim en eerlijk besparen",
-    excerpt:
-      "Hoe u met schenkingen erfbelasting kunt beperken, volledig binnen de regels.",
-    category: "voorbereiding",
-    readingTime: "5 min",
-  },
-  {
-    title: "Een erfenis verdelen zonder ruzie",
-    excerpt:
-      "Praktische tips om de verdeling eerlijk en in goede harmonie te laten verlopen.",
-    category: "afwikkeling",
-    readingTime: "6 min",
-  },
-];
-
-const filters: { label: string; value: Category | "alle" }[] = [
-  { label: "Alle artikelen", value: "alle" },
-  { label: "Voorbereiding", value: "voorbereiding" },
-  { label: "Afwikkeling", value: "afwikkeling" },
-];
-
-const categoryLabels: Record<Category, string> = {
-  voorbereiding: "Voorbereiding",
-  afwikkeling: "Afwikkeling",
-};
-
 function Kennisbank() {
+  const t = useT();
+  const h = t.kennisbank;
   const [active, setActive] = useState<Category | "alle">("alle");
+
+  const filters = [
+    { label: h.filterAll, value: "alle" as const },
+    { label: h.filterPrep, value: "voorbereiding" as const },
+    { label: h.filterSettle, value: "afwikkeling" as const },
+  ];
+
+  const categoryLabels: Record<Category, string> = {
+    voorbereiding: h.categoryPrep,
+    afwikkeling: h.categorySettle,
+  };
 
   const visible =
     active === "alle"
-      ? articles
-      : articles.filter((a) => a.category === active);
+      ? h.articles
+      : h.articles.filter((a) => a.category === active);
 
   return (
     <>
       <ContentHero
         image={heroImg}
         imageAlt="Rustige leeshoek met boeken, een laptop en een kop thee bij het raam"
-        eyebrow="Kennis & inzicht"
-        title="Kennisbank Nalatenschap & Erfenis"
-        intro="Praktische artikelen en heldere uitleg om zelf alvast wijzer te worden. Begrijpelijke antwoorden op de meest gestelde vragen over nalatenschap en erfenis."
-        ctaLabel="Stel uw vraag in een gratis gesprek"
+        eyebrow={h.heroEyebrow}
+        title={h.heroTitle}
+        intro={h.heroIntro}
+        ctaLabel={h.heroCta}
       />
 
       <section className="bg-background py-24">
@@ -145,7 +84,7 @@ function Kennisbank() {
             ))}
           </div>
 
-          {/* Artikelen */}
+          {/* Articles */}
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {visible.map((article) => (
               <article
@@ -156,11 +95,11 @@ function Kennisbank() {
                   <span className="rounded-full bg-secondary px-3 py-1 font-semibold uppercase tracking-wide text-primary">
                     {categoryLabels[article.category]}
                   </span>
-                  <span className="text-muted-foreground">{article.readingTime} lezen</span>
+                  <span className="text-muted-foreground">
+                    {article.readingTime} {h.readingTime}
+                  </span>
                 </div>
-                <h2 className="mt-5 text-xl leading-snug text-primary">
-                  {article.title}
-                </h2>
+                <h2 className="mt-5 text-xl leading-snug text-primary">{article.title}</h2>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                   {article.excerpt}
                 </p>
@@ -168,7 +107,7 @@ function Kennisbank() {
                   to="/contact"
                   className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors group-hover:text-accent"
                 >
-                  Lees meer
+                  {h.readMore}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </article>
@@ -177,10 +116,7 @@ function Kennisbank() {
         </div>
       </section>
 
-      <CtaSection
-        title="Liever persoonlijk advies?"
-        text="Onze kennisbank helpt u op weg, maar elke situatie is anders. Stel uw vraag gerust in een gratis en vrijblijvend adviesgesprek."
-      />
+      <CtaSection title={h.ctaTitle} text={h.ctaText} />
     </>
   );
 }
