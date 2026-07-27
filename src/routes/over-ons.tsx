@@ -4,9 +4,9 @@ import { ContentHero } from "@/components/ContentHero";
 import { CtaSection } from "@/components/CtaSection";
 import { useT } from "@/lib/i18n";
 import heroImg from "@/assets/team-hero.jpg";
-import team1 from "@/assets/team-1.jpg";
-import team2 from "@/assets/team-2.jpg";
-import team3 from "@/assets/team-3.jpg";
+import team1 from "@/assets/team-zainul-habieb.jpg";
+import team2 from "@/assets/team-gerard-van-de-kerkhof.jpg";
+import team3 from "@/assets/team-mark-van-geffen.jpg";
 
 export const Route = createFileRoute("/over-ons")({
   head: () => ({

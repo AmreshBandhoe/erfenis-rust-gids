@@ -2,11 +2,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Heart,
   ShieldCheck,
-  Coins,
+  ListChecks,
   Users,
   Scale,
   ScrollText,
   Calculator,
+  HeartHandshake,
+  LifeBuoy,
   Compass,
   Phone,
   CalendarCheck,
@@ -15,8 +17,6 @@ import {
   CheckCircle2,
   FileDown,
   ArrowRight,
-  Quote,
-  Star,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useT } from "@/lib/i18n";
@@ -25,9 +25,11 @@ import heroImg from "@/assets/home-hero.jpg";
 import whyImg from "@/assets/home-why.jpg";
 import processImg from "@/assets/home-process.jpg";
 import ctaImg from "@/assets/home-cta.jpg";
-import testimonial1 from "@/assets/testimonial-1.jpg";
-import testimonial2 from "@/assets/testimonial-2.jpg";
-import testimonial3 from "@/assets/testimonial-3.jpg";
+import logoIcr from "@/assets/logo-icr.png";
+import logoAdr from "@/assets/logo-adr.jpg";
+import logoIca from "@/assets/logo-ica.png";
+import logoVcm from "@/assets/logo-vcm.png";
+import logoQuintax from "@/assets/logo-quintax.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -51,10 +53,10 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const reasonIcons = [Heart, ShieldCheck, Coins, Users];
-const serviceIcons = [Scale, ScrollText, Calculator, Compass];
+const reasonIcons = [Heart, ShieldCheck, ListChecks, Users];
+const serviceIcons = [HeartHandshake, LifeBuoy, ScrollText, Calculator, Scale];
 const stepIcons = [Phone, ClipboardList, Compass, HandHeart, CalendarCheck];
-const testimonialImages = [testimonial1, testimonial2, testimonial3];
+const certLogos = [logoIcr, logoAdr, logoIca, logoVcm, logoQuintax];
 
 function Index() {
   const t = useT();
@@ -165,13 +167,14 @@ function Index() {
               {h.servicesIntro}
             </p>
           </div>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 flex flex-wrap justify-center gap-6">
             {h.services.map((service, i) => {
               const Icon = serviceIcons[i];
               return (
-                <div
+                <Link
                   key={service.title}
-                  className="group flex flex-col rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]"
+                  to={service.to}
+                  className="group flex w-full flex-col rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)] sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
                 >
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
                     <Icon className="h-7 w-7" strokeWidth={1.6} />
@@ -180,7 +183,11 @@ function Index() {
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {service.text}
                   </p>
-                </div>
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+                    Meer informatie
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
               );
             })}
           </div>
@@ -235,61 +242,44 @@ function Index() {
         </div>
       </section>
 
-      {/* 5. Trust */}
-      <section className="bg-primary py-24 text-primary-foreground">
+      {/* 5. Certifications */}
+      <section className="bg-primary py-14 text-primary-foreground">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-              {h.trustEyebrow}
-            </p>
-            <h2 className="text-3xl text-primary-foreground sm:text-4xl">{h.trustTitle}</h2>
+            <h2 className="text-3xl text-primary-foreground sm:text-4xl">{h.certTitle}</h2>
           </div>
 
-          <div className="mt-12 grid gap-8 sm:grid-cols-3">
-            {h.stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-3xl border border-primary-foreground/15 bg-primary-foreground/5 p-8 text-center"
-              >
-                <p className="font-display text-5xl text-accent">{stat.value}</p>
-                <p className="mt-2 text-sm uppercase tracking-wide text-primary-foreground/70">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {h.testimonials.map((testimonial, i) => (
-              <figure
-                key={testimonial.name}
-                className="flex h-full flex-col rounded-3xl border border-primary-foreground/15 bg-primary-foreground/5 p-8"
-              >
-                <Quote className="h-8 w-8 text-accent" />
-                <blockquote className="mt-4 flex-1 text-lg leading-relaxed text-primary-foreground/90">
-                  "{testimonial.quote}"
-                </blockquote>
-                <div className="mt-4 flex gap-1 text-accent">
-                  {Array.from({ length: 5 }).map((_, j) => (
-                    <Star key={j} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-                <figcaption className="mt-6 flex items-center gap-4">
-                  <img
-                    src={testimonialImages[i]}
-                    alt={`Portret van ${testimonial.name}`}
-                    width={768}
-                    height={768}
-                    loading="lazy"
-                    className="h-14 w-14 rounded-full object-cover ring-2 ring-accent/40"
-                  />
-                  <div>
-                    <p className="font-semibold text-primary-foreground">{testimonial.name}</p>
-                    <p className="text-sm text-primary-foreground/60">{testimonial.role}</p>
+          <div
+            className="group relative mt-12 overflow-hidden"
+            style={{
+              maskImage:
+                "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+            }}
+          >
+            <ul className="animate-marquee flex w-max items-stretch gap-6 group-hover:[animation-play-state:paused]">
+              {[...h.certifications, ...h.certifications].map((cert, i) => (
+                <li
+                  key={i}
+                  className="group/item flex w-64 shrink-0 items-center justify-center rounded-3xl border border-primary-foreground/15 bg-primary-foreground/5 p-6"
+                >
+                  <div className="relative flex h-24 w-full items-center justify-center rounded-2xl bg-white p-4">
+                    <img
+                      src={certLogos[i % certLogos.length]}
+                      alt={cert.caption}
+                      loading="lazy"
+                      className="max-h-16 w-auto max-w-[85%] object-contain transition-opacity duration-300 group-hover/item:opacity-0"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-primary p-3 text-center opacity-0 transition-opacity duration-300 group-hover/item:opacity-100">
+                      <p className="text-xs font-medium leading-relaxed text-primary-foreground">
+                        {cert.caption}
+                      </p>
+                    </div>
                   </div>
-                </figcaption>
-              </figure>
-            ))}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

@@ -9,23 +9,10 @@ interface LangContextValue {
 
 const LangContext = createContext<LangContextValue | null>(null);
 
-function getInitialLang(): Lang {
-  try {
-    const stored = localStorage.getItem("lang");
-    if (stored === "nl" || stored === "en") return stored;
-  } catch {}
-  return "nl";
-}
-
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(getInitialLang);
-
-  function setLang(l: Lang) {
-    setLangState(l);
-    try {
-      localStorage.setItem("lang", l);
-    } catch {}
-  }
+  // Site is Nederlands-only; taal staat vast op "nl".
+  const [lang] = useState<Lang>("nl");
+  const setLang = (_l: Lang) => {};
 
   return (
     <LangContext.Provider value={{ lang, setLang, t: translations[lang] }}>

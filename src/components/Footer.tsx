@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, Clock } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import logo from "@/assets/erfeniswijzer-logo.jpeg";
 
@@ -9,10 +9,9 @@ export function Footer() {
 
   const quickLinks = [
     { label: t.nav.home, to: "/" },
-    { label: t.nav.hulpBijErfenis, to: "/hulp-bij-erfenis" },
-    { label: t.nav.bijLevenRegelen, to: "/bij-leven-regelen" },
+    { label: t.nav.onzeBegeleiding, to: "/bij-leven-regelen" },
     { label: t.nav.kennisbank, to: "/kennisbank" },
-    { label: t.nav.overOns, to: "/over-ons" },
+    { label: t.nav.onsTeam, to: "/over-ons" },
     { label: t.nav.contact, to: "/contact" },
     { label: t.nav.gratisGids, to: "/gratis-gids" },
   ] as const;
@@ -67,24 +66,14 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                <span>{t.footer.workArea}</span>
-              </li>
-              <li className="flex items-start gap-3">
                 <Clock className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <span>{t.footer.hours}</span>
               </li>
             </ul>
-            <p className="mt-5 text-xs text-primary-foreground/55">KvK 00000000</p>
           </div>
         </div>
 
-        {/* Disclaimer */}
-        <p className="mt-14 max-w-3xl text-xs leading-relaxed text-primary-foreground/45">
-          {t.footer.disclaimer}
-        </p>
-
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-primary-foreground/15 pt-8 text-xs text-primary-foreground/60 sm:flex-row">
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-primary-foreground/15 pt-8 text-xs text-primary-foreground/60 sm:flex-row">
           <p>© {year} {t.footer.copyrightName} {t.footer.copyright}</p>
           <nav className="flex flex-wrap items-center gap-x-5 gap-y-2" aria-label="Juridisch">
             <Link to="/contact" className="transition-colors hover:text-accent">

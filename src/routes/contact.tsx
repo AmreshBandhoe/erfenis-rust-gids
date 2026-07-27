@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -8,7 +8,6 @@ import { Phone, Mail, MapPin, Clock, Home, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
   Form,
@@ -112,9 +111,6 @@ function Contact() {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/30" />
         <div className="relative mx-auto flex min-h-[58vh] max-w-6xl flex-col justify-center px-4 py-24 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-              {h.heroEyebrow}
-            </p>
             <h1 className="text-4xl leading-[1.08] text-primary-foreground sm:text-5xl md:text-6xl">
               {h.heroTitle}
             </h1>
@@ -132,11 +128,7 @@ function Contact() {
             {/* Left: details */}
             <Reveal className="space-y-8">
               <div>
-                <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-                  {h.directEyebrow}
-                </p>
-                <h2 className="text-3xl text-primary sm:text-4xl">{h.directTitle}</h2>
-                <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.directText}</p>
+                <p className="text-lg leading-relaxed text-muted-foreground">{h.directText}</p>
               </div>
 
               <ul className="space-y-5">
@@ -304,38 +296,6 @@ function Contact() {
               </div>
             </Reveal>
           </div>
-        </div>
-      </section>
-
-      {/* Map */}
-      <section className="bg-secondary/50 pb-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <div className="overflow-hidden rounded-[2rem] border border-border/60 shadow-[var(--shadow-soft)]">
-              <div className="relative aspect-[16/7] w-full">
-                <Label className="absolute left-6 top-6 z-10 rounded-full bg-background/90 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary shadow-sm">
-                  {h.mapArea}
-                </Label>
-                <iframe
-                  title={h.mapTitle}
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=3.31%2C50.75%2C7.22%2C53.55&layer=mapnik"
-                  className="h-full w-full grayscale-[0.2]"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-            </div>
-            <p className="mt-4 text-center text-sm text-muted-foreground">
-              {h.mapNote}{" "}
-              <Link
-                to="/bij-leven-regelen"
-                className="font-medium text-primary underline-offset-4 hover:underline"
-              >
-                {h.mapLink}
-              </Link>
-              .
-            </p>
-          </Reveal>
         </div>
       </section>
     </>

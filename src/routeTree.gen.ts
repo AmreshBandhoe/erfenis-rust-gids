@@ -10,9 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as OverOnsRouteImport } from './routes/over-ons'
+import { Route as NalatenschapsmediationRouteImport } from './routes/nalatenschapsmediation'
 import { Route as KennisbankRouteImport } from './routes/kennisbank'
 import { Route as HulpBijErfenisRouteImport } from './routes/hulp-bij-erfenis'
 import { Route as GratisGidsRouteImport } from './routes/gratis-gids'
+import { Route as ExecuteurschapRouteImport } from './routes/executeurschap'
+import { Route as ErfbelastingAangifteRouteImport } from './routes/erfbelasting-aangifte'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BijLevenRegelenRouteImport } from './routes/bij-leven-regelen'
 import { Route as BedanktRouteImport } from './routes/bedankt'
@@ -21,6 +24,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const OverOnsRoute = OverOnsRouteImport.update({
   id: '/over-ons',
   path: '/over-ons',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NalatenschapsmediationRoute = NalatenschapsmediationRouteImport.update({
+  id: '/nalatenschapsmediation',
+  path: '/nalatenschapsmediation',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KennisbankRoute = KennisbankRouteImport.update({
@@ -36,6 +44,16 @@ const HulpBijErfenisRoute = HulpBijErfenisRouteImport.update({
 const GratisGidsRoute = GratisGidsRouteImport.update({
   id: '/gratis-gids',
   path: '/gratis-gids',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExecuteurschapRoute = ExecuteurschapRouteImport.update({
+  id: '/executeurschap',
+  path: '/executeurschap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ErfbelastingAangifteRoute = ErfbelastingAangifteRouteImport.update({
+  id: '/erfbelasting-aangifte',
+  path: '/erfbelasting-aangifte',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -64,9 +82,12 @@ export interface FileRoutesByFullPath {
   '/bedankt': typeof BedanktRoute
   '/bij-leven-regelen': typeof BijLevenRegelenRoute
   '/contact': typeof ContactRoute
+  '/erfbelasting-aangifte': typeof ErfbelastingAangifteRoute
+  '/executeurschap': typeof ExecuteurschapRoute
   '/gratis-gids': typeof GratisGidsRoute
   '/hulp-bij-erfenis': typeof HulpBijErfenisRoute
   '/kennisbank': typeof KennisbankRoute
+  '/nalatenschapsmediation': typeof NalatenschapsmediationRoute
   '/over-ons': typeof OverOnsRoute
 }
 export interface FileRoutesByTo {
@@ -74,9 +95,12 @@ export interface FileRoutesByTo {
   '/bedankt': typeof BedanktRoute
   '/bij-leven-regelen': typeof BijLevenRegelenRoute
   '/contact': typeof ContactRoute
+  '/erfbelasting-aangifte': typeof ErfbelastingAangifteRoute
+  '/executeurschap': typeof ExecuteurschapRoute
   '/gratis-gids': typeof GratisGidsRoute
   '/hulp-bij-erfenis': typeof HulpBijErfenisRoute
   '/kennisbank': typeof KennisbankRoute
+  '/nalatenschapsmediation': typeof NalatenschapsmediationRoute
   '/over-ons': typeof OverOnsRoute
 }
 export interface FileRoutesById {
@@ -85,9 +109,12 @@ export interface FileRoutesById {
   '/bedankt': typeof BedanktRoute
   '/bij-leven-regelen': typeof BijLevenRegelenRoute
   '/contact': typeof ContactRoute
+  '/erfbelasting-aangifte': typeof ErfbelastingAangifteRoute
+  '/executeurschap': typeof ExecuteurschapRoute
   '/gratis-gids': typeof GratisGidsRoute
   '/hulp-bij-erfenis': typeof HulpBijErfenisRoute
   '/kennisbank': typeof KennisbankRoute
+  '/nalatenschapsmediation': typeof NalatenschapsmediationRoute
   '/over-ons': typeof OverOnsRoute
 }
 export interface FileRouteTypes {
@@ -97,9 +124,12 @@ export interface FileRouteTypes {
     | '/bedankt'
     | '/bij-leven-regelen'
     | '/contact'
+    | '/erfbelasting-aangifte'
+    | '/executeurschap'
     | '/gratis-gids'
     | '/hulp-bij-erfenis'
     | '/kennisbank'
+    | '/nalatenschapsmediation'
     | '/over-ons'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -107,9 +137,12 @@ export interface FileRouteTypes {
     | '/bedankt'
     | '/bij-leven-regelen'
     | '/contact'
+    | '/erfbelasting-aangifte'
+    | '/executeurschap'
     | '/gratis-gids'
     | '/hulp-bij-erfenis'
     | '/kennisbank'
+    | '/nalatenschapsmediation'
     | '/over-ons'
   id:
     | '__root__'
@@ -117,9 +150,12 @@ export interface FileRouteTypes {
     | '/bedankt'
     | '/bij-leven-regelen'
     | '/contact'
+    | '/erfbelasting-aangifte'
+    | '/executeurschap'
     | '/gratis-gids'
     | '/hulp-bij-erfenis'
     | '/kennisbank'
+    | '/nalatenschapsmediation'
     | '/over-ons'
   fileRoutesById: FileRoutesById
 }
@@ -128,9 +164,12 @@ export interface RootRouteChildren {
   BedanktRoute: typeof BedanktRoute
   BijLevenRegelenRoute: typeof BijLevenRegelenRoute
   ContactRoute: typeof ContactRoute
+  ErfbelastingAangifteRoute: typeof ErfbelastingAangifteRoute
+  ExecuteurschapRoute: typeof ExecuteurschapRoute
   GratisGidsRoute: typeof GratisGidsRoute
   HulpBijErfenisRoute: typeof HulpBijErfenisRoute
   KennisbankRoute: typeof KennisbankRoute
+  NalatenschapsmediationRoute: typeof NalatenschapsmediationRoute
   OverOnsRoute: typeof OverOnsRoute
 }
 
@@ -141,6 +180,13 @@ declare module '@tanstack/react-router' {
       path: '/over-ons'
       fullPath: '/over-ons'
       preLoaderRoute: typeof OverOnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nalatenschapsmediation': {
+      id: '/nalatenschapsmediation'
+      path: '/nalatenschapsmediation'
+      fullPath: '/nalatenschapsmediation'
+      preLoaderRoute: typeof NalatenschapsmediationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kennisbank': {
@@ -162,6 +208,20 @@ declare module '@tanstack/react-router' {
       path: '/gratis-gids'
       fullPath: '/gratis-gids'
       preLoaderRoute: typeof GratisGidsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/executeurschap': {
+      id: '/executeurschap'
+      path: '/executeurschap'
+      fullPath: '/executeurschap'
+      preLoaderRoute: typeof ExecuteurschapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/erfbelasting-aangifte': {
+      id: '/erfbelasting-aangifte'
+      path: '/erfbelasting-aangifte'
+      fullPath: '/erfbelasting-aangifte'
+      preLoaderRoute: typeof ErfbelastingAangifteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -200,9 +260,12 @@ const rootRouteChildren: RootRouteChildren = {
   BedanktRoute: BedanktRoute,
   BijLevenRegelenRoute: BijLevenRegelenRoute,
   ContactRoute: ContactRoute,
+  ErfbelastingAangifteRoute: ErfbelastingAangifteRoute,
+  ExecuteurschapRoute: ExecuteurschapRoute,
   GratisGidsRoute: GratisGidsRoute,
   HulpBijErfenisRoute: HulpBijErfenisRoute,
   KennisbankRoute: KennisbankRoute,
+  NalatenschapsmediationRoute: NalatenschapsmediationRoute,
   OverOnsRoute: OverOnsRoute,
 }
 export const routeTree = rootRouteImport
