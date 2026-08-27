@@ -583,10 +583,11 @@ const nl = {
     fieldEmailPlaceholder: "uw@email.nl",
     fieldSubject: "Waar gaat het over?",
     subjectOptions: [
-      { value: "hulp-bij-erfenis", label: "Hulp bij erfenis" },
+      { value: "hulp-na-overlijden", label: "Hulp na overlijden" },
       { value: "bij-leven-regelen", label: "Bij leven regelen" },
-      { value: "algemeen", label: "Algemeen" },
+      { value: "anders", label: "Anders" },
     ],
+
     fieldMessage: "Bericht",
     fieldMessagePlaceholder: "Vertel ons kort waar wij u mee kunnen helpen…",
     submitLabel: "Gratis adviesgesprek aanvragen",
