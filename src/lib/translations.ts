@@ -144,7 +144,14 @@ const nl = {
       { caption: "QUINTAX Belastingadviseurs — Fiscaal expert in nalatenschappen & erfbelasting" },
     ],
 
+    checkEyebrow: "Gratis nalatenschapscheck",
+    checkTitle: "Hoe goed is uw nalatenschap eigenlijk geregeld?",
+    checkSubtitle: "Doe de gratis nalatenschapscheck",
+    checkText: "Beantwoord vijf eenvoudige vragen en ontdek waar u staat.",
+    checkCta: "Start uw persoonlijke nalatenschapscheck",
+
     guideEyebrow: "Gratis starten",
+
     guideTitle: "Onze gratis checklist nalatenschap",
     guideIntro:
       "Zet vandaag de eerste stap en ontdek met onze praktische checklist wat u voor uw nalatenschap nog moet regelen.",
