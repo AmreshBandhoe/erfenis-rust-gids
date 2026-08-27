@@ -228,9 +228,10 @@ const nl = {
     heroCta: "Start met een persoonlijk adviesgesprek",
 
     whyEyebrow: "Waarom nu regelen?",
-    whyTitle: "Een geschenk van rust aan uw dierbaren",
+    whyTitle:
+      "Als u het morgen niet meer zelf kunt vertellen, weten uw naasten dan waar zij moeten beginnen?",
     whyText:
-      "Door uw nalatenschap bij leven te regelen, voorkomt u dat uw nabestaanden later voor moeilijke keuzes en onduidelijkheden komen te staan. U bepaalt zelf hoe alles geregeld wordt — met rust en vertrouwen.",
+      "Door uw belangrijke documenten, financiële gegevens en persoonlijke wensen nu vast te leggen, geeft u hun later duidelijkheid op een moment dat zij die hard nodig hebben.",
     benefitsTitle: "Wat het u oplevert",
     benefits: [
       "Voorkom onzekerheid, ruzie en stress voor uw nabestaanden",
@@ -239,45 +240,47 @@ const nl = {
       "De rust van weten dat alles goed is vastgelegd",
     ],
 
-    topicsEyebrow: "Belangrijke onderwerpen",
-    topicsTitle: "Wat u kunt vastleggen",
-    topics: [
-      {
-        title: "Testament opstellen",
-        text: "Leg precies vast wie wat erft. Een goed testament voorkomt onduidelijkheid en zorgt dat uw wensen écht worden uitgevoerd.",
-      },
-      {
-        title: "Levenstestament",
-        text: "Regel wie er beslist over uw financiën en zorg als u dat zelf even niet meer kunt. Zo houdt u de regie, ook in moeilijke tijden.",
-      },
-      {
-        title: "Schenkingen",
-        text: "Slim en eerlijk schenken bij leven kan veel erfbelasting besparen. Wij rekenen het voor u uit en begeleiden u stap voor stap.",
-      },
+    overviewEyebrow: "Samen in kaart",
+    overviewTitle: "Samen brengen we alles overzichtelijk in kaart",
+    overviewText:
+      "Uw administratie, financiële zaken en persoonlijke wensen bevinden zich vaak op verschillende plekken. Denk aan bankrekeningen, verzekeringen, abonnementen, belangrijke documenten en contactpersonen. Samen brengen we alles bij elkaar en leggen we vast wat uw dierbaren later moeten weten.",
+    overviewListTitle: "Wat het u oplevert",
+    overviewList: [
+      "Een compleet overzicht van uw persoonlijke, financiële en administratieve zaken",
+      "Belangrijke informatie en documenten overzichtelijk op één plek",
+      "Duidelijkheid over uw wensen bij ziekte en na uw overlijden",
+      "Minder zorgen en onzekerheid voor uw dierbaren",
+      "Rust voor uzelf, omdat u weet dat alles goed is vastgelegd",
     ],
 
-    situationsEyebrow: "Past bij uw situatie",
-    situationsTitle: "Advies op maat voor elke levenssituatie",
-    situationsIntro:
-      "Iedere situatie is anders. Wij denken met u mee en kijken naar wat voor ú het beste is.",
-    situations: [
-      {
-        title: "Samengesteld gezin",
-        text: "Kinderen uit verschillende relaties? Wij zorgen dat iedereen eerlijk wordt meegenomen en voorkomen onbedoelde gevolgen.",
-      },
-      {
-        title: "Alleenstaand",
-        text: "Zonder partner of kinderen is het extra belangrijk om zelf te bepalen wie uw nalatenschap ontvangt.",
-      },
-      {
-        title: "Eigen woning",
-        text: "Uw huis is vaak uw grootste bezit. Wij helpen u dit zorgvuldig en fiscaal verstandig over te dragen.",
-      },
-      {
-        title: "Eigen bedrijf",
-        text: "Bedrijfsopvolging vraagt om een doordacht plan. Wij regelen een soepele en zorgeloze overdracht.",
-      },
+    checkEyebrow: "Gratis nalatenschapscheck",
+    checkTitle: "Hoe goed is uw nalatenschap eigenlijk geregeld?",
+    checkSubtitle: "Doe de gratis nalatenschapscheck",
+    checkText: "Beantwoord vijf eenvoudige vragen en ontdek waar u staat.",
+    checkCta: "Start uw persoonlijke nalatenschapscheck",
+
+    dossierEyebrow: "Alles wat belangrijk is. Op één plek.",
+    dossierTitle: "Uw Persoonlijk Levensdossier",
+    dossierText1:
+      "Alles wat uw naasten later nodig hebben, brengen we nu samen op één duidelijke plek. Zo hoeven zij niet te zoeken, te twijfelen of belangrijke beslissingen te nemen zonder te weten wat u wilde.",
+    dossierText2:
+      "Samen brengen wij uw persoonlijke situatie, belangrijke documenten, financiële zaken en wensen overzichtelijk in kaart.",
+    dossierList: [
+      "Uw persoonlijke en financiële situatie helder in kaart",
+      "Belangrijke documenten overzichtelijk bij elkaar",
+      "Inzicht in bezittingen, schulden en verzekeringen",
+      "Uw wensen en belangrijke contactpersonen vastgelegd",
+      "Persoonlijke begeleiding van begin tot eind",
     ],
+
+    priceTitle: "Compleet traject voor €599",
+    priceText:
+      "Persoonlijke begeleiding. Een compleet levensdossier. Voor één vast tarief.",
+    priceCta: "Stel mijn levensdossier samen",
+
+    quote: "Leg vandaag vast wat u later niet meer zelf kunt uitleggen.",
+
+
 
     ctaTitle: "Begin vandaag met goed regelen",
     ctaText:
