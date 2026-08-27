@@ -279,13 +279,8 @@ const nl = {
     priceCta: "Stel mijn levensdossier samen",
 
     quote: "Leg vandaag vast wat u later niet meer zelf kunt uitleggen.",
-
-
-
-    ctaTitle: "Begin vandaag met goed regelen",
-    ctaText:
-      "In een persoonlijk adviesgesprek brengen we samen in kaart wat er bij uw situatie past. Vrijblijvend en in begrijpelijke taal.",
     ctaLabel: "Start met een persoonlijk adviesgesprek",
+
   },
 
   // NB: onderstaande drie namespaces (executeurschap, mediation, erfbelasting) bevatten
