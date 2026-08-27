@@ -1,72 +1,55 @@
-# De Erfeniswijzer — Huisstijl, navigatie & lay-out
+# Contentupdate volgens klantdocument
 
-Eerst de fundering: kleuren, typografie, sticky header, footer en consistente placeholder-pagina's. De homepage vullen we later samen in.
+Alle wijzigingen uit het document worden doorgevoerd, plus één nieuwe pagina: de gratis nalatenschapscheck.
 
-## Huisstijl (design tokens)
+## Homepage
 
-Strikt kleurenpalet in `src/styles.css` (oklch):
+- Hero: knoppen worden "Ik wil mijn nalatenschap regelen" (naar Bij leven regelen) en "Ik heb hulp nodig na een overlijden" (naar Hulp na overlijden).
+- Nalatenschapsmediation verdwijnt uit het diensten-overzicht (de pagina zelf blijft bestaan en blijft bereikbaar via het menu).
+- Nieuw blok: "Hoe goed is uw nalatenschap eigenlijk geregeld? Doe de gratis nalatenschapscheck" met knop "Start uw persoonlijke nalatenschapscheck".
+- Certificeringen blijven staan zoals nu (ICR, ADR, ICA, VCM, Quintax).
 
-- Hoofdkleur diep teal/groen `#0A3D3A` → `primary`
-- Warm goud `#D4B77E` → `accent`
-- Lichte crème achtergrond `#F9F7F2` → `background`
-- Donkere tekst `#1F2A2A` → `foreground`
-- Witte/lichte tekst `#F8F6F2` → `primary-foreground`
+## Nieuwe pagina: Nalatenschapscheck
 
-Verdere uitstraling: veel witruimte, zachte ronde hoeken (ruime radius), subtiele zachte schaduwen, rustige overgangen. Warm, vertrouwd, professioneel en geruststellend.
+Nieuwe route `/nalatenschapscheck`:
 
-## Typografie
+- Vijf eenvoudige ja/nee/weet-ik-niet vragen over testament, levenstestament, overzicht van documenten, wensen en erfgenamen.
+- Eén vraag per scherm met voortgangsbalk, terug-knop.
+- Uitslagscherm met een score, korte persoonlijke duiding (drie niveaus: goed geregeld / deels / nog weinig geregeld) en per onbeantwoord punt een concreet advies.
+- Afsluitende CTA naar het gratis adviesgesprek en naar het levensdossier.
+- Alles gebeurt in de browser; er worden geen gegevens opgeslagen of verstuurd.
+- Links vanaf homepage en Bij leven regelen wijzen hierheen; ook opgenomen in de footer.
 
-- Koppen: **Cormorant Garamond** (klassiek & verfijnd, sluit aan op het logo)
-- Body: **Karla**
-- Geladen via `<link>` in `src/routes/__root.tsx`, gekoppeld als `--font-display` en `--font-body` in `@theme`.
+## Bij leven regelen
 
-## Logo
+- Nieuwe subtitel/titel: "Als u het morgen niet meer zelf kunt vertellen, weten uw naasten dan waar zij moeten beginnen?" met bijbehorende tekst.
+- Sectie "Samen brengen we alles overzichtelijk in kaart" met de nieuwe vijf voordelen uit het document.
+- De sectie "Advies op maat voor elke levenssituatie" (samengesteld gezin, alleenstaand, eigen woning, eigen bedrijf) wordt vervangen door "Uw Persoonlijk Levensdossier — Alles wat belangrijk is. Op één plek." met de vijf nieuwe punten.
+- Prominent prijsblok: "Compleet traject voor €599 — Persoonlijke begeleiding. Een compleet levensdossier. Voor één vast tarief." met knop "Stel mijn levensdossier samen" naar de contactpagina.
+- De sectie met testament/levenstestament/schenkingen wordt vervangen door het nalatenschapscheck-blok.
+- Afsluitende CTA-sectie onderaan wordt verwijderd, met het citaat "Leg vandaag vast wat u later niet meer zelf kunt uitleggen."
 
-Het geüploade logo wordt als Lovable-asset toegevoegd en gebruikt in header en footer. Omdat het logo een donkergroene achtergrond heeft, gebruik ik in de header een nette weergave (logo op donkere balk of bijgesneden variant) zodat het mooi op de crème achtergrond staat. In de footer (donkere teal achtergrond) past het logo direct.
+## Hulp na overlijden
 
-## Layout & componenten
+- Nieuwe intro "Rust en overzicht in een moeilijke periode".
+- De lijst "Waar we allemaal bij kunnen ondersteunen" wordt uitgebreid naar de volledige tien punten uit het document.
+- Diensten-teksten aangepast: "Volledige afwikkeling van de nalatenschap", "Begeleiding voor nabestaanden", "Erfbelasting en aangifte", "Mediation bij familieconflicten" met de nieuwe omschrijvingen.
 
-Gedeelde structuur in `src/routes/__root.tsx` (Header + `<Outlet />` + Footer), zodat elke pagina consistent is.
+## Over ons
 
-**Sticky header**
-- Logo links
-- Navigatie: Home · Hulp bij erfenis · Bij leven regelen · Kennisbank · Over ons · Contact
-- Actieve link gemarkeerd in goud
-- Subtiele goud accent-knop "Contact" / "Plan een gesprek"
-- Responsief: mobiel hamburgermenu (Sheet)
+- De sectie "Ons verhaal / Waarom wij dit werk doen" wordt verwijderd.
+- Nieuwe intro bij het team: "Bij De Erfeniswijzer staat u er niet alleen voor..." over samenwerking met notarissen, executeurs, fiscalisten en mediators.
+- Team uitgebreid naar vijf personen met de volledige bio's uit het document: Zainul Habieb (oprichter), Gerard van de Kerkhof (registermediator), Mark van Geffen (fiscaal), Hans Sanders (financieel, bedrijfsmatig & digitale nalatenschap), Yussuf Abdi (jurist).
+- Voor Hans Sanders en Yussuf Abdi komt een verzorgde initialen-placeholder in huisstijl tot jij de foto's aanlevert; de bestaande drie portretten blijven staan.
 
-**Footer** (donkere teal)
-- Logo + korte missie-zin
-- Kolom met navigatielinks
-- Kolom met contactgegevens (nette placeholders, later aan te passen): telefoon, e-mail (info@erfeniswijzer.nl), plaats, KvK
-- Slogan "Uw gids bij nalatenschap en erfenis" + copyright
+## Overige pagina's
 
-## Pagina's (routes)
+- Executeurschap: titel wordt "De afwikkeling in vertrouwde handen".
+- Nalatenschapsmediation: titel wordt "Samen naar een oplossing".
+- Erfbelasting & aangifte: titel wordt "Zorgvuldig en fiscaal verantwoord".
+- Contact: keuzes bij "Waar gaat het over?" worden Hulp na overlijden / Bij leven regelen / Anders.
+- Kennisbank blijft ongewijzigd.
 
-Voor elke navigatie-item een eigen route met eigen SEO `head()` (titel + beschrijving) en een nette placeholder: consistente pagina-kop (titel + korte intro-tekst passend bij het onderwerp) klaar om later in te vullen.
+## Technisch
 
-```text
-src/routes/
-  index.tsx                 -> /  (Home — nu nette placeholder, later samen invullen)
-  hulp-bij-erfenis.tsx      -> /hulp-bij-erfenis
-  bij-leven-regelen.tsx     -> /bij-leven-regelen
-  kennisbank.tsx            -> /kennisbank
-  over-ons.tsx              -> /over-ons
-  contact.tsx               -> /contact
-```
-
-Een herbruikbaar `PageHeader`-component voor consistente pagina-koppen.
-
-## SEO
-
-Per pagina uniek `title` (<60 tekens) en `description` (<160 tekens), Nederlandse `lang="nl"`, één H1 per pagina, semantische HTML.
-
-## Technische details
-
-- Tokens in `src/styles.css` via `@theme inline` + `:root` (oklch), geen custom kleurklassen in componenten.
-- Header/Footer als componenten in `src/components/`.
-- Fonts via `<link>` in root head (geen CSS `@import` URL).
-- Logo via `lovable-assets` pointer in `src/assets/`.
-- shadcn `Sheet` voor mobiel menu, `Button` met goud-variant.
-
-Na akkoord bouw ik dit en wacht ik daarna op jouw instructies voor de homepage.
+Vrijwel alle teksten staan centraal in `src/lib/translations.ts`; die wordt per namespace bijgewerkt. Sectiestructuur wordt aangepast in `src/routes/index.tsx`, `bij-leven-regelen.tsx`, `hulp-bij-erfenis.tsx` en `over-ons.tsx`. Nieuwe bestanden: `src/routes/nalatenschapscheck.tsx` (client-side state, geen backend) en een klein `TeamAvatar`-component voor de initialen-placeholders. Elke pagina houdt eigen SEO-metadata; de nieuwe pagina krijgt eigen titel en omschrijving.
