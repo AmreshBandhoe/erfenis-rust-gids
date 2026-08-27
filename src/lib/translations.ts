@@ -106,8 +106,6 @@ const nl = {
       },
     ],
 
-    ],
-
     processEyebrow: "Hoe wij werken",
     processTitle: "In vijf rustige stappen alles goed geregeld",
     processIntro:
