@@ -332,7 +332,7 @@ const nl = {
 
   mediation: {
     heroEyebrow: "Nalatenschapsmediation",
-    heroTitle: "Nalatenschapsmediation — samen naar een oplossing",
+    heroTitle: "Samen naar een oplossing",
     heroIntro:
       "Onenigheid tussen erfgenamen? Als onafhankelijk mediator begeleiden wij het gesprek naar een oplossing waar iedereen zich in kan vinden.",
     heroCta: "Vraag een vrijblijvend gesprek aan",
