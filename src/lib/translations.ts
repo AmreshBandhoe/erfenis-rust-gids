@@ -177,43 +177,54 @@ const nl = {
     heroIntro:
       "Het verliezen van een dierbare is ingrijpend genoeg. Het afwikkelen van de erfenis hoeft u er niet alléén bij te dragen. Wij begeleiden u met warmte en deskundigheid door elke stap.",
 
+    introEyebrow: "Begeleiding voor nabestaanden",
+    introTitle: "Rust en overzicht in een moeilijke periode",
+    introText:
+      "In een periode van verdriet komt er veel op u af. Wij brengen rust en overzicht, nemen praktische zaken uit handen en begeleiden u stap voor stap bij de afwikkeling van de nalatenschap. Zo houdt u ruimte voor afscheid en verwerking.",
+
     sectionEyebrow: "Een zware taak op een zwaar moment",
     sectionTitle: "U hoeft het niet alleen te doen",
     sectionText1:
-      "Het afwikkelen van een nalatenschap is vaak ingewikkelder en emotioneler dan mensen verwachten. Er komt veel op u af, terwijl u juist tijd en rust nodig heeft om afscheid te nemen.",
+      "Na het verlies van een dierbare moet er ineens van alles worden geregeld. Eerst de uitvaart, daarna de administratie, de woning en de erfenis. U krijgt te maken met banken, verzekeraars, notarissen en andere instanties, terwijl u juist ruimte nodig heeft voor uw verdriet.",
     sectionText2:
-      "De Erfeniswijzer neemt de praktische en juridische zorgen uit handen, zodat u zich kunt richten op wat écht belangrijk is.",
-    burdensTitle: "Waar wij u bij ontzorgen",
+      "Wij helpen u het overzicht te bewaren en begeleiden u stap voor stap. Als vast aanspreekpunt nemen wij praktische zorgen uit handen en schakelen wij waar nodig de juiste specialisten in.",
+    burdensTitle: "Waar we allemaal bij kunnen ondersteunen",
     burdens: [
       "Het regelen van de uitvaart en alle bijbehorende administratie",
       "Het informeren van banken, verzekeraars en overheidsinstanties",
       "Het in kaart brengen van bezittingen, schulden en verzekeringen",
+      "Opzeggen van abonnementen, lidmaatschappen en verzekeringen",
+      "Regelen van zaken rondom de woning en inboedel",
+      "Inschakelen van notarissen, makelaars en andere specialisten",
+      "Het afhandelen van digitale accounts en online nalatenschap",
+      "Erfgenamenonderzoek en contact met erfgenamen",
       "De aangifte en betaling van de erfbelasting",
-      "Een eerlijke en zorgvuldige verdeling onder de erfgenamen",
+      "Verdeling van de nalatenschap",
     ],
 
-    servicesEyebrow: "Onze diensten",
-    servicesTitle: "Volledige begeleiding bij de erfenis",
+    servicesEyebrow: "Afstemming op uw wensen",
+    servicesTitle: "Kies de begeleiding die bij u past",
     servicesIntro:
-      "Of u nu alles uit handen wilt geven of zelf betrokken wilt blijven — wij passen ons aan uw wensen aan.",
+      "Iedere nalatenschap en iedere familie is anders. Daarom kunt u bepaalde zaken aan ons overlaten of samen met ons regelen. We stemmen onze begeleiding af op wat u nodig heeft.",
     services: [
       {
-        title: "Volledig executeurschap",
-        text: "Wij nemen het executeurschap volledig op ons: van inventarisatie en het informeren van instanties tot de financiële afwikkeling. U hoeft zich nergens druk over te maken.",
+        title: "Volledige afwikkeling van de nalatenschap",
+        text: "Wilt u de praktische afwikkeling zoveel mogelijk uit handen geven? Wij bewaken het overzicht, onderhouden contact met betrokken partijen en zorgen dat de noodzakelijke stappen zorgvuldig worden doorlopen.",
       },
       {
-        title: "Begeleiding als nabestaande",
-        text: "Wilt u zelf betrokken blijven? Dan staan wij naast u met advies en praktische hulp bij elke stap, in uw eigen tempo en met alle ruimte voor uw verdriet.",
+        title: "Begeleiding voor nabestaanden",
+        text: "Wilt u zelf betrokken blijven, maar heeft u behoefte aan overzicht en deskundige ondersteuning? Wij begeleiden u stap voor stap, beantwoorden uw vragen en helpen u bij de zaken die geregeld moeten worden.",
       },
       {
-        title: "Erfbelasting regelen",
-        text: "Wij verzorgen de aangifte erfbelasting correct en op tijd, en zorgen dat u nooit te veel betaalt. Helder uitgelegd, zonder verrassingen achteraf.",
+        title: "Erfbelasting en aangifte",
+        text: "Wij helpen bij het verzamelen van de benodigde gegevens en begeleiden de aangifte erfbelasting. Waar fiscale expertise nodig is, schakelen wij een gespecialiseerde adviseur in.",
       },
       {
         title: "Mediation bij familieconflicten",
-        text: "Spanningen of onenigheid binnen de familie? Als neutrale gids helpen wij het gesprek weer op gang te brengen en samen tot een eerlijke oplossing te komen.",
+        text: "Een nalatenschap kan bestaande spanningen versterken of nieuwe meningsverschillen veroorzaken. Wij helpen om belangen en afspraken inzichtelijk te maken en begeleiden het gesprek. Indien nodig schakelen wij een gespecialiseerde mediator in.",
       },
     ],
+
 
     ctaTitle: "Laat de zorgen aan ons over",
     ctaText:
