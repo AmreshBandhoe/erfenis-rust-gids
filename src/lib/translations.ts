@@ -104,11 +104,8 @@ const nl = {
         text: "Wij begeleiden u bij de aangifte erfbelasting en denken mee over een zorgvuldige en fiscaal verantwoorde afwikkeling.",
         to: "/erfbelasting-aangifte",
       },
-      {
-        title: "Nalatenschapsmediation",
-        text: "Onenigheid tussen erfgenamen? Als onafhankelijk mediator begeleiden wij het gesprek naar een oplossing waar iedereen zich in kan vinden.",
-        to: "/nalatenschapsmediation",
-      },
+    ],
+
     ],
 
     processEyebrow: "Hoe wij werken",
