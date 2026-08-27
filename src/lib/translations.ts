@@ -290,7 +290,7 @@ const nl = {
   // volledige paginateksten nog controleren/goedkeuren voordat de site live gaat.
   executeurschap: {
     heroEyebrow: "Onafhankelijk executeurschap",
-    heroTitle: "Executeurschap — de afwikkeling in vertrouwde handen",
+    heroTitle: "De afwikkeling in vertrouwde handen",
     heroIntro:
       "Een onafhankelijke executeur nodig? Wij begeleiden de afwikkeling van de nalatenschap zorgvuldig en volledig volgens de wensen van de overledene.",
     heroCta: "Vraag een vrijblijvend gesprek aan",
