@@ -50,8 +50,9 @@ const nl = {
     heroTitle: "De Erfeniswijzer",
     heroIntro:
       "Persoonlijke begeleiding bij het voorbereiden van uw nalatenschap en het afwikkelen van een erfenis. Wij nemen de zorgen uit handen, zodat u en uw nabestaanden met rust verder kunnen.",
-    heroCta: "Gratis adviesgesprek aanvragen",
-    heroSecondary: "Meer over onze aanpak",
+    heroCta: "Ik wil mijn nalatenschap regelen",
+    heroSecondary: "Ik heb hulp nodig na een overlijden",
+
 
     whyEyebrow: "Waarom De Erfeniswijzer?",
     whyTitle: "Nalatenschap als laatste daad van liefde en zorg",
@@ -103,11 +104,6 @@ const nl = {
         text: "Wij begeleiden u bij de aangifte erfbelasting en denken mee over een zorgvuldige en fiscaal verantwoorde afwikkeling.",
         to: "/erfbelasting-aangifte",
       },
-      {
-        title: "Nalatenschapsmediation",
-        text: "Onenigheid tussen erfgenamen? Als onafhankelijk mediator begeleiden wij het gesprek naar een oplossing waar iedereen zich in kan vinden.",
-        to: "/nalatenschapsmediation",
-      },
     ],
 
     processEyebrow: "Hoe wij werken",
@@ -148,7 +144,14 @@ const nl = {
       { caption: "QUINTAX Belastingadviseurs — Fiscaal expert in nalatenschappen & erfbelasting" },
     ],
 
+    checkEyebrow: "Gratis nalatenschapscheck",
+    checkTitle: "Hoe goed is uw nalatenschap eigenlijk geregeld?",
+    checkSubtitle: "Doe de gratis nalatenschapscheck",
+    checkText: "Beantwoord vijf eenvoudige vragen en ontdek waar u staat.",
+    checkCta: "Start uw persoonlijke nalatenschapscheck",
+
     guideEyebrow: "Gratis starten",
+
     guideTitle: "Onze gratis checklist nalatenschap",
     guideIntro:
       "Zet vandaag de eerste stap en ontdek met onze praktische checklist wat u voor uw nalatenschap nog moet regelen.",
@@ -181,43 +184,54 @@ const nl = {
     heroIntro:
       "Het verliezen van een dierbare is ingrijpend genoeg. Het afwikkelen van de erfenis hoeft u er niet alléén bij te dragen. Wij begeleiden u met warmte en deskundigheid door elke stap.",
 
+    introEyebrow: "Begeleiding voor nabestaanden",
+    introTitle: "Rust en overzicht in een moeilijke periode",
+    introText:
+      "In een periode van verdriet komt er veel op u af. Wij brengen rust en overzicht, nemen praktische zaken uit handen en begeleiden u stap voor stap bij de afwikkeling van de nalatenschap. Zo houdt u ruimte voor afscheid en verwerking.",
+
     sectionEyebrow: "Een zware taak op een zwaar moment",
     sectionTitle: "U hoeft het niet alleen te doen",
     sectionText1:
-      "Het afwikkelen van een nalatenschap is vaak ingewikkelder en emotioneler dan mensen verwachten. Er komt veel op u af, terwijl u juist tijd en rust nodig heeft om afscheid te nemen.",
+      "Na het verlies van een dierbare moet er ineens van alles worden geregeld. Eerst de uitvaart, daarna de administratie, de woning en de erfenis. U krijgt te maken met banken, verzekeraars, notarissen en andere instanties, terwijl u juist ruimte nodig heeft voor uw verdriet.",
     sectionText2:
-      "De Erfeniswijzer neemt de praktische en juridische zorgen uit handen, zodat u zich kunt richten op wat écht belangrijk is.",
-    burdensTitle: "Waar wij u bij ontzorgen",
+      "Wij helpen u het overzicht te bewaren en begeleiden u stap voor stap. Als vast aanspreekpunt nemen wij praktische zorgen uit handen en schakelen wij waar nodig de juiste specialisten in.",
+    burdensTitle: "Waar we allemaal bij kunnen ondersteunen",
     burdens: [
       "Het regelen van de uitvaart en alle bijbehorende administratie",
       "Het informeren van banken, verzekeraars en overheidsinstanties",
       "Het in kaart brengen van bezittingen, schulden en verzekeringen",
+      "Opzeggen van abonnementen, lidmaatschappen en verzekeringen",
+      "Regelen van zaken rondom de woning en inboedel",
+      "Inschakelen van notarissen, makelaars en andere specialisten",
+      "Het afhandelen van digitale accounts en online nalatenschap",
+      "Erfgenamenonderzoek en contact met erfgenamen",
       "De aangifte en betaling van de erfbelasting",
-      "Een eerlijke en zorgvuldige verdeling onder de erfgenamen",
+      "Verdeling van de nalatenschap",
     ],
 
-    servicesEyebrow: "Onze diensten",
-    servicesTitle: "Volledige begeleiding bij de erfenis",
+    servicesEyebrow: "Afstemming op uw wensen",
+    servicesTitle: "Kies de begeleiding die bij u past",
     servicesIntro:
-      "Of u nu alles uit handen wilt geven of zelf betrokken wilt blijven — wij passen ons aan uw wensen aan.",
+      "Iedere nalatenschap en iedere familie is anders. Daarom kunt u bepaalde zaken aan ons overlaten of samen met ons regelen. We stemmen onze begeleiding af op wat u nodig heeft.",
     services: [
       {
-        title: "Volledig executeurschap",
-        text: "Wij nemen het executeurschap volledig op ons: van inventarisatie en het informeren van instanties tot de financiële afwikkeling. U hoeft zich nergens druk over te maken.",
+        title: "Volledige afwikkeling van de nalatenschap",
+        text: "Wilt u de praktische afwikkeling zoveel mogelijk uit handen geven? Wij bewaken het overzicht, onderhouden contact met betrokken partijen en zorgen dat de noodzakelijke stappen zorgvuldig worden doorlopen.",
       },
       {
-        title: "Begeleiding als nabestaande",
-        text: "Wilt u zelf betrokken blijven? Dan staan wij naast u met advies en praktische hulp bij elke stap, in uw eigen tempo en met alle ruimte voor uw verdriet.",
+        title: "Begeleiding voor nabestaanden",
+        text: "Wilt u zelf betrokken blijven, maar heeft u behoefte aan overzicht en deskundige ondersteuning? Wij begeleiden u stap voor stap, beantwoorden uw vragen en helpen u bij de zaken die geregeld moeten worden.",
       },
       {
-        title: "Erfbelasting regelen",
-        text: "Wij verzorgen de aangifte erfbelasting correct en op tijd, en zorgen dat u nooit te veel betaalt. Helder uitgelegd, zonder verrassingen achteraf.",
+        title: "Erfbelasting en aangifte",
+        text: "Wij helpen bij het verzamelen van de benodigde gegevens en begeleiden de aangifte erfbelasting. Waar fiscale expertise nodig is, schakelen wij een gespecialiseerde adviseur in.",
       },
       {
         title: "Mediation bij familieconflicten",
-        text: "Spanningen of onenigheid binnen de familie? Als neutrale gids helpen wij het gesprek weer op gang te brengen en samen tot een eerlijke oplossing te komen.",
+        text: "Een nalatenschap kan bestaande spanningen versterken of nieuwe meningsverschillen veroorzaken. Wij helpen om belangen en afspraken inzichtelijk te maken en begeleiden het gesprek. Indien nodig schakelen wij een gespecialiseerde mediator in.",
       },
     ],
+
 
     ctaTitle: "Laat de zorgen aan ons over",
     ctaText:
@@ -232,9 +246,10 @@ const nl = {
     heroCta: "Start met een persoonlijk adviesgesprek",
 
     whyEyebrow: "Waarom nu regelen?",
-    whyTitle: "Een geschenk van rust aan uw dierbaren",
+    whyTitle:
+      "Als u het morgen niet meer zelf kunt vertellen, weten uw naasten dan waar zij moeten beginnen?",
     whyText:
-      "Door uw nalatenschap bij leven te regelen, voorkomt u dat uw nabestaanden later voor moeilijke keuzes en onduidelijkheden komen te staan. U bepaalt zelf hoe alles geregeld wordt — met rust en vertrouwen.",
+      "Door uw belangrijke documenten, financiële gegevens en persoonlijke wensen nu vast te leggen, geeft u hun later duidelijkheid op een moment dat zij die hard nodig hebben.",
     benefitsTitle: "Wat het u oplevert",
     benefits: [
       "Voorkom onzekerheid, ruzie en stress voor uw nabestaanden",
@@ -243,50 +258,47 @@ const nl = {
       "De rust van weten dat alles goed is vastgelegd",
     ],
 
-    topicsEyebrow: "Belangrijke onderwerpen",
-    topicsTitle: "Wat u kunt vastleggen",
-    topics: [
-      {
-        title: "Testament opstellen",
-        text: "Leg precies vast wie wat erft. Een goed testament voorkomt onduidelijkheid en zorgt dat uw wensen écht worden uitgevoerd.",
-      },
-      {
-        title: "Levenstestament",
-        text: "Regel wie er beslist over uw financiën en zorg als u dat zelf even niet meer kunt. Zo houdt u de regie, ook in moeilijke tijden.",
-      },
-      {
-        title: "Schenkingen",
-        text: "Slim en eerlijk schenken bij leven kan veel erfbelasting besparen. Wij rekenen het voor u uit en begeleiden u stap voor stap.",
-      },
+    overviewEyebrow: "Samen in kaart",
+    overviewTitle: "Samen brengen we alles overzichtelijk in kaart",
+    overviewText:
+      "Uw administratie, financiële zaken en persoonlijke wensen bevinden zich vaak op verschillende plekken. Denk aan bankrekeningen, verzekeringen, abonnementen, belangrijke documenten en contactpersonen. Samen brengen we alles bij elkaar en leggen we vast wat uw dierbaren later moeten weten.",
+    overviewListTitle: "Wat het u oplevert",
+    overviewList: [
+      "Een compleet overzicht van uw persoonlijke, financiële en administratieve zaken",
+      "Belangrijke informatie en documenten overzichtelijk op één plek",
+      "Duidelijkheid over uw wensen bij ziekte en na uw overlijden",
+      "Minder zorgen en onzekerheid voor uw dierbaren",
+      "Rust voor uzelf, omdat u weet dat alles goed is vastgelegd",
     ],
 
-    situationsEyebrow: "Past bij uw situatie",
-    situationsTitle: "Advies op maat voor elke levenssituatie",
-    situationsIntro:
-      "Iedere situatie is anders. Wij denken met u mee en kijken naar wat voor ú het beste is.",
-    situations: [
-      {
-        title: "Samengesteld gezin",
-        text: "Kinderen uit verschillende relaties? Wij zorgen dat iedereen eerlijk wordt meegenomen en voorkomen onbedoelde gevolgen.",
-      },
-      {
-        title: "Alleenstaand",
-        text: "Zonder partner of kinderen is het extra belangrijk om zelf te bepalen wie uw nalatenschap ontvangt.",
-      },
-      {
-        title: "Eigen woning",
-        text: "Uw huis is vaak uw grootste bezit. Wij helpen u dit zorgvuldig en fiscaal verstandig over te dragen.",
-      },
-      {
-        title: "Eigen bedrijf",
-        text: "Bedrijfsopvolging vraagt om een doordacht plan. Wij regelen een soepele en zorgeloze overdracht.",
-      },
+    checkEyebrow: "Gratis nalatenschapscheck",
+    checkTitle: "Hoe goed is uw nalatenschap eigenlijk geregeld?",
+    checkSubtitle: "Doe de gratis nalatenschapscheck",
+    checkText: "Beantwoord vijf eenvoudige vragen en ontdek waar u staat.",
+    checkCta: "Start uw persoonlijke nalatenschapscheck",
+
+    dossierEyebrow: "Alles wat belangrijk is. Op één plek.",
+    dossierTitle: "Uw Persoonlijk Levensdossier",
+    dossierText1:
+      "Alles wat uw naasten later nodig hebben, brengen we nu samen op één duidelijke plek. Zo hoeven zij niet te zoeken, te twijfelen of belangrijke beslissingen te nemen zonder te weten wat u wilde.",
+    dossierText2:
+      "Samen brengen wij uw persoonlijke situatie, belangrijke documenten, financiële zaken en wensen overzichtelijk in kaart.",
+    dossierList: [
+      "Uw persoonlijke en financiële situatie helder in kaart",
+      "Belangrijke documenten overzichtelijk bij elkaar",
+      "Inzicht in bezittingen, schulden en verzekeringen",
+      "Uw wensen en belangrijke contactpersonen vastgelegd",
+      "Persoonlijke begeleiding van begin tot eind",
     ],
 
-    ctaTitle: "Begin vandaag met goed regelen",
-    ctaText:
-      "In een persoonlijk adviesgesprek brengen we samen in kaart wat er bij uw situatie past. Vrijblijvend en in begrijpelijke taal.",
+    priceTitle: "Compleet traject voor €599",
+    priceText:
+      "Persoonlijke begeleiding. Een compleet levensdossier. Voor één vast tarief.",
+    priceCta: "Stel mijn levensdossier samen",
+
+    quote: "Leg vandaag vast wat u later niet meer zelf kunt uitleggen.",
     ctaLabel: "Start met een persoonlijk adviesgesprek",
+
   },
 
   // NB: onderstaande drie namespaces (executeurschap, mediation, erfbelasting) bevatten
@@ -294,7 +306,7 @@ const nl = {
   // volledige paginateksten nog controleren/goedkeuren voordat de site live gaat.
   executeurschap: {
     heroEyebrow: "Onafhankelijk executeurschap",
-    heroTitle: "Executeurschap — de afwikkeling in vertrouwde handen",
+    heroTitle: "De afwikkeling in vertrouwde handen",
     heroIntro:
       "Een onafhankelijke executeur nodig? Wij begeleiden de afwikkeling van de nalatenschap zorgvuldig en volledig volgens de wensen van de overledene.",
     heroCta: "Vraag een vrijblijvend gesprek aan",
@@ -336,7 +348,7 @@ const nl = {
 
   mediation: {
     heroEyebrow: "Nalatenschapsmediation",
-    heroTitle: "Nalatenschapsmediation — samen naar een oplossing",
+    heroTitle: "Samen naar een oplossing",
     heroIntro:
       "Onenigheid tussen erfgenamen? Als onafhankelijk mediator begeleiden wij het gesprek naar een oplossing waar iedereen zich in kan vinden.",
     heroCta: "Vraag een vrijblijvend gesprek aan",
@@ -378,7 +390,7 @@ const nl = {
 
   erfbelasting: {
     heroEyebrow: "Erfbelasting & aangifte",
-    heroTitle: "Erfbelasting & aangifte — zorgvuldig en fiscaal verantwoord",
+    heroTitle: "Zorgvuldig en fiscaal verantwoord",
     heroIntro:
       "Wij begeleiden u bij de aangifte erfbelasting en denken mee over een zorgvuldige en fiscaal verantwoorde afwikkeling van de nalatenschap.",
     heroCta: "Vraag een vrijblijvend gesprek aan",
@@ -503,38 +515,39 @@ const nl = {
     heroIntro:
       "Wij geloven dat nalatenschap een laatste daad van liefde en zorg kan zijn. Met juridische expertise én menselijke warmte staan wij naast u, op de momenten die er het meest toe doen.",
 
-    storyEyebrow: "Ons verhaal",
-    storyTitle: "Waarom wij dit werk doen",
-    storyParagraphs: [
-      "De Erfeniswijzer ontstond uit een eenvoudige observatie: rond nalatenschap en erfenis komt veel kilte en bureaucratie kijken, juist op een moment dat mensen warmte en duidelijkheid nodig hebben.",
-      "Wij zagen te vaak hoe onduidelijkheid leidde tot stress, en soms zelfs tot blijvende ruzies binnen families. Dat moest anders kunnen. Daarom combineren wij deskundige begeleiding met oprechte, persoonlijke aandacht.",
-      "Of u nu uw zaken bij leven wilt regelen of een erfenis moet afwikkelen — wij zijn uw gids. We nemen de zorgen uit handen en zorgen dat nalaten weer kan zijn wat het hoort te zijn: een laatste daad van liefde.",
-    ],
-
-    teamEyebrow: "Ons team",
-    teamTitle: "De mensen achter De Erfeniswijzer",
-    teamIntro: "Een toegewijd team dat met hart en kennis voor u klaarstaat.",
+    teamEyebrow: "Wie wij zijn",
+    teamTitle: "Maak kennis met ons team van specialisten",
+    teamIntro:
+      "Bij De Erfeniswijzer staat u er niet alleen voor. Wij werken samen met notarissen, executeurs, fiscalisten, mediators en andere deskundigen die ieder vanuit hun eigen expertise bijdragen aan uw nalatenschap.",
     teamPortrait: "Portret van",
     team: [
       {
         name: "Zainul Habieb",
-        role: "Oprichter De Erfeniswijzer / ICR / ADR Certified Nalatenschapscoach",
-        // TODO: placeholder-bio — laat de klant deze tekst nog controleren/aanvullen.
-        bio: "Zainul richtte De Erfeniswijzer op en begeleidt als gecertificeerd nalatenschapscoach families met warmte, deskundigheid en oprechte aandacht.",
+        role: "Oprichter & eigenaar De Erfeniswijzer",
+        bio: "Zainul Habieb is oprichter en eigenaar van De Erfeniswijzer en is gecertificeerd nalatenschapscoach. In uw dossier brengt hij de verschillende onderdelen van een nalatenschap samen, bewaakt hij het overzicht en begeleidt hij cliënten gedurende het gehele traject. Waar specialistische kennis nodig is, zorgt hij dat de juiste deskundige wordt betrokken, zodat cliënten één centraal aanspreekpunt houden en tegelijkertijd de juiste expertise ontvangen.",
       },
       {
         name: "Gerard van de Kerkhof",
-        role: "Grondlegger VCM Opleiders / Adviseur / ADR Certified Registermediator / Trainer",
-        // TODO: placeholder-bio — laat de klant deze tekst nog controleren/aanvullen.
-        bio: "Gerard brengt jarenlange ervaring als adviseur, registermediator en trainer mee en helpt families om in goed overleg tot heldere afspraken te komen.",
+        role: "Registermediator & Adviseur",
+        bio: "Gerard van de Kerkhof is directeur van het erkende opleidingsinstituut VCM Opleiders. Hij is full certified ADR-registermediator en trainer. Tientallen jaren praktijkervaring in mediation, conflictcoaching en professionele communicatie zorgen ervoor dat Gerard zich direct inleeft in ieders situatie. Binnen De Erfeniswijzer heeft Gerard een adviserende rol op het gebied van nalatenschap en mediation.",
       },
       {
         name: "Mark van Geffen",
-        role: "Eigenaar Quintax Belastingadviseurs / Fiscaal adviseur",
-        // TODO: placeholder-bio — laat de klant deze tekst nog controleren/aanvullen.
-        bio: "Mark is fiscaal adviseur en denkt met u mee over een zorgvuldige en fiscaal verantwoorde afwikkeling van uw nalatenschap en erfbelasting.",
+        role: "Fiscaal adviseur nalatenschap",
+        bio: "Mark van Geffen is eigenaar van Quintax Belastingadviseurs en is fiscaal adviseur. Binnen De Erfeniswijzer adviseert hij bij fiscale vraagstukken rondom nalatenschap, waaronder de aangifte erfbelasting, schenkbelasting en fiscale gevolgen van vermogensoverdracht. Zo helpt hij cliënten om ook de fiscale kant van hun nalatenschap zorgvuldig en overzichtelijk te regelen.",
+      },
+      {
+        name: "Hans Sanders",
+        role: "Financieel, bedrijfsmatig & digitale nalatenschap",
+        bio: "Hans Sanders is algemeen directeur van Radeac Accountants en Adviseurs en beschikt over ruime ervaring op het gebied van finance, bedrijfsvoering en strategische ondernemingsvraagstukken. Daarnaast is hij gecertificeerd nalatenschapscoach en executeur. Binnen het domein van nalatenschap ligt zijn specialisme onder meer bij bedrijfsopvolging, ondernemingsvermogen, executeurschap en digitale nalatenschap.",
+      },
+      {
+        name: "Yussuf Abdi",
+        role: "Jurist",
+        bio: "Yussuf Abdi is jurist en oprichter van Abdi Juristen. Hij heeft ruime ervaring binnen de juridische sector en staat bekend om zijn persoonlijke en zorgvuldige benadering. Binnen De Erfeniswijzer is zijn juridische expertise inzetbaar bij vraagstukken die raken aan rechten, aansprakelijkheid, belangenbehartiging en andere juridische aspecten rondom een nalatenschap.",
       },
     ],
+
 
     valuesEyebrow: "Onze waarden",
     valuesTitle: "Waar wij voor staan",
@@ -587,10 +600,11 @@ const nl = {
     fieldEmailPlaceholder: "uw@email.nl",
     fieldSubject: "Waar gaat het over?",
     subjectOptions: [
-      { value: "hulp-bij-erfenis", label: "Hulp bij erfenis" },
+      { value: "hulp-na-overlijden", label: "Hulp na overlijden" },
       { value: "bij-leven-regelen", label: "Bij leven regelen" },
-      { value: "algemeen", label: "Algemeen" },
+      { value: "anders", label: "Anders" },
     ],
+
     fieldMessage: "Bericht",
     fieldMessagePlaceholder: "Vertel ons kort waar wij u mee kunnen helpen…",
     submitLabel: "Gratis adviesgesprek aanvragen",
@@ -695,7 +709,87 @@ const nl = {
     ctaKennisbank: "Lees onze kennisbank",
     ctaHome: "Terug naar home",
   },
+
+  check: {
+    heroEyebrow: "Gratis nalatenschapscheck",
+    heroTitle: "Hoe goed is uw nalatenschap eigenlijk geregeld?",
+    heroIntro:
+      "Beantwoord vijf eenvoudige vragen en ontdek waar u staat. U ziet uw uitslag direct op het scherm.",
+    startLabel: "Start uw persoonlijke nalatenschapscheck",
+    disclaimer:
+      "De check is gratis en vrijblijvend. Uw antwoorden blijven in uw eigen browser en worden niet opgeslagen of verstuurd.",
+
+    progressLabel: "Vraag",
+    ofLabel: "van",
+    back: "Vorige vraag",
+    restart: "Opnieuw beginnen",
+
+    answerYes: "Ja",
+    answerPartly: "Deels",
+    answerNo: "Nee, nog niet",
+
+    questions: [
+      {
+        title: "Heeft u een testament dat past bij uw huidige situatie?",
+        help: "Denk aan wijzigingen zoals een nieuwe relatie, kinderen, een woning of een eigen bedrijf.",
+        advice:
+          "Leg vast wie wat erft. Een actueel testament voorkomt onduidelijkheid en zorgt dat uw wensen écht worden uitgevoerd.",
+      },
+      {
+        title: "Heeft u een levenstestament of volmacht geregeld?",
+        help: "Hierin legt u vast wie beslist over uw financiën en zorg als u dat zelf even niet meer kunt.",
+        advice:
+          "Met een levenstestament houdt u de regie, ook op momenten dat u zelf niet meer kunt beslissen.",
+      },
+      {
+        title: "Zijn uw belangrijke documenten overzichtelijk op één plek te vinden?",
+        help: "Polissen, bankgegevens, abonnementen, wachtwoorden en contactpersonen.",
+        advice:
+          "Breng uw documenten en gegevens samen in één dossier, zodat uw naasten later niet hoeven te zoeken.",
+      },
+      {
+        title: "Weten uw naasten wat uw wensen zijn bij ziekte en na uw overlijden?",
+        help: "Van medische wensen tot de uitvaart en persoonlijke bezittingen.",
+        advice:
+          "Zet uw wensen op papier en bespreek ze. Dat geeft uw naasten houvast op een moeilijk moment.",
+      },
+      {
+        title: "Heeft u nagedacht over erfbelasting en een eerlijke verdeling?",
+        help: "Denk aan schenkingen bij leven, vrijstellingen en de verdeling tussen erfgenamen.",
+        advice:
+          "Met tijdig advies bespaart u op een eerlijke manier erfbelasting en voorkomt u discussie tussen erfgenamen.",
+      },
+    ],
+
+    resultEyebrow: "Uw uitslag",
+    scoreSuffix: "van de 5 punten",
+    levels: [
+      {
+        title: "Er is nog veel te winnen",
+        text: "Op dit moment is er nog weinig vastgelegd. Dat betekent dat uw naasten later veel moeten uitzoeken. Goed nieuws: met een paar stappen brengt u daar snel rust en overzicht in.",
+      },
+      {
+        title: "U bent goed op weg",
+        text: "Een deel is geregeld, maar op belangrijke punten ontbreekt nog duidelijkheid. Juist die punten zorgen later vaak voor onzekerheid bij nabestaanden.",
+      },
+      {
+        title: "Uw zaken zijn goed geregeld",
+        text: "U heeft de belangrijkste zaken vastgelegd. Een periodieke controle blijft verstandig, want uw situatie en de regels veranderen.",
+      },
+    ],
+    adviceTitle: "Waar u nog winst kunt behalen",
+    allGoodTitle: "Mooi geregeld",
+    allGoodText:
+      "U heeft alle vijf de onderwerpen op orde. Wij kijken graag een keer met u mee of alles nog aansluit bij uw huidige situatie.",
+
+    ctaTitle: "Wilt u weten wat er in úw situatie past?",
+    ctaText:
+      "In een vrijblijvend adviesgesprek nemen we uw uitslag rustig met u door en vertellen we welke stappen zinvol zijn.",
+    ctaPrimary: "Gratis adviesgesprek aanvragen",
+    ctaSecondary: "Bekijk het Persoonlijk Levensdossier",
+  },
 };
+
 
 export const translations = { nl } as const;
 export type Translations = typeof nl;
