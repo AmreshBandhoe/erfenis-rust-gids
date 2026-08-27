@@ -499,38 +499,39 @@ const nl = {
     heroIntro:
       "Wij geloven dat nalatenschap een laatste daad van liefde en zorg kan zijn. Met juridische expertise én menselijke warmte staan wij naast u, op de momenten die er het meest toe doen.",
 
-    storyEyebrow: "Ons verhaal",
-    storyTitle: "Waarom wij dit werk doen",
-    storyParagraphs: [
-      "De Erfeniswijzer ontstond uit een eenvoudige observatie: rond nalatenschap en erfenis komt veel kilte en bureaucratie kijken, juist op een moment dat mensen warmte en duidelijkheid nodig hebben.",
-      "Wij zagen te vaak hoe onduidelijkheid leidde tot stress, en soms zelfs tot blijvende ruzies binnen families. Dat moest anders kunnen. Daarom combineren wij deskundige begeleiding met oprechte, persoonlijke aandacht.",
-      "Of u nu uw zaken bij leven wilt regelen of een erfenis moet afwikkelen — wij zijn uw gids. We nemen de zorgen uit handen en zorgen dat nalaten weer kan zijn wat het hoort te zijn: een laatste daad van liefde.",
-    ],
-
-    teamEyebrow: "Ons team",
-    teamTitle: "De mensen achter De Erfeniswijzer",
-    teamIntro: "Een toegewijd team dat met hart en kennis voor u klaarstaat.",
+    teamEyebrow: "Wie wij zijn",
+    teamTitle: "Maak kennis met ons team van specialisten",
+    teamIntro:
+      "Bij De Erfeniswijzer staat u er niet alleen voor. Wij werken samen met notarissen, executeurs, fiscalisten, mediators en andere deskundigen die ieder vanuit hun eigen expertise bijdragen aan uw nalatenschap.",
     teamPortrait: "Portret van",
     team: [
       {
         name: "Zainul Habieb",
-        role: "Oprichter De Erfeniswijzer / ICR / ADR Certified Nalatenschapscoach",
-        // TODO: placeholder-bio — laat de klant deze tekst nog controleren/aanvullen.
-        bio: "Zainul richtte De Erfeniswijzer op en begeleidt als gecertificeerd nalatenschapscoach families met warmte, deskundigheid en oprechte aandacht.",
+        role: "Oprichter & eigenaar De Erfeniswijzer",
+        bio: "Zainul Habieb is oprichter en eigenaar van De Erfeniswijzer en is gecertificeerd nalatenschapscoach. In uw dossier brengt hij de verschillende onderdelen van een nalatenschap samen, bewaakt hij het overzicht en begeleidt hij cliënten gedurende het gehele traject. Waar specialistische kennis nodig is, zorgt hij dat de juiste deskundige wordt betrokken, zodat cliënten één centraal aanspreekpunt houden en tegelijkertijd de juiste expertise ontvangen.",
       },
       {
         name: "Gerard van de Kerkhof",
-        role: "Grondlegger VCM Opleiders / Adviseur / ADR Certified Registermediator / Trainer",
-        // TODO: placeholder-bio — laat de klant deze tekst nog controleren/aanvullen.
-        bio: "Gerard brengt jarenlange ervaring als adviseur, registermediator en trainer mee en helpt families om in goed overleg tot heldere afspraken te komen.",
+        role: "Registermediator & Adviseur",
+        bio: "Gerard van de Kerkhof is directeur van het erkende opleidingsinstituut VCM Opleiders. Hij is full certified ADR-registermediator en trainer. Tientallen jaren praktijkervaring in mediation, conflictcoaching en professionele communicatie zorgen ervoor dat Gerard zich direct inleeft in ieders situatie. Binnen De Erfeniswijzer heeft Gerard een adviserende rol op het gebied van nalatenschap en mediation.",
       },
       {
         name: "Mark van Geffen",
-        role: "Eigenaar Quintax Belastingadviseurs / Fiscaal adviseur",
-        // TODO: placeholder-bio — laat de klant deze tekst nog controleren/aanvullen.
-        bio: "Mark is fiscaal adviseur en denkt met u mee over een zorgvuldige en fiscaal verantwoorde afwikkeling van uw nalatenschap en erfbelasting.",
+        role: "Fiscaal adviseur nalatenschap",
+        bio: "Mark van Geffen is eigenaar van Quintax Belastingadviseurs en is fiscaal adviseur. Binnen De Erfeniswijzer adviseert hij bij fiscale vraagstukken rondom nalatenschap, waaronder de aangifte erfbelasting, schenkbelasting en fiscale gevolgen van vermogensoverdracht. Zo helpt hij cliënten om ook de fiscale kant van hun nalatenschap zorgvuldig en overzichtelijk te regelen.",
+      },
+      {
+        name: "Hans Sanders",
+        role: "Financieel, bedrijfsmatig & digitale nalatenschap",
+        bio: "Hans Sanders is algemeen directeur van Radeac Accountants en Adviseurs en beschikt over ruime ervaring op het gebied van finance, bedrijfsvoering en strategische ondernemingsvraagstukken. Daarnaast is hij gecertificeerd nalatenschapscoach en executeur. Binnen het domein van nalatenschap ligt zijn specialisme onder meer bij bedrijfsopvolging, ondernemingsvermogen, executeurschap en digitale nalatenschap.",
+      },
+      {
+        name: "Yussuf Abdi",
+        role: "Jurist",
+        bio: "Yussuf Abdi is jurist en oprichter van Abdi Juristen. Hij heeft ruime ervaring binnen de juridische sector en staat bekend om zijn persoonlijke en zorgvuldige benadering. Binnen De Erfeniswijzer is zijn juridische expertise inzetbaar bij vraagstukken die raken aan rechten, aansprakelijkheid, belangenbehartiging en andere juridische aspecten rondom een nalatenschap.",
       },
     ],
+
 
     valuesEyebrow: "Onze waarden",
     valuesTitle: "Waar wij voor staan",
