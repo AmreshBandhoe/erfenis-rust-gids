@@ -691,7 +691,87 @@ const nl = {
     ctaKennisbank: "Lees onze kennisbank",
     ctaHome: "Terug naar home",
   },
+
+  check: {
+    heroEyebrow: "Gratis nalatenschapscheck",
+    heroTitle: "Hoe goed is uw nalatenschap eigenlijk geregeld?",
+    heroIntro:
+      "Beantwoord vijf eenvoudige vragen en ontdek waar u staat. U ziet uw uitslag direct op het scherm.",
+    startLabel: "Start uw persoonlijke nalatenschapscheck",
+    disclaimer:
+      "De check is gratis en vrijblijvend. Uw antwoorden blijven in uw eigen browser en worden niet opgeslagen of verstuurd.",
+
+    progressLabel: "Vraag",
+    ofLabel: "van",
+    back: "Vorige vraag",
+    restart: "Opnieuw beginnen",
+
+    answerYes: "Ja",
+    answerPartly: "Deels",
+    answerNo: "Nee, nog niet",
+
+    questions: [
+      {
+        title: "Heeft u een testament dat past bij uw huidige situatie?",
+        help: "Denk aan wijzigingen zoals een nieuwe relatie, kinderen, een woning of een eigen bedrijf.",
+        advice:
+          "Leg vast wie wat erft. Een actueel testament voorkomt onduidelijkheid en zorgt dat uw wensen écht worden uitgevoerd.",
+      },
+      {
+        title: "Heeft u een levenstestament of volmacht geregeld?",
+        help: "Hierin legt u vast wie beslist over uw financiën en zorg als u dat zelf even niet meer kunt.",
+        advice:
+          "Met een levenstestament houdt u de regie, ook op momenten dat u zelf niet meer kunt beslissen.",
+      },
+      {
+        title: "Zijn uw belangrijke documenten overzichtelijk op één plek te vinden?",
+        help: "Polissen, bankgegevens, abonnementen, wachtwoorden en contactpersonen.",
+        advice:
+          "Breng uw documenten en gegevens samen in één dossier, zodat uw naasten later niet hoeven te zoeken.",
+      },
+      {
+        title: "Weten uw naasten wat uw wensen zijn bij ziekte en na uw overlijden?",
+        help: "Van medische wensen tot de uitvaart en persoonlijke bezittingen.",
+        advice:
+          "Zet uw wensen op papier en bespreek ze. Dat geeft uw naasten houvast op een moeilijk moment.",
+      },
+      {
+        title: "Heeft u nagedacht over erfbelasting en een eerlijke verdeling?",
+        help: "Denk aan schenkingen bij leven, vrijstellingen en de verdeling tussen erfgenamen.",
+        advice:
+          "Met tijdig advies bespaart u op een eerlijke manier erfbelasting en voorkomt u discussie tussen erfgenamen.",
+      },
+    ],
+
+    resultEyebrow: "Uw uitslag",
+    scoreSuffix: "van de 5 punten",
+    levels: [
+      {
+        title: "Er is nog veel te winnen",
+        text: "Op dit moment is er nog weinig vastgelegd. Dat betekent dat uw naasten later veel moeten uitzoeken. Goed nieuws: met een paar stappen brengt u daar snel rust en overzicht in.",
+      },
+      {
+        title: "U bent goed op weg",
+        text: "Een deel is geregeld, maar op belangrijke punten ontbreekt nog duidelijkheid. Juist die punten zorgen later vaak voor onzekerheid bij nabestaanden.",
+      },
+      {
+        title: "Uw zaken zijn goed geregeld",
+        text: "U heeft de belangrijkste zaken vastgelegd. Een periodieke controle blijft verstandig, want uw situatie en de regels veranderen.",
+      },
+    ],
+    adviceTitle: "Waar u nog winst kunt behalen",
+    allGoodTitle: "Mooi geregeld",
+    allGoodText:
+      "U heeft alle vijf de onderwerpen op orde. Wij kijken graag een keer met u mee of alles nog aansluit bij uw huidige situatie.",
+
+    ctaTitle: "Wilt u weten wat er in úw situatie past?",
+    ctaText:
+      "In een vrijblijvend adviesgesprek nemen we uw uitslag rustig met u door en vertellen we welke stappen zinvol zijn.",
+    ctaPrimary: "Gratis adviesgesprek aanvragen",
+    ctaSecondary: "Bekijk het Persoonlijk Levensdossier",
+  },
 };
+
 
 export const translations = { nl } as const;
 export type Translations = typeof nl;
