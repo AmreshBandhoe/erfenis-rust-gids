@@ -374,7 +374,7 @@ const nl = {
 
   erfbelasting: {
     heroEyebrow: "Erfbelasting & aangifte",
-    heroTitle: "Erfbelasting & aangifte — zorgvuldig en fiscaal verantwoord",
+    heroTitle: "Zorgvuldig en fiscaal verantwoord",
     heroIntro:
       "Wij begeleiden u bij de aangifte erfbelasting en denken mee over een zorgvuldige en fiscaal verantwoorde afwikkeling van de nalatenschap.",
     heroCta: "Vraag een vrijblijvend gesprek aan",
