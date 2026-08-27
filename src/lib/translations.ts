@@ -50,8 +50,9 @@ const nl = {
     heroTitle: "De Erfeniswijzer",
     heroIntro:
       "Persoonlijke begeleiding bij het voorbereiden van uw nalatenschap en het afwikkelen van een erfenis. Wij nemen de zorgen uit handen, zodat u en uw nabestaanden met rust verder kunnen.",
-    heroCta: "Gratis adviesgesprek aanvragen",
-    heroSecondary: "Meer over onze aanpak",
+    heroCta: "Ik wil mijn nalatenschap regelen",
+    heroSecondary: "Ik heb hulp nodig na een overlijden",
+
 
     whyEyebrow: "Waarom De Erfeniswijzer?",
     whyTitle: "Nalatenschap als laatste daad van liefde en zorg",
