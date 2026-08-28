@@ -47,21 +47,6 @@ function OverOns() {
         intro={h.heroIntro}
       />
 
-      {/* Our story */}
-      <section className="bg-background py-24">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-            {h.storyEyebrow}
-          </p>
-          <h2 className="text-center text-3xl text-primary sm:text-4xl">{h.storyTitle}</h2>
-          <div className="mt-8 space-y-5 text-lg leading-relaxed text-muted-foreground">
-            {h.storyParagraphs.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Team */}
       <section className="bg-secondary/50 py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -72,28 +57,38 @@ function OverOns() {
             <h2 className="text-3xl text-primary sm:text-4xl">{h.teamTitle}</h2>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.teamIntro}</p>
           </div>
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
-            {h.team.map((member, i) => (
-              <div
-                key={member.name}
-                className="flex flex-col overflow-hidden rounded-3xl border border-border/60 bg-card shadow-[var(--shadow-soft)] transition-shadow hover:shadow-[var(--shadow-elegant)]"
-              >
-                <img
-                  src={teamImages[i]}
-                  alt={`${h.teamPortrait} ${member.name}`}
-                  width={1000}
-                  height={1000}
-                  loading="lazy"
-                  className="aspect-square w-full object-cover"
-                />
-                <div className="p-7">
-                  <h3 className="text-xl text-primary">{member.name}</h3>
-                  <p className="mt-1 text-sm font-semibold text-accent">{member.role}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{member.bio}</p>
+          <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {h.team.map((member, i) => {
+              const portrait = teamImages[i];
+              return (
+                <div
+                  key={member.name}
+                  className="flex flex-col overflow-hidden rounded-3xl border border-border/60 bg-card shadow-[var(--shadow-soft)] transition-shadow hover:shadow-[var(--shadow-elegant)]"
+                >
+                  {portrait ? (
+                    <img
+                      src={portrait}
+                      alt={`${h.teamPortrait} ${member.name}`}
+                      width={1000}
+                      height={1000}
+                      loading="lazy"
+                      className="aspect-square w-full object-cover"
+                    />
+                  ) : (
+                    <TeamAvatar name={member.name} />
+                  )}
+                  <div className="p-7">
+                    <h3 className="text-xl text-primary">{member.name}</h3>
+                    <p className="mt-1 text-sm font-semibold text-accent">{member.role}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      {member.bio}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
+
         </div>
       </section>
 
