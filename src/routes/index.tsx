@@ -13,6 +13,7 @@ import {
   Phone,
   CalendarCheck,
   ClipboardList,
+  ClipboardCheck,
   HandHeart,
   CheckCircle2,
   FileDown,
