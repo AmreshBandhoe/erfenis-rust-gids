@@ -14,6 +14,7 @@ export function Footer() {
     { label: t.nav.onsTeam, to: "/over-ons" },
     { label: t.nav.contact, to: "/contact" },
     { label: t.nav.gratisGids, to: "/gratis-gids" },
+    { label: t.check.heroEyebrow, to: "/nalatenschapscheck" },
   ] as const;
 
   return (
