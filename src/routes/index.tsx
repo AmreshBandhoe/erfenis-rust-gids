@@ -285,7 +285,34 @@ function Index() {
         </div>
       </section>
 
-      {/* 6. Free guide */}
+      {/* 6. Nalatenschapscheck */}
+      <section className="bg-background pt-24">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-[2rem] border border-border/60 bg-secondary/50 p-8 text-center shadow-[var(--shadow-soft)] sm:p-12">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+              <ClipboardCheck className="h-7 w-7" strokeWidth={1.6} />
+            </div>
+            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+              {h.checkEyebrow}
+            </p>
+            <h2 className="mt-3 text-3xl text-primary sm:text-4xl">{h.checkTitle}</h2>
+            <p className="mt-3 font-display text-2xl text-primary">{h.checkSubtitle}</p>
+            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{h.checkText}</p>
+            <Button
+              asChild
+              size="lg"
+              className="mt-8 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground hover:bg-accent/90"
+            >
+              <Link to="/nalatenschapscheck">
+                {h.checkCta}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Free guide */}
       <section className="bg-background py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 rounded-[2rem] border border-border/60 bg-secondary/50 p-8 shadow-[var(--shadow-soft)] sm:p-12 lg:grid-cols-2">
