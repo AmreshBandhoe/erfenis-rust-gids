@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Heart, GraduationCap, Compass } from "lucide-react";
 import { ContentHero } from "@/components/ContentHero";
 import { CtaSection } from "@/components/CtaSection";
+import { TeamAvatar } from "@/components/TeamAvatar";
+
 import { useT } from "@/lib/i18n";
 import heroImg from "@/assets/team-hero.jpg";
 import team1 from "@/assets/team-zainul-habieb.jpg";
