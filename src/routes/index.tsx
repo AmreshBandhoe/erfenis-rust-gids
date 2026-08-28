@@ -215,7 +215,7 @@ function Index() {
             <div className="overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)] lg:order-2">
               <img
                 src={prepareImg}
-                alt="Iemand legt aan een bureau bij daglicht persoonlijke documenten en wensen vast"
+                alt="Man legt aan een bureau bij daglicht zijn wensen en belangrijke documenten vast"
                 width={1200}
                 height={900}
                 loading="lazy"
