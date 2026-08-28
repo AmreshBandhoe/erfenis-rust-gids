@@ -196,38 +196,29 @@ const nl = {
       { caption: "ADR Kwaliteitsregister (ISO 9001 / ISO 17024)" },
     ],
 
-    checkEyebrow: "Gratis nalatenschapscheck",
-    checkTitle: "Hoe goed is uw nalatenschap eigenlijk geregeld?",
-    checkSubtitle: "Doe de gratis nalatenschapscheck",
-    checkText: "Beantwoord vijf eenvoudige vragen en ontdek waar u staat.",
-    checkCta: "Start uw persoonlijke nalatenschapscheck",
-
-    guideEyebrow: "Gratis starten",
-
-    guideTitle: "Onze gratis checklist nalatenschap",
-    guideIntro:
-      "Zet vandaag de eerste stap en ontdek met onze praktische checklist wat u voor uw nalatenschap nog moet regelen.",
-    guideChecklist: [
-      "Stap-voor-stap overzicht van wat te regelen",
-      "Praktische checklist voor uw documenten",
-      "Tips om erfbelasting eerlijk te beperken",
-    ],
-    guideCta: "Download de gratis checklist",
-    guideCardTitle: "Checklist Nalatenschap",
-    guideCardSub: "PDF · gratis · direct beschikbaar",
-    guideCardItems: [
-      "Wensen & waarden vastleggen",
-      "Testament of levenstestament",
-      "Erfgenamen & verdeling",
-      "Financiën & eigen woning",
-      "Belangrijke documenten verzamelen",
+    scanEyebrow: "Gratis nalatenschapscheck",
+    scanTitle: "Weet u hoe goed uw nalatenschap is geregeld?",
+    scanIntro:
+      "Veel mensen denken dat alles duidelijk is, totdat zij zichzelf een paar concrete vragen stellen. Met de gratis Nalatenschapscheck ontdekt u binnen 2 minuten welke zaken al goed geregeld zijn en waar mogelijk nog aandacht nodig is.",
+    scanBullets: ["Slechts 5 korte vragen", "Direct inzicht in uw situatie", "Geen verplichtingen"],
+    scanCta: "Start uw persoonlijke nalatenschapscheck",
+    scanCardFooter: "U ontvangt direct een persoonlijk overzicht van uw situatie.",
+    scanCardTitle: "Nalatenschapscheck",
+    scanCardSub: "5 vragen · 2 minuten · gratis",
+    scanCardItems: [
+      "Is er een testament of levenstestament?",
+      "Weet u wie de nalatenschap gaat regelen?",
+      "Zijn uw belangrijke documenten vindbaar?",
+      "Heeft u zicht op de erfbelasting?",
+      "Zijn uw digitale accounts geregeld?",
     ],
 
-    finalCtaTitle: "Laat uw nalatenschap een daad van liefde zijn",
+    finalCtaTitle: "Stel belangrijke zaken niet uit tot anderen ze moeten oplossen",
     finalCtaText:
-      "Plan vrijblijvend een persoonlijk adviesgesprek. Samen zorgen we voor rust, duidelijkheid en vertrouwen, voor u en voor uw nabestaanden.",
-    finalCtaPrimary: "Gratis adviesgesprek aanvragen",
-    finalCtaSecondary: "Maak kennis met ons team",
+      "Of u nu vooruit wilt kijken of midden in de afwikkeling van een erfenis zit, een eerste gesprek kan snel rust en duidelijkheid geven.",
+    finalCtaText2:
+      "Vertel ons wat er speelt. Dan kijken we samen welke begeleiding bij uw situatie past.",
+    finalCtaPrimary: "Plan een gratis adviesgesprek",
   },
 
   hulp: {

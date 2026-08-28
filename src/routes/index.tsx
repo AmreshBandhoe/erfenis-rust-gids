@@ -6,7 +6,6 @@ import {
   Calculator,
   HeartHandshake,
   LifeBuoy,
-  ClipboardList,
   ClipboardCheck,
   CheckCircle2,
   FolderSearch,
@@ -16,7 +15,6 @@ import {
   CalendarClock,
   MonitorSmartphone,
   MessagesSquare,
-  FileDown,
   ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -141,16 +139,19 @@ function Index() {
               );
             })}
           </ul>
-
-          <div className="mx-auto mt-14 max-w-2xl text-center">
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              {h.questionsOutro} {h.questionsClosing}
-            </p>
-          </div>
         </div>
       </section>
 
-      {/* 3. Hulp na overlijden */}
+      {/* 3. Tussenstatement */}
+      <section className="bg-primary py-14 text-primary-foreground">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+          <p className="text-lg leading-relaxed text-primary-foreground/90 sm:text-xl">
+            {h.questionsOutro} {h.questionsClosing}
+          </p>
+        </div>
+      </section>
+
+      {/* 4. Hulp na overlijden */}
       <section className="bg-background py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-14 lg:grid-cols-2">
@@ -207,7 +208,7 @@ function Index() {
         </div>
       </section>
 
-      {/* 4. Vooraf goed regelen */}
+      {/* 5. Vooraf goed regelen */}
       <section className="bg-secondary/50 py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-14 lg:grid-cols-2">
@@ -256,7 +257,7 @@ function Index() {
         </div>
       </section>
 
-      {/* 5. Services */}
+      {/* 6. Services */}
       <section className="bg-background py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -294,7 +295,7 @@ function Index() {
         </div>
       </section>
 
-      {/* 6. Why */}
+      {/* 7. Why */}
       <section className="bg-secondary/50 py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-14 lg:grid-cols-2">
@@ -341,7 +342,7 @@ function Index() {
         </div>
       </section>
 
-      {/* 7. Certifications */}
+      {/* 8. Certifications */}
       <section className="bg-primary py-14 text-primary-foreground">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
@@ -366,47 +367,24 @@ function Index() {
         </div>
       </section>
 
-      {/* 8. Nalatenschapscheck */}
-      <section className="bg-background pt-24">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-[2rem] border border-border/60 bg-secondary/50 p-8 text-center shadow-[var(--shadow-soft)] sm:p-12">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-              <ClipboardCheck className="h-7 w-7" strokeWidth={1.6} />
-            </div>
-            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-              {h.checkEyebrow}
-            </p>
-            <h2 className="mt-3 text-3xl text-primary sm:text-4xl">{h.checkTitle}</h2>
-            <p className="mt-3 font-display text-2xl text-primary">{h.checkSubtitle}</p>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{h.checkText}</p>
-            <Button
-              asChild
-              size="lg"
-              className="mt-8 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground hover:bg-accent/90"
-            >
-              <Link to="/nalatenschapscheck">
-                {h.checkCta}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* 9. Free guide */}
+      {/* 9. Nalatenschapscheck */}
       <section className="bg-background py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 rounded-[2rem] border border-border/60 bg-secondary/50 p-8 shadow-[var(--shadow-soft)] sm:p-12 lg:grid-cols-2">
             <div>
               <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-                {h.guideEyebrow}
+                {h.scanEyebrow}
               </p>
-              <h2 className="text-3xl text-primary sm:text-4xl">{h.guideTitle}</h2>
-              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.guideIntro}</p>
+              <h2 className="text-3xl text-primary sm:text-4xl">{h.scanTitle}</h2>
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.scanIntro}</p>
               <ul className="mt-6 space-y-3">
-                {h.guideChecklist.map((item) => (
+                {h.scanBullets.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-foreground">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
+                    <CheckCircle2
+                      className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent"
+                      strokeWidth={1.75}
+                      aria-hidden="true"
+                    />
                     <span className="leading-relaxed">{item}</span>
                   </li>
                 ))}
@@ -414,11 +392,11 @@ function Index() {
               <Button
                 asChild
                 size="lg"
-                className="mt-8 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground hover:bg-accent/90"
+                className="mt-8 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
               >
-                <Link to="/gratis-gids">
-                  <FileDown className="mr-2 h-5 w-5" />
-                  {h.guideCta}
+                <Link to="/nalatenschapscheck">
+                  {h.scanCta}
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
             </div>
@@ -426,24 +404,27 @@ function Index() {
               <div className="rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-elegant)]">
                 <div className="flex items-center gap-4">
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-                    <ClipboardList className="h-7 w-7" strokeWidth={1.6} />
+                    <ClipboardCheck className="h-7 w-7" strokeWidth={1.6} aria-hidden="true" />
                   </div>
                   <div>
-                    <p className="font-display text-2xl text-primary">{h.guideCardTitle}</p>
-                    <p className="text-sm text-muted-foreground">{h.guideCardSub}</p>
+                    <p className="font-display text-2xl text-primary">{h.scanCardTitle}</p>
+                    <p className="text-sm text-muted-foreground">{h.scanCardSub}</p>
                   </div>
                 </div>
-                <div className="mt-6 space-y-3">
-                  {h.guideCardItems.map((row) => (
-                    <div
+                <ol className="mt-6 space-y-3">
+                  {h.scanCardItems.map((row, i) => (
+                    <li
                       key={row}
                       className="flex items-center gap-3 rounded-xl bg-secondary/60 px-4 py-3"
                     >
-                      <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-accent" />
+                      <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
+                        {i + 1}
+                      </span>
                       <span className="text-sm text-foreground">{row}</span>
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ol>
+                <p className="mt-6 text-center text-xs text-muted-foreground">{h.scanCardFooter}</p>
               </div>
             </div>
           </div>
@@ -465,10 +446,13 @@ function Index() {
           <h2 className="text-4xl leading-tight text-primary-foreground sm:text-5xl">
             {h.finalCtaTitle}
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/90">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-primary-foreground/90">
             {h.finalCtaText}
           </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-primary-foreground/90">
+            {h.finalCtaText2}
+          </p>
+          <div className="mt-10 flex justify-center">
             <Button
               asChild
               size="lg"
@@ -478,14 +462,6 @@ function Index() {
                 {h.finalCtaPrimary}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="rounded-full border-primary-foreground/40 bg-primary-foreground/5 px-8 py-6 text-base text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/15 hover:text-primary-foreground"
-            >
-              <Link to="/over-ons">{h.finalCtaSecondary}</Link>
             </Button>
           </div>
         </div>
