@@ -1,21 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Heart,
-  ShieldCheck,
-  ListChecks,
   Users,
   Scale,
   ScrollText,
   Calculator,
   HeartHandshake,
   LifeBuoy,
-  Compass,
-  Phone,
-  CalendarCheck,
   ClipboardList,
   ClipboardCheck,
-  HandHeart,
   CheckCircle2,
+  FolderSearch,
+  Landmark,
+  Building2,
+  House,
+  CalendarClock,
+  MonitorSmartphone,
+  MessagesSquare,
   FileDown,
   ArrowRight,
 } from "lucide-react";
@@ -24,13 +24,12 @@ import { useT } from "@/lib/i18n";
 
 import heroImg from "@/assets/home-hero.jpg";
 import whyImg from "@/assets/home-why.jpg";
-import processImg from "@/assets/home-process.jpg";
+import helpImg from "@/assets/home-help.jpg";
+import prepareImg from "@/assets/home-prepare.jpg";
 import ctaImg from "@/assets/home-cta.jpg";
 import logoIcr from "@/assets/logo-icr.png";
-import logoAdr from "@/assets/logo-adr.jpg";
+import logoAdr from "@/assets/logo-adr.png";
 import logoIca from "@/assets/logo-ica.png";
-import logoVcm from "@/assets/logo-vcm.png";
-import logoQuintax from "@/assets/logo-quintax.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -54,10 +53,18 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const reasonIcons = [Heart, ShieldCheck, ListChecks, Users];
+const questionIcons = [
+  FolderSearch,
+  Landmark,
+  Building2,
+  House,
+  Users,
+  CalendarClock,
+  MonitorSmartphone,
+  MessagesSquare,
+];
 const serviceIcons = [HeartHandshake, LifeBuoy, ScrollText, Calculator, Scale];
-const stepIcons = [Phone, ClipboardList, Compass, HandHeart, CalendarCheck];
-const certLogos = [logoIcr, logoAdr, logoIca, logoVcm, logoQuintax];
+const certLogos = [logoIcr, logoIca, logoAdr];
 
 function Index() {
   const t = useT();
@@ -102,81 +109,172 @@ function Index() {
               >
                 <Link to="/hulp-bij-erfenis">{h.heroSecondary}</Link>
               </Button>
-
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Why */}
-      <section className="bg-background py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-14 lg:grid-cols-2">
-            <div>
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-                {h.whyEyebrow}
-              </p>
-              <h2 className="text-3xl text-primary sm:text-4xl">{h.whyTitle}</h2>
-              <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted-foreground">
-                {h.whyIntro}
-              </p>
-              <div className="mt-10 grid gap-5 sm:grid-cols-2">
-                {h.reasons.map((reason, i) => {
-                  const Icon = reasonIcons[i];
-                  return (
-                    <div
-                      key={reason.title}
-                      className="rounded-2xl border border-border/60 bg-card p-6 shadow-[var(--shadow-soft)] transition-shadow hover:shadow-[var(--shadow-elegant)]"
-                    >
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-secondary text-primary">
-                        <Icon className="h-6 w-6" strokeWidth={1.75} />
-                      </div>
-                      <h3 className="mt-4 text-xl text-primary">{reason.title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                        {reason.text}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="relative">
-              <div className="overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)]">
-                <img
-                  src={whyImg}
-                  alt="Twee paar handen houden respectvol een oude familiefoto vast"
-                  width={1024}
-                  height={1024}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div className="pointer-events-none absolute -bottom-6 -left-6 hidden h-32 w-32 rounded-3xl border-4 border-accent/40 sm:block" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Services */}
+      {/* 2. Vragen na een overlijden */}
       <section className="bg-secondary/50 py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+              {h.questionsEyebrow}
+            </p>
+            <h2 className="text-3xl text-primary sm:text-4xl">{h.questionsTitle}</h2>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.questionsIntro}</p>
+          </div>
+
+          <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {h.questions.map((question, i) => {
+              const Icon = questionIcons[i];
+              return (
+                <li
+                  key={question}
+                  className="group rounded-2xl border border-border/60 bg-card p-6 shadow-[var(--shadow-soft)] transition-shadow hover:shadow-[var(--shadow-elegant)]"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                    <Icon className="h-7 w-7" strokeWidth={1.6} aria-hidden="true" />
+                  </div>
+                  <p className="mt-6 text-base leading-relaxed text-foreground/85">{question}</p>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="mx-auto mt-14 max-w-2xl text-center">
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              {h.questionsOutro} {h.questionsClosing}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Hulp na overlijden */}
+      <section className="bg-background py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-14 lg:grid-cols-2">
+            <div>
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+                {h.helpEyebrow}
+              </p>
+              <h2 className="text-3xl text-primary sm:text-4xl">{h.helpTitle}</h2>
+              <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted-foreground">
+                {h.helpIntro}
+              </p>
+              <p className="mt-4 max-w-lg text-lg leading-relaxed text-muted-foreground">
+                {h.helpNetwork}
+              </p>
+              <div className="mt-10 overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)]">
+                <img
+                  src={helpImg}
+                  alt="Handen sorteren oude brieven en documenten aan een houten tafel, naast een kop thee en een notitieboek"
+                  width={1200}
+                  height={900}
+                  loading="lazy"
+                  className="aspect-[4/3] h-full w-full object-cover"
+                />
+              </div>
+              <div className="mt-8">
+                <Link
+                  to="/hulp-bij-erfenis"
+                  className="group inline-flex items-center gap-1.5 text-base font-semibold text-accent"
+                >
+                  {h.helpCta}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="flex flex-col rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] sm:p-10">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+                {h.helpListTitle}
+              </p>
+              <ul className="mt-8 flex flex-1 flex-col justify-between gap-5">
+                {h.helpItems.map((item) => (
+                  <li key={item} className="flex items-start gap-3.5">
+                    <CheckCircle2
+                      className="mt-0.5 h-5 w-5 shrink-0 text-accent"
+                      strokeWidth={1.75}
+                      aria-hidden="true"
+                    />
+                    <span className="text-base leading-relaxed text-foreground/85">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Vooraf goed regelen */}
+      <section className="bg-secondary/50 py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-14 lg:grid-cols-2">
+            <div className="overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)] lg:order-2">
+              <img
+                src={prepareImg}
+                alt="Iemand legt aan een bureau bij daglicht persoonlijke documenten en wensen vast"
+                width={1200}
+                height={900}
+                loading="lazy"
+                className="aspect-[4/3] h-full w-full object-cover lg:aspect-auto"
+              />
+            </div>
+
+            <div className="flex flex-col justify-center lg:order-1">
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+                {h.prepEyebrow}
+              </p>
+              <h2 className="text-3xl text-primary sm:text-4xl">{h.prepTitle}</h2>
+              <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted-foreground">
+                {h.prepIntro}
+              </p>
+              <ul className="mt-8 space-y-4">
+                {h.prepItems.map((item) => (
+                  <li key={item} className="flex items-start gap-3.5">
+                    <CheckCircle2
+                      className="mt-0.5 h-5 w-5 shrink-0 text-accent"
+                      strokeWidth={1.75}
+                      aria-hidden="true"
+                    />
+                    <span className="text-base leading-relaxed text-foreground/85">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8">
+                <Link
+                  to="/bij-leven-regelen"
+                  className="group inline-flex items-center gap-1.5 text-base font-semibold text-accent"
+                >
+                  {h.prepCta}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Services */}
+      <section className="bg-background py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
               {h.servicesEyebrow}
             </p>
             <h2 className="text-3xl text-primary sm:text-4xl">{h.servicesTitle}</h2>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              {h.servicesIntro}
-            </p>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.servicesIntro}</p>
+            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{h.servicesIntro2}</p>
           </div>
-          <div className="mt-14 flex flex-wrap justify-center gap-6">
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {h.services.map((service, i) => {
               const Icon = serviceIcons[i];
               return (
                 <Link
                   key={service.title}
                   to={service.to}
-                  className="group flex w-full flex-col rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)] sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
+                  className="group flex flex-col rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] lg:p-6 xl:p-8 transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]"
                 >
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
                     <Icon className="h-7 w-7" strokeWidth={1.6} />
@@ -196,97 +294,79 @@ function Index() {
         </div>
       </section>
 
-      {/* 4. Process */}
-      <section className="bg-background py-24">
+      {/* 6. Why */}
+      <section className="bg-secondary/50 py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-start gap-14 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="lg:sticky lg:top-28">
+          <div className="grid items-center gap-14 lg:grid-cols-2">
+            <div className="lg:order-2">
               <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-                {h.processEyebrow}
+                {h.whyEyebrow}
               </p>
-              <h2 className="text-3xl text-primary sm:text-4xl">{h.processTitle}</h2>
-              <p className="mt-5 max-w-md text-lg leading-relaxed text-muted-foreground">
-                {h.processIntro}
+              <h2 className="text-3xl text-primary sm:text-4xl">{h.whyTitle}</h2>
+              <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted-foreground">
+                {h.whyIntro}
               </p>
-              <div className="mt-8 overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)]">
+              <ul className="mt-10 grid gap-x-8 gap-y-6 sm:grid-cols-2">
+                {h.reasons.map((reason) => (
+                  <li key={reason.title} className="flex items-start gap-3.5">
+                    <CheckCircle2
+                      className="mt-1 h-5 w-5 shrink-0 text-accent"
+                      strokeWidth={1.75}
+                      aria-hidden="true"
+                    />
+                    <div>
+                      <h3 className="text-lg text-primary">{reason.title}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                        {reason.text}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="relative lg:order-1">
+              <div className="overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)]">
                 <img
-                  src={processImg}
-                  alt="Rustige, lichte woonkamer met comfortabele fauteuils in warme tinten"
+                  src={whyImg}
+                  alt="Twee paar handen houden respectvol een oude familiefoto vast"
                   width={1024}
                   height={1024}
                   loading="lazy"
                   className="h-full w-full object-cover"
                 />
               </div>
+              <div className="pointer-events-none absolute -bottom-6 -right-6 hidden h-32 w-32 rounded-3xl border-4 border-accent/40 sm:block" />
             </div>
-            <ol className="relative space-y-8 border-l border-border pl-8">
-              {h.steps.map((step, index) => {
-                const Icon = stepIcons[index];
-                return (
-                  <li key={step.title} className="relative">
-                    <span className="absolute -left-[3.05rem] flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground ring-8 ring-background">
-                      {index + 1}
-                    </span>
-                    <div className="rounded-2xl border border-border/60 bg-card p-6 shadow-[var(--shadow-soft)]">
-                      <div className="flex items-center gap-3">
-                        <Icon className="h-6 w-6 text-accent" strokeWidth={1.75} />
-                        <h3 className="text-xl text-primary">{step.title}</h3>
-                      </div>
-                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                        {step.text}
-                      </p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
           </div>
         </div>
       </section>
 
-      {/* 5. Certifications */}
+      {/* 7. Certifications */}
       <section className="bg-primary py-14 text-primary-foreground">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl text-primary-foreground sm:text-4xl">{h.certTitle}</h2>
           </div>
 
-          <div
-            className="group relative mt-12 overflow-hidden"
-            style={{
-              maskImage:
-                "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
-              WebkitMaskImage:
-                "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
-            }}
-          >
-            <ul className="animate-marquee flex w-max items-stretch gap-6 group-hover:[animation-play-state:paused]">
-              {[...h.certifications, ...h.certifications].map((cert, i) => (
-                <li
-                  key={i}
-                  className="group/item flex w-64 shrink-0 items-center justify-center rounded-3xl border border-primary-foreground/15 bg-primary-foreground/5 p-6"
-                >
-                  <div className="relative flex h-24 w-full items-center justify-center rounded-2xl bg-white p-4">
-                    <img
-                      src={certLogos[i % certLogos.length]}
-                      alt={cert.caption}
-                      loading="lazy"
-                      className="max-h-16 w-auto max-w-[85%] object-contain transition-opacity duration-300 group-hover/item:opacity-0"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-primary p-3 text-center opacity-0 transition-opacity duration-300 group-hover/item:opacity-100">
-                      <p className="text-xs font-medium leading-relaxed text-primary-foreground">
-                        {cert.caption}
-                      </p>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ul className="mt-12 flex flex-wrap items-center justify-center gap-12 sm:gap-16">
+            {h.certifications.map((cert, i) => (
+              <li key={cert.caption} className="flex flex-col items-center gap-4 text-center">
+                <img
+                  src={certLogos[i]}
+                  alt={cert.caption}
+                  loading="lazy"
+                  className="h-24 w-auto object-contain"
+                />
+                <p className="max-w-[15rem] text-xs font-medium leading-relaxed text-primary-foreground/70">
+                  {cert.caption}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      {/* 6. Nalatenschapscheck */}
+      {/* 8. Nalatenschapscheck */}
       <section className="bg-background pt-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-[2rem] border border-border/60 bg-secondary/50 p-8 text-center shadow-[var(--shadow-soft)] sm:p-12">
@@ -313,7 +393,7 @@ function Index() {
         </div>
       </section>
 
-      {/* 7. Free guide */}
+      {/* 9. Free guide */}
       <section className="bg-background py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 rounded-[2rem] border border-border/60 bg-secondary/50 p-8 shadow-[var(--shadow-soft)] sm:p-12 lg:grid-cols-2">
@@ -322,9 +402,7 @@ function Index() {
                 {h.guideEyebrow}
               </p>
               <h2 className="text-3xl text-primary sm:text-4xl">{h.guideTitle}</h2>
-              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                {h.guideIntro}
-              </p>
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.guideIntro}</p>
               <ul className="mt-6 space-y-3">
                 {h.guideChecklist.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-foreground">
@@ -372,7 +450,7 @@ function Index() {
         </div>
       </section>
 
-      {/* 7. Final CTA */}
+      {/* 10. Final CTA */}
       <section className="relative isolate overflow-hidden">
         <img
           src={ctaImg}
