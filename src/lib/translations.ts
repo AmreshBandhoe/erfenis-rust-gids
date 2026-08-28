@@ -163,33 +163,6 @@ const nl = {
       },
     ],
 
-    processEyebrow: "Hoe wij werken",
-    processTitle: "In vijf rustige stappen alles goed geregeld",
-    processIntro: "Een helder en persoonlijk traject, afgestemd op uw wensen en behoeften.",
-
-    steps: [
-      {
-        title: "Kennismaking",
-        text: "We starten met een vrijblijvend gesprek waarin we naar uw situatie en wensen luisteren.",
-      },
-      {
-        title: "In kaart brengen",
-        text: "Samen brengen we uw nalatenschap, familie en wensen helder en volledig in beeld.",
-      },
-      {
-        title: "Persoonlijk plan",
-        text: "U ontvangt een duidelijk advies op maat, in begrijpelijke taal en afgestemd op uw situatie.",
-      },
-      {
-        title: "Samen regelen",
-        text: "We regelen alles zorgvuldig en begeleiden u bij elke stap die nodig is.",
-      },
-      {
-        title: "Rust en nazorg",
-        text: "Ook daarna blijven we bereikbaar, zodat u en uw nabestaanden er nooit alleen voor staan.",
-      },
-    ],
-
     certTitle: "Onze certificeringen en samenwerkingspartners",
 
     certifications: [
