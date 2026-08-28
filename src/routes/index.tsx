@@ -91,7 +91,7 @@ function Index() {
                 size="lg"
                 className="rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
               >
-                <Link to="/contact">{h.heroCta}</Link>
+                <Link to="/bij-leven-regelen">{h.heroCta}</Link>
               </Button>
               <Button
                 asChild
@@ -101,6 +101,7 @@ function Index() {
               >
                 <Link to="/hulp-bij-erfenis">{h.heroSecondary}</Link>
               </Button>
+
             </div>
           </div>
         </div>
