@@ -1,16 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-import {
-  ScrollText,
-  ShieldCheck,
-  Gift,
-  Home,
-  Users,
-  User,
-  Building2,
-  CheckCircle2,
-} from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { CheckCircle2, ClipboardCheck, FolderHeart, ArrowRight } from "lucide-react";
 import { ContentHero } from "@/components/ContentHero";
-import { CtaSection } from "@/components/CtaSection";
+import { Button } from "@/components/ui/button";
 import { useT } from "@/lib/i18n";
 import heroImg from "@/assets/bijleven-hero.jpg";
 
@@ -21,7 +12,7 @@ export const Route = createFileRoute("/bij-leven-regelen")({
       {
         name: "description",
         content:
-          "Regel uw nalatenschap zorgvuldig bij leven: testament, levenstestament en schenkingen. Voorkom problemen voor nabestaanden en bespaar erfbelasting.",
+          "Leg uw documenten, financiële gegevens en wensen nu vast in een Persoonlijk Levensdossier. Compleet traject met persoonlijke begeleiding voor €599.",
       },
       { property: "og:title", content: "Bij leven regelen — De Erfeniswijzer" },
       {
@@ -36,12 +27,10 @@ export const Route = createFileRoute("/bij-leven-regelen")({
   component: BijLevenRegelen,
 });
 
-const topicIcons = [ScrollText, ShieldCheck, Gift];
-const situationIcons = [Users, User, Home, Building2];
-
 function BijLevenRegelen() {
   const t = useT();
   const h = t.bijleven;
+
 
   return (
     <>
@@ -80,70 +69,117 @@ function BijLevenRegelen() {
         </div>
       </section>
 
-      {/* Topics */}
+      {/* Overview */}
       <section className="bg-secondary/50 py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-              {h.topicsEyebrow}
-            </p>
-            <h2 className="text-3xl text-primary sm:text-4xl">{h.topicsTitle}</h2>
-          </div>
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {h.topics.map((topic, i) => {
-              const Icon = topicIcons[i];
-              return (
-                <div
-                  key={topic.title}
-                  className="group flex flex-col rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]"
-                >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
-                    <Icon className="h-7 w-7" strokeWidth={1.6} />
-                  </div>
-                  <h3 className="mt-6 text-xl leading-snug text-primary">{topic.title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                    {topic.text}
-                  </p>
-                </div>
-              );
-            })}
+          <div className="grid items-start gap-14 lg:grid-cols-2">
+            <div>
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+                {h.overviewEyebrow}
+              </p>
+              <h2 className="text-3xl text-primary sm:text-4xl">{h.overviewTitle}</h2>
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+                {h.overviewText}
+              </p>
+            </div>
+            <div className="rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] sm:p-10">
+              <h3 className="text-xl text-primary">{h.overviewListTitle}</h3>
+              <ul className="mt-6 space-y-4">
+                {h.overviewList.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-foreground">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
+                    <span className="leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Situations */}
+      {/* Nalatenschapscheck */}
       <section className="bg-background py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-              {h.situationsEyebrow}
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-[2rem] border border-border/60 bg-secondary/50 p-8 text-center shadow-[var(--shadow-soft)] sm:p-12">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+              <ClipboardCheck className="h-7 w-7" strokeWidth={1.6} />
+            </div>
+            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+              {h.checkEyebrow}
             </p>
-            <h2 className="text-3xl text-primary sm:text-4xl">{h.situationsTitle}</h2>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              {h.situationsIntro}
-            </p>
-          </div>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {h.situations.map((s, i) => {
-              const Icon = situationIcons[i];
-              return (
-                <div
-                  key={s.title}
-                  className="rounded-3xl border border-border/60 bg-card p-7 shadow-[var(--shadow-soft)]"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-secondary text-primary">
-                    <Icon className="h-6 w-6" strokeWidth={1.75} />
-                  </div>
-                  <h3 className="mt-4 text-lg text-primary">{s.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
-                </div>
-              );
-            })}
+            <h2 className="mt-3 text-3xl text-primary sm:text-4xl">{h.checkTitle}</h2>
+            <p className="mt-3 font-display text-2xl text-primary">{h.checkSubtitle}</p>
+            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{h.checkText}</p>
+            <Button
+              asChild
+              size="lg"
+              className="mt-8 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground hover:bg-accent/90"
+            >
+              <Link to="/nalatenschapscheck">
+                {h.checkCta}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      <CtaSection title={h.ctaTitle} text={h.ctaText} ctaLabel={h.ctaLabel} />
+      {/* Levensdossier */}
+      <section className="bg-secondary/50 py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid items-start gap-14 lg:grid-cols-2">
+            <div>
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+                {h.dossierEyebrow}
+              </p>
+              <h2 className="text-3xl text-primary sm:text-4xl">{h.dossierTitle}</h2>
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+                {h.dossierText1}
+              </p>
+              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+                {h.dossierText2}
+              </p>
+            </div>
+            <div className="rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] sm:p-10">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+                <FolderHeart className="h-7 w-7" strokeWidth={1.6} />
+              </div>
+              <ul className="mt-6 space-y-4">
+                {h.dossierList.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-foreground">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
+                    <span className="leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Price */}
+      <section className="bg-primary py-24 text-primary-foreground">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+          <h2 className="text-4xl leading-tight text-primary-foreground sm:text-5xl md:text-6xl">
+            {h.priceTitle}
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/90">
+            {h.priceText}
+          </p>
+          <Button
+            asChild
+            size="lg"
+            className="mt-10 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
+          >
+            <Link to="/contact">
+              {h.priceCta}
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+          <p className="mt-12 font-display text-2xl italic text-accent">“{h.quote}”</p>
+        </div>
+      </section>
     </>
   );
 }
+

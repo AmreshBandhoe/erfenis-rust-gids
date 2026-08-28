@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as OverOnsRouteImport } from './routes/over-ons'
 import { Route as NalatenschapsmediationRouteImport } from './routes/nalatenschapsmediation'
+import { Route as NalatenschapscheckRouteImport } from './routes/nalatenschapscheck'
 import { Route as KennisbankRouteImport } from './routes/kennisbank'
 import { Route as HulpBijErfenisRouteImport } from './routes/hulp-bij-erfenis'
 import { Route as GratisGidsRouteImport } from './routes/gratis-gids'
@@ -29,6 +30,11 @@ const OverOnsRoute = OverOnsRouteImport.update({
 const NalatenschapsmediationRoute = NalatenschapsmediationRouteImport.update({
   id: '/nalatenschapsmediation',
   path: '/nalatenschapsmediation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NalatenschapscheckRoute = NalatenschapscheckRouteImport.update({
+  id: '/nalatenschapscheck',
+  path: '/nalatenschapscheck',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KennisbankRoute = KennisbankRouteImport.update({
@@ -87,6 +93,7 @@ export interface FileRoutesByFullPath {
   '/gratis-gids': typeof GratisGidsRoute
   '/hulp-bij-erfenis': typeof HulpBijErfenisRoute
   '/kennisbank': typeof KennisbankRoute
+  '/nalatenschapscheck': typeof NalatenschapscheckRoute
   '/nalatenschapsmediation': typeof NalatenschapsmediationRoute
   '/over-ons': typeof OverOnsRoute
 }
@@ -100,6 +107,7 @@ export interface FileRoutesByTo {
   '/gratis-gids': typeof GratisGidsRoute
   '/hulp-bij-erfenis': typeof HulpBijErfenisRoute
   '/kennisbank': typeof KennisbankRoute
+  '/nalatenschapscheck': typeof NalatenschapscheckRoute
   '/nalatenschapsmediation': typeof NalatenschapsmediationRoute
   '/over-ons': typeof OverOnsRoute
 }
@@ -114,6 +122,7 @@ export interface FileRoutesById {
   '/gratis-gids': typeof GratisGidsRoute
   '/hulp-bij-erfenis': typeof HulpBijErfenisRoute
   '/kennisbank': typeof KennisbankRoute
+  '/nalatenschapscheck': typeof NalatenschapscheckRoute
   '/nalatenschapsmediation': typeof NalatenschapsmediationRoute
   '/over-ons': typeof OverOnsRoute
 }
@@ -129,6 +138,7 @@ export interface FileRouteTypes {
     | '/gratis-gids'
     | '/hulp-bij-erfenis'
     | '/kennisbank'
+    | '/nalatenschapscheck'
     | '/nalatenschapsmediation'
     | '/over-ons'
   fileRoutesByTo: FileRoutesByTo
@@ -142,6 +152,7 @@ export interface FileRouteTypes {
     | '/gratis-gids'
     | '/hulp-bij-erfenis'
     | '/kennisbank'
+    | '/nalatenschapscheck'
     | '/nalatenschapsmediation'
     | '/over-ons'
   id:
@@ -155,6 +166,7 @@ export interface FileRouteTypes {
     | '/gratis-gids'
     | '/hulp-bij-erfenis'
     | '/kennisbank'
+    | '/nalatenschapscheck'
     | '/nalatenschapsmediation'
     | '/over-ons'
   fileRoutesById: FileRoutesById
@@ -169,6 +181,7 @@ export interface RootRouteChildren {
   GratisGidsRoute: typeof GratisGidsRoute
   HulpBijErfenisRoute: typeof HulpBijErfenisRoute
   KennisbankRoute: typeof KennisbankRoute
+  NalatenschapscheckRoute: typeof NalatenschapscheckRoute
   NalatenschapsmediationRoute: typeof NalatenschapsmediationRoute
   OverOnsRoute: typeof OverOnsRoute
 }
@@ -187,6 +200,13 @@ declare module '@tanstack/react-router' {
       path: '/nalatenschapsmediation'
       fullPath: '/nalatenschapsmediation'
       preLoaderRoute: typeof NalatenschapsmediationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nalatenschapscheck': {
+      id: '/nalatenschapscheck'
+      path: '/nalatenschapscheck'
+      fullPath: '/nalatenschapscheck'
+      preLoaderRoute: typeof NalatenschapscheckRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kennisbank': {
@@ -265,6 +285,7 @@ const rootRouteChildren: RootRouteChildren = {
   GratisGidsRoute: GratisGidsRoute,
   HulpBijErfenisRoute: HulpBijErfenisRoute,
   KennisbankRoute: KennisbankRoute,
+  NalatenschapscheckRoute: NalatenschapscheckRoute,
   NalatenschapsmediationRoute: NalatenschapsmediationRoute,
   OverOnsRoute: OverOnsRoute,
 }
