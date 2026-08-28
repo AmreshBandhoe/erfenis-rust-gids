@@ -18,6 +18,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { QuestionCarousel } from "@/components/QuestionCarousel";
 import { useT } from "@/lib/i18n";
 
 import heroImg from "@/assets/home-hero.jpg";
@@ -123,19 +124,16 @@ function Index() {
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.questionsIntro}</p>
           </div>
 
-          <ul className="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-            {h.questions.map((question, i) => {
-              const Icon = questionIcons[i];
-              return (
-                <li key={question} className="group">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
-                    <Icon className="h-7 w-7" strokeWidth={1.6} aria-hidden="true" />
-                  </div>
-                  <p className="mt-5 text-base leading-relaxed text-foreground/85">{question}</p>
-                </li>
-              );
-            })}
-          </ul>
+          <div className="mt-14">
+            <QuestionCarousel
+              items={h.questions.map((question, i) => ({
+                question,
+                Icon: questionIcons[i],
+              }))}
+              prevLabel={h.questionsPrev}
+              nextLabel={h.questionsNext}
+            />
+          </div>
         </div>
       </section>
 

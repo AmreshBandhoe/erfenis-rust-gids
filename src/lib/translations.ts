@@ -55,6 +55,8 @@ const nl = {
 
     questionsEyebrow: "Wat komt er op u af?",
     questionsTitle: "Na het afscheid begint vaak het uitzoeken",
+    questionsPrev: "Vorige vragen",
+    questionsNext: "Volgende vragen",
     questionsIntro:
       "Een overlijden zet niet alleen het leven stil. Het brengt ook een lange lijst aan vragen en verplichtingen met zich mee.",
 
