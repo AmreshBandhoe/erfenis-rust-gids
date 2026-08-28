@@ -1,16 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-import {
-  ScrollText,
-  ShieldCheck,
-  Gift,
-  Home,
-  Users,
-  User,
-  Building2,
-  CheckCircle2,
-} from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { CheckCircle2, ClipboardCheck, FolderHeart, ArrowRight } from "lucide-react";
 import { ContentHero } from "@/components/ContentHero";
-import { CtaSection } from "@/components/CtaSection";
+import { Button } from "@/components/ui/button";
 import { useT } from "@/lib/i18n";
 import heroImg from "@/assets/bijleven-hero.jpg";
 
@@ -21,7 +12,7 @@ export const Route = createFileRoute("/bij-leven-regelen")({
       {
         name: "description",
         content:
-          "Regel uw nalatenschap zorgvuldig bij leven: testament, levenstestament en schenkingen. Voorkom problemen voor nabestaanden en bespaar erfbelasting.",
+          "Leg uw documenten, financiële gegevens en wensen nu vast in een Persoonlijk Levensdossier. Compleet traject met persoonlijke begeleiding voor €599.",
       },
       { property: "og:title", content: "Bij leven regelen — De Erfeniswijzer" },
       {
@@ -36,12 +27,10 @@ export const Route = createFileRoute("/bij-leven-regelen")({
   component: BijLevenRegelen,
 });
 
-const topicIcons = [ScrollText, ShieldCheck, Gift];
-const situationIcons = [Users, User, Home, Building2];
-
 function BijLevenRegelen() {
   const t = useT();
   const h = t.bijleven;
+
 
   return (
     <>
