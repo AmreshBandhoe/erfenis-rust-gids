@@ -53,6 +53,61 @@ const nl = {
     heroCta: "Ik wil mijn nalatenschap regelen",
     heroSecondary: "Ik heb hulp nodig na een overlijden",
 
+    questionsEyebrow: "Wat komt er op u af?",
+    questionsTitle: "Na het afscheid begint vaak het uitzoeken",
+    questionsPrev: "Vorige vragen",
+    questionsNext: "Volgende vragen",
+    questionsIntro:
+      "Een overlijden zet niet alleen het leven stil. Het brengt ook een lange lijst aan vragen en verplichtingen met zich mee.",
+
+    questions: [
+      "Waar liggen de belangrijke documenten?",
+      "Welke bankrekeningen, verzekeringen en schulden zijn er?",
+      "Welke instanties moeten worden geïnformeerd?",
+      "Wat gebeurt er met de woning en de inboedel?",
+      "Wie zijn de erfgenamen en wie mag beslissingen nemen?",
+      "Wanneer moet de aangifte erfbelasting worden gedaan?",
+      "Wat gebeurt er met abonnementen, accounts en digitale bezittingen?",
+      "En wat als erfgenamen verschillend denken over de verdeling?",
+    ],
+
+    questionsOutro:
+      "Juist in een periode van verdriet wordt van nabestaanden verwacht dat zij overzicht houden en belangrijke keuzes maken. Vaak zonder precies te weten waar zij moeten beginnen.",
+    questionsClosing: "En dat is waar De Erfeniswijzer aan te pas komt.",
+
+    helpEyebrow: "Hulp na overlijden",
+    helpTitle: "U hoeft het niet alleen uit te zoeken",
+    helpIntro:
+      "De Erfeniswijzer is uw vaste aanspreekpunt tijdens de afwikkeling van de nalatenschap. Wij brengen in kaart wat er moet gebeuren, bewaken het overzicht en nemen waar mogelijk werkzaamheden uit handen.",
+    helpNetwork:
+      "Wanneer specialistische kennis nodig is, schakelen wij vanuit ons netwerk de juiste deskundige in. Zo hoeft u niet zelf langs verschillende partijen en weet u dat iedere stap zorgvuldig wordt begeleid.",
+    helpListTitle: "Denk hierbij o.a. aan:",
+
+    helpItems: [
+      "Contact met banken, verzekeraars, pensioenuitvoerders en overheidsinstanties",
+      "Afstemming met de notaris over het testament en de verklaring van erfrecht",
+      "Aangifte erfbelasting en fiscale afwikkeling via een fiscaal adviseur",
+      "Begeleiding door een makelaar of taxateur bij een woning",
+      "Aandacht voor digitale nalatenschap en online accounts",
+      "Inschakeling van een bedrijfskundig specialist bij ondernemingsvermogen, bedrijfsopvolging of verkoop",
+      "Begeleiding door een mediator bij spanningen tussen erfgenamen",
+    ],
+
+    helpCta: "Bekijk onze hulp na overlijden",
+
+    prepEyebrow: "Vooraf goed regelen",
+    prepTitle: "Veel zorgen van later kunt u vandaag voorkomen",
+    prepIntro:
+      "Door uw documenten, financiële gegevens en persoonlijke wensen nu overzichtelijk vast te leggen, voorkomt u dat anderen later moeten zoeken, raden of beslissen.",
+
+    prepItems: [
+      "Alles overzichtelijk op één plek",
+      "Duidelijkheid over uw wensen",
+      "Inzicht in bezittingen, schulden en verzekeringen",
+      "Rust voor uzelf en uw nabestaanden",
+    ],
+
+    prepCta: "Bekijk wat u bij leven kunt regelen",
 
     whyEyebrow: "Waarom De Erfeniswijzer?",
     whyTitle: "Nalatenschap als laatste daad van liefde en zorg",
@@ -78,10 +133,12 @@ const nl = {
       },
     ],
 
-    servicesEyebrow: "Onze diensten",
-    servicesTitle: "Deskundige hulp bij elke vraag",
+    servicesEyebrow: "Onze begeleiding",
+    servicesTitle: "Eén aanspreekpunt voor alles wat geregeld moet worden",
     servicesIntro:
-      "Of u nu wilt regelen bij leven of een erfenis moet afwikkelen, wij staan met raad en daad naast u.",
+      "Een nalatenschap raakt administratie, familieverhoudingen, belastingen, juridische vragen en persoonlijke wensen. U hoeft daarvoor niet zelf langs verschillende deskundigen.",
+    servicesIntro2:
+      "De Erfeniswijzer brengt uw situatie in kaart, bewaakt het overzicht en schakelt waar nodig de juiste specialist in.",
 
     services: [
       {
@@ -106,76 +163,37 @@ const nl = {
       },
     ],
 
-    processEyebrow: "Hoe wij werken",
-    processTitle: "In vijf rustige stappen alles goed geregeld",
-    processIntro:
-      "Een helder en persoonlijk traject, afgestemd op uw wensen en behoeften.",
-
-    steps: [
-      {
-        title: "Kennismaking",
-        text: "We starten met een vrijblijvend gesprek waarin we naar uw situatie en wensen luisteren.",
-      },
-      {
-        title: "In kaart brengen",
-        text: "Samen brengen we uw nalatenschap, familie en wensen helder en volledig in beeld.",
-      },
-      {
-        title: "Persoonlijk plan",
-        text: "U ontvangt een duidelijk advies op maat, in begrijpelijke taal en afgestemd op uw situatie.",
-      },
-      {
-        title: "Samen regelen",
-        text: "We regelen alles zorgvuldig en begeleiden u bij elke stap die nodig is.",
-      },
-      {
-        title: "Rust en nazorg",
-        text: "Ook daarna blijven we bereikbaar, zodat u en uw nabestaanden er nooit alleen voor staan.",
-      },
-    ],
-
     certTitle: "Onze certificeringen en samenwerkingspartners",
 
     certifications: [
       { caption: "ICR Certified Coach Register (ISO 9001 / ISO 17024)" },
-      { caption: "ADR Kwaliteitsregister (ISO 9001 / ISO 17024)" },
       { caption: "ICA Associate Member (Compliance & Integriteit)" },
-      { caption: "VCM opleiders — Erkend opleidingsinstituut beroepsopleidingen" },
-      { caption: "QUINTAX Belastingadviseurs — Fiscaal expert in nalatenschappen & erfbelasting" },
+      { caption: "ADR Kwaliteitsregister (ISO 9001 / ISO 17024)" },
     ],
 
-    checkEyebrow: "Gratis nalatenschapscheck",
-    checkTitle: "Hoe goed is uw nalatenschap eigenlijk geregeld?",
-    checkSubtitle: "Doe de gratis nalatenschapscheck",
-    checkText: "Beantwoord vijf eenvoudige vragen en ontdek waar u staat.",
-    checkCta: "Start uw persoonlijke nalatenschapscheck",
-
-    guideEyebrow: "Gratis starten",
-
-    guideTitle: "Onze gratis checklist nalatenschap",
-    guideIntro:
-      "Zet vandaag de eerste stap en ontdek met onze praktische checklist wat u voor uw nalatenschap nog moet regelen.",
-    guideChecklist: [
-      "Stap-voor-stap overzicht van wat te regelen",
-      "Praktische checklist voor uw documenten",
-      "Tips om erfbelasting eerlijk te beperken",
-    ],
-    guideCta: "Download de gratis checklist",
-    guideCardTitle: "Checklist Nalatenschap",
-    guideCardSub: "PDF · gratis · direct beschikbaar",
-    guideCardItems: [
-      "Wensen & waarden vastleggen",
-      "Testament of levenstestament",
-      "Erfgenamen & verdeling",
-      "Financiën & eigen woning",
-      "Belangrijke documenten verzamelen",
+    scanEyebrow: "Gratis nalatenschapscheck",
+    scanTitle: "Weet u hoe goed uw nalatenschap is geregeld?",
+    scanIntro:
+      "Veel mensen denken dat alles duidelijk is, totdat zij zichzelf een paar concrete vragen stellen. Met de gratis Nalatenschapscheck ontdekt u binnen 2 minuten welke zaken al goed geregeld zijn en waar mogelijk nog aandacht nodig is.",
+    scanBullets: ["Slechts 5 korte vragen", "Direct inzicht in uw situatie", "Geen verplichtingen"],
+    scanCta: "Start uw persoonlijke nalatenschapscheck",
+    scanCardFooter: "U ontvangt direct een persoonlijk overzicht van uw situatie.",
+    scanCardTitle: "Nalatenschapscheck",
+    scanCardSub: "5 vragen · 2 minuten · gratis",
+    scanCardItems: [
+      "Is er een testament of levenstestament?",
+      "Weet u wie de nalatenschap gaat regelen?",
+      "Zijn uw belangrijke documenten vindbaar?",
+      "Heeft u zicht op de erfbelasting?",
+      "Zijn uw digitale accounts geregeld?",
     ],
 
-    finalCtaTitle: "Laat uw nalatenschap een daad van liefde zijn",
+    finalCtaTitle: "Stel belangrijke zaken niet uit tot anderen ze moeten oplossen",
     finalCtaText:
-      "Plan vrijblijvend een persoonlijk adviesgesprek. Samen zorgen we voor rust, duidelijkheid en vertrouwen, voor u en voor uw nabestaanden.",
-    finalCtaPrimary: "Gratis adviesgesprek aanvragen",
-    finalCtaSecondary: "Maak kennis met ons team",
+      "Of u nu vooruit wilt kijken of midden in de afwikkeling van een erfenis zit, een eerste gesprek kan snel rust en duidelijkheid geven.",
+    finalCtaText2:
+      "Vertel ons wat er speelt. Dan kijken we samen welke begeleiding bij uw situatie past.",
+    finalCtaPrimary: "Plan een gratis adviesgesprek",
   },
 
   hulp: {
@@ -231,7 +249,6 @@ const nl = {
         text: "Een nalatenschap kan bestaande spanningen versterken of nieuwe meningsverschillen veroorzaken. Wij helpen om belangen en afspraken inzichtelijk te maken en begeleiden het gesprek. Indien nodig schakelen wij een gespecialiseerde mediator in.",
       },
     ],
-
 
     ctaTitle: "Laat de zorgen aan ons over",
     ctaText:
@@ -292,13 +309,11 @@ const nl = {
     ],
 
     priceTitle: "Compleet traject voor €599",
-    priceText:
-      "Persoonlijke begeleiding. Een compleet levensdossier. Voor één vast tarief.",
+    priceText: "Persoonlijke begeleiding. Een compleet levensdossier. Voor één vast tarief.",
     priceCta: "Stel mijn levensdossier samen",
 
     quote: "Leg vandaag vast wat u later niet meer zelf kunt uitleggen.",
     ctaLabel: "Start met een persoonlijk adviesgesprek",
-
   },
 
   // NB: onderstaande drie namespaces (executeurschap, mediation, erfbelasting) bevatten
@@ -455,29 +470,25 @@ const nl = {
       },
       {
         title: "Hoe werkt erfbelasting?",
-        excerpt:
-          "Wie betaalt hoeveel, welke vrijstellingen gelden er en hoe doet u aangifte?",
+        excerpt: "Wie betaalt hoeveel, welke vrijstellingen gelden er en hoe doet u aangifte?",
         category: "afwikkeling" as const,
         readingTime: "6 min",
       },
       {
         title: "Levenstestament: waarom is het belangrijk?",
-        excerpt:
-          "Regel bij leven wie er namens u beslist als u dat zelf niet meer kunt.",
+        excerpt: "Regel bij leven wie er namens u beslist als u dat zelf niet meer kunt.",
         category: "voorbereiding" as const,
         readingTime: "4 min",
       },
       {
         title: "Nalatenschap bij een samengesteld gezin",
-        excerpt:
-          "Voorkom onbedoelde gevolgen en zorg dat iedereen eerlijk wordt meegenomen.",
+        excerpt: "Voorkom onbedoelde gevolgen en zorg dat iedereen eerlijk wordt meegenomen.",
         category: "voorbereiding" as const,
         readingTime: "7 min",
       },
       {
         title: "Wat te doen bij overlijden: de checklist",
-        excerpt:
-          "Een overzichtelijk stappenplan voor de eerste dagen en weken na een overlijden.",
+        excerpt: "Een overzichtelijk stappenplan voor de eerste dagen en weken na een overlijden.",
         category: "afwikkeling" as const,
         readingTime: "5 min",
       },
@@ -490,15 +501,13 @@ const nl = {
       },
       {
         title: "Schenken bij leven: slim en eerlijk besparen",
-        excerpt:
-          "Hoe u met schenkingen erfbelasting kunt beperken, volledig binnen de regels.",
+        excerpt: "Hoe u met schenkingen erfbelasting kunt beperken, volledig binnen de regels.",
         category: "voorbereiding" as const,
         readingTime: "5 min",
       },
       {
         title: "Een erfenis verdelen zonder ruzie",
-        excerpt:
-          "Praktische tips om de verdeling eerlijk en in goede harmonie te laten verlopen.",
+        excerpt: "Praktische tips om de verdeling eerlijk en in goede harmonie te laten verlopen.",
         category: "afwikkeling" as const,
         readingTime: "6 min",
       },
@@ -548,7 +557,6 @@ const nl = {
       },
     ],
 
-
     valuesEyebrow: "Onze waarden",
     valuesTitle: "Waar wij voor staan",
     values: [
@@ -590,8 +598,7 @@ const nl = {
       "Wij komen graag bij u langs. In een vertrouwde omgeving praat het vaak makkelijker over dit gevoelige onderwerp.",
 
     formTitle: "Stuur ons een bericht",
-    formSubtitle:
-      "Vul het formulier in en wij nemen binnen één werkdag contact met u op.",
+    formSubtitle: "Vul het formulier in en wij nemen binnen één werkdag contact met u op.",
     fieldName: "Naam",
     fieldNamePlaceholder: "Uw naam",
     fieldPhone: "Telefoon",
@@ -642,8 +649,7 @@ const nl = {
     ],
 
     formTitle: "Stuur mij de gratis gids",
-    formSubtitle:
-      "Vul uw naam en e-mailadres in, dan sturen wij de gids direct toe.",
+    formSubtitle: "Vul uw naam en e-mailadres in, dan sturen wij de gids direct toe.",
     fieldName: "Naam",
     fieldNamePlaceholder: "Uw naam",
     fieldEmail: "E-mail",
@@ -652,8 +658,7 @@ const nl = {
     privacy: "Wij gaan zorgvuldig en vertrouwelijk om met uw gegevens.",
 
     toastTitle: "Gelukt! De gids is onderweg.",
-    toastDesc:
-      "U ontvangt de Erfeniswijzer Gids binnen enkele minuten per e-mail.",
+    toastDesc: "U ontvangt de Erfeniswijzer Gids binnen enkele minuten per e-mail.",
 
     contentsEyebrow: "Een voorproefje",
     contentsTitle: "Wat staat er in de gids?",
@@ -789,7 +794,6 @@ const nl = {
     ctaSecondary: "Bekijk het Persoonlijk Levensdossier",
   },
 };
-
 
 export const translations = { nl } as const;
 export type Translations = typeof nl;
