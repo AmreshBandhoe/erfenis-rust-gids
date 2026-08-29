@@ -35,7 +35,7 @@ function Bedankt() {
   return (
     <>
       {/* Hero */}
-      <section className="relative isolate overflow-hidden">
+      <section className="on-dark relative isolate overflow-hidden">
         <img
           src={bedanktHero}
           alt="Oudere vrouw bij het raam in warm avondlicht, opgelucht en gerustgesteld"
@@ -63,7 +63,7 @@ function Bedankt() {
       <section className="bg-background py-24">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
               {h.stepsEyebrow}
             </p>
             <h2 className="text-3xl text-primary sm:text-4xl">{h.stepsTitle}</h2>
@@ -79,7 +79,9 @@ function Bedankt() {
                       <Icon className="h-7 w-7" strokeWidth={1.6} />
                     </span>
                     <h3 className="mt-6 text-xl text-primary">{step.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step.text}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      {step.text}
+                    </p>
                   </div>
                 </Reveal>
               );

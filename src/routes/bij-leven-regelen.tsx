@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckCircle2, ClipboardCheck, FolderHeart, ArrowRight } from "lucide-react";
 import { ContentHero } from "@/components/ContentHero";
+import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
 import { useT } from "@/lib/i18n";
 import heroImg from "@/assets/bijleven-hero.jpg";
@@ -31,7 +32,6 @@ function BijLevenRegelen() {
   const t = useT();
   const h = t.bijleven;
 
-
   return (
     <>
       <ContentHero
@@ -47,24 +47,27 @@ function BijLevenRegelen() {
       <section className="bg-background py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-start gap-14 lg:grid-cols-2">
-            <div>
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+            <Reveal>
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
                 {h.whyEyebrow}
               </p>
               <h2 className="text-3xl text-primary sm:text-4xl">{h.whyTitle}</h2>
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.whyText}</p>
-            </div>
-            <div className="rounded-3xl border border-border/60 bg-secondary/50 p-8 shadow-[var(--shadow-soft)] sm:p-10">
+            </Reveal>
+            <Reveal
+              className="rounded-3xl border border-border/60 bg-secondary/50 p-8 shadow-[var(--shadow-soft)] sm:p-10"
+              delay={120}
+            >
               <h3 className="text-xl text-primary">{h.benefitsTitle}</h3>
               <ul className="mt-6 space-y-4">
                 {h.benefits.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-foreground">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent-ink" />
                     <span className="leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -73,26 +76,27 @@ function BijLevenRegelen() {
       <section className="bg-secondary/50 py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-start gap-14 lg:grid-cols-2">
-            <div>
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+            <Reveal>
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
                 {h.overviewEyebrow}
               </p>
               <h2 className="text-3xl text-primary sm:text-4xl">{h.overviewTitle}</h2>
-              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                {h.overviewText}
-              </p>
-            </div>
-            <div className="rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] sm:p-10">
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.overviewText}</p>
+            </Reveal>
+            <Reveal
+              className="rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] sm:p-10"
+              delay={120}
+            >
               <h3 className="text-xl text-primary">{h.overviewListTitle}</h3>
               <ul className="mt-6 space-y-4">
                 {h.overviewList.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-foreground">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent-ink" />
                     <span className="leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -100,11 +104,11 @@ function BijLevenRegelen() {
       {/* Nalatenschapscheck */}
       <section className="bg-background py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-[2rem] border border-border/60 bg-secondary/50 p-8 text-center shadow-[var(--shadow-soft)] sm:p-12">
+          <Reveal className="rounded-[2rem] border border-border/60 bg-secondary/50 p-8 text-center shadow-[var(--shadow-soft)] sm:p-12">
             <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
               <ClipboardCheck className="h-7 w-7" strokeWidth={1.6} />
             </div>
-            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
               {h.checkEyebrow}
             </p>
             <h2 className="mt-3 text-3xl text-primary sm:text-4xl">{h.checkTitle}</h2>
@@ -120,7 +124,7 @@ function BijLevenRegelen() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -128,38 +132,37 @@ function BijLevenRegelen() {
       <section className="bg-secondary/50 py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-start gap-14 lg:grid-cols-2">
-            <div>
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+            <Reveal>
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
                 {h.dossierEyebrow}
               </p>
               <h2 className="text-3xl text-primary sm:text-4xl">{h.dossierTitle}</h2>
-              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                {h.dossierText1}
-              </p>
-              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-                {h.dossierText2}
-              </p>
-            </div>
-            <div className="rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] sm:p-10">
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.dossierText1}</p>
+              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{h.dossierText2}</p>
+            </Reveal>
+            <Reveal
+              className="rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] sm:p-10"
+              delay={120}
+            >
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
                 <FolderHeart className="h-7 w-7" strokeWidth={1.6} />
               </div>
               <ul className="mt-6 space-y-4">
                 {h.dossierList.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-foreground">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent-ink" />
                     <span className="leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
       {/* Price */}
-      <section className="bg-primary py-24 text-primary-foreground">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+      <section className="on-dark bg-primary py-24 text-primary-foreground">
+        <Reveal className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-4xl leading-tight text-primary-foreground sm:text-5xl md:text-6xl">
             {h.priceTitle}
           </h2>
@@ -177,9 +180,8 @@ function BijLevenRegelen() {
             </Link>
           </Button>
           <p className="mt-12 font-display text-2xl italic text-accent">“{h.quote}”</p>
-        </div>
+        </Reveal>
       </section>
     </>
   );
 }
-

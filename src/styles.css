@@ -41,6 +41,7 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-accent-ink: var(--accent-ink);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -77,62 +78,72 @@
   --popover: oklch(0.992 0.005 88.6);
   --popover-foreground: oklch(0.275 0.015 196.3);
 
-  --primary: oklch(0.327 0.051 189.0);
+  --primary: oklch(0.327 0.051 189);
   --primary-foreground: oklch(0.974 0.006 84.6);
 
   --secondary: oklch(0.94 0.012 88.6);
-  --secondary-foreground: oklch(0.327 0.051 189.0);
+  --secondary-foreground: oklch(0.327 0.051 189);
 
   --muted: oklch(0.94 0.012 88.6);
-  --muted-foreground: oklch(0.47 0.02 192.0);
+  --muted-foreground: oklch(0.47 0.02 192);
 
   --accent: oklch(0.791 0.081 83.7);
   --accent-foreground: oklch(0.275 0.015 196.3);
+  /*
+   * Goud als tekstkleur op lichte ondergrond. De heldere --accent haalt daar maar
+   * 1,8:1 en zakt dus ver onder WCAG AA; deze diepere variant haalt 5,7:1 op crème
+   * en 5,1:1 op --secondary. Vullingen — knoppen, icoontegels, randen — houden
+   * gewoon --accent, want donkere tekst op goud haalt al 7,6:1.
+   */
+  --accent-ink: oklch(0.5 0.09 78);
 
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.974 0.006 84.6);
 
   --border: oklch(0.9 0.012 88.6);
   --input: oklch(0.9 0.012 88.6);
-  --ring: oklch(0.791 0.081 83.7);
+  /* Het diepe teal in plaats van het bleke goud: een focusring van 1,8:1 is geen ring. */
+  --ring: oklch(0.327 0.051 189);
 
-  --chart-1: oklch(0.327 0.051 189.0);
+  --chart-1: oklch(0.327 0.051 189);
   --chart-2: oklch(0.791 0.081 83.7);
-  --chart-3: oklch(0.47 0.04 189.0);
+  --chart-3: oklch(0.47 0.04 189);
   --chart-4: oklch(0.65 0.07 83.7);
-  --chart-5: oklch(0.55 0.03 192.0);
+  --chart-5: oklch(0.55 0.03 192);
 
-  --sidebar: oklch(0.327 0.051 189.0);
+  --sidebar: oklch(0.327 0.051 189);
   --sidebar-foreground: oklch(0.974 0.006 84.6);
   --sidebar-primary: oklch(0.791 0.081 83.7);
   --sidebar-primary-foreground: oklch(0.275 0.015 196.3);
-  --sidebar-accent: oklch(0.38 0.05 189.0);
+  --sidebar-accent: oklch(0.38 0.05 189);
   --sidebar-accent-foreground: oklch(0.974 0.006 84.6);
-  --sidebar-border: oklch(0.38 0.05 189.0);
+  --sidebar-border: oklch(0.38 0.05 189);
   --sidebar-ring: oklch(0.791 0.081 83.7);
 }
 
 .dark {
-  --background: oklch(0.275 0.04 189.0);
+  --background: oklch(0.275 0.04 189);
   --foreground: oklch(0.974 0.006 84.6);
 
-  --card: oklch(0.327 0.051 189.0);
+  --card: oklch(0.327 0.051 189);
   --card-foreground: oklch(0.974 0.006 84.6);
 
-  --popover: oklch(0.327 0.051 189.0);
+  --popover: oklch(0.327 0.051 189);
   --popover-foreground: oklch(0.974 0.006 84.6);
 
   --primary: oklch(0.791 0.081 83.7);
   --primary-foreground: oklch(0.275 0.015 196.3);
 
-  --secondary: oklch(0.38 0.05 189.0);
+  --secondary: oklch(0.38 0.05 189);
   --secondary-foreground: oklch(0.974 0.006 84.6);
 
-  --muted: oklch(0.38 0.05 189.0);
+  --muted: oklch(0.38 0.05 189);
   --muted-foreground: oklch(0.8 0.02 88.6);
 
   --accent: oklch(0.791 0.081 83.7);
   --accent-foreground: oklch(0.275 0.015 196.3);
+  /* Op donkere ondergrond voldoet het heldere goud wél (6,2:1). */
+  --accent-ink: oklch(0.791 0.081 83.7);
 
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.974 0.006 84.6);
@@ -141,11 +152,11 @@
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.791 0.081 83.7);
 
-  --sidebar: oklch(0.327 0.051 189.0);
+  --sidebar: oklch(0.327 0.051 189);
   --sidebar-foreground: oklch(0.974 0.006 84.6);
   --sidebar-primary: oklch(0.791 0.081 83.7);
   --sidebar-primary-foreground: oklch(0.275 0.015 196.3);
-  --sidebar-accent: oklch(0.38 0.05 189.0);
+  --sidebar-accent: oklch(0.38 0.05 189);
   --sidebar-accent-foreground: oklch(0.974 0.006 84.6);
   --sidebar-border: oklch(1 0 0 / 12%);
   --sidebar-ring: oklch(0.791 0.081 83.7);
@@ -163,34 +174,46 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4, h5 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: -0.01em;
   }
 }
 
-/* Subtiele scroll-onthul animatie */
-@layer utilities {
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition:
-      opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
-  }
-
-  .reveal.is-visible {
-    opacity: 1;
-    transform: none;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .reveal {
-      opacity: 1;
-      transform: none;
-      transition: none;
-    }
-  }
+/*
+ * Kale links en knoppen kregen helemaal geen zichtbare focusring: de shadcn-
+ * componenten brengen hun eigen ring mee, maar de navigatie, de servicekaarten,
+ * de footer en alle tekstlinks niet. Toetsenbordbezoekers zagen dus nergens waar
+ * ze stonden.
+ *
+ * Deze regels staan bewust buiten @layer: Tailwind zet op veel componenten de
+ * utility `outline-none`, en alles in een laag verliest het van ongelaagde CSS —
+ * ongeacht specificiteit. Binnen @layer base bleef de ring daardoor onzichtbaar.
+ */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
 }
+
+/* Op de donkere secties valt het teal weg; daar pakt de ring het goud. */
+.on-dark a:focus-visible,
+.on-dark button:focus-visible,
+.on-dark [role="button"]:focus-visible {
+  outline-color: var(--color-accent);
+}
+
+/* De kaarten van de check en de <main> krijgen focus alleen om te sturen, niet om te tonen. */
+main:focus-visible,
+[data-focus-shift]:focus-visible {
+  outline: none;
+}
+
+/* De .reveal-klassen zijn vervallen: <Reveal> draait nu op Motion (zie src/lib/motion.ts). */

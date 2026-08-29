@@ -133,7 +133,7 @@ export function QuestionCarousel({ items, prevLabel, nextLabel }: QuestionCarous
         type="button"
         onClick={() => scrollByCard(-1)}
         aria-label={prevLabel}
-        className="absolute left-0 top-1/2 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-border/60 bg-background/80 text-primary backdrop-blur-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+        className="absolute left-0 top-1/2 flex h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-border/60 bg-background/80 text-primary backdrop-blur-sm transition-colors hover:bg-accent hover:text-accent-foreground"
       >
         <ArrowLeft className="h-4 w-4" aria-hidden="true" />
       </button>
@@ -141,7 +141,7 @@ export function QuestionCarousel({ items, prevLabel, nextLabel }: QuestionCarous
         type="button"
         onClick={() => scrollByCard(1)}
         aria-label={nextLabel}
-        className="absolute right-0 top-1/2 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-border/60 bg-background/80 text-primary backdrop-blur-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+        className="absolute right-0 top-1/2 flex h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-border/60 bg-background/80 text-primary backdrop-blur-sm transition-colors hover:bg-accent hover:text-accent-foreground"
       >
         <ArrowRight className="h-4 w-4" aria-hidden="true" />
       </button>

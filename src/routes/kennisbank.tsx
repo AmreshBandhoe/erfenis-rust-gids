@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { ContentHero } from "@/components/ContentHero";
 import { CtaSection } from "@/components/CtaSection";
 import { useT } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
+import { DURATION, EASE, stagger } from "@/lib/motion";
 import heroImg from "@/assets/kennisbank-hero.jpg";
 
 export const Route = createFileRoute("/kennisbank")({
@@ -19,8 +21,7 @@ export const Route = createFileRoute("/kennisbank")({
       { property: "og:title", content: "Kennisbank Nalatenschap & Erfenis — De Erfeniswijzer" },
       {
         property: "og:description",
-        content:
-          "Betrouwbare, begrijpelijke informatie over nalatenschap en erfenis op één plek.",
+        content: "Betrouwbare, begrijpelijke informatie over nalatenschap en erfenis op één plek.",
       },
       { property: "og:image", content: heroImg },
       { property: "twitter:image", content: heroImg },
@@ -35,6 +36,7 @@ function Kennisbank() {
   const t = useT();
   const h = t.kennisbank;
   const [active, setActive] = useState<Category | "alle">("alle");
+  const reduced = useReducedMotion();
 
   const filters = [
     { label: h.filterAll, value: "alle" as const },
@@ -47,10 +49,7 @@ function Kennisbank() {
     afwikkeling: h.categorySettle,
   };
 
-  const visible =
-    active === "alle"
-      ? h.articles
-      : h.articles.filter((a) => a.category === active);
+  const visible = active === "alle" ? h.articles : h.articles.filter((a) => a.category === active);
 
   return (
     <>
@@ -84,35 +83,51 @@ function Kennisbank() {
             ))}
           </div>
 
-          {/* Articles */}
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {visible.map((article) => (
-              <article
-                key={article.title}
-                className="group flex h-full flex-col rounded-3xl border border-border/60 bg-card p-7 shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]"
-              >
-                <div className="flex items-center gap-3 text-xs">
-                  <span className="rounded-full bg-secondary px-3 py-1 font-semibold uppercase tracking-wide text-primary">
-                    {categoryLabels[article.category]}
-                  </span>
-                  <span className="text-muted-foreground">
-                    {article.readingTime} {h.readingTime}
-                  </span>
-                </div>
-                <h2 className="mt-5 text-xl leading-snug text-primary">{article.title}</h2>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                  {article.excerpt}
-                </p>
-                <Link
-                  to="/contact"
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors group-hover:text-accent"
+          {/*
+            Anders dan elders is dit geen scroll-onthulling maar een filter-overgang:
+            de kaarten verschijnen ook opnieuw wanneer de bezoeker een categorie kiest,
+            zodat zichtbaar is dát de lijst is veranderd in plaats van dat hij stilletjes
+            een andere inhoud heeft.
+          */}
+          <motion.div layout className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <AnimatePresence mode="popLayout">
+              {visible.map((article, i) => (
+                <motion.article
+                  key={article.title}
+                  layout
+                  initial={reduced ? false : { opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={reduced ? { opacity: 0 } : { opacity: 0, y: -8 }}
+                  transition={{
+                    duration: DURATION.swap,
+                    ease: EASE,
+                    delay: reduced ? 0 : stagger(i, 50, 250) / 1000,
+                  }}
+                  className="group flex h-full flex-col rounded-3xl border border-border/60 bg-card p-7 shadow-[var(--shadow-soft)] transition-shadow hover:shadow-[var(--shadow-elegant)]"
                 >
-                  {h.readMore}
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </article>
-            ))}
-          </div>
+                  <div className="flex items-center gap-3 text-xs">
+                    <span className="rounded-full bg-secondary px-3 py-1 font-semibold uppercase tracking-wide text-primary">
+                      {categoryLabels[article.category]}
+                    </span>
+                    <span className="text-muted-foreground">
+                      {article.readingTime} {h.readingTime}
+                    </span>
+                  </div>
+                  <h2 className="mt-5 text-xl leading-snug text-primary">{article.title}</h2>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    {article.excerpt}
+                  </p>
+                  <Link
+                    to="/contact"
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors group-hover:text-accent-ink"
+                  >
+                    {h.readMore}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </motion.article>
+              ))}
+            </AnimatePresence>
+          </motion.div>
         </div>
       </section>
 
