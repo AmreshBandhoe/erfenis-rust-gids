@@ -718,8 +718,12 @@ const nl = {
     stepsTitle: "U hoeft verder even niets te doen",
     steps: [
       {
-        title: "Bevestiging in uw mailbox",
-        text: "U ontvangt direct een bevestiging. Heeft u een gids aangevraagd, dan vindt u die als bijlage.",
+        // Beloofde eerder "een bevestiging in uw mailbox" met "de gids als bijlage".
+        // Allebei niet waar: de gids wordt nooit als bijlage verstuurd (er is nog
+        // geen PDF), en de bevestigingsmail komt pas aan zodra erfeniswijzer.nl in
+        // Resend geverifieerd is. Deze tekst belooft alleen wat er echt gebeurt.
+        title: "Uw bericht staat genoteerd",
+        text: "Wij hebben uw gegevens goed ontvangen en kijken er persoonlijk naar.",
       },
       {
         title: "Persoonlijk contact",
