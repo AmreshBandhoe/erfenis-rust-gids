@@ -8,9 +8,11 @@ import { TeamAvatar } from "@/components/TeamAvatar";
 import { useT } from "@/lib/i18n";
 import { stagger } from "@/lib/motion";
 import heroImg from "@/assets/team-hero.jpg";
-import team1 from "@/assets/team-zainul-habieb.jpg";
-import team2 from "@/assets/team-gerard-van-de-kerkhof.jpg";
-import team3 from "@/assets/team-mark-van-geffen.jpg";
+import portretZainulHabieb from "@/assets/team-zainul-habieb.jpg";
+import portretGerardVanDeKerkhof from "@/assets/team-gerard-van-de-kerkhof.jpg";
+import portretMarkVanGeffen from "@/assets/team-mark-van-geffen.jpg";
+import portretHansSanders from "@/assets/team-hans-sanders.png";
+import portretYussufAbdi from "@/assets/team-yussuf-abdi.png";
 
 export const Route = createFileRoute("/over-ons")({
   head: () => ({
@@ -34,7 +36,19 @@ export const Route = createFileRoute("/over-ons")({
   component: OverOns,
 });
 
-const teamImages = [team1, team2, team3];
+/**
+ * Portret per teamlid, op naam in plaats van op volgorde. Met een array op index
+ * schuift alles een plek op zodra er iemand tussen wordt gezet — dan staat er een
+ * verkeerd gezicht bij een naam. Ontbreekt iemand hier, dan valt die terug op
+ * TeamAvatar met de initialen.
+ */
+const teamPortraits: Record<string, string> = {
+  "Zainul Habieb": portretZainulHabieb,
+  "Gerard van de Kerkhof": portretGerardVanDeKerkhof,
+  "Mark van Geffen": portretMarkVanGeffen,
+  "Hans Sanders": portretHansSanders,
+  "Yussuf Abdi": portretYussufAbdi,
+};
 const valueIcons = [Heart, GraduationCap, Compass];
 
 function OverOns() {
@@ -63,7 +77,7 @@ function OverOns() {
           </Reveal>
           <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {h.team.map((member, i) => {
-              const portrait = teamImages[i];
+              const portrait = teamPortraits[member.name];
               return (
                 <Reveal
                   key={member.name}
