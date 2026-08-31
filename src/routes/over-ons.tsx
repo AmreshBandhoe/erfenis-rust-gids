@@ -3,16 +3,16 @@ import { Heart, GraduationCap, Compass } from "lucide-react";
 import { ContentHero } from "@/components/ContentHero";
 import { Reveal } from "@/components/Reveal";
 import { CtaSection } from "@/components/CtaSection";
-import { TeamAvatar } from "@/components/TeamAvatar";
+import { TeamNetwork } from "@/components/TeamNetwork";
 
 import { useT } from "@/lib/i18n";
 import { stagger } from "@/lib/motion";
 import heroImg from "@/assets/team-hero.jpg";
-import portretZainulHabieb from "@/assets/team-zainul-habieb.jpg";
-import portretGerardVanDeKerkhof from "@/assets/team-gerard-van-de-kerkhof.jpg";
-import portretMarkVanGeffen from "@/assets/team-mark-van-geffen.jpg";
-import portretHansSanders from "@/assets/team-hans-sanders.png";
-import portretYussufAbdi from "@/assets/team-yussuf-abdi.png";
+import portretZainulHabieb from "@/assets/team-zainul-habieb-feature.jpg";
+import portretGerardVanDeKerkhof from "@/assets/team-gerard-van-de-kerkhof-sm.jpg";
+import portretMarkVanGeffen from "@/assets/team-mark-van-geffen-sm.jpg";
+import portretHansSanders from "@/assets/team-hans-sanders-sm.jpg";
+import portretYussufAbdi from "@/assets/team-yussuf-abdi-sm.jpg";
 
 export const Route = createFileRoute("/over-ons")({
   head: () => ({
@@ -41,9 +41,11 @@ export const Route = createFileRoute("/over-ons")({
  * schuift alles een plek op zodra er iemand tussen wordt gezet — dan staat er een
  * verkeerd gezicht bij een naam. Ontbreekt iemand hier, dan valt die terug op
  * TeamAvatar met de initialen.
+ *
+ * Twee maten: het aanspreekpunt wordt groot getoond, de specialisten klein. De
+ * bestanden komen uit scripts/optimize-portraits.mjs.
  */
-const teamPortraits: Record<string, string> = {
-  "Zainul Habieb": portretZainulHabieb,
+const specialistPortraits: Record<string, string> = {
   "Gerard van de Kerkhof": portretGerardVanDeKerkhof,
   "Mark van Geffen": portretMarkVanGeffen,
   "Hans Sanders": portretHansSanders,
@@ -75,37 +77,13 @@ function OverOns() {
             <h2 className="text-3xl text-primary sm:text-4xl">{h.teamTitle}</h2>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.teamIntro}</p>
           </Reveal>
-          <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {h.team.map((member, i) => {
-              const portrait = teamPortraits[member.name];
-              return (
-                <Reveal
-                  key={member.name}
-                  delay={stagger(i)}
-                  className="flex flex-col overflow-hidden rounded-3xl border border-border/60 bg-card shadow-[var(--shadow-soft)] transition-shadow hover:shadow-[var(--shadow-elegant)]"
-                >
-                  {portrait ? (
-                    <img
-                      src={portrait}
-                      alt={`${h.teamPortrait} ${member.name}`}
-                      width={1000}
-                      height={1000}
-                      loading="lazy"
-                      className="aspect-square w-full object-cover"
-                    />
-                  ) : (
-                    <TeamAvatar name={member.name} />
-                  )}
-                  <div className="p-7">
-                    <h3 className="text-xl text-primary">{member.name}</h3>
-                    <p className="mt-1 text-sm font-semibold text-accent-ink">{member.role}</p>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                      {member.bio}
-                    </p>
-                  </div>
-                </Reveal>
-              );
-            })}
+          <div className="mt-16">
+            <TeamNetwork
+              members={h.team}
+              principalPortrait={portretZainulHabieb}
+              specialistPortraits={specialistPortraits}
+              portraitLabel={h.teamPortrait}
+            />
           </div>
         </div>
       </section>
