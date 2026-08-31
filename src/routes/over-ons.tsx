@@ -7,7 +7,7 @@ import { TeamNetwork } from "@/components/TeamNetwork";
 
 import { useT } from "@/lib/i18n";
 import { stagger } from "@/lib/motion";
-import heroImg from "@/assets/team-hero.jpg";
+import heroImg from "@/assets/over-ons-hero.jpg";
 import portretZainulHabieb from "@/assets/team-zainul-habieb-feature.jpg";
 import portretGerardVanDeKerkhof from "@/assets/team-gerard-van-de-kerkhof-sm.jpg";
 import portretMarkVanGeffen from "@/assets/team-mark-van-geffen-sm.jpg";
@@ -61,7 +61,7 @@ function OverOns() {
     <>
       <ContentHero
         image={heroImg}
-        imageAlt="Het warme team van De Erfeniswijzer in een lichte, huiselijke ruimte"
+        imageAlt="Twee mensen aan een houten tafel met een map 'Familie & Toekomst', oude familiefoto's, een leesbril en een kop koffie"
         eyebrow={h.heroEyebrow}
         title={h.heroTitle}
         intro={h.heroIntro}

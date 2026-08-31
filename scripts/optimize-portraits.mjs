@@ -13,6 +13,7 @@
  */
 
 import { readFile, writeFile, stat } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -23,7 +24,15 @@ const assets = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "asset
 /** Weergavemaat × 2 voor retina. Zainuls bron haalt 560 niet; zie NOOIT OPSCHALEN. */
 const FEATURE = 560;
 const SMALL = 256;
+const HERO = 1600;
 const QUALITY = 82;
+
+/**
+ * Bronnen die niet in de repo staan. De hero-afbeelding is als PNG bijna 2 MB;
+ * die committen we niet, alleen de JPEG die eruit komt. Staat het bestand er niet,
+ * dan slaat het script die regel over in plaats van te struikelen.
+ */
+const EXTERNAL = join(process.env.USERPROFILE ?? process.env.HOME ?? "", "Pictures");
 
 const portraits = [
   { src: "team-zainul-habieb.jpg", out: "team-zainul-habieb-feature.jpg", size: FEATURE },
@@ -41,39 +50,57 @@ const portraits = [
   { src: "team-mark-van-geffen.jpg", out: "team-mark-van-geffen-sm.jpg", size: SMALL },
   { src: "team-hans-sanders.png", out: "team-hans-sanders-sm.jpg", size: SMALL },
   { src: "team-yussuf-abdi.png", out: "team-yussuf-abdi-sm.jpg", size: SMALL },
+  {
+    // Hero van /over-ons. Breed uitgesneden in plaats van vierkant: de sectie is
+    // full-bleed en snijdt met object-cover toch al een brede band uit het midden.
+    src: "hero-team.png",
+    srcDir: EXTERNAL,
+    out: "over-ons-hero.jpg",
+    size: HERO,
+    aspect: 3 / 2,
+  },
 ];
 
 const kb = (bytes) => `${Math.round(bytes / 1024)} KB`;
 
-for (const { src, out, size, crop } of portraits) {
-  const input = join(assets, src);
+for (const { src, out, size, crop, aspect = 1, srcDir } of portraits) {
+  const input = join(srcDir ?? assets, src);
+
+  if (srcDir && !existsSync(input)) {
+    console.log(`${src.padEnd(34)} overgeslagen — niet gevonden in ${srcDir}`);
+    continue;
+  }
+
   const original = sharp(await readFile(input));
   const { width, height } = await original.metadata();
 
   const image = crop ? original.extract(crop) : original;
   // Na een handmatige uitsnede is die uitsnede de bron, niet het hele bestand.
-  const shortest = crop ? Math.min(crop.width, crop.height) : Math.min(width, height);
+  const srcW = crop ? crop.width : width;
+  const srcH = crop ? crop.height : height;
 
-  // NOOIT OPSCHALEN: een portret groter maken dan de bron levert alleen een groter
-  // bestand op, geen extra detail. De kortste zijde is de bovengrens, want daaruit
-  // wordt het vierkant gesneden.
-  const target = Math.min(size, shortest);
+  // NOOIT OPSCHALEN: groter maken dan de bron levert alleen een groter bestand op,
+  // geen extra detail. De bron beperkt hoe breed het resultaat kan worden, waarbij
+  // de gevraagde verhouding wordt aangehouden.
+  const maxWidth = Math.min(srcW, Math.round(srcH * aspect));
+  const targetW = Math.min(size, maxWidth);
+  const targetH = Math.round(targetW / aspect);
 
   const buffer = await image
     // strategy.attention zoekt zelf het opvallendste gebied op, in de praktijk het
     // gezicht. Een vaste uitsnede werkt hier niet: Gerards bron is liggend (310x285)
     // met zijn hoofd rechts van het midden, dus zowel "top" als centreren levert een
     // cirkel op met vooral achtergrond erin.
-    .resize(target, target, { fit: "cover", position: sharp.strategy.attention })
+    .resize(targetW, targetH, { fit: "cover", position: sharp.strategy.attention })
     .jpeg({ quality: QUALITY, mozjpeg: true })
     .toBuffer();
 
   await writeFile(join(assets, out), buffer);
 
   const before = (await stat(input)).size;
-  const note = target < size ? `  (bron ${shortest}px, niet opgeschaald)` : "";
+  const note = targetW < size ? `  (bron ${maxWidth}px, niet opgeschaald)` : "";
   console.log(
-    `${src.padEnd(34)} ${width}x${height} ${kb(before).padStart(7)}` +
-      `  ->  ${out.padEnd(37)} ${target}x${target} ${kb(buffer.length).padStart(7)}${note}`,
+    `${src.padEnd(34)} ${width}x${height} ${kb(before).padStart(8)}` +
+      `  ->  ${out.padEnd(34)} ${targetW}x${targetH} ${kb(buffer.length).padStart(8)}${note}`,
   );
 }
