@@ -180,11 +180,17 @@ export function TeamNetwork({
                         )}
                       </span>
 
-                      <span className="text-center">
+                      {/*
+                        block + w-full is hier nodig, niet cosmetisch: zonder
+                        breedte groeit een span mee met zijn inhoud in plaats van
+                        af te breken. Hans' functie is 48 tekens en liep daardoor
+                        dwars over het label van Mark heen.
+                      */}
+                      <span className="block w-full text-center">
                         <span className="block font-display text-lg leading-snug text-primary">
                           {member.name}
                         </span>
-                        <span className="mt-0.5 block text-xs font-semibold leading-snug text-muted-foreground group-data-[state=active]:text-accent-ink">
+                        <span className="mt-1 block text-xs font-semibold leading-snug text-balance text-muted-foreground group-data-[state=active]:text-accent-ink">
                           {member.role}
                         </span>
                       </span>
