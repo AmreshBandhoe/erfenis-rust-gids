@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { motion, useReducedMotion } from "motion/react";
 import {
   Users,
-  Scale,
   ScrollText,
   Calculator,
   HeartHandshake,
@@ -19,7 +19,10 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { QuestionCarousel } from "@/components/QuestionCarousel";
+import { Reveal } from "@/components/Reveal";
+import { HeroIntro, HeroPiece } from "@/components/HeroIntro";
 import { useT } from "@/lib/i18n";
+import { stagger } from "@/lib/motion";
 
 import heroImg from "@/assets/home-hero.jpg";
 import whyImg from "@/assets/home-why.jpg";
@@ -62,37 +65,50 @@ const questionIcons = [
   MonitorSmartphone,
   MessagesSquare,
 ];
-const serviceIcons = [HeartHandshake, LifeBuoy, ScrollText, Calculator, Scale];
+const serviceIcons = [HeartHandshake, LifeBuoy, ScrollText, Calculator];
 const certLogos = [logoIcr, logoIca, logoAdr];
 
 function Index() {
   const t = useT();
   const h = t.home;
+  const reduced = useReducedMotion();
 
   return (
     <>
       {/* 1. Hero */}
-      <section className="relative isolate overflow-hidden">
-        <img
+      <section className="on-dark relative isolate overflow-hidden">
+        {/* Heel langzaam indrijven — 30 seconden voor 4%. Bedoeld om onbewust als
+            stilte te lezen, niet als een Ken Burns-effect. */}
+        <motion.img
           src={heroImg}
           alt="Warm, persoonlijk gesprek tussen een adviseur en een ouder echtpaar aan een houten tafel met thee"
           width={1920}
           height={1080}
+          fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover"
+          initial={{ scale: 1 }}
+          animate={reduced ? undefined : { scale: 1.04 }}
+          transition={{ duration: 30, ease: "linear" }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/30" />
         <div className="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col justify-center px-4 py-24 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-              {h.heroEyebrow}
-            </p>
-            <h1 className="text-5xl leading-[1.05] text-primary-foreground sm:text-6xl md:text-7xl">
-              {h.heroTitle}
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/90 sm:text-xl">
-              {h.heroIntro}
-            </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <HeroIntro className="max-w-2xl">
+            <HeroPiece>
+              <p className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+                {h.heroEyebrow}
+              </p>
+            </HeroPiece>
+            <HeroPiece>
+              <h1 className="text-5xl leading-[1.05] text-primary-foreground sm:text-6xl md:text-7xl">
+                {h.heroTitle}
+              </h1>
+            </HeroPiece>
+            <HeroPiece>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/90 sm:text-xl">
+                {h.heroIntro}
+              </p>
+            </HeroPiece>
+            <HeroPiece className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
               <Button
                 asChild
                 size="lg"
@@ -108,23 +124,23 @@ function Index() {
               >
                 <Link to="/hulp-bij-erfenis">{h.heroSecondary}</Link>
               </Button>
-            </div>
-          </div>
+            </HeroPiece>
+          </HeroIntro>
         </div>
       </section>
 
       {/* 2. Vragen na een overlijden */}
       <section className="bg-secondary/50 py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
               {h.questionsEyebrow}
             </p>
             <h2 className="text-3xl text-primary sm:text-4xl">{h.questionsTitle}</h2>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.questionsIntro}</p>
-          </div>
+          </Reveal>
 
-          <div className="mt-14">
+          <Reveal className="mt-14" delay={100}>
             <QuestionCarousel
               items={h.questions.map((question, i) => ({
                 question,
@@ -133,25 +149,25 @@ function Index() {
               prevLabel={h.questionsPrev}
               nextLabel={h.questionsNext}
             />
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* 3. Tussenstatement */}
-      <section className="bg-primary py-14 text-primary-foreground">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+      <section className="on-dark bg-primary py-14 text-primary-foreground">
+        <Reveal className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <p className="text-lg leading-relaxed text-primary-foreground/90 sm:text-xl">
             {h.questionsOutro} {h.questionsClosing}
           </p>
-        </div>
+        </Reveal>
       </section>
 
       {/* 4. Hulp na overlijden */}
       <section className="bg-background py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-14 lg:grid-cols-2">
-            <div>
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+            <Reveal>
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
                 {h.helpEyebrow}
               </p>
               <h2 className="text-3xl text-primary sm:text-4xl">{h.helpTitle}</h2>
@@ -174,23 +190,26 @@ function Index() {
               <div className="mt-8">
                 <Link
                   to="/hulp-bij-erfenis"
-                  className="group inline-flex items-center gap-1.5 text-base font-semibold text-accent"
+                  className="group inline-flex items-center gap-1.5 text-base font-semibold text-accent-ink"
                 >
                   {h.helpCta}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="flex flex-col rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] sm:p-10">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+            <Reveal
+              className="flex flex-col rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] sm:p-10"
+              delay={120}
+            >
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
                 {h.helpListTitle}
               </p>
               <ul className="mt-8 flex flex-1 flex-col justify-between gap-5">
                 {h.helpItems.map((item) => (
                   <li key={item} className="flex items-start gap-3.5">
                     <CheckCircle2
-                      className="mt-0.5 h-5 w-5 shrink-0 text-accent"
+                      className="mt-0.5 h-5 w-5 shrink-0 text-accent-ink"
                       strokeWidth={1.75}
                       aria-hidden="true"
                     />
@@ -198,7 +217,7 @@ function Index() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -207,7 +226,7 @@ function Index() {
       <section className="bg-secondary/50 py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-14 lg:grid-cols-2">
-            <div className="overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)] lg:order-2">
+            <Reveal className="overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)] lg:order-2">
               <img
                 src={prepareImg}
                 alt="Man legt aan een bureau bij daglicht zijn wensen en belangrijke documenten vast"
@@ -216,10 +235,10 @@ function Index() {
                 loading="lazy"
                 className="aspect-[4/3] h-full w-full object-cover lg:aspect-auto"
               />
-            </div>
+            </Reveal>
 
-            <div className="flex flex-col justify-center lg:order-1">
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+            <Reveal className="flex flex-col justify-center lg:order-1" delay={120}>
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
                 {h.prepEyebrow}
               </p>
               <h2 className="text-3xl text-primary sm:text-4xl">{h.prepTitle}</h2>
@@ -230,7 +249,7 @@ function Index() {
                 {h.prepItems.map((item) => (
                   <li key={item} className="flex items-start gap-3.5">
                     <CheckCircle2
-                      className="mt-0.5 h-5 w-5 shrink-0 text-accent"
+                      className="mt-0.5 h-5 w-5 shrink-0 text-accent-ink"
                       strokeWidth={1.75}
                       aria-hidden="true"
                     />
@@ -241,13 +260,13 @@ function Index() {
               <div className="mt-8">
                 <Link
                   to="/bij-leven-regelen"
-                  className="group inline-flex items-center gap-1.5 text-base font-semibold text-accent"
+                  className="group inline-flex items-center gap-1.5 text-base font-semibold text-accent-ink"
                 >
                   {h.prepCta}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -255,35 +274,36 @@ function Index() {
       {/* 6. Services */}
       <section className="bg-background py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+          <Reveal className="text-center">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
               {h.servicesEyebrow}
             </p>
             <h2 className="text-3xl text-primary sm:text-4xl">{h.servicesTitle}</h2>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.servicesIntro}</p>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{h.servicesIntro2}</p>
-          </div>
+          </Reveal>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {h.services.map((service, i) => {
               const Icon = serviceIcons[i];
               return (
-                <Link
-                  key={service.title}
-                  to={service.to}
-                  className="group flex flex-col rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] lg:p-6 xl:p-8 transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]"
-                >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
-                    <Icon className="h-7 w-7" strokeWidth={1.6} />
-                  </div>
-                  <h3 className="mt-6 text-xl leading-snug text-primary">{service.title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                    {service.text}
-                  </p>
-                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
-                    Meer informatie
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </Link>
+                <Reveal key={service.title} delay={stagger(i)} className="flex">
+                  <Link
+                    to={service.to}
+                    className="group flex w-full flex-col rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)] lg:p-6 xl:p-8"
+                  >
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                      <Icon className="h-7 w-7" strokeWidth={1.6} />
+                    </div>
+                    <h3 className="mt-6 text-xl leading-snug text-primary">{service.title}</h3>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                      {service.text}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-ink">
+                      Meer informatie
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </Link>
+                </Reveal>
               );
             })}
           </div>
@@ -294,8 +314,8 @@ function Index() {
       <section className="bg-secondary/50 py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-14 lg:grid-cols-2">
-            <div className="lg:order-2">
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+            <Reveal className="lg:order-2">
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
                 {h.whyEyebrow}
               </p>
               <h2 className="text-3xl text-primary sm:text-4xl">{h.whyTitle}</h2>
@@ -306,7 +326,7 @@ function Index() {
                 {h.reasons.map((reason) => (
                   <li key={reason.title} className="flex items-start gap-3.5">
                     <CheckCircle2
-                      className="mt-1 h-5 w-5 shrink-0 text-accent"
+                      className="mt-1 h-5 w-5 shrink-0 text-accent-ink"
                       strokeWidth={1.75}
                       aria-hidden="true"
                     />
@@ -319,8 +339,8 @@ function Index() {
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="relative lg:order-1">
+            </Reveal>
+            <Reveal className="relative lg:order-1" delay={120}>
               <div className="overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)]">
                 <img
                   src={whyImg}
@@ -332,21 +352,26 @@ function Index() {
                 />
               </div>
               <div className="pointer-events-none absolute -bottom-6 -right-6 hidden h-32 w-32 rounded-3xl border-4 border-accent/40 sm:block" />
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
       {/* 8. Certifications */}
-      <section className="bg-primary py-14 text-primary-foreground">
+      <section className="on-dark bg-primary py-14 text-primary-foreground">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl text-primary-foreground sm:text-4xl">{h.certTitle}</h2>
-          </div>
+          </Reveal>
 
           <ul className="mt-12 flex flex-wrap items-center justify-center gap-12 sm:gap-16">
             {h.certifications.map((cert, i) => (
-              <li key={cert.caption} className="flex flex-col items-center gap-4 text-center">
+              <Reveal
+                key={cert.caption}
+                as="li"
+                delay={stagger(i, 110)}
+                className="flex flex-col items-center gap-4 text-center"
+              >
                 <img
                   src={certLogos[i]}
                   alt={cert.caption}
@@ -356,7 +381,7 @@ function Index() {
                 <p className="max-w-[15rem] text-xs font-medium leading-relaxed text-primary-foreground/70">
                   {cert.caption}
                 </p>
-              </li>
+              </Reveal>
             ))}
           </ul>
         </div>
@@ -366,8 +391,8 @@ function Index() {
       <section className="bg-background py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 rounded-[2rem] border border-border/60 bg-secondary/50 p-8 shadow-[var(--shadow-soft)] sm:p-12 lg:grid-cols-2">
-            <div>
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+            <Reveal>
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
                 {h.scanEyebrow}
               </p>
               <h2 className="text-3xl text-primary sm:text-4xl">{h.scanTitle}</h2>
@@ -376,7 +401,7 @@ function Index() {
                 {h.scanBullets.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-foreground">
                     <CheckCircle2
-                      className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent"
+                      className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent-ink"
                       strokeWidth={1.75}
                       aria-hidden="true"
                     />
@@ -394,8 +419,8 @@ function Index() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-            </div>
-            <div className="relative">
+            </Reveal>
+            <Reveal className="relative" delay={140}>
               <div className="rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-elegant)]">
                 <div className="flex items-center gap-4">
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
@@ -421,13 +446,13 @@ function Index() {
                 </ol>
                 <p className="mt-6 text-center text-xs text-muted-foreground">{h.scanCardFooter}</p>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
       {/* 10. Final CTA */}
-      <section className="relative isolate overflow-hidden">
+      <section className="on-dark relative isolate overflow-hidden">
         <img
           src={ctaImg}
           alt="Oudere vrouw en kleinkind zitten ontspannen en hoopvol samen in een zonnige tuin"
@@ -437,7 +462,7 @@ function Index() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/80 to-primary/50" />
-        <div className="relative mx-auto max-w-3xl px-4 py-28 text-center sm:px-6 lg:px-8">
+        <Reveal className="relative mx-auto max-w-3xl px-4 py-28 text-center sm:px-6 lg:px-8">
           <h2 className="text-4xl leading-tight text-primary-foreground sm:text-5xl">
             {h.finalCtaTitle}
           </h2>
@@ -459,7 +484,7 @@ function Index() {
               </Link>
             </Button>
           </div>
-        </div>
+        </Reveal>
       </section>
     </>
   );

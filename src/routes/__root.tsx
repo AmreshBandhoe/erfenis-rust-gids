@@ -4,33 +4,45 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useEffect, useState, type ReactNode } from "react";
+
+import { DURATION, EASE } from "@/lib/motion";
 
 import appCss from "../styles.css?url";
+import ogImage from "@/assets/home-hero.jpg";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { MobileContactBar } from "@/components/MobileContactBar";
 import { Toaster } from "@/components/ui/sonner";
 import { LanguageProvider } from "@/lib/i18n";
 
+const brandButton =
+  "inline-flex items-center justify-center rounded-full bg-accent px-7 py-3 text-base font-medium text-accent-foreground shadow-lg transition-colors hover:bg-accent/90";
+const brandButtonQuiet =
+  "inline-flex items-center justify-center rounded-full border border-primary/30 px-7 py-3 text-base font-medium text-primary transition-colors hover:bg-secondary";
+
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div className="flex min-h-[70vh] items-center justify-center bg-background px-4 py-24">
+      <div className="max-w-lg text-center">
+        <p className="font-display text-7xl text-accent-ink">404</p>
+        <h1 className="mt-4 text-3xl text-primary sm:text-4xl">Deze pagina bestaat niet</h1>
+        <p className="mx-auto mt-4 max-w-md text-lg leading-relaxed text-muted-foreground">
+          De pagina die u zoekt is verplaatst of bestaat niet meer. Vanaf de homepage vindt u alles
+          terug — en anders helpen wij u graag persoonlijk verder.
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <Link to="/" className={brandButton}>
+            Terug naar home
+          </Link>
+          <Link to="/contact" className={brandButtonQuiet}>
+            Neem contact op
           </Link>
         </div>
       </div>
@@ -46,29 +58,25 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+    <div className="flex min-h-[70vh] items-center justify-center bg-background px-4 py-24">
+      <div className="max-w-lg text-center">
+        <h1 className="text-3xl text-primary sm:text-4xl">Deze pagina laadde niet</h1>
+        <p className="mx-auto mt-4 max-w-md text-lg leading-relaxed text-muted-foreground">
+          Er ging iets mis aan onze kant. Probeert u het opnieuw, of ga terug naar de homepage.
+          Blijft het misgaan? Neem gerust even contact met ons op.
         </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <button
             onClick={() => {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className={brandButton}
           >
-            Try again
+            Opnieuw proberen
           </button>
-          <a
-            href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-          >
-            Go home
+          <a href="/" className={brandButtonQuiet}>
+            Terug naar home
           </a>
         </div>
       </div>
@@ -97,11 +105,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "De Erfeniswijzer — Uw gids bij nalatenschap en erfenis" },
-      { name: "description", content: "The Legacy Guide is a professional website offering guidance on estate planning and inheritance matters." },
-      { property: "og:description", content: "The Legacy Guide is a professional website offering guidance on estate planning and inheritance matters." },
-      { name: "twitter:description", content: "The Legacy Guide is a professional website offering guidance on estate planning and inheritance matters." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2cc78df2-7f07-449a-9c50-4b5ecdacbf39/id-preview-aa33f9f8--f8279d5b-d5a3-4892-a5bc-1f18ec4ec298.lovable.app-1781145112977.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2cc78df2-7f07-449a-9c50-4b5ecdacbf39/id-preview-aa33f9f8--f8279d5b-d5a3-4892-a5bc-1f18ec4ec298.lovable.app-1781145112977.png" },
+      {
+        name: "twitter:description",
+        content:
+          "Persoonlijke en deskundige begeleiding bij nalatenschap en erfenis. Warmte, rust en duidelijkheid rond een gevoelig onderwerp.",
+      },
+      { property: "og:locale", content: "nl_NL" },
+      { property: "og:site_name", content: "De Erfeniswijzer" },
+      { property: "og:image", content: ogImage },
+      { name: "twitter:image", content: ogImage },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -136,20 +148,82 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+/**
+ * Laat de oude pagina uitvloeien voordat de nieuwe binnenkomt, zodat een klik in
+ * het menu niet als een harde sprong voelt. mode="wait" is hier belangrijk: zonder
+ * dat staan twee pagina's kort over elkaar heen en springt de paginahoogte.
+ *
+ * De duur blijft kort (0,25s). Alles daarboven voelt bij navigatie als traagheid,
+ * niet als verfijning.
+ */
+function RouteFade({ children }: { children: ReactNode }) {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const reduced = useReducedMotion();
+
+  if (reduced) return <>{children}</>;
+
+  return (
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.div
+        key={pathname}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -4 }}
+        transition={{ duration: DURATION.swap, ease: EASE }}
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
+/**
+ * Bij navigatie binnen de app verwisselt alleen de inhoud van <main>; een
+ * schermlezer merkt daar niets van en blijft de oude paginatitel melden. Deze
+ * onzichtbare regio leest de nieuwe titel voor zodra de route is gewisseld.
+ */
+function RouteAnnouncer() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    // Een tik wachten: de nieuwe route zet document.title pas na deze render.
+    const id = window.setTimeout(() => setMessage(document.title), 200);
+    return () => window.clearTimeout(id);
+  }, [pathname]);
+
+  return (
+    <div aria-live="polite" aria-atomic="true" className="sr-only">
+      {message}
+    </div>
+  );
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
+        <a
+          href="#main"
+          className="sr-only rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100]"
+        >
+          Naar de inhoud
+        </a>
         <div className="flex min-h-screen flex-col">
           <Header />
-          <main className="flex-1">
+          {/* tabIndex maakt <main> een geldig doel voor de skiplink hierboven. */}
+          <main id="main" tabIndex={-1} className="flex-1 outline-none">
             {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-            <Outlet />
+            <RouteFade>
+              <Outlet />
+            </RouteFade>
           </main>
           <Footer />
         </div>
+        <MobileContactBar />
+        <RouteAnnouncer />
         <Toaster position="top-center" richColors />
       </LanguageProvider>
     </QueryClientProvider>

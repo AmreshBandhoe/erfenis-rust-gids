@@ -1,4 +1,5 @@
 import * as React from "react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
 import {
@@ -135,28 +136,48 @@ const FormDescription = React.forwardRef<
 });
 FormDescription.displayName = "FormDescription";
 
-const FormMessage = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, children, ...props }, ref) => {
-  const { error, formMessageId } = useFormField();
-  const body = error ? String(error?.message ?? "") : children;
+/*
+ * De drag- en animatiehandlers van React en die van Motion hebben dezelfde namen
+ * maar andere signaturen. Ze hier weglaten voorkomt dat botsing; een foutmelding
+ * heeft ze toch niet nodig.
+ */
+type FormMessageProps = Omit<
+  React.HTMLAttributes<HTMLParagraphElement>,
+  "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart" | "onAnimationEnd"
+>;
 
-  if (!body) {
-    return null;
-  }
+const FormMessage = React.forwardRef<HTMLParagraphElement, FormMessageProps>(
+  ({ className, children, ...props }, ref) => {
+    const { error, formMessageId } = useFormField();
+    const body = error ? String(error?.message ?? "") : children;
+    const reduced = useReducedMotion();
 
-  return (
-    <p
-      ref={ref}
-      id={formMessageId}
-      className={cn("text-[0.8rem] font-medium text-destructive", className)}
-      {...props}
-    >
-      {body}
-    </p>
-  );
-});
+    /*
+     * De foutmelding verscheen er in één klap, waardoor het veld eronder een stukje
+     * omlaag sprong zonder dat duidelijk was wat er gebeurde. Hij vouwt nu open, wat
+     * de sprong leesbaar maakt. AnimatePresence blijft altijd staan; alleen de <p>
+     * erbinnen komt en gaat.
+     */
+    return (
+      <AnimatePresence initial={false}>
+        {body ? (
+          <motion.p
+            ref={ref}
+            id={formMessageId}
+            className={cn("overflow-hidden text-[0.8rem] font-medium text-destructive", className)}
+            initial={reduced ? false : { opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={reduced ? { opacity: 0 } : { opacity: 0, height: 0 }}
+            transition={{ duration: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            {...props}
+          >
+            {body}
+          </motion.p>
+        ) : null}
+      </AnimatePresence>
+    );
+  },
+);
 FormMessage.displayName = "FormMessage";
 
 export {

@@ -1,3 +1,5 @@
+import type { ContactSubject } from "./contact";
+
 export type Lang = "nl";
 
 const nl = {
@@ -21,6 +23,7 @@ const nl = {
 
   header: {
     cta: "Plan een gesprek",
+    callCta: "Bel ons",
     openMenu: "Menu openen",
   },
 
@@ -161,6 +164,9 @@ const nl = {
         text: "Wij begeleiden u bij de aangifte erfbelasting en denken mee over een zorgvuldige en fiscaal verantwoorde afwikkeling.",
         to: "/erfbelasting-aangifte",
       },
+      // Nalatenschapsmediation staat hier bewust NIET bij; die kaart is op
+      // 27-08-2026 weggehaald. De pagina zelf bestaat nog en is bereikbaar via
+      // het menu "Onze begeleiding". Niet opnieuw toevoegen.
     ],
 
     certTitle: "Onze certificeringen en samenwerkingspartners",
@@ -177,15 +183,19 @@ const nl = {
       "Veel mensen denken dat alles duidelijk is, totdat zij zichzelf een paar concrete vragen stellen. Met de gratis Nalatenschapscheck ontdekt u binnen 2 minuten welke zaken al goed geregeld zijn en waar mogelijk nog aandacht nodig is.",
     scanBullets: ["Slechts 5 korte vragen", "Direct inzicht in uw situatie", "Geen verplichtingen"],
     scanCta: "Start uw persoonlijke nalatenschapscheck",
-    scanCardFooter: "U ontvangt direct een persoonlijk overzicht van uw situatie.",
+    // "U ontvangt" wekte de indruk dat er iets gemaild wordt; de uitslag blijft
+    // in de browser en wordt nergens verstuurd.
+    scanCardFooter: "U ziet uw persoonlijke overzicht direct op het scherm.",
     scanCardTitle: "Nalatenschapscheck",
     scanCardSub: "5 vragen · 2 minuten · gratis",
+    // Deze vijf lopen bewust gelijk op met check.questions verderop in dit bestand:
+    // de kaart op de homepage belooft precies de vragen die de check ook stelt.
     scanCardItems: [
-      "Is er een testament of levenstestament?",
-      "Weet u wie de nalatenschap gaat regelen?",
+      "Past uw testament nog bij uw situatie?",
+      "Heeft u een levenstestament of volmacht?",
       "Zijn uw belangrijke documenten vindbaar?",
+      "Weten uw naasten wat uw wensen zijn?",
       "Heeft u zicht op de erfbelasting?",
-      "Zijn uw digitale accounts geregeld?",
     ],
 
     finalCtaTitle: "Stel belangrijke zaken niet uit tot anderen ze moeten oplossen",
@@ -606,11 +616,13 @@ const nl = {
     fieldEmail: "E-mail",
     fieldEmailPlaceholder: "uw@email.nl",
     fieldSubject: "Waar gaat het over?",
+    // `satisfies` koppelt deze waarden aan ContactSubject: wijkt er één af van
+    // src/lib/contact.ts, dan faalt de build in plaats van het formulier.
     subjectOptions: [
       { value: "hulp-na-overlijden", label: "Hulp na overlijden" },
       { value: "bij-leven-regelen", label: "Bij leven regelen" },
       { value: "anders", label: "Anders" },
-    ],
+    ] satisfies readonly { value: ContactSubject; label: string }[],
 
     fieldMessage: "Bericht",
     fieldMessagePlaceholder: "Vertel ons kort waar wij u mee kunnen helpen…",
@@ -622,8 +634,12 @@ const nl = {
     mapLink: "Bekijk hoe wij u kunnen helpen",
     mapTitle: "Kaart van het werkgebied van De Erfeniswijzer in Nederland",
 
+    submitPending: "Bezig met verzenden…",
     toastTitle: "Bedankt! Uw bericht is verzonden.",
     toastDesc: "Wij nemen binnen één werkdag persoonlijk contact met u op.",
+    errorToastTitle: "Verzenden is niet gelukt",
+    errorToastDesc:
+      "Er ging iets mis aan onze kant. Probeert u het zo nog eens, of mail ons rechtstreeks op info@erfeniswijzer.nl.",
 
     errorName: "Vul uw naam in.",
     errorNameMax: "Naam mag maximaal 100 tekens zijn.",
@@ -657,8 +673,12 @@ const nl = {
     submitLabel: "Download de gratis gids",
     privacy: "Wij gaan zorgvuldig en vertrouwelijk om met uw gegevens.",
 
+    submitPending: "Bezig met verzenden…",
     toastTitle: "Gelukt! De gids is onderweg.",
     toastDesc: "U ontvangt de Erfeniswijzer Gids binnen enkele minuten per e-mail.",
+    errorToastTitle: "Aanvragen is niet gelukt",
+    errorToastDesc:
+      "Er ging iets mis aan onze kant. Probeert u het zo nog eens, of mail ons rechtstreeks op info@erfeniswijzer.nl.",
 
     contentsEyebrow: "Een voorproefje",
     contentsTitle: "Wat staat er in de gids?",
@@ -698,8 +718,12 @@ const nl = {
     stepsTitle: "U hoeft verder even niets te doen",
     steps: [
       {
-        title: "Bevestiging in uw mailbox",
-        text: "U ontvangt direct een bevestiging. Heeft u een gids aangevraagd, dan vindt u die als bijlage.",
+        // Beloofde eerder "een bevestiging in uw mailbox" met "de gids als bijlage".
+        // Allebei niet waar: de gids wordt nooit als bijlage verstuurd (er is nog
+        // geen PDF), en de bevestigingsmail komt pas aan zodra erfeniswijzer.nl in
+        // Resend geverifieerd is. Deze tekst belooft alleen wat er echt gebeurt.
+        title: "Uw bericht staat genoteerd",
+        text: "Wij hebben uw gegevens goed ontvangen en kijken er persoonlijk naar.",
       },
       {
         title: "Persoonlijk contact",

@@ -5,6 +5,7 @@ import { z } from "zod";
 import { toast } from "sonner";
 import {
   FileDown,
+  Loader2,
   CheckCircle2,
   ListChecks,
   Coins,
@@ -24,6 +25,7 @@ import {
 } from "@/components/ui/form";
 import { Reveal } from "@/components/Reveal";
 import { useT } from "@/lib/i18n";
+import { sendGuideRequest } from "@/lib/api/forms.functions";
 import gidsHero from "@/assets/gids-hero.jpg";
 
 export const Route = createFileRoute("/gratis-gids")({
@@ -44,7 +46,6 @@ export const Route = createFileRoute("/gratis-gids")({
       { property: "og:image", content: gidsHero },
       { property: "twitter:image", content: gidsHero },
     ],
-    links: [{ rel: "canonical", href: "https://erfenis-rust-gids.lovable.app/gratis-gids" }],
   }),
   component: GratisGids,
 });
@@ -57,11 +58,7 @@ function GratisGids() {
   const h = t.gratisGids;
 
   const gidsSchema = z.object({
-    naam: z
-      .string()
-      .trim()
-      .min(2, { message: h.errorName })
-      .max(100, { message: h.errorNameMax }),
+    naam: z.string().trim().min(2, { message: h.errorName }).max(100, { message: h.errorNameMax }),
     email: z
       .string()
       .trim()
@@ -76,16 +73,22 @@ function GratisGids() {
     defaultValues: { naam: "", email: "" },
   });
 
-  function onSubmit(_values: GidsValues) {
-    toast.success(h.toastTitle, { description: h.toastDesc });
-    form.reset();
-    navigate({ to: "/bedankt" });
+  async function onSubmit(values: GidsValues) {
+    try {
+      await sendGuideRequest({ data: values });
+      toast.success(h.toastTitle, { description: h.toastDesc });
+      form.reset();
+      navigate({ to: "/bedankt" });
+    } catch (error) {
+      console.error("[gratis-gids] versturen mislukt:", error);
+      toast.error(h.errorToastTitle, { description: h.errorToastDesc });
+    }
   }
 
   return (
     <>
       {/* Hero with form */}
-      <section className="relative isolate overflow-hidden">
+      <section className="on-dark relative isolate overflow-hidden">
         <img
           src={gidsHero}
           alt="De gedrukte Erfeniswijzer Gids met handgeschreven checklist, leesbril en vulpen op een warm bureau"
@@ -125,7 +128,11 @@ function GratisGids() {
                     <FormItem>
                       <FormLabel>{h.fieldName}</FormLabel>
                       <FormControl>
-                        <Input placeholder={h.fieldNamePlaceholder} autoComplete="name" {...field} />
+                        <Input
+                          placeholder={h.fieldNamePlaceholder}
+                          autoComplete="name"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -153,10 +160,19 @@ function GratisGids() {
                   type="submit"
                   size="lg"
                   disabled={form.formState.isSubmitting}
-                  className="w-full rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
+                  className="w-full rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90 disabled:opacity-100"
                 >
-                  <FileDown className="mr-2 h-5 w-5" />
-                  {h.submitLabel}
+                  {form.formState.isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-5 w-5 animate-spin" aria-hidden="true" />
+                      {h.submitPending}
+                    </>
+                  ) : (
+                    <>
+                      <FileDown className="mr-2 h-5 w-5" />
+                      {h.submitLabel}
+                    </>
+                  )}
                 </Button>
                 <p className="text-center text-xs text-muted-foreground">{h.privacy}</p>
               </form>
@@ -169,7 +185,7 @@ function GratisGids() {
       <section className="bg-background py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
               {h.contentsEyebrow}
             </p>
             <h2 className="text-3xl text-primary sm:text-4xl">{h.contentsTitle}</h2>
@@ -187,7 +203,9 @@ function GratisGids() {
                     </span>
                     <div>
                       <h3 className="text-xl text-primary">{item.title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {item.text}
+                      </p>
                     </div>
                   </div>
                 </Reveal>
