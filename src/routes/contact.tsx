@@ -129,6 +129,9 @@ function Contact() {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/30" />
         <div className="relative mx-auto flex min-h-[58vh] max-w-6xl flex-col justify-center px-4 py-24 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
+            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+              {h.heroEyebrow}
+            </p>
             <h1 className="text-4xl leading-[1.08] text-primary-foreground sm:text-5xl md:text-6xl">
               {h.heroTitle}
             </h1>

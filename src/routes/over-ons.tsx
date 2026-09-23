@@ -3,7 +3,7 @@ import { ContentHero } from "@/components/ContentHero";
 import { CtaSection } from "@/components/CtaSection";
 import { Reveal } from "@/components/Reveal";
 import { useT } from "@/lib/i18n";
-import teamHero from "@/assets/team-hero-collaboration.png";
+import teamHero from "@/assets/team-hero-video-call-v3.jpg";
 import zainul from "@/assets/team-zainul-habieb-feature.jpg";
 import gerard from "@/assets/team-gerard-van-de-kerkhof.jpg";
 import mark from "@/assets/team-mark-van-geffen.jpg";

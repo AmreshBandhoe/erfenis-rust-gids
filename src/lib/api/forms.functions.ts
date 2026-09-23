@@ -47,7 +47,7 @@ async function sendQuietly(task: Promise<void>, label: string): Promise<void> {
 }
 
 export const sendContactMessage = createServerFn({ method: "POST" })
-  .validator(contactSchema)
+  .inputValidator(contactSchema)
   .handler(async ({ data }) => {
     const { to } = getMailConfig();
     if (!to) throw new Error("Ontbrekende mailconfiguratie: CONTACT_TO_EMAIL");
@@ -103,7 +103,7 @@ export const sendContactMessage = createServerFn({ method: "POST" })
   });
 
 export const sendGuideRequest = createServerFn({ method: "POST" })
-  .validator(guideSchema)
+  .inputValidator(guideSchema)
   .handler(async ({ data }) => {
     const { to, guideUrl } = getMailConfig();
     if (!to) throw new Error("Ontbrekende mailconfiguratie: CONTACT_TO_EMAIL");
