@@ -62,7 +62,7 @@ export function ContentHero({
             <Button
               asChild
               size="lg"
-              className="rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
+              className="motion-press rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
             >
               <Link to={ctaTo}>{label}</Link>
             </Button>

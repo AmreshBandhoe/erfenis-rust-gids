@@ -217,3 +217,65 @@ main:focus-visible,
 }
 
 /* De .reveal-klassen zijn vervallen: <Reveal> draait nu op Motion (zie src/lib/motion.ts). */
+
+/*
+ * Kleine interactieve bewegingen. De grote pagina-overgangen en reveal-animaties
+ * staan in Motion; deze CSS-klassen zijn voor hover/press details op kaarten,
+ * knoppen en fotoframes. Alles blijft kort en ingetogen, en valt volledig stil
+ * voor bezoekers die verminderde beweging vragen.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .motion-lift {
+    transition:
+      transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+      color 220ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  .motion-lift:hover {
+    transform: translateY(-0.25rem);
+  }
+
+  .motion-lift:active {
+    transform: translateY(-0.0625rem) scale(0.995);
+  }
+
+  .motion-press {
+    transition:
+      transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 180ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 180ms cubic-bezier(0.22, 1, 0.36, 1),
+      color 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .motion-press:hover {
+    transform: translateY(-0.125rem);
+  }
+
+  .motion-press:active {
+    transform: translateY(0) scale(0.99);
+  }
+
+  .motion-image-frame img {
+    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  .motion-image-frame:hover img,
+  .motion-image-frame:focus-within img {
+    transform: scale(1.025);
+  }
+
+  .motion-icon {
+    transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .motion-lift:hover .motion-icon,
+  .motion-press:hover .motion-icon,
+  .group:hover .motion-icon {
+    transform: translateY(-1px) scale(1.04);
+  }
+}

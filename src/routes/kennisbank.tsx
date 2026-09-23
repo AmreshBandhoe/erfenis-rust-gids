@@ -72,7 +72,7 @@ function Kennisbank() {
                 type="button"
                 onClick={() => setActive(f.value)}
                 className={cn(
-                  "rounded-full border px-5 py-2.5 text-sm font-medium transition-colors",
+                  "motion-press rounded-full border px-5 py-2.5 text-sm font-medium transition-colors",
                   active === f.value
                     ? "border-primary bg-primary text-primary-foreground"
                     : "border-border bg-card text-foreground/80 hover:border-accent hover:text-primary",
@@ -98,6 +98,8 @@ function Kennisbank() {
                   initial={reduced ? false : { opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={reduced ? { opacity: 0 } : { opacity: 0, y: -8 }}
+                  whileHover={reduced ? undefined : { y: -4 }}
+                  whileTap={reduced ? undefined : { scale: 0.995 }}
                   transition={{
                     duration: DURATION.swap,
                     ease: EASE,
@@ -122,7 +124,7 @@ function Kennisbank() {
                     className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors group-hover:text-accent-ink"
                   >
                     {h.readMore}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="motion-icon h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </motion.article>
               ))}

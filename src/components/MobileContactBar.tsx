@@ -39,17 +39,17 @@ export function MobileContactBar() {
             {!PHONE_IS_PLACEHOLDER && (
               <a
                 href={PHONE_HREF}
-                className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-full border border-primary/30 text-base font-medium text-primary"
+                className="motion-press inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-full border border-primary/30 text-base font-medium text-primary"
               >
-                <Phone className="h-5 w-5" aria-hidden="true" />
+                <Phone className="motion-icon h-5 w-5" aria-hidden="true" />
                 {t.header.callCta}
               </a>
             )}
             <Link
               to="/contact"
-              className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-full bg-accent text-base font-medium text-accent-foreground shadow-lg"
+              className="motion-press inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-full bg-accent text-base font-medium text-accent-foreground shadow-lg"
             >
-              <CalendarCheck className="h-5 w-5" aria-hidden="true" />
+              <CalendarCheck className="motion-icon h-5 w-5" aria-hidden="true" />
               {t.header.cta}
             </Link>
           </div>

@@ -91,9 +91,9 @@ function Nalatenschapsmediation() {
                 <Reveal
                   key={topic.title}
                   delay={stagger(i)}
-                  className="group flex flex-col rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]"
+                  className="motion-lift group flex flex-col rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-elegant)]"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                  <div className="motion-icon flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
                     <Icon className="h-7 w-7" strokeWidth={1.6} />
                   </div>
                   <h3 className="mt-6 text-xl leading-snug text-primary">{topic.title}</h3>

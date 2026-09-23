@@ -121,7 +121,7 @@ export function QuestionCarousel({ items, prevLabel, nextLabel }: QuestionCarous
             className="group w-[calc(100%-2rem)] shrink-0 sm:w-[calc(50%-1.5rem)] lg:w-[calc(25%-1.5rem)]"
             aria-hidden={i >= items.length ? true : undefined}
           >
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+            <div className="motion-icon flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
               <Icon className="h-7 w-7" strokeWidth={1.6} aria-hidden="true" />
             </div>
             <p className="mt-5 text-base leading-relaxed text-foreground/85">{question}</p>

@@ -157,10 +157,10 @@ function Nalatenschapscheck() {
               <Button
                 size="lg"
                 onClick={() => setStarted(true)}
-                className="mt-8 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground hover:bg-accent/90"
+                className="motion-press mt-8 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground hover:bg-accent/90"
               >
                 {h.startLabel}
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="motion-icon ml-2 h-5 w-5" />
               </Button>
             </div>
           )}
@@ -341,7 +341,7 @@ function Nalatenschapscheck() {
             <Button
               asChild
               size="lg"
-              className="rounded-full bg-accent px-8 py-6 text-base text-accent-foreground hover:bg-accent/90"
+              className="motion-press rounded-full bg-accent px-8 py-6 text-base text-accent-foreground hover:bg-accent/90"
             >
               <Link to="/contact">{h.ctaPrimary}</Link>
             </Button>
@@ -349,7 +349,7 @@ function Nalatenschapscheck() {
               asChild
               size="lg"
               variant="outline"
-              className="rounded-full border-primary/30 px-8 py-6 text-base text-primary hover:bg-secondary"
+              className="motion-press rounded-full border-primary/30 px-8 py-6 text-base text-primary hover:bg-secondary"
             >
               <Link to="/bij-leven-regelen">{h.ctaSecondary}</Link>
             </Button>

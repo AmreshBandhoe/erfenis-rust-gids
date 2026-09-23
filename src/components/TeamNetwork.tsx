@@ -96,7 +96,7 @@ export function TeamNetwork({
     <div className="space-y-20">
       {/* Blok A — het vaste aanspreekpunt */}
       <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,17.5rem)_1fr] lg:gap-16">
-        <Reveal className="relative mx-auto w-full max-w-[17.5rem]">
+        <Reveal className="motion-image-frame relative mx-auto w-full max-w-[17.5rem]">
           {principalPortrait ? (
             <img
               src={principalPortrait}

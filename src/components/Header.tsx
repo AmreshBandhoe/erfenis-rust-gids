@@ -214,7 +214,7 @@ export function Header() {
         <div className="hidden items-center gap-3 lg:flex">
           <Button
             asChild
-            className="rounded-full bg-accent px-6 text-accent-foreground hover:bg-accent/90"
+            className="motion-press rounded-full bg-accent px-6 text-accent-foreground hover:bg-accent/90"
           >
             <Link to="/contact">{t.header.cta}</Link>
           </Button>
@@ -273,7 +273,7 @@ export function Header() {
                 <SheetClose asChild>
                   <Button
                     asChild
-                    className="w-full rounded-full bg-accent text-accent-foreground hover:bg-accent/90"
+                    className="motion-press w-full rounded-full bg-accent text-accent-foreground hover:bg-accent/90"
                   >
                     <Link to="/contact">{t.header.cta}</Link>
                   </Button>

@@ -104,8 +104,8 @@ function BijLevenRegelen() {
       {/* Nalatenschapscheck */}
       <section className="bg-background py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="rounded-[2rem] border border-border/60 bg-secondary/50 p-8 text-center shadow-[var(--shadow-soft)] sm:p-12">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+          <Reveal className="motion-lift rounded-[2rem] border border-border/60 bg-secondary/50 p-8 text-center shadow-[var(--shadow-soft)] sm:p-12">
+            <div className="motion-icon mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
               <ClipboardCheck className="h-7 w-7" strokeWidth={1.6} />
             </div>
             <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
@@ -117,11 +117,11 @@ function BijLevenRegelen() {
             <Button
               asChild
               size="lg"
-              className="mt-8 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground hover:bg-accent/90"
+              className="motion-press mt-8 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground hover:bg-accent/90"
             >
               <Link to="/nalatenschapscheck">
                 {h.checkCta}
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="motion-icon ml-2 h-5 w-5" />
               </Link>
             </Button>
           </Reveal>
@@ -172,11 +172,11 @@ function BijLevenRegelen() {
           <Button
             asChild
             size="lg"
-            className="mt-10 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
+            className="motion-press mt-10 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
           >
             <Link to="/contact">
               {h.priceCta}
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="motion-icon ml-2 h-5 w-5" />
             </Link>
           </Button>
           <p className="mt-12 font-display text-2xl italic text-accent">“{h.quote}”</p>

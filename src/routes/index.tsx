@@ -18,7 +18,6 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { QuestionCarousel } from "@/components/QuestionCarousel";
 import { Reveal } from "@/components/Reveal";
 import { HeroIntro, HeroPiece } from "@/components/HeroIntro";
 import { useT } from "@/lib/i18n";
@@ -27,7 +26,7 @@ import { stagger } from "@/lib/motion";
 import heroImg from "@/assets/home-hero.jpg";
 import whyImg from "@/assets/home-why.jpg";
 import helpImg from "@/assets/home-help.jpg";
-import prepareImg from "@/assets/home-prepare.jpg";
+import prepareImg from "@/assets/home-prepare-consultation.png";
 import ctaImg from "@/assets/home-cta.jpg";
 import logoIcr from "@/assets/logo-icr.png";
 import logoAdr from "@/assets/logo-adr.png";
@@ -55,16 +54,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const questionIcons = [
-  FolderSearch,
-  Landmark,
-  Building2,
-  House,
-  Users,
-  CalendarClock,
-  MonitorSmartphone,
-  MessagesSquare,
-];
 const serviceIcons = [HeartHandshake, LifeBuoy, ScrollText, Calculator];
 const certLogos = [logoIcr, logoIca, logoAdr];
 
@@ -112,7 +101,7 @@ function Index() {
               <Button
                 asChild
                 size="lg"
-                className="rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
+                className="motion-press rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
               >
                 <Link to="/bij-leven-regelen">{h.heroCta}</Link>
               </Button>
@@ -120,7 +109,7 @@ function Index() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="rounded-full border-primary-foreground/40 bg-primary-foreground/5 px-8 py-6 text-base text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/15 hover:text-primary-foreground"
+                className="motion-press rounded-full border-primary-foreground/40 bg-primary-foreground/5 px-8 py-6 text-base text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/15 hover:text-primary-foreground"
               >
                 <Link to="/hulp-bij-erfenis">{h.heroSecondary}</Link>
               </Button>
@@ -129,40 +118,7 @@ function Index() {
         </div>
       </section>
 
-      {/* 2. Vragen na een overlijden */}
-      <section className="bg-secondary/50 py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
-              {h.questionsEyebrow}
-            </p>
-            <h2 className="text-3xl text-primary sm:text-4xl">{h.questionsTitle}</h2>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.questionsIntro}</p>
-          </Reveal>
-
-          <Reveal className="mt-14" delay={100}>
-            <QuestionCarousel
-              items={h.questions.map((question, i) => ({
-                question,
-                Icon: questionIcons[i],
-              }))}
-              prevLabel={h.questionsPrev}
-              nextLabel={h.questionsNext}
-            />
-          </Reveal>
-        </div>
-      </section>
-
-      {/* 3. Tussenstatement */}
-      <section className="on-dark bg-primary py-14 text-primary-foreground">
-        <Reveal className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <p className="text-lg leading-relaxed text-primary-foreground/90 sm:text-xl">
-            {h.questionsOutro} {h.questionsClosing}
-          </p>
-        </Reveal>
-      </section>
-
-      {/* 4. Hulp na overlijden */}
+      {/* Begeleiding na overlijden */}
       <section className="bg-background py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-14 lg:grid-cols-2">
@@ -177,7 +133,7 @@ function Index() {
               <p className="mt-4 max-w-lg text-lg leading-relaxed text-muted-foreground">
                 {h.helpNetwork}
               </p>
-              <div className="mt-10 overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)]">
+              <div className="motion-image-frame mt-10 overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)]">
                 <img
                   src={helpImg}
                   alt="Handen sorteren oude brieven en documenten aan een houten tafel, naast een kop thee en een notitieboek"
@@ -202,10 +158,7 @@ function Index() {
               className="flex flex-col rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] sm:p-10"
               delay={120}
             >
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
-                {h.helpListTitle}
-              </p>
-              <ul className="mt-8 flex flex-1 flex-col justify-between gap-5">
+              <ul className="flex flex-1 flex-col justify-between gap-5">
                 {h.helpItems.map((item) => (
                   <li key={item} className="flex items-start gap-3.5">
                     <CheckCircle2
@@ -222,14 +175,14 @@ function Index() {
         </div>
       </section>
 
-      {/* 5. Vooraf goed regelen */}
+      {/* Vooraf goed regelen */}
       <section className="bg-secondary/50 py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-14 lg:grid-cols-2">
-            <Reveal className="overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)] lg:order-2">
+            <Reveal className="motion-image-frame overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)] lg:order-2">
               <img
                 src={prepareImg}
-                alt="Man legt aan een bureau bij daglicht zijn wensen en belangrijke documenten vast"
+                alt="Adviseur in pak bespreekt documenten met een ouder echtpaar aan tafel"
                 width={1200}
                 height={900}
                 loading="lazy"
@@ -289,9 +242,9 @@ function Index() {
                 <Reveal key={service.title} delay={stagger(i)} className="flex">
                   <Link
                     to={service.to}
-                    className="group flex w-full flex-col rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)] lg:p-6 xl:p-8"
+                    className="motion-lift group flex w-full flex-col rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-elegant)] lg:p-6 xl:p-8"
                   >
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                    <div className="motion-icon flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
                       <Icon className="h-7 w-7" strokeWidth={1.6} />
                     </div>
                     <h3 className="mt-6 text-xl leading-snug text-primary">{service.title}</h3>
@@ -341,7 +294,7 @@ function Index() {
               </ul>
             </Reveal>
             <Reveal className="relative lg:order-1" delay={120}>
-              <div className="overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)]">
+              <div className="motion-image-frame overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)]">
                 <img
                   src={whyImg}
                   alt="Twee paar handen houden respectvol een oude familiefoto vast"
@@ -357,34 +310,25 @@ function Index() {
         </div>
       </section>
 
-      {/* 8. Certifications */}
-      <section className="on-dark bg-primary py-14 text-primary-foreground">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl text-primary-foreground sm:text-4xl">{h.certTitle}</h2>
-          </Reveal>
-
-          <ul className="mt-12 flex flex-wrap items-center justify-center gap-12 sm:gap-16">
-            {h.certifications.map((cert, i) => (
-              <Reveal
-                key={cert.caption}
-                as="li"
-                delay={stagger(i, 110)}
-                className="flex flex-col items-center gap-4 text-center"
-              >
-                <img
-                  src={certLogos[i]}
-                  alt={cert.caption}
-                  loading="lazy"
-                  className="h-24 w-auto object-contain"
-                />
-                <p className="max-w-[15rem] text-xs font-medium leading-relaxed text-primary-foreground/70">
-                  {cert.caption}
-                </p>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
+      {/* Gratis nalatenschapscheck */}
+      <section className="bg-primary py-16 text-primary-foreground">
+        <Reveal className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center sm:px-6">
+          <div>
+            <h2 className="text-3xl text-primary-foreground sm:text-4xl">
+              Hoe goed is uw nalatenschap eigenlijk geregeld?
+            </h2>
+            <p className="mt-3 text-lg text-primary-foreground/85">
+              Beantwoord vijf eenvoudige vragen en ontdek waar u staat
+            </p>
+          </div>
+          <Button
+            asChild
+            size="lg"
+            className="motion-press rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
+          >
+            <Link to="/nalatenschapscheck">Start uw gratis nalatenschapscheck</Link>
+          </Button>
+        </Reveal>
       </section>
 
       {/* 9. Nalatenschapscheck */}
@@ -412,11 +356,11 @@ function Index() {
               <Button
                 asChild
                 size="lg"
-                className="mt-8 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
+                className="motion-press mt-8 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
               >
                 <Link to="/nalatenschapscheck">
                   {h.scanCta}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="motion-icon ml-2 h-5 w-5" />
                 </Link>
               </Button>
             </Reveal>
@@ -435,7 +379,7 @@ function Index() {
                   {h.scanCardItems.map((row, i) => (
                     <li
                       key={row}
-                      className="flex items-center gap-3 rounded-xl bg-secondary/60 px-4 py-3"
+                      className="motion-lift flex items-center gap-3 rounded-xl bg-secondary/60 px-4 py-3"
                     >
                       <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
                         {i + 1}
@@ -476,11 +420,11 @@ function Index() {
             <Button
               asChild
               size="lg"
-              className="rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
+              className="motion-press rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
             >
               <Link to="/contact">
                 {h.finalCtaPrimary}
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="motion-icon ml-2 h-5 w-5" />
               </Link>
             </Button>
           </div>

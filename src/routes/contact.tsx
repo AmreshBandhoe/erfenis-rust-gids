@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -152,8 +152,8 @@ function Contact() {
               <ul className="space-y-5">
                 {details.map(({ Icon, ...item }) => {
                   return (
-                    <li key={item.label} className="flex items-start gap-4">
-                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-secondary text-primary">
+                    <li key={item.label} className="group flex items-start gap-4">
+                      <span className="motion-icon flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-secondary text-primary">
                         <Icon className="h-6 w-6" strokeWidth={1.75} />
                       </span>
                       <div className="min-w-0">
@@ -176,8 +176,11 @@ function Contact() {
                 })}
               </ul>
 
-              <div className="flex items-start gap-4 rounded-2xl border border-accent/30 bg-accent/10 p-6">
-                <Home className="mt-0.5 h-6 w-6 shrink-0 text-accent-ink" strokeWidth={1.75} />
+              <div className="motion-lift group flex items-start gap-4 rounded-2xl border border-accent/30 bg-accent/10 p-6">
+                <Home
+                  className="motion-icon mt-0.5 h-6 w-6 shrink-0 text-accent-ink"
+                  strokeWidth={1.75}
+                />
                 <div>
                   <h3 className="text-lg text-primary">{h.homeVisitTitle}</h3>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
@@ -270,7 +273,7 @@ function Contact() {
                                 <label
                                   key={opt.value}
                                   htmlFor={`onderwerp-${opt.value}`}
-                                  className="flex cursor-pointer items-center gap-3 rounded-xl border border-border bg-background px-4 py-3 text-sm transition-colors hover:border-accent has-[:checked]:border-accent has-[:checked]:bg-accent/10"
+                                  className="motion-lift flex cursor-pointer items-center gap-3 rounded-xl border border-border bg-background px-4 py-3 text-sm transition-colors hover:border-accent has-[:checked]:border-accent has-[:checked]:bg-accent/10"
                                 >
                                   <RadioGroupItem id={`onderwerp-${opt.value}`} value={opt.value} />
                                   <span className="text-foreground">{opt.label}</span>
@@ -301,7 +304,7 @@ function Contact() {
                       type="submit"
                       size="lg"
                       disabled={form.formState.isSubmitting}
-                      className="w-full rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90 disabled:opacity-100"
+                      className="motion-press w-full rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90 disabled:opacity-100"
                     >
                       {form.formState.isSubmitting ? (
                         <>
@@ -311,11 +314,19 @@ function Contact() {
                       ) : (
                         <>
                           {h.submitLabel}
-                          <ArrowRight className="ml-2 h-5 w-5" />
+                          <ArrowRight className="motion-icon ml-2 h-5 w-5" />
                         </>
                       )}
                     </Button>
-                    <p className="text-center text-xs text-muted-foreground">{h.privacy}</p>
+                    <p className="text-center text-xs text-muted-foreground">
+                      {h.privacy}{" "}
+                      <Link
+                        to="/privacybeleid"
+                        className="underline underline-offset-2 hover:text-primary"
+                      >
+                        Meer informatie vindt u in ons privacybeleid.
+                      </Link>
+                    </p>
                   </form>
                 </Form>
               </div>

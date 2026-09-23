@@ -3,6 +3,9 @@ import { Mail, Phone, Clock } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF, PHONE_IS_PLACEHOLDER } from "@/lib/contact";
 import logo from "@/assets/erfeniswijzer-logo.jpeg";
+import logoIcr from "@/assets/logo-icr.png";
+import logoIca from "@/assets/logo-ica.png";
+import logoAdr from "@/assets/logo-adr.png";
 
 export function Footer() {
   const t = useT();
@@ -38,7 +41,7 @@ export function Footer() {
                 <li key={item.to}>
                   <Link
                     to={item.to}
-                    className="inline-block py-1 text-sm text-primary-foreground/80 transition-colors hover:text-accent"
+                    className="motion-press inline-block py-1 text-sm text-primary-foreground/80 transition-colors hover:text-accent"
                   >
                     {item.label}
                   </Link>
@@ -56,7 +59,7 @@ export function Footer() {
                   <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                   <a
                     href={PHONE_HREF}
-                    className="inline-block py-1 transition-colors hover:text-accent"
+                    className="motion-press inline-block py-1 transition-colors hover:text-accent"
                   >
                     {PHONE_DISPLAY}
                   </a>
@@ -66,7 +69,7 @@ export function Footer() {
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <a
                   href={EMAIL_HREF}
-                  className="inline-block py-1 transition-colors hover:text-accent"
+                  className="motion-press inline-block py-1 transition-colors hover:text-accent"
                 >
                   {EMAIL}
                 </a>
@@ -76,6 +79,20 @@ export function Footer() {
                 <span>{t.footer.hours}</span>
               </li>
             </ul>
+            <div
+              className="mt-12 flex justify-start gap-4"
+              aria-label="Certificeringen en samenwerkingspartners"
+            >
+              {[logoIcr, logoIca, logoAdr].map((certLogo) => (
+                <img
+                  key={certLogo}
+                  src={certLogo}
+                  alt=""
+                  className="motion-lift h-14 w-auto object-contain"
+                  loading="lazy"
+                />
+              ))}
+            </div>
           </div>
         </div>
 
@@ -83,11 +100,20 @@ export function Footer() {
           <p>
             © {year} {t.footer.copyrightName} {t.footer.copyright}
           </p>
-          <nav className="flex flex-wrap items-center gap-x-5 gap-y-2" aria-label="Juridisch">
-            <Link to="/contact" className="inline-block py-1 transition-colors hover:text-accent">
+          <nav
+            className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 sm:justify-end"
+            aria-label="Juridisch"
+          >
+            <Link
+              to="/privacybeleid"
+              className="motion-press inline-block py-1 transition-colors hover:text-accent"
+            >
               {t.footer.privacy}
             </Link>
-            <Link to="/contact" className="inline-block py-1 transition-colors hover:text-accent">
+            <Link
+              to="/contact"
+              className="motion-press inline-block py-1 transition-colors hover:text-accent"
+            >
               {t.footer.terms}
             </Link>
             <span className="font-display text-sm tracking-wide text-accent">

@@ -32,85 +32,84 @@ const nl = {
       "Grip op uw nalatenschap. Duidelijkheid voor uw nabestaanden. De wegwijzer bij leven, overlijden en nalatenschap.",
     quickLinks: "Snelle links",
     contactTitle: "Contact",
-    hours: "Ma t/m vr 9.00 – 17.30 uur",
+    hours: "Ma t/m vr 9.00 – 17.00 uur",
     copyright: "Alle rechten voorbehouden.",
     copyrightName: "De Erfeniswijzer.",
     privacy: "Privacybeleid",
     terms: "Algemene voorwaarden",
-    slogan: "Uw gids bij nalatenschap en erfenis",
+    slogan: "Uw nalatenschap goed geregeld",
   },
 
   cta: {
-    defaultTitle: "Klaar voor rust en duidelijkheid?",
+    defaultTitle: "Zet vandaag de eerste stap",
     defaultText:
-      "Zet vandaag de eerste stap. In een vrijblijvend en gratis adviesgesprek luisteren we naar uw situatie en vertellen we hoe wij u kunnen ontzorgen.",
-    defaultLabel: "Gratis adviesgesprek aanvragen",
+      "Wilt u uw nalatenschap goed regelen of heeft u hulp nodig na een overlijden? Wacht niet tot de vragen zich opstapelen. Vertel ons wat er speelt, dan kijken we samen wat u nodig heeft.",
+    defaultLabel: "Plan een gratis kennismakingsgesprek",
     defaultContentHeroLabel: "Gratis adviesgesprek aanvragen",
   },
 
   home: {
-    heroEyebrow: "Uw gids bij nalatenschap en erfenis",
+    heroEyebrow: "Uw nalatenschap goed geregeld",
     heroTitle: "De Erfeniswijzer",
     heroIntro:
       "Persoonlijke begeleiding bij het voorbereiden van uw nalatenschap en het afwikkelen van een erfenis. Wij nemen de zorgen uit handen, zodat u en uw nabestaanden met rust verder kunnen.",
-    heroCta: "Ik wil mijn nalatenschap regelen",
+    heroCta: "Ik wil mijn nalatenschap voorbereiden",
     heroSecondary: "Ik heb hulp nodig na een overlijden",
 
-    questionsEyebrow: "Wat komt er op u af?",
+    questionsEyebrow: "Begeleiding na overlijden",
     questionsTitle: "Na het afscheid begint vaak het uitzoeken",
     questionsPrev: "Vorige vragen",
     questionsNext: "Volgende vragen",
     questionsIntro:
-      "Een overlijden zet niet alleen het leven stil. Het brengt ook een lange lijst aan vragen en verplichtingen met zich mee.",
+      "Een overlijden zet niet alleen het leven stil. Het brengt ook een lange lijst aan vragen met zich mee. Juist in een periode van verdriet wordt van nabestaanden ook nog eens verwacht dat zij overzicht hebben en actie ondernemen.",
 
     questions: [
       "Waar liggen de belangrijke documenten?",
-      "Welke bankrekeningen, verzekeringen en schulden zijn er?",
       "Welke instanties moeten worden geïnformeerd?",
-      "Wat gebeurt er met de woning en de inboedel?",
       "Wie zijn de erfgenamen en wie mag beslissingen nemen?",
-      "Wanneer moet de aangifte erfbelasting worden gedaan?",
       "Wat gebeurt er met abonnementen, accounts en digitale bezittingen?",
-      "En wat als erfgenamen verschillend denken over de verdeling?",
+      "Welke bankrekeningen, verzekeringen en schulden zijn er?",
+      "Wat gebeurt er met de woning en de inboedel?",
+      "Wanneer moet de aangifte erfbelasting worden gedaan?",
     ],
 
     questionsOutro:
-      "Juist in een periode van verdriet wordt van nabestaanden verwacht dat zij overzicht houden en belangrijke keuzes maken. Vaak zonder precies te weten waar zij moeten beginnen.",
-    questionsClosing: "En dat is waar De Erfeniswijzer aan te pas komt.",
+      "De Erfeniswijzer helpt u de gehele situatie in kaart te brengen, geeft overzicht in wat er geregeld moet worden en begeleidt u stap voor stap bij de afwikkeling van de nalatenschap.",
+    questionsClosing: "",
 
-    helpEyebrow: "Hulp na overlijden",
-    helpTitle: "U hoeft het niet alleen uit te zoeken",
+    helpEyebrow: "Begeleiding na overlijden",
+    helpTitle: "Na het afscheid begint vaak het uitzoeken",
     helpIntro:
-      "De Erfeniswijzer is uw vaste aanspreekpunt tijdens de afwikkeling van de nalatenschap. Wij brengen in kaart wat er moet gebeuren, bewaken het overzicht en nemen waar mogelijk werkzaamheden uit handen.",
+      "Een overlijden zet niet alleen het leven stil. Het brengt ook een lange lijst aan vragen met zich mee. Juist in een periode van verdriet wordt van nabestaanden ook nog eens verwacht dat zij overzicht hebben en actie ondernemen.",
     helpNetwork:
-      "Wanneer specialistische kennis nodig is, schakelen wij vanuit ons netwerk de juiste deskundige in. Zo hoeft u niet zelf langs verschillende partijen en weet u dat iedere stap zorgvuldig wordt begeleid.",
-    helpListTitle: "Denk hierbij o.a. aan:",
+      "De Erfeniswijzer helpt u de gehele situatie in kaart te brengen, geeft overzicht in wat er geregeld moet worden en begeleidt u stap voor stap bij de afwikkeling van de nalatenschap.",
+    helpListTitle: "",
 
     helpItems: [
-      "Contact met banken, verzekeraars, pensioenuitvoerders en overheidsinstanties",
-      "Afstemming met de notaris over het testament en de verklaring van erfrecht",
-      "Aangifte erfbelasting en fiscale afwikkeling via een fiscaal adviseur",
-      "Begeleiding door een makelaar of taxateur bij een woning",
-      "Aandacht voor digitale nalatenschap en online accounts",
-      "Inschakeling van een bedrijfskundig specialist bij ondernemingsvermogen, bedrijfsopvolging of verkoop",
-      "Begeleiding door een mediator bij spanningen tussen erfgenamen",
+      "Waar liggen de belangrijke documenten?",
+      "Welke instanties moeten worden geïnformeerd?",
+      "Wie zijn de erfgenamen en wie mag beslissingen nemen?",
+      "Wat gebeurt er met abonnementen, accounts en digitale bezittingen?",
+      "Welke bankrekeningen, verzekeringen en schulden zijn er?",
+      "Wat gebeurt er met de woning en de inboedel?",
+      "Wanneer moet de aangifte erfbelasting worden gedaan?",
     ],
 
-    helpCta: "Bekijk onze hulp na overlijden",
+    helpCta: "Bekijk onze begeleiding na overlijden",
 
     prepEyebrow: "Vooraf goed regelen",
     prepTitle: "Veel zorgen van later kunt u vandaag voorkomen",
     prepIntro:
-      "Door uw documenten, financiële gegevens en persoonlijke wensen nu overzichtelijk vast te leggen, voorkomt u dat anderen later moeten zoeken, raden of beslissen.",
+      "Door uw nalatenschap en persoonlijke wensen nu overzichtelijk vast te leggen, voorkomt u dat anderen later moeten zoeken of beslissen. Samen met u brengen wij de belangrijke gegevens en documenten in kaart en bundelen die in een persoonlijk nalatenschapsdossier.",
 
     prepItems: [
+      "Overzicht van uw financiële en administratieve zaken",
+      "Uw wensen bij ziekte en na overlijden",
       "Alles overzichtelijk op één plek",
-      "Duidelijkheid over uw wensen",
-      "Inzicht in bezittingen, schulden en verzekeringen",
-      "Rust voor uzelf en uw nabestaanden",
+      "Houvast voor uw naasten",
     ],
 
-    prepCta: "Bekijk wat u bij leven kunt regelen",
+    prepCta: "Bekijk het nalatenschapsdossier",
 
     whyEyebrow: "Waarom De Erfeniswijzer?",
     whyTitle: "Nalatenschap als laatste daad van liefde en zorg",
@@ -137,11 +136,10 @@ const nl = {
     ],
 
     servicesEyebrow: "Onze begeleiding",
-    servicesTitle: "Eén aanspreekpunt voor alles wat geregeld moet worden",
+    servicesTitle: "De Erfeniswijzer: één aanspreekpunt voor uw nalatenschap",
     servicesIntro:
-      "Een nalatenschap raakt administratie, familieverhoudingen, belastingen, juridische vragen en persoonlijke wensen. U hoeft daarvoor niet zelf langs verschillende deskundigen.",
-    servicesIntro2:
-      "De Erfeniswijzer brengt uw situatie in kaart, bewaakt het overzicht en schakelt waar nodig de juiste specialist in.",
+      "Of u nu uw zaken voor later wilt regelen of een erfenis moet afwikkelen: De Erfeniswijzer brengt in kaart wat er moet gebeuren, begeleidt u door alle stappen heen en schakelt waar nodig de juiste specialist in. Zo houdt u overzicht en heeft u één vast aanspreekpunt.",
+    servicesIntro2: "",
 
     services: [
       {
@@ -530,9 +528,9 @@ const nl = {
 
   overOns: {
     heroEyebrow: "Wie wij zijn",
-    heroTitle: "De Erfeniswijzer – Uw persoonlijke gids",
+    heroTitle: "Maak kennis met ons team van specialisten",
     heroIntro:
-      "Wij geloven dat nalatenschap een laatste daad van liefde en zorg kan zijn. Met juridische expertise én menselijke warmte staan wij naast u, op de momenten die er het meest toe doen.",
+      "Bij De Erfeniswijzer staat u er niet alleen voor. Wij werken samen met executeurs, fiscalisten, notarissen, mediators, vermogensadviseurs en andere deskundigen die ieder vanuit hun eigen expertise bijdragen aan uw nalatenschap.",
 
     teamEyebrow: "Wie wij zijn",
     teamTitle: "Maak kennis met ons team van specialisten",
@@ -557,13 +555,18 @@ const nl = {
       },
       {
         name: "Hans Sanders",
-        role: "Financieel, bedrijfsmatig & digitale nalatenschap",
-        bio: "Hans Sanders is algemeen directeur van Radeac Accountants en Adviseurs en beschikt over ruime ervaring op het gebied van finance, bedrijfsvoering en strategische ondernemingsvraagstukken. Daarnaast is hij gecertificeerd nalatenschapscoach en executeur. Binnen het domein van nalatenschap ligt zijn specialisme onder meer bij bedrijfsopvolging, ondernemingsvermogen, executeurschap en digitale nalatenschap.",
+        role: "Zakelijke & digitale nalatenschap",
+        bio: "Hans Sanders is algemeen directeur van Radeac Accountants & Adviseurs en heeft ruime ervaring met finance, bedrijfsvoering en strategische ondernemingsvraagstukken. Daarnaast is hij nalatenschapscoach en executeur. Binnen het domein van nalatenschappen ligt zijn specialisme onder meer bij bedrijfsopvolging, ondernemingsvermogen en digitale nalatenschap.",
       },
       {
         name: "Yussuf Abdi",
         role: "Jurist",
         bio: "Yussuf Abdi is jurist en oprichter van Abdi Juristen. Hij heeft ruime ervaring binnen de juridische sector en staat bekend om zijn persoonlijke en zorgvuldige benadering. Binnen De Erfeniswijzer is zijn juridische expertise inzetbaar bij vraagstukken die raken aan rechten, aansprakelijkheid, belangenbehartiging en andere juridische aspecten rondom een nalatenschap.",
+      },
+      {
+        name: "Errol Moennoe",
+        role: "Pensioen- en vermogensadviseur",
+        bio: "Errol Moennoe is eigenaar van Hyposervice Finance. Als financieel adviseur brengt hij binnen het team van De Erfeniswijzer de financiële kant van het leven en nalaten in beeld. Hij adviseert over hypotheken, verzekeringen, pensioen en vermogensplanning. Ook is Errol actief als executeur. Die combinatie maakt hem een waardevolle specialist voor mensen die hun zaken bij leven goed willen regelen en voor nabestaanden die na een overlijden voor financiële keuzes staan.",
       },
     ],
 
@@ -586,10 +589,10 @@ const nl = {
   },
 
   contact: {
-    heroEyebrow: "Neem contact op",
+    heroEyebrow: "Wij luisteren",
     heroTitle: "Neem contact met ons op",
     heroIntro:
-      "Wij staan klaar om u persoonlijk te helpen. Plan vrijblijvend een adviesgesprek, telefonisch of gewoon bij u thuis, met een kop koffie.",
+      "Heeft u een vraag of wilt u uw situatie vrijblijvend bespreken? Neem gerust contact met ons op of plan een gesprek, telefonisch of gewoon bij u thuis, met een kop koffie.",
 
     directEyebrow: "Direct contact",
     directTitle: "Persoonlijk en zonder verplichtingen",
@@ -600,12 +603,12 @@ const nl = {
       { label: "Telefoon", value: "085 - 000 00 00", href: "tel:+31850000000" },
       { label: "E-mail", value: "info@erfeniswijzer.nl", href: "mailto:info@erfeniswijzer.nl" },
       { label: "Werkgebied", value: "Heel Nederland" },
-      { label: "Bereikbaarheid", value: "Ma t/m vr 9.00 – 17.30 uur" },
+      { label: "Bereikbaarheid", value: "Ma t/m vr 9.00 – 17.00 uur" },
     ],
 
     homeVisitTitle: "Liever een huisbezoek?",
     homeVisitText:
-      "Wij komen graag bij u langs. In een vertrouwde omgeving praat het vaak makkelijker over dit gevoelige onderwerp.",
+      "In een vertrouwde omgeving praat het vaak makkelijker over dit gevoelige onderwerp. Indien gewenst, komen wij graag bij u langs.",
 
     formTitle: "Stuur ons een bericht",
     formSubtitle: "Vul het formulier in en wij nemen binnen één werkdag contact met u op.",
@@ -626,7 +629,7 @@ const nl = {
 
     fieldMessage: "Bericht",
     fieldMessagePlaceholder: "Vertel ons kort waar wij u mee kunnen helpen…",
-    submitLabel: "Gratis adviesgesprek aanvragen",
+    submitLabel: "Verstuur bericht",
     privacy: "Wij gaan zorgvuldig en vertrouwelijk om met uw gegevens.",
 
     mapArea: "Ons werkgebied",

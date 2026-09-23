@@ -116,7 +116,7 @@ function GratisGids() {
             </ul>
           </div>
 
-          <div className="rounded-[2rem] border border-border/60 bg-card p-8 shadow-[var(--shadow-elegant)] sm:p-10">
+          <div className="motion-lift rounded-[2rem] border border-border/60 bg-card p-8 shadow-[var(--shadow-elegant)] sm:p-10">
             <h2 className="text-2xl text-primary">{h.formTitle}</h2>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{h.formSubtitle}</p>
             <Form {...form}>
@@ -160,7 +160,7 @@ function GratisGids() {
                   type="submit"
                   size="lg"
                   disabled={form.formState.isSubmitting}
-                  className="w-full rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90 disabled:opacity-100"
+                  className="motion-press w-full rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90 disabled:opacity-100"
                 >
                   {form.formState.isSubmitting ? (
                     <>
@@ -169,7 +169,7 @@ function GratisGids() {
                     </>
                   ) : (
                     <>
-                      <FileDown className="mr-2 h-5 w-5" />
+                      <FileDown className="motion-icon mr-2 h-5 w-5" />
                       {h.submitLabel}
                     </>
                   )}
@@ -197,8 +197,8 @@ function GratisGids() {
               const Icon = contentIcons[i];
               return (
                 <Reveal key={item.title} delay={i * 90}>
-                  <div className="flex h-full gap-5 rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] transition-shadow hover:shadow-[var(--shadow-elegant)]">
-                    <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+                  <div className="motion-lift group flex h-full gap-5 rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] transition-shadow hover:shadow-[var(--shadow-elegant)]">
+                    <span className="motion-icon flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
                       <Icon className="h-7 w-7" strokeWidth={1.6} />
                     </span>
                     <div>
