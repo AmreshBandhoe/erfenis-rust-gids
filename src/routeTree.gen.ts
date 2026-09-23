@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PrivacybeleidRouteImport } from './routes/privacybeleid'
 import { Route as OverOnsRouteImport } from './routes/over-ons'
 import { Route as NalatenschapsmediationRouteImport } from './routes/nalatenschapsmediation'
 import { Route as NalatenschapscheckRouteImport } from './routes/nalatenschapscheck'
@@ -22,6 +23,11 @@ import { Route as BijLevenRegelenRouteImport } from './routes/bij-leven-regelen'
 import { Route as BedanktRouteImport } from './routes/bedankt'
 import { Route as IndexRouteImport } from './routes/index'
 
+const PrivacybeleidRoute = PrivacybeleidRouteImport.update({
+  id: '/privacybeleid',
+  path: '/privacybeleid',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OverOnsRoute = OverOnsRouteImport.update({
   id: '/over-ons',
   path: '/over-ons',
@@ -96,6 +102,7 @@ export interface FileRoutesByFullPath {
   '/nalatenschapscheck': typeof NalatenschapscheckRoute
   '/nalatenschapsmediation': typeof NalatenschapsmediationRoute
   '/over-ons': typeof OverOnsRoute
+  '/privacybeleid': typeof PrivacybeleidRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -110,6 +117,7 @@ export interface FileRoutesByTo {
   '/nalatenschapscheck': typeof NalatenschapscheckRoute
   '/nalatenschapsmediation': typeof NalatenschapsmediationRoute
   '/over-ons': typeof OverOnsRoute
+  '/privacybeleid': typeof PrivacybeleidRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -125,6 +133,7 @@ export interface FileRoutesById {
   '/nalatenschapscheck': typeof NalatenschapscheckRoute
   '/nalatenschapsmediation': typeof NalatenschapsmediationRoute
   '/over-ons': typeof OverOnsRoute
+  '/privacybeleid': typeof PrivacybeleidRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -141,6 +150,7 @@ export interface FileRouteTypes {
     | '/nalatenschapscheck'
     | '/nalatenschapsmediation'
     | '/over-ons'
+    | '/privacybeleid'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -155,6 +165,7 @@ export interface FileRouteTypes {
     | '/nalatenschapscheck'
     | '/nalatenschapsmediation'
     | '/over-ons'
+    | '/privacybeleid'
   id:
     | '__root__'
     | '/'
@@ -169,6 +180,7 @@ export interface FileRouteTypes {
     | '/nalatenschapscheck'
     | '/nalatenschapsmediation'
     | '/over-ons'
+    | '/privacybeleid'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -184,10 +196,18 @@ export interface RootRouteChildren {
   NalatenschapscheckRoute: typeof NalatenschapscheckRoute
   NalatenschapsmediationRoute: typeof NalatenschapsmediationRoute
   OverOnsRoute: typeof OverOnsRoute
+  PrivacybeleidRoute: typeof PrivacybeleidRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/privacybeleid': {
+      id: '/privacybeleid'
+      path: '/privacybeleid'
+      fullPath: '/privacybeleid'
+      preLoaderRoute: typeof PrivacybeleidRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/over-ons': {
       id: '/over-ons'
       path: '/over-ons'
@@ -288,6 +308,7 @@ const rootRouteChildren: RootRouteChildren = {
   NalatenschapscheckRoute: NalatenschapscheckRoute,
   NalatenschapsmediationRoute: NalatenschapsmediationRoute,
   OverOnsRoute: OverOnsRoute,
+  PrivacybeleidRoute: PrivacybeleidRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

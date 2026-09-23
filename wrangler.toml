@@ -1,7 +1,12 @@
 name = "erfenis-rust-gids"
 main = "dist/server/server.js"
 compatibility_date = "2024-09-23"
-compatibility_flags = ["nodejs_compat"]
+# nodejs_compat_populate_process_env vult process.env met de secrets en vars van
+# de worker. Vanaf compatibility_date 2025-04-01 doet nodejs_compat dat vanzelf,
+# maar deze datum ligt daarvoor: zonder de vlag is process.env leeg en gooien de
+# formulieren "Ontbrekende mailconfiguratie", terwijl `wrangler secret list` de
+# sleutels gewoon toont. De datum blijft staan om ander runtimegedrag niet te wijzigen.
+compatibility_flags = ["nodejs_compat", "nodejs_compat_populate_process_env"]
 
 [assets]
 directory = "./dist/client"

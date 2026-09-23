@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import { Reveal } from "@/components/Reveal";
+
 interface PageHeaderProps {
   eyebrow?: string;
   title: string;
@@ -17,9 +19,9 @@ export function PageHeader({ eyebrow, title, intro, children }: PageHeaderProps)
             "radial-gradient(circle at 20% 20%, var(--primary) 0, transparent 45%), radial-gradient(circle at 85% 30%, var(--accent) 0, transparent 40%)",
         }}
       />
-      <div className="relative mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 sm:py-24 lg:px-8">
+      <Reveal className="relative mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 sm:py-24 lg:px-8">
         {eyebrow && (
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
             {eyebrow}
           </p>
         )}
@@ -30,7 +32,7 @@ export function PageHeader({ eyebrow, title, intro, children }: PageHeaderProps)
           </p>
         )}
         {children && <div className="mt-8">{children}</div>}
-      </div>
+      </Reveal>
     </section>
   );
 }

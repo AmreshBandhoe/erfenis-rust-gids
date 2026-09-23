@@ -121,7 +121,7 @@ export function QuestionCarousel({ items, prevLabel, nextLabel }: QuestionCarous
             className="group w-[calc(100%-2rem)] shrink-0 sm:w-[calc(50%-1.5rem)] lg:w-[calc(25%-1.5rem)]"
             aria-hidden={i >= items.length ? true : undefined}
           >
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+            <div className="motion-icon flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
               <Icon className="h-7 w-7" strokeWidth={1.6} aria-hidden="true" />
             </div>
             <p className="mt-5 text-base leading-relaxed text-foreground/85">{question}</p>
@@ -133,7 +133,7 @@ export function QuestionCarousel({ items, prevLabel, nextLabel }: QuestionCarous
         type="button"
         onClick={() => scrollByCard(-1)}
         aria-label={prevLabel}
-        className="absolute left-0 top-1/2 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-border/60 bg-background/80 text-primary backdrop-blur-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+        className="absolute left-0 top-1/2 flex h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-border/60 bg-background/80 text-primary backdrop-blur-sm transition-colors hover:bg-accent hover:text-accent-foreground"
       >
         <ArrowLeft className="h-4 w-4" aria-hidden="true" />
       </button>
@@ -141,7 +141,7 @@ export function QuestionCarousel({ items, prevLabel, nextLabel }: QuestionCarous
         type="button"
         onClick={() => scrollByCard(1)}
         aria-label={nextLabel}
-        className="absolute right-0 top-1/2 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-border/60 bg-background/80 text-primary backdrop-blur-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+        className="absolute right-0 top-1/2 flex h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-border/60 bg-background/80 text-primary backdrop-blur-sm transition-colors hover:bg-accent hover:text-accent-foreground"
       >
         <ArrowRight className="h-4 w-4" aria-hidden="true" />
       </button>

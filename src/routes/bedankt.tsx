@@ -35,7 +35,7 @@ function Bedankt() {
   return (
     <>
       {/* Hero */}
-      <section className="relative isolate overflow-hidden">
+      <section className="on-dark relative isolate overflow-hidden">
         <img
           src={bedanktHero}
           alt="Oudere vrouw bij het raam in warm avondlicht, opgelucht en gerustgesteld"
@@ -63,7 +63,7 @@ function Bedankt() {
       <section className="bg-background py-24">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
               {h.stepsEyebrow}
             </p>
             <h2 className="text-3xl text-primary sm:text-4xl">{h.stepsTitle}</h2>
@@ -74,12 +74,14 @@ function Bedankt() {
               const Icon = stepIcons[i];
               return (
                 <Reveal key={step.title} delay={i * 100}>
-                  <div className="flex h-full flex-col rounded-3xl border border-border/60 bg-card p-8 text-center shadow-[var(--shadow-soft)]">
-                    <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary text-primary">
+                  <div className="motion-lift group flex h-full flex-col rounded-3xl border border-border/60 bg-card p-8 text-center shadow-[var(--shadow-soft)]">
+                    <span className="motion-icon mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary text-primary">
                       <Icon className="h-7 w-7" strokeWidth={1.6} />
                     </span>
                     <h3 className="mt-6 text-xl text-primary">{step.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step.text}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      {step.text}
+                    </p>
                   </div>
                 </Reveal>
               );
@@ -90,18 +92,18 @@ function Bedankt() {
             <Button
               asChild
               size="lg"
-              className="rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
+              className="motion-press rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
             >
               <Link to="/kennisbank">
                 {h.ctaKennisbank}
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="motion-icon ml-2 h-5 w-5" />
               </Link>
             </Button>
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="rounded-full border-primary/30 px-8 py-6 text-base text-primary hover:bg-secondary"
+              className="motion-press rounded-full border-primary/30 px-8 py-6 text-base text-primary hover:bg-secondary"
             >
               <Link to="/">{h.ctaHome}</Link>
             </Button>

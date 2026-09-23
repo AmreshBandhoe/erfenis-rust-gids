@@ -24,3 +24,25 @@ export function getServerConfig() {
     //   stripeSecretKey: process.env.STRIPE_SECRET_KEY,
   };
 }
+
+/**
+ * Resend-instellingen voor de formulieren.
+ *
+ * RESEND_FROM moet een adres zijn op een domein dat in Resend geverifieerd is,
+ * anders weigert de API de verzending. Zolang erfeniswijzer.nl daar nog niet
+ * staat, werkt "onboarding@resend.dev" om te testen — dat adres mag alleen
+ * mailen naar het e-mailadres van de Resend-account zelf.
+ *
+ * Alle waarden worden per aanroep gelezen: op Cloudflare Workers bindt env pas
+ * bij het request, dus een uitlezing op moduleniveau geeft undefined.
+ */
+export function getMailConfig() {
+  return {
+    apiKey: process.env.RESEND_API_KEY,
+    from: process.env.RESEND_FROM,
+    /** Waar de aanvragen binnenkomen. */
+    to: process.env.CONTACT_TO_EMAIL,
+    /** Optioneel: publieke URL van de gids-PDF, meegestuurd in de bevestigingsmail. */
+    guideUrl: process.env.GUIDE_DOWNLOAD_URL,
+  };
+}

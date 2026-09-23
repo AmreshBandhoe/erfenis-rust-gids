@@ -1,128 +1,63 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Heart, GraduationCap, Compass } from "lucide-react";
 import { ContentHero } from "@/components/ContentHero";
 import { CtaSection } from "@/components/CtaSection";
-import { TeamAvatar } from "@/components/TeamAvatar";
-
+import { Reveal } from "@/components/Reveal";
 import { useT } from "@/lib/i18n";
-import heroImg from "@/assets/team-hero.jpg";
-import team1 from "@/assets/team-zainul-habieb.jpg";
-import team2 from "@/assets/team-gerard-van-de-kerkhof.jpg";
-import team3 from "@/assets/team-mark-van-geffen.jpg";
+import teamHero from "@/assets/team-hero-collaboration.png";
+import zainul from "@/assets/team-zainul-habieb-feature.jpg";
+import gerard from "@/assets/team-gerard-van-de-kerkhof.jpg";
+import mark from "@/assets/team-mark-van-geffen.jpg";
+import hans from "@/assets/team-hans-sanders.png";
+import yussuf from "@/assets/team-yussuf-abdi.png";
+import errol from "@/assets/team-errol-moennoe.png";
 
-export const Route = createFileRoute("/over-ons")({
-  head: () => ({
-    meta: [
-      { title: "Over ons — De Erfeniswijzer" },
-      {
-        name: "description",
-        content:
-          "De Erfeniswijzer combineert juridische expertise met menselijke warmte. Maak kennis met ons team en onze waarden: persoonlijke aandacht, deskundigheid en rust.",
-      },
-      { property: "og:title", content: "Over ons — De Erfeniswijzer" },
-      {
-        property: "og:description",
-        content:
-          "Geen kille bureaucratie, maar persoonlijke aandacht en deskundige begeleiding rond een gevoelig onderwerp.",
-      },
-      { property: "og:image", content: heroImg },
-      { property: "twitter:image", content: heroImg },
-    ],
-  }),
-  component: OverOns,
-});
+export const Route = createFileRoute("/over-ons")({ component: OverOns });
 
-const teamImages = [team1, team2, team3];
-const valueIcons = [Heart, GraduationCap, Compass];
+const portraits: Record<string, string> = {
+  "Zainul Habieb": zainul,
+  "Gerard van de Kerkhof": gerard,
+  "Mark van Geffen": mark,
+  "Hans Sanders": hans,
+  "Yussuf Abdi": yussuf,
+  "Errol Moennoe": errol,
+};
 
 function OverOns() {
-  const t = useT();
-  const h = t.overOns;
-
+  const { overOns: h } = useT();
   return (
     <>
       <ContentHero
-        image={heroImg}
-        imageAlt="Het warme team van De Erfeniswijzer in een lichte, huiselijke ruimte"
+        image={teamHero}
+        imageAlt="Team van specialisten in overleg aan een vergadertafel"
         eyebrow={h.heroEyebrow}
         title={h.heroTitle}
         intro={h.heroIntro}
       />
-
-      {/* Team */}
       <section className="bg-secondary/50 py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-              {h.teamEyebrow}
-            </p>
-            <h2 className="text-3xl text-primary sm:text-4xl">{h.teamTitle}</h2>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.teamIntro}</p>
-          </div>
-          <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {h.team.map((member, i) => {
-              const portrait = teamImages[i];
-              return (
-                <div
-                  key={member.name}
-                  className="flex flex-col overflow-hidden rounded-3xl border border-border/60 bg-card shadow-[var(--shadow-soft)] transition-shadow hover:shadow-[var(--shadow-elegant)]"
-                >
-                  {portrait ? (
-                    <img
-                      src={portrait}
-                      alt={`${h.teamPortrait} ${member.name}`}
-                      width={1000}
-                      height={1000}
-                      loading="lazy"
-                      className="aspect-square w-full object-cover"
-                    />
-                  ) : (
-                    <TeamAvatar name={member.name} />
-                  )}
-                  <div className="p-7">
-                    <h3 className="text-xl text-primary">{member.name}</h3>
-                    <p className="mt-1 text-sm font-semibold text-accent">{member.role}</p>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                      {member.bio}
-                    </p>
-                  </div>
+          <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+            {h.team.map((member, index) => (
+              <Reveal
+                key={member.name}
+                delay={index * 70}
+                className="motion-lift motion-image-frame overflow-hidden rounded-2xl bg-card shadow-[var(--shadow-soft)]"
+              >
+                <img
+                  src={portraits[member.name]}
+                  alt={`${h.teamPortrait} ${member.name}`}
+                  className="aspect-[4/3] w-full object-cover"
+                  loading={index < 3 ? "eager" : "lazy"}
+                />
+                <div className="p-7">
+                  <h2 className="text-2xl text-primary">{member.name}</h2>
+                  <p className="mt-1 text-sm font-semibold text-accent-ink">{member.role}</p>
+                  <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{member.bio}</p>
                 </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="bg-background py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-              {h.valuesEyebrow}
-            </p>
-            <h2 className="text-3xl text-primary sm:text-4xl">{h.valuesTitle}</h2>
-          </div>
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {h.values.map((value, i) => {
-              const Icon = valueIcons[i];
-              return (
-                <div
-                  key={value.title}
-                  className="rounded-3xl border border-border/60 bg-card p-8 text-center shadow-[var(--shadow-soft)]"
-                >
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary text-primary">
-                    <Icon className="h-7 w-7" strokeWidth={1.6} />
-                  </div>
-                  <h3 className="mt-5 text-xl text-primary">{value.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{value.text}</p>
-                </div>
-              );
-            })}
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
-
       <CtaSection />
     </>
   );
