@@ -270,18 +270,18 @@ function Index() {
                 <Reveal key={service.title} delay={stagger(i)} className="flex">
                   <Link
                     to={service.to}
-                    className="motion-lift group flex w-full flex-col rounded-3xl border border-primary-foreground/15 bg-primary-foreground/10 p-8 shadow-[var(--shadow-soft)] backdrop-blur-sm hover:bg-primary-foreground/15 hover:shadow-[var(--shadow-elegant)] lg:p-6 xl:p-8"
+                    className="motion-lift group flex w-full flex-col rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] hover:border-accent/50 hover:bg-secondary/60 hover:shadow-[var(--shadow-elegant)] lg:p-6 xl:p-8"
                   >
-                    <div className="motion-icon flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-foreground text-primary transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                    <div className="motion-icon flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
                       <Icon className="h-7 w-7" strokeWidth={1.6} />
                     </div>
-                    <h3 className="mt-6 text-xl leading-snug text-primary-foreground">
+                    <h3 className="mt-6 text-xl leading-snug text-primary">
                       {service.title}
                     </h3>
-                    <p className="mt-3 flex-1 text-sm leading-relaxed text-primary-foreground/80">
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                       {service.text}
                     </p>
-                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-ink">
                       Meer informatie
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>
