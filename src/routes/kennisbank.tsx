@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { ContentHero } from "@/components/ContentHero";
@@ -7,6 +7,7 @@ import { CtaSection } from "@/components/CtaSection";
 import { useT } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { DURATION, EASE, stagger } from "@/lib/motion";
+import { knowledgeArticles, type ArticleCategory } from "@/lib/content";
 import heroImg from "@/assets/kennisbank-hero.jpg";
 
 export const Route = createFileRoute("/kennisbank")({
@@ -30,13 +31,16 @@ export const Route = createFileRoute("/kennisbank")({
   component: Kennisbank,
 });
 
-type Category = "voorbereiding" | "afwikkeling";
-
 function Kennisbank() {
   const t = useT();
   const h = t.kennisbank;
-  const [active, setActive] = useState<Category | "alle">("alle");
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const [active, setActive] = useState<ArticleCategory | "alle">("alle");
   const reduced = useReducedMotion();
+
+  if (pathname !== "/kennisbank" && pathname !== "/kennisbank/") {
+    return <Outlet />;
+  }
 
   const filters = [
     { label: h.filterAll, value: "alle" as const },
@@ -44,12 +48,15 @@ function Kennisbank() {
     { label: h.filterSettle, value: "afwikkeling" as const },
   ];
 
-  const categoryLabels: Record<Category, string> = {
+  const categoryLabels: Record<ArticleCategory, string> = {
     voorbereiding: h.categoryPrep,
     afwikkeling: h.categorySettle,
   };
 
-  const visible = active === "alle" ? h.articles : h.articles.filter((a) => a.category === active);
+  const visible =
+    active === "alle"
+      ? knowledgeArticles
+      : knowledgeArticles.filter((article) => article.category === active);
 
   return (
     <>
@@ -93,7 +100,7 @@ function Kennisbank() {
             <AnimatePresence mode="popLayout">
               {visible.map((article, i) => (
                 <motion.article
-                  key={article.title}
+                  key={article.slug}
                   layout
                   initial={reduced ? false : { opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -120,7 +127,8 @@ function Kennisbank() {
                     {article.excerpt}
                   </p>
                   <Link
-                    to="/contact"
+                    to="/kennisbank/$slug"
+                    params={{ slug: article.slug }}
                     className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors group-hover:text-accent-ink"
                   >
                     {h.readMore}

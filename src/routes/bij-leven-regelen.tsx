@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckCircle2, ClipboardCheck, FolderHeart, ArrowRight } from "lucide-react";
 import { ContentHero } from "@/components/ContentHero";
+import { FaqSection } from "@/components/FaqSection";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
 import { useT } from "@/lib/i18n";
+import { serviceFaqs } from "@/lib/content";
 import heroImg from "@/assets/bijleven-hero.jpg";
 
 export const Route = createFileRoute("/bij-leven-regelen")({
@@ -160,6 +162,8 @@ function BijLevenRegelen() {
           </div>
         </div>
       </section>
+
+      <FaqSection items={serviceFaqs.bijleven} />
 
       {/* Price */}
       <section className="on-dark bg-primary py-24 text-primary-foreground">

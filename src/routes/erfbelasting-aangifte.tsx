@@ -3,7 +3,9 @@ import { FileText, Coins, CalendarClock, CheckCircle2 } from "lucide-react";
 import { ContentHero } from "@/components/ContentHero";
 import { Reveal } from "@/components/Reveal";
 import { CtaSection } from "@/components/CtaSection";
+import { FaqSection } from "@/components/FaqSection";
 import { useT } from "@/lib/i18n";
+import { serviceFaqs } from "@/lib/content";
 import { stagger } from "@/lib/motion";
 import heroImg from "@/assets/gids-hero.jpg";
 
@@ -106,6 +108,8 @@ function ErfbelastingAangifte() {
           </div>
         </div>
       </section>
+
+      <FaqSection items={serviceFaqs.erfbelasting} />
 
       <CtaSection title={h.ctaTitle} text={h.ctaText} ctaLabel={h.ctaLabel} />
     </>

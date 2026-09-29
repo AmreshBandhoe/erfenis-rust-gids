@@ -3,7 +3,9 @@ import { Gavel, HandHeart, Calculator, Users2, CheckCircle2 } from "lucide-react
 import { ContentHero } from "@/components/ContentHero";
 import { Reveal } from "@/components/Reveal";
 import { CtaSection } from "@/components/CtaSection";
+import { FaqSection } from "@/components/FaqSection";
 import { useT } from "@/lib/i18n";
+import { serviceFaqs } from "@/lib/content";
 import { stagger } from "@/lib/motion";
 import heroImg from "@/assets/hulp-hero.jpg";
 
@@ -107,6 +109,8 @@ function HulpBijErfenis() {
           </div>
         </div>
       </section>
+
+      <FaqSection items={serviceFaqs.hulp} />
 
       <CtaSection title={h.ctaTitle} text={h.ctaText} />
     </>

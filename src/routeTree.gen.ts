@@ -22,6 +22,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BijLevenRegelenRouteImport } from './routes/bij-leven-regelen'
 import { Route as BedanktRouteImport } from './routes/bedankt'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as KennisbankSlugRouteImport } from './routes/kennisbank.$slug'
 
 const PrivacybeleidRoute = PrivacybeleidRouteImport.update({
   id: '/privacybeleid',
@@ -88,6 +89,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KennisbankSlugRoute = KennisbankSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => KennisbankRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -98,11 +104,12 @@ export interface FileRoutesByFullPath {
   '/executeurschap': typeof ExecuteurschapRoute
   '/gratis-gids': typeof GratisGidsRoute
   '/hulp-bij-erfenis': typeof HulpBijErfenisRoute
-  '/kennisbank': typeof KennisbankRoute
+  '/kennisbank': typeof KennisbankRouteWithChildren
   '/nalatenschapscheck': typeof NalatenschapscheckRoute
   '/nalatenschapsmediation': typeof NalatenschapsmediationRoute
   '/over-ons': typeof OverOnsRoute
   '/privacybeleid': typeof PrivacybeleidRoute
+  '/kennisbank/$slug': typeof KennisbankSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -113,11 +120,12 @@ export interface FileRoutesByTo {
   '/executeurschap': typeof ExecuteurschapRoute
   '/gratis-gids': typeof GratisGidsRoute
   '/hulp-bij-erfenis': typeof HulpBijErfenisRoute
-  '/kennisbank': typeof KennisbankRoute
+  '/kennisbank': typeof KennisbankRouteWithChildren
   '/nalatenschapscheck': typeof NalatenschapscheckRoute
   '/nalatenschapsmediation': typeof NalatenschapsmediationRoute
   '/over-ons': typeof OverOnsRoute
   '/privacybeleid': typeof PrivacybeleidRoute
+  '/kennisbank/$slug': typeof KennisbankSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -129,11 +137,12 @@ export interface FileRoutesById {
   '/executeurschap': typeof ExecuteurschapRoute
   '/gratis-gids': typeof GratisGidsRoute
   '/hulp-bij-erfenis': typeof HulpBijErfenisRoute
-  '/kennisbank': typeof KennisbankRoute
+  '/kennisbank': typeof KennisbankRouteWithChildren
   '/nalatenschapscheck': typeof NalatenschapscheckRoute
   '/nalatenschapsmediation': typeof NalatenschapsmediationRoute
   '/over-ons': typeof OverOnsRoute
   '/privacybeleid': typeof PrivacybeleidRoute
+  '/kennisbank/$slug': typeof KennisbankSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -151,6 +160,7 @@ export interface FileRouteTypes {
     | '/nalatenschapsmediation'
     | '/over-ons'
     | '/privacybeleid'
+    | '/kennisbank/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -166,6 +176,7 @@ export interface FileRouteTypes {
     | '/nalatenschapsmediation'
     | '/over-ons'
     | '/privacybeleid'
+    | '/kennisbank/$slug'
   id:
     | '__root__'
     | '/'
@@ -181,6 +192,7 @@ export interface FileRouteTypes {
     | '/nalatenschapsmediation'
     | '/over-ons'
     | '/privacybeleid'
+    | '/kennisbank/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -192,7 +204,7 @@ export interface RootRouteChildren {
   ExecuteurschapRoute: typeof ExecuteurschapRoute
   GratisGidsRoute: typeof GratisGidsRoute
   HulpBijErfenisRoute: typeof HulpBijErfenisRoute
-  KennisbankRoute: typeof KennisbankRoute
+  KennisbankRoute: typeof KennisbankRouteWithChildren
   NalatenschapscheckRoute: typeof NalatenschapscheckRoute
   NalatenschapsmediationRoute: typeof NalatenschapsmediationRoute
   OverOnsRoute: typeof OverOnsRoute
@@ -292,8 +304,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kennisbank/$slug': {
+      id: '/kennisbank/$slug'
+      path: '/$slug'
+      fullPath: '/kennisbank/$slug'
+      preLoaderRoute: typeof KennisbankSlugRouteImport
+      parentRoute: typeof KennisbankRoute
+    }
   }
 }
+
+interface KennisbankRouteChildren {
+  KennisbankSlugRoute: typeof KennisbankSlugRoute
+}
+
+const KennisbankRouteChildren: KennisbankRouteChildren = {
+  KennisbankSlugRoute: KennisbankSlugRoute,
+}
+
+const KennisbankRouteWithChildren = KennisbankRoute._addFileChildren(
+  KennisbankRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -304,7 +335,7 @@ const rootRouteChildren: RootRouteChildren = {
   ExecuteurschapRoute: ExecuteurschapRoute,
   GratisGidsRoute: GratisGidsRoute,
   HulpBijErfenisRoute: HulpBijErfenisRoute,
-  KennisbankRoute: KennisbankRoute,
+  KennisbankRoute: KennisbankRouteWithChildren,
   NalatenschapscheckRoute: NalatenschapscheckRoute,
   NalatenschapsmediationRoute: NalatenschapsmediationRoute,
   OverOnsRoute: OverOnsRoute,
