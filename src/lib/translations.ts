@@ -206,7 +206,7 @@ const nl = {
 
   hulp: {
     heroEyebrow: "Voor nabestaanden & executeurs",
-    heroTitle: "Hulp bij erfenis – Wij nemen de zorgen uit handen",
+    heroTitle: "Wij nemen de zorgen uit handen",
     heroIntro:
       "Het verliezen van een dierbare is ingrijpend genoeg. Het afwikkelen van de erfenis hoeft u er niet alléén bij te dragen. Wij begeleiden u met warmte en deskundigheid door elke stap.",
 
@@ -264,17 +264,18 @@ const nl = {
   },
 
   bijleven: {
-    heroEyebrow: "Testament & nalatenschapsplanning",
-    heroTitle: "Bij leven alles goed regelen",
+    heroEyebrow: "Duidelijk voor later begint vandaag",
+    heroTitle: "Uw nalatenschap volledig in kaart gebracht",
     heroIntro:
-      "Uw zaken bij leven regelen is een daad van zorg voor wie u liefheeft. Wij helpen u alles helder vast te leggen, zodat uw nabestaanden later niets hoeven uit te zoeken.",
+      "Door uw persoonlijke wensen, belangrijke documenten en financiële gegevens nu vast te leggen, geeft u de nabestaanden duidelijkheid op een moment dat zij die hard nodig hebben.",
     heroCta: "Start met een persoonlijk adviesgesprek",
 
     whyEyebrow: "Waarom nu regelen?",
-    whyTitle:
-      "Als u het morgen niet meer zelf kunt vertellen, weten uw naasten dan waar zij moeten beginnen?",
+    whyTitle: "Weten uw naasten straks waar zij moeten beginnen?",
     whyText:
-      "Door uw belangrijke documenten, financiële gegevens en persoonlijke wensen nu vast te leggen, geeft u hun later duidelijkheid op een moment dat zij die hard nodig hebben.",
+      "Zolang u alles zelf kunt uitleggen, lijkt dat geen probleem. Maar bij plotselinge ziekte of overlijden moeten uw naasten ineens op zoek, terwijl zij niet altijd weten wat er is geregeld of wat uw persoonlijke wensen waren.",
+    whyText2:
+      "Wij helpen u nu een volledig overzicht te creëren, zodat u zelf de regie houdt en uw naasten later houvast hebben.",
     benefitsTitle: "Wat het u oplevert",
     benefits: [
       "Voorkom onzekerheid, ruzie en stress voor uw nabestaanden",
@@ -302,12 +303,12 @@ const nl = {
     checkText: "Beantwoord vijf eenvoudige vragen en ontdek waar u staat.",
     checkCta: "Start uw persoonlijke nalatenschapscheck",
 
-    dossierEyebrow: "Alles wat belangrijk is. Op één plek.",
-    dossierTitle: "Uw Persoonlijk Levensdossier",
+    dossierEyebrow: "Alles op één plek",
+    dossierTitle: "Uw persoonlijk nalatenschapsdossier",
     dossierText1:
-      "Alles wat uw naasten later nodig hebben, brengen we nu samen op één duidelijke plek. Zo hoeven zij niet te zoeken, te twijfelen of belangrijke beslissingen te nemen zonder te weten wat u wilde.",
+      "Samen brengen we uw bezittingen, schulden, verzekeringen, belangrijke documenten, contactpersonen, erfgenamen en persoonlijke wensen in kaart. U krijgt een overzichtelijk dossier dat uw naasten helpt wanneer zij het nodig hebben.",
     dossierText2:
-      "Samen brengen wij uw persoonlijke situatie, belangrijke documenten, financiële zaken en wensen overzichtelijk in kaart.",
+      "Na het opstellen bespreken we wat nog aandacht vraagt. Is bijvoorbeeld een testament, levenstestament of specialistisch advies nodig? Dan helpen we u bij de volgende stap.",
     dossierList: [
       "Uw persoonlijke en financiële situatie helder in kaart",
       "Belangrijke documenten overzichtelijk bij elkaar",
@@ -317,8 +318,17 @@ const nl = {
     ],
 
     priceTitle: "Compleet traject voor €599",
-    priceText: "Persoonlijke begeleiding. Een compleet levensdossier. Voor één vast tarief.",
-    priceCta: "Stel mijn levensdossier samen",
+    priceItems: [
+      "Een compleet overzicht van uw persoonlijke, financiële en administratieve zaken",
+      "Volledig inzicht in bezittingen, schulden en verzekeringen",
+      "Alle belangrijke documenten overzichtelijk op één plek",
+      "Uw wensen bij ziekte en na overlijden duidelijk vastgelegd",
+      "Mogelijkheid tot opstellen van testament of levenstestament",
+      "Persoonlijke begeleiding van begin tot eind",
+      "Duidelijkheid voor uw nabestaanden",
+    ],
+    priceText: "Heeft u vragen? We maken graag kennis en leggen uit hoe wij werken.",
+    priceCta: "Bespreek uw situatie",
 
     quote: "Leg vandaag vast wat u later niet meer zelf kunt uitleggen.",
     ctaLabel: "Start met een persoonlijk adviesgesprek",
@@ -342,7 +352,7 @@ const nl = {
     benefits: [
       "Inventariseren van bezittingen, schulden en verplichtingen",
       "Contact met instanties, banken en de notaris",
-      "Zorgvuldige verdeling volgens testament en wet",
+      "Beheer en praktische afwikkeling van de nalatenschap",
       "Heldere communicatie met alle erfgenamen",
     ],
 

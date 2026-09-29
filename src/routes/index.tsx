@@ -118,6 +118,76 @@ function Index() {
         </div>
       </section>
 
+      {/* Vooraf goed regelen */}
+      <section className="bg-secondary/50 py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-14 lg:grid-cols-2">
+            <Reveal className="motion-image-frame overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)] lg:order-2">
+              <img
+                src={prepareImg}
+                alt="Adviseur in pak bespreekt documenten met een ouder echtpaar aan tafel"
+                width={1200}
+                height={900}
+                loading="lazy"
+                className="aspect-[4/3] h-full w-full object-cover lg:aspect-auto"
+              />
+            </Reveal>
+
+            <Reveal className="flex flex-col justify-center lg:order-1" delay={120}>
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
+                {h.prepEyebrow}
+              </p>
+              <h2 className="text-3xl text-primary sm:text-4xl">{h.prepTitle}</h2>
+              <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted-foreground">
+                {h.prepIntro}
+              </p>
+              <ul className="mt-8 space-y-4">
+                {h.prepItems.map((item) => (
+                  <li key={item} className="flex items-start gap-3.5">
+                    <CheckCircle2
+                      className="mt-0.5 h-5 w-5 shrink-0 text-accent-ink"
+                      strokeWidth={1.75}
+                      aria-hidden="true"
+                    />
+                    <span className="text-base leading-relaxed text-foreground/85">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8">
+                <Link
+                  to="/bij-leven-regelen"
+                  className="group inline-flex items-center gap-1.5 text-base font-semibold text-accent-ink"
+                >
+                  {h.prepCta}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Compacte nalatenschapscheck */}
+      <section className="bg-primary py-16 text-primary-foreground">
+        <Reveal className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center sm:px-6">
+          <div>
+            <h2 className="text-3xl text-primary-foreground sm:text-4xl">
+              Hoe goed is uw nalatenschap eigenlijk geregeld?
+            </h2>
+            <p className="mt-3 text-lg text-primary-foreground/85">
+              Beantwoord vijf eenvoudige vragen en ontdek waar u staat
+            </p>
+          </div>
+          <Button
+            asChild
+            size="lg"
+            className="motion-press rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
+          >
+            <Link to="/nalatenschapscheck">Start uw gratis nalatenschapscheck</Link>
+          </Button>
+        </Reveal>
+      </section>
+
       {/* Begeleiding na overlijden */}
       <section className="bg-background py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -175,65 +245,20 @@ function Index() {
         </div>
       </section>
 
-      {/* Vooraf goed regelen */}
-      <section className="bg-secondary/50 py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-14 lg:grid-cols-2">
-            <Reveal className="motion-image-frame overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)] lg:order-2">
-              <img
-                src={prepareImg}
-                alt="Adviseur in pak bespreekt documenten met een ouder echtpaar aan tafel"
-                width={1200}
-                height={900}
-                loading="lazy"
-                className="aspect-[4/3] h-full w-full object-cover lg:aspect-auto"
-              />
-            </Reveal>
-
-            <Reveal className="flex flex-col justify-center lg:order-1" delay={120}>
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
-                {h.prepEyebrow}
-              </p>
-              <h2 className="text-3xl text-primary sm:text-4xl">{h.prepTitle}</h2>
-              <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted-foreground">
-                {h.prepIntro}
-              </p>
-              <ul className="mt-8 space-y-4">
-                {h.prepItems.map((item) => (
-                  <li key={item} className="flex items-start gap-3.5">
-                    <CheckCircle2
-                      className="mt-0.5 h-5 w-5 shrink-0 text-accent-ink"
-                      strokeWidth={1.75}
-                      aria-hidden="true"
-                    />
-                    <span className="text-base leading-relaxed text-foreground/85">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8">
-                <Link
-                  to="/bij-leven-regelen"
-                  className="group inline-flex items-center gap-1.5 text-base font-semibold text-accent-ink"
-                >
-                  {h.prepCta}
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Services */}
-      <section className="bg-background py-24">
+      {/* Onze begeleiding */}
+      <section className="on-dark bg-primary py-24 text-primary-foreground">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
               {h.servicesEyebrow}
             </p>
-            <h2 className="text-3xl text-primary sm:text-4xl">{h.servicesTitle}</h2>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.servicesIntro}</p>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{h.servicesIntro2}</p>
+            <h2 className="text-3xl text-primary-foreground sm:text-4xl">{h.servicesTitle}</h2>
+            <p className="mt-5 text-lg leading-relaxed text-primary-foreground/85">
+              {h.servicesIntro}
+            </p>
+            <p className="mt-4 text-lg leading-relaxed text-primary-foreground/85">
+              {h.servicesIntro2}
+            </p>
           </Reveal>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {h.services.map((service, i) => {
@@ -242,16 +267,18 @@ function Index() {
                 <Reveal key={service.title} delay={stagger(i)} className="flex">
                   <Link
                     to={service.to}
-                    className="motion-lift group flex w-full flex-col rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-elegant)] lg:p-6 xl:p-8"
+                    className="motion-lift group flex w-full flex-col rounded-3xl border border-primary-foreground/15 bg-primary-foreground/10 p-8 shadow-[var(--shadow-soft)] backdrop-blur-sm hover:bg-primary-foreground/15 hover:shadow-[var(--shadow-elegant)] lg:p-6 xl:p-8"
                   >
-                    <div className="motion-icon flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                    <div className="motion-icon flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-foreground text-primary transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
                       <Icon className="h-7 w-7" strokeWidth={1.6} />
                     </div>
-                    <h3 className="mt-6 text-xl leading-snug text-primary">{service.title}</h3>
-                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    <h3 className="mt-6 text-xl leading-snug text-primary-foreground">
+                      {service.title}
+                    </h3>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-primary-foreground/80">
                       {service.text}
                     </p>
-                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-ink">
+                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
                       Meer informatie
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>
@@ -305,91 +332,6 @@ function Index() {
                 />
               </div>
               <div className="pointer-events-none absolute -bottom-6 -right-6 hidden h-32 w-32 rounded-3xl border-4 border-accent/40 sm:block" />
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Gratis nalatenschapscheck */}
-      <section className="bg-primary py-16 text-primary-foreground">
-        <Reveal className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center sm:px-6">
-          <div>
-            <h2 className="text-3xl text-primary-foreground sm:text-4xl">
-              Hoe goed is uw nalatenschap eigenlijk geregeld?
-            </h2>
-            <p className="mt-3 text-lg text-primary-foreground/85">
-              Beantwoord vijf eenvoudige vragen en ontdek waar u staat
-            </p>
-          </div>
-          <Button
-            asChild
-            size="lg"
-            className="motion-press rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
-          >
-            <Link to="/nalatenschapscheck">Start uw gratis nalatenschapscheck</Link>
-          </Button>
-        </Reveal>
-      </section>
-
-      {/* 9. Nalatenschapscheck */}
-      <section className="bg-background py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-12 rounded-[2rem] border border-border/60 bg-secondary/50 p-8 shadow-[var(--shadow-soft)] sm:p-12 lg:grid-cols-2">
-            <Reveal>
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
-                {h.scanEyebrow}
-              </p>
-              <h2 className="text-3xl text-primary sm:text-4xl">{h.scanTitle}</h2>
-              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.scanIntro}</p>
-              <ul className="mt-6 space-y-3">
-                {h.scanBullets.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-foreground">
-                    <CheckCircle2
-                      className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent-ink"
-                      strokeWidth={1.75}
-                      aria-hidden="true"
-                    />
-                    <span className="leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button
-                asChild
-                size="lg"
-                className="motion-press mt-8 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
-              >
-                <Link to="/nalatenschapscheck">
-                  {h.scanCta}
-                  <ArrowRight className="motion-icon ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </Reveal>
-            <Reveal className="relative" delay={140}>
-              <div className="rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-elegant)]">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-                    <ClipboardCheck className="h-7 w-7" strokeWidth={1.6} aria-hidden="true" />
-                  </div>
-                  <div>
-                    <p className="font-display text-2xl text-primary">{h.scanCardTitle}</p>
-                    <p className="text-sm text-muted-foreground">{h.scanCardSub}</p>
-                  </div>
-                </div>
-                <ol className="mt-6 space-y-3">
-                  {h.scanCardItems.map((row, i) => (
-                    <li
-                      key={row}
-                      className="motion-lift flex items-center gap-3 rounded-xl bg-secondary/60 px-4 py-3"
-                    >
-                      <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
-                        {i + 1}
-                      </span>
-                      <span className="text-sm text-foreground">{row}</span>
-                    </li>
-                  ))}
-                </ol>
-                <p className="mt-6 text-center text-xs text-muted-foreground">{h.scanCardFooter}</p>
-              </div>
             </Reveal>
           </div>
         </div>

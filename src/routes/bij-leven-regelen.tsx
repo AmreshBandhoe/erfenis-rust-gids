@@ -53,6 +53,7 @@ function BijLevenRegelen() {
               </p>
               <h2 className="text-3xl text-primary sm:text-4xl">{h.whyTitle}</h2>
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.whyText}</p>
+              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{h.whyText2}</p>
             </Reveal>
             <Reveal
               className="rounded-3xl border border-border/60 bg-secondary/50 p-8 shadow-[var(--shadow-soft)] sm:p-10"
@@ -162,24 +163,34 @@ function BijLevenRegelen() {
 
       {/* Price */}
       <section className="on-dark bg-primary py-24 text-primary-foreground">
-        <Reveal className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+        <Reveal className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl leading-tight text-primary-foreground sm:text-5xl md:text-6xl">
             {h.priceTitle}
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/90">
+          <ul className="mt-10 grid gap-4 text-left sm:grid-cols-2">
+            {h.priceItems.map((item) => (
+              <li key={item} className="flex items-start gap-3 text-primary-foreground/90">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
+                <span className="leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mx-auto mt-10 max-w-xl text-center text-lg leading-relaxed text-primary-foreground/90">
             {h.priceText}
           </p>
-          <Button
-            asChild
-            size="lg"
-            className="motion-press mt-10 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
-          >
-            <Link to="/contact">
-              {h.priceCta}
-              <ArrowRight className="motion-icon ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-          <p className="mt-12 font-display text-2xl italic text-accent">“{h.quote}”</p>
+          <div className="text-center">
+            <Button
+              asChild
+              size="lg"
+              className="motion-press mt-8 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
+            >
+              <Link to="/contact">
+                {h.priceCta}
+                <ArrowRight className="motion-icon ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+          <p className="mt-14 text-center font-display text-2xl italic text-accent">“{h.quote}”</p>
         </Reveal>
       </section>
     </>
