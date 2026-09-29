@@ -129,7 +129,7 @@ function Index() {
                 width={1200}
                 height={900}
                 loading="lazy"
-                className="aspect-[4/3] h-full w-full object-cover lg:aspect-auto"
+                className="aspect-[4/3] h-full w-full object-cover brightness-90 saturate-75 lg:aspect-auto"
               />
             </Reveal>
 
@@ -156,10 +156,10 @@ function Index() {
               <div className="mt-8">
                 <Link
                   to="/bij-leven-regelen"
-                  className="group inline-flex items-center gap-1.5 text-base font-semibold text-accent-ink"
+                  className="group inline-flex items-center gap-2 text-lg font-semibold text-accent-ink"
                 >
                   {h.prepCta}
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
             </Reveal>
@@ -191,8 +191,8 @@ function Index() {
       {/* Begeleiding na overlijden */}
       <section className="bg-background py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-14 lg:grid-cols-2">
-            <Reveal>
+          <div className="grid gap-14 lg:grid-cols-2 lg:items-start">
+            <Reveal className="lg:self-center">
               <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
                 {h.helpEyebrow}
               </p>
@@ -203,32 +203,13 @@ function Index() {
               <p className="mt-4 max-w-lg text-lg leading-relaxed text-muted-foreground">
                 {h.helpNetwork}
               </p>
-              <div className="motion-image-frame mt-10 overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)]">
-                <img
-                  src={helpImg}
-                  alt="Handen sorteren oude brieven en documenten aan een houten tafel, naast een kop thee en een notitieboek"
-                  width={1200}
-                  height={900}
-                  loading="lazy"
-                  className="aspect-[4/3] h-full w-full object-cover"
-                />
-              </div>
-              <div className="mt-8">
-                <Link
-                  to="/hulp-bij-erfenis"
-                  className="group inline-flex items-center gap-1.5 text-base font-semibold text-accent-ink"
-                >
-                  {h.helpCta}
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </div>
             </Reveal>
 
             <Reveal
-              className="flex flex-col rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] sm:p-10"
+              className="rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] sm:p-10"
               delay={120}
             >
-              <ul className="flex flex-1 flex-col justify-between gap-5">
+              <ul className="space-y-5">
                 {h.helpItems.map((item) => (
                   <li key={item} className="flex items-start gap-3.5">
                     <CheckCircle2
@@ -242,10 +223,32 @@ function Index() {
               </ul>
             </Reveal>
           </div>
+
+          <Reveal className="mt-14" delay={180}>
+            <div className="motion-image-frame overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)]">
+              <img
+                src={helpImg}
+                alt="Handen sorteren oude brieven en documenten aan een houten tafel, naast een kop thee en een notitieboek"
+                width={1200}
+                height={900}
+                loading="lazy"
+                className="aspect-[4/3] w-full object-cover sm:aspect-[16/5]"
+              />
+            </div>
+            <div className="mt-8">
+              <Link
+                to="/hulp-bij-erfenis"
+                className="group inline-flex items-center gap-1.5 text-base font-semibold text-accent-ink"
+              >
+                {h.helpCta}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* Onze begeleiding */}
+      {/* 6. Services */}
       <section className="on-dark bg-primary py-24 text-primary-foreground">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center">
