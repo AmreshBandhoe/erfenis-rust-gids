@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CheckCircle2, ClipboardCheck, FolderHeart, ArrowRight } from "lucide-react";
+import { CheckCircle2, FolderHeart, ArrowRight } from "lucide-react";
 import { ContentHero } from "@/components/ContentHero";
 import { FaqSection } from "@/components/FaqSection";
 import { Reveal } from "@/components/Reveal";
@@ -104,33 +104,6 @@ function BijLevenRegelen() {
         </div>
       </section>
 
-      {/* Nalatenschapscheck */}
-      <section className="bg-background py-24">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="motion-lift rounded-[2rem] border border-border/60 bg-secondary/50 p-8 text-center shadow-[var(--shadow-soft)] sm:p-12">
-            <div className="motion-icon mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-              <ClipboardCheck className="h-7 w-7" strokeWidth={1.6} />
-            </div>
-            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
-              {h.checkEyebrow}
-            </p>
-            <h2 className="mt-3 text-3xl text-primary sm:text-4xl">{h.checkTitle}</h2>
-            <p className="mt-3 font-display text-2xl text-primary">{h.checkSubtitle}</p>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{h.checkText}</p>
-            <Button
-              asChild
-              size="lg"
-              className="motion-press mt-8 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground hover:bg-accent/90"
-            >
-              <Link to="/nalatenschapscheck">
-                {h.checkCta}
-                <ArrowRight className="motion-icon ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-          </Reveal>
-        </div>
-      </section>
-
       {/* Levensdossier */}
       <section className="bg-secondary/50 py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -162,8 +135,6 @@ function BijLevenRegelen() {
           </div>
         </div>
       </section>
-
-      <FaqSection items={serviceFaqs.bijleven} />
 
       {/* Price */}
       <section className="on-dark bg-primary py-24 text-primary-foreground">
@@ -197,6 +168,7 @@ function BijLevenRegelen() {
           <p className="mt-14 text-center font-display text-2xl italic text-accent">“{h.quote}”</p>
         </Reveal>
       </section>
+      <FaqSection items={serviceFaqs.bijleven} />
     </>
   );
 }

@@ -8,7 +8,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useState, type ReactNode } from "react";
 
 import { DURATION, EASE } from "@/lib/motion";
@@ -149,12 +149,9 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 /**
- * Laat de oude pagina uitvloeien voordat de nieuwe binnenkomt, zodat een klik in
- * het menu niet als een harde sprong voelt. mode="wait" is hier belangrijk: zonder
- * dat staan twee pagina's kort over elkaar heen en springt de paginahoogte.
- *
- * De duur blijft kort (0,25s). Alles daarboven voelt bij navigatie als traagheid,
- * niet als verfijning.
+ * Animeer alleen het verschijnen van de nieuwe pagina. Outlet wisselt zijn inhoud
+ * direct bij navigatie; een wachtende exit-animatie kan daardoor de nieuwe inhoud
+ * vasthouden in een onzichtbare wrapper, vooral bij geneste AnimatePresence-lijsten.
  */
 function RouteFade({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -163,17 +160,14 @@ function RouteFade({ children }: { children: ReactNode }) {
   if (reduced) return <>{children}</>;
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      <motion.div
-        key={pathname}
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -4 }}
-        transition={{ duration: DURATION.swap, ease: EASE }}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <motion.div
+      key={pathname}
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: DURATION.swap, ease: EASE }}
+    >
+      {children}
+    </motion.div>
   );
 }
 
