@@ -28,8 +28,7 @@ const nl = {
   },
 
   footer: {
-    tagline:
-      "Grip op uw nalatenschap. Duidelijkheid voor uw nabestaanden. De wegwijzer bij leven, overlijden en nalatenschap.",
+    tagline: "Grip op uw nalatenschap. Duidelijkheid voor uw nabestaanden.",
     quickLinks: "Snelle links",
     contactTitle: "Contact",
     hours: "Ma t/m vr 9.00 – 17.00 uur",
@@ -317,7 +316,7 @@ const nl = {
       "Persoonlijke begeleiding van begin tot eind",
     ],
 
-    priceTitle: "Compleet traject voor €599",
+    priceTitle: "Compleet Nalatenschapsdossier voor €599",
     priceItems: [
       "Een compleet overzicht van uw persoonlijke, financiële en administratieve zaken",
       "Volledig inzicht in bezittingen, schulden en verzekeringen",

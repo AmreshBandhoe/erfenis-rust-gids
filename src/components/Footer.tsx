@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Mail, Phone, Clock } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF, PHONE_IS_PLACEHOLDER } from "@/lib/contact";
-import logo from "@/assets/erfeniswijzer-logo.jpeg";
+import logo from "@/assets/logo-footer.png";
 import logoIcr from "@/assets/logo-icr.png";
 import logoIca from "@/assets/logo-ica.png";
 import logoAdr from "@/assets/logo-adr.png";
@@ -27,7 +27,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
           {/* Brand + tagline */}
           <div>
-            <img src={logo} alt="Logo De Erfeniswijzer" className="h-20 w-auto rounded-xl" />
+            <img src={logo} alt="Logo De Erfeniswijzer" className="h-20 w-auto" />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-primary-foreground/75">
               {t.footer.tagline}
             </p>

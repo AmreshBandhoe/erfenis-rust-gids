@@ -21,6 +21,7 @@ import { Footer } from "@/components/Footer";
 import { MobileContactBar } from "@/components/MobileContactBar";
 import { Toaster } from "@/components/ui/sonner";
 import { LanguageProvider } from "@/lib/i18n";
+import { getMaintenanceSnapshot } from "@/lib/api/admin.functions";
 
 const brandButton =
   "inline-flex items-center justify-center rounded-full bg-accent px-7 py-3 text-base font-medium text-accent-foreground shadow-lg transition-colors hover:bg-accent/90";
@@ -128,6 +129,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
   }),
+  loader: () => getMaintenanceSnapshot(),
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
@@ -193,31 +195,59 @@ function RouteAnnouncer() {
   );
 }
 
+function MaintenancePage() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-primary px-4 py-20 text-primary-foreground">
+      <div className="max-w-xl text-center">
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+          De Erfeniswijzer
+        </p>
+        <h1 className="mt-5 text-4xl leading-tight text-primary-foreground sm:text-5xl">
+          De website is tijdelijk in onderhoud
+        </h1>
+        <p className="mx-auto mt-6 max-w-md text-lg leading-relaxed text-primary-foreground/80">
+          We zijn bezig met een korte update. Probeert u het later opnieuw, of neem rechtstreeks
+          contact op via info@erfeniswijzer.nl.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const maintenance = Route.useLoaderData();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const showMaintenance = maintenance.enabled && pathname !== "/admin";
 
   return (
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
-        <a
-          href="#main"
-          className="sr-only rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100]"
-        >
-          Naar de inhoud
-        </a>
-        <div className="flex min-h-screen flex-col">
-          <Header />
-          {/* tabIndex maakt <main> een geldig doel voor de skiplink hierboven. */}
-          <main id="main" tabIndex={-1} className="flex-1 outline-none">
-            {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-            <RouteFade>
-              <Outlet />
-            </RouteFade>
-          </main>
-          <Footer />
-        </div>
-        <MobileContactBar />
-        <RouteAnnouncer />
+        {showMaintenance ? (
+          <MaintenancePage />
+        ) : (
+          <>
+            <a
+              href="#main"
+              className="sr-only rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100]"
+            >
+              Naar de inhoud
+            </a>
+            <div className="flex min-h-screen flex-col">
+              <Header />
+              {/* tabIndex maakt <main> een geldig doel voor de skiplink hierboven. */}
+              <main id="main" tabIndex={-1} className="flex-1 outline-none">
+                {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+                <RouteFade>
+                  <Outlet />
+                </RouteFade>
+              </main>
+              <Footer />
+            </div>
+            <MobileContactBar />
+            <RouteAnnouncer />
+          </>
+        )}
         <Toaster position="top-center" richColors />
       </LanguageProvider>
     </QueryClientProvider>

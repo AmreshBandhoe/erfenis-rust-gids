@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CheckCircle2, FolderHeart, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import { ContentHero } from "@/components/ContentHero";
 import { FaqSection } from "@/components/FaqSection";
 import { Reveal } from "@/components/Reveal";
@@ -93,38 +93,6 @@ function BijLevenRegelen() {
               <h3 className="text-xl text-primary">{h.overviewListTitle}</h3>
               <ul className="mt-6 space-y-4">
                 {h.overviewList.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-foreground">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent-ink" />
-                    <span className="leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Levensdossier */}
-      <section className="bg-secondary/50 py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-start gap-14 lg:grid-cols-2">
-            <Reveal>
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
-                {h.dossierEyebrow}
-              </p>
-              <h2 className="text-3xl text-primary sm:text-4xl">{h.dossierTitle}</h2>
-              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{h.dossierText1}</p>
-              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{h.dossierText2}</p>
-            </Reveal>
-            <Reveal
-              className="rounded-3xl border border-border/60 bg-card p-8 shadow-[var(--shadow-soft)] sm:p-10"
-              delay={120}
-            >
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-                <FolderHeart className="h-7 w-7" strokeWidth={1.6} />
-              </div>
-              <ul className="mt-6 space-y-4">
-                {h.dossierList.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-foreground">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent-ink" />
                     <span className="leading-relaxed">{item}</span>

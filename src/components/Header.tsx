@@ -12,7 +12,7 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/s
 import { Button } from "@/components/ui/button";
 import { useLang } from "@/lib/i18n";
 import { DURATION, EASE } from "@/lib/motion";
-import logo from "@/assets/erfeniswijzer-logo.jpeg";
+import logo from "@/assets/logo-header.png";
 
 type NavLeaf = { label: string; to: string };
 type NavEntry = NavLeaf | { label: string; children: readonly NavLeaf[] };
@@ -47,7 +47,7 @@ function Brand({ onClick, condensed = false }: { onClick?: () => void; condensed
       <motion.img
         src={logo}
         alt="Logo De Erfeniswijzer"
-        className="h-11 w-auto origin-left rounded-lg shadow-soft"
+        className="h-11 w-auto origin-left"
         animate={{ scale: condensed ? 0.88 : 1 }}
         transition={{ duration: DURATION.swap, ease: EASE }}
       />

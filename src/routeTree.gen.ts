@@ -21,6 +21,7 @@ import { Route as ErfbelastingAangifteRouteImport } from './routes/erfbelasting-
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BijLevenRegelenRouteImport } from './routes/bij-leven-regelen'
 import { Route as BedanktRouteImport } from './routes/bedankt'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as KennisbankSlugRouteImport } from './routes/kennisbank.$slug'
 
@@ -84,6 +85,11 @@ const BedanktRoute = BedanktRouteImport.update({
   path: '/bedankt',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -97,6 +103,7 @@ const KennisbankSlugRoute = KennisbankSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/bedankt': typeof BedanktRoute
   '/bij-leven-regelen': typeof BijLevenRegelenRoute
   '/contact': typeof ContactRoute
@@ -113,6 +120,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/bedankt': typeof BedanktRoute
   '/bij-leven-regelen': typeof BijLevenRegelenRoute
   '/contact': typeof ContactRoute
@@ -130,6 +138,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/bedankt': typeof BedanktRoute
   '/bij-leven-regelen': typeof BijLevenRegelenRoute
   '/contact': typeof ContactRoute
@@ -148,6 +157,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/bedankt'
     | '/bij-leven-regelen'
     | '/contact'
@@ -164,6 +174,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin'
     | '/bedankt'
     | '/bij-leven-regelen'
     | '/contact'
@@ -180,6 +191,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/bedankt'
     | '/bij-leven-regelen'
     | '/contact'
@@ -197,6 +209,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
   BedanktRoute: typeof BedanktRoute
   BijLevenRegelenRoute: typeof BijLevenRegelenRoute
   ContactRoute: typeof ContactRoute
@@ -297,6 +310,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BedanktRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -328,6 +348,7 @@ const KennisbankRouteWithChildren = KennisbankRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
   BedanktRoute: BedanktRoute,
   BijLevenRegelenRoute: BijLevenRegelenRoute,
   ContactRoute: ContactRoute,
