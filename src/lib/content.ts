@@ -935,3 +935,921 @@ export const serviceFaqs: Record<string, FaqItem[]> = {
     },
   ],
 };
+
+export const englishKnowledgeArticles: KnowledgeArticle[] = [
+  {
+    slug: "wat-doet-een-executeur-precies",
+    title: "What exactly does an executor do?",
+    excerpt:
+      "After a death, many matters come at relatives at once. An executor can manage the estate and bring structure to the settlement.",
+    category: "afwikkeling",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "After a death, many matters come at relatives at once. An executor can take charge of managing the estate and bring structure to the settlement. What an executor may do depends on the law and on what the deceased person recorded in the will.",
+        ],
+      },
+      {
+        heading: "The main duties",
+        paragraphs: [
+          "An executor is appointed in a will and must accept that appointment. In most cases, the executor lists the assets and debts, manages the estate, pays debts that must be paid during that management and prepares the inheritance tax return. This may include collecting bank details, requesting outstanding invoices and contacting organisations. Sometimes the will also instructs the executor to arrange the funeral.",
+          "The executor must inform the heirs and eventually account for the work carried out. A clear estate inventory and a careful overview of income and expenses help with that.",
+        ],
+      },
+      {
+        heading: "May an executor divide the inheritance?",
+        paragraphs: [
+          "An ordinary executor manages the estate and prepares it for distribution. That does not automatically mean the executor independently decides who receives which asset. In principle, distribution is done by the heirs together, taking account of the will and the law. If the will gives broader powers, for example through settlement administration, the role may be wider. Always have the will reviewed before assuming what an executor may do.",
+          "A notary has a different role: a notary can advise, prepare documents and, where needed, issue a certificate of inheritance. A notary does not automatically take over management of the estate.",
+        ],
+      },
+      {
+        heading: "When is support useful?",
+        paragraphs: [
+          "Support is especially valuable when there are several heirs, a home, a business or unclear debts. The Inheritance Guide helps map out the work and organise the settlement. Where questions arise about exact powers under a will, we involve a notary where needed.",
+          "Would you like to know who may arrange what in your situation? Contact The Inheritance Guide.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "hoe-werkt-erfbelasting",
+    title: "How does inheritance tax work?",
+    excerpt:
+      "Receiving an inheritance does not automatically mean you pay inheritance tax. First, the inheritance, its value and the applicable exemption must be clear.",
+    category: "afwikkeling",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "Receiving an inheritance does not automatically mean you pay inheritance tax. First, it must be clear what you inherit, what it is worth and which exemption applies to you. Tax may only be due on the amount above that exemption.",
+        ],
+      },
+      {
+        heading: "From estate to your share",
+        paragraphs: [
+          "The estate consists of assets and debts, such as bank accounts, a home, investments and personal loans. For tax purposes, it matters which part of the estate you receive. Homes have specific valuation rules. A life insurance payout may also count in some circumstances, even if it is paid directly to a beneficiary. A complete overview is therefore needed before making a calculation.",
+          "Every heir has their own exemption. The amount depends in part on the relationship with the deceased. Partners usually have a much higher exemption than children; other heirs have different amounts. Tax rates also depend on the relationship and the size of the taxable amount. The Dutch Tax Administration publishes the amounts for each year of death.",
+        ],
+      },
+      {
+        heading: "Who files and when?",
+        paragraphs: [
+          "The Tax Administration often sends a tax return letter. Even without a letter, a return may be needed if you inherit more than your exemption. If there is an executor, the executor usually files the return. Otherwise, the heirs decide together who will handle it.",
+          "For deaths in 2026, the filing deadline in the tax return letter is twenty months after the date of death. For deaths in 2025 or earlier, the deadline was usually eight months. Always check the year of death and the date in the letter; an old checklist can send you in the wrong direction.",
+        ],
+      },
+      {
+        heading: "First an overview, then the return",
+        paragraphs: [
+          "Collect bank balances, home details, debts, gifts and any insurance policies. Also record who the heirs are and what each receives under the will or the law. The Inheritance Guide helps collect this information clearly and involves a tax specialist for complex calculations where needed.",
+          "Would you like to know which information is still missing for the return? We help you complete the file.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "levenstestament-waarom-is-het-belangrijk",
+    title: "Living will: why is it important?",
+    excerpt:
+      "A living will records who may act for you if you can no longer arrange financial, personal or medical matters yourself.",
+    category: "voorbereiding",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "Who arranges your banking if you temporarily or permanently cannot do so yourself? Who discusses your wishes with healthcare providers if you cannot decide? A living will lets you record in advance who may act on your behalf and within which limits.",
+        ],
+      },
+      {
+        heading: "A will for during your lifetime",
+        paragraphs: [
+          "An ordinary will takes effect after death. A living will concerns the period while you are still alive. You can appoint one or more representatives for financial, personal and medical matters, such as paying bills, contacting the bank, managing a home or speaking with doctors if you are no longer legally capable of making a decision.",
+          "You can also record how the representative must account for their actions and whether someone supervises them. That is wise: a power of attorney gives a lot of trust and a lot of responsibility. Discuss medical wishes with your doctor as well, so they are known and recorded appropriately.",
+        ],
+      },
+      {
+        heading: "Why waiting creates risk",
+        paragraphs: [
+          "Without a suitable power of attorney, it may become necessary to ask the court to appoint an administrator or mentor. Even if you have a partner, court involvement may be needed for certain actions. By making choices in time, you give your loved ones clarity and stay in control of who represents you.",
+          "The document must be prepared while you understand what you are deciding. The notary assesses your capacity when preparing it. Do not wait until an acute situation arises.",
+        ],
+      },
+      {
+        heading: "Start with the right questions",
+        paragraphs: [
+          "Who do you trust with this role? Is a substitute needed? Which decisions may they make independently? Where are your documents and whom should they contact? The Inheritance Guide helps map out these questions and your financial and practical information in advance. The notary prepares the living will itself.",
+          "Would you like clarity before speaking with the notary? We help you think through what you want to arrange.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "nalatenschap-bij-een-samengesteld-gezin",
+    title: "Estate planning in a blended family",
+    excerpt:
+      "In a blended family, inheritance law can produce unexpected outcomes. Stepchildren do not automatically inherit from a stepparent.",
+    category: "voorbereiding",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "In a blended family, everyone may feel like family, but inheritance law makes distinctions. A stepchild does not automatically inherit from a stepparent. The position of a new partner and children from a previous relationship also deserves attention. That is why it is wise to discuss in time what you want to arrange for each person.",
+        ],
+      },
+      {
+        heading: "Who inherits without a will?",
+        paragraphs: [
+          "The outcome depends on family ties and relationship status. If you are married or in a registered partnership and have children, the statutory division often applies: the surviving partner receives the assets and debts of the estate, while the children receive a monetary claim. Children of your partner who are not legally your children do not, in principle, inherit from you without a will.",
+          "If you live together without marriage or registered partnership, your partner is not automatically an heir. A cohabitation agreement alone does not make someone an heir either. That difference can have major consequences for the home and the financial security of the surviving partner.",
+        ],
+      },
+      {
+        heading: "What can you arrange in advance?",
+        paragraphs: [
+          "In a will, you can leave something to stepchildren, appoint an heir or make arrangements that fit your family. Sometimes usufruct of a home can help: the children inherit the home while the partner may continue using it under conditions. The right choice depends on ownership of the home, earlier wills, marital terms and the wishes of everyone involved.",
+          "Also consider the position of your own children. A child disinherited in a will may still be able to claim the forced heirship portion: a right to money, not to specific items.",
+        ],
+      },
+      {
+        heading: "Clarity brings calm",
+        paragraphs: [
+          "First map out who is legally related to whom, who owns which assets and which agreements already exist. The Inheritance Guide helps organise this overview and your wishes. A notary then translates the choices into a legally suitable will.",
+          "Would you like to know which questions your family should discuss? Contact us for an initial overview.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "wat-te-doen-bij-overlijden-de-checklist",
+    title: "What to do after a death: the checklist",
+    excerpt:
+      "After a death, not everything has to be arranged at once. This order helps you keep an overview.",
+    category: "afwikkeling",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "After a death, you do not have to arrange everything at once. Some matters require immediate attention; others can wait until it is clear who is authorised and what the estate looks like. This order helps you keep an overview.",
+        ],
+      },
+      {
+        heading: "The first days",
+        paragraphs: [
+          "Contact a doctor to confirm the death and involve a funeral director if you want help with the funeral. The death must be registered with the municipality; the funeral director often arranges this. Gather the most important documents, such as identity details, insurance information and any funeral wishes. Also make sure the home is secure and that pets or people who depended on the deceased are cared for.",
+        ],
+      },
+      {
+        heading: "After that: who may arrange what?",
+        paragraphs: [
+          "Check whether there is a will and whether an executor has been appointed. A notary can consult the Central Wills Register. Make an initial overview of bank accounts, assets, debts, insurance policies and ongoing obligations. Report the death to relevant organisations and providers, but do not cancel everything automatically: some agreements or insurance policies may still be needed during settlement.",
+          "Are you an heir? Do not choose too quickly between unconditional acceptance, beneficial acceptance or rejection. Selling estate assets or taking them for yourself can mean you have accepted the inheritance unconditionally. Paying the funeral from the estate is an exception according to the Dutch government. If you are unsure about debts, seek advice first.",
+        ],
+      },
+      {
+        heading: "The following weeks",
+        paragraphs: [
+          "Where needed, request a certificate of inheritance, manage the estate according to the applicable powers and prepare a complete estate inventory. Then arrange outstanding debts, tax matters and, where possible, distribution. Agree with the heirs who maintains contact with organisations and where documents are kept.",
+          "The Inheritance Guide helps plan the steps, gather information and monitor what has already been arranged. That way, you do not have to oversee everything yourself during a difficult period.",
+          "Have you just experienced a death? We help you determine what needs attention first.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "crypto-en-digitale-bezittingen-in-een-erfenis",
+    title: "Crypto and digital assets in an inheritance",
+    excerpt:
+      "An estate now includes more than a home, bank account and belongings. Digital assets require their own overview.",
+    category: "voorbereiding",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "An estate now consists of more than a home, a bank account and belongings. Think also of cryptocurrency, online investments, domain names, cloud photos and accounts with ongoing subscriptions. Without an overview, relatives may miss value or be unable to access important information.",
+        ],
+      },
+      {
+        heading: "What belongs to the digital estate?",
+        paragraphs: [
+          "Some digital assets have financial value, such as crypto, an online shop or a domain name. Others are mainly personally valuable, such as photos, emails and social media. There may also be digital debts or ongoing costs. Relatives' rights differ by platform and contract. The fact that someone used an account does not automatically mean someone else may take it over.",
+          "Access is a particular concern with cryptocurrency. If the required keys or recovery details cannot be found, the value may be lost. At the same time, such details should not be placed unsecured in a will or an easily accessible document.",
+        ],
+      },
+      {
+        heading: "What can you do during life?",
+        paragraphs: [
+          "Make an overview of platforms, wallets, devices, domain names and important files. Record what should happen to them and who the right contact person is. Store access details securely and separately record how an authorised person can find them after your death. Update the overview regularly. A notary can discuss which wishes belong in a will; practical access details require a secure and changeable storage method.",
+        ],
+      },
+      {
+        heading: "What should relatives do after death?",
+        paragraphs: [
+          "Start by inventorying devices, administration, bank statements and known platforms. Do not move or distribute digital value before it is clear who is authorised, which debts exist and how the inheritance has been accepted. Document found balances and values for the inheritance tax return. A specialist can help with tax questions.",
+          "The Inheritance Guide includes digital assets in the estate overview and helps relatives avoid overlooking anything.",
+          "Would you like to map out your digital estate better? Contact us.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "schenken-bij-leven-slim-en-eerlijk-besparen",
+    title: "Gifting during life: saving wisely and fairly",
+    excerpt:
+      "Gifts can help someone now and sometimes reduce later inheritance tax, but they should fit your own security and family situation.",
+    category: "voorbereiding",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "Giving during life can be a meaningful way to help someone now. Sometimes it also reduces later inheritance tax. But a gift is only sensible if it fits your own financial security, your family and the tax rules. Looking only at tax savings gives an incomplete picture.",
+        ],
+      },
+      {
+        heading: "How do exemptions work?",
+        paragraphs: [
+          "Annual exemptions apply to gifts. The amount depends on the relationship between giver and recipient and is set per calendar year. Parents gifting to a child have a different exemption from, for example, grandparents or friends. There are also one-off increased exemptions under conditions. Always check the amount and conditions for the year in which you actually make the gift. Sometimes the recipient must file a gift tax return, including to use an increased exemption.",
+          "A gift shortly before death needs extra attention. If the giver dies within 180 days, the gift is generally treated as part of the inheritance for inheritance tax purposes. A last-minute gift therefore does not automatically create a tax advantage.",
+        ],
+      },
+      {
+        heading: "Record the intention too",
+        paragraphs: [
+          "Was the money intended as an advance on a future inheritance? Do you want the gift to remain your child's private property? Are there other children, and do you want to prevent them from later looking differently at the arrangements? Discuss such questions in advance and record what you decide. Also consider your own expenses, care costs and the possibility that you may need the gifted amount later.",
+          "Additional rules may apply to a home, a business, a forgiven loan or a conditional gift. Have those situations assessed in advance by a notary or tax adviser.",
+        ],
+      },
+      {
+        heading: "A suitable gifting plan",
+        paragraphs: [
+          "The Inheritance Guide helps map out your assets, earlier gifts and wishes. That allows you to discuss with a notary or tax adviser what is legally and fiscally sensible, without losing sight of the personal side.",
+          "Would you like to make gifts, but first understand what this means for your estate? We put the questions in order for you.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "een-erfenis-verdelen-zonder-ruzie",
+    title: "Dividing an inheritance without conflict",
+    excerpt:
+      "An inheritance is rarely only about money. Clear information and agreed working methods help prevent conflict.",
+    category: "afwikkeling",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "An inheritance is rarely only about money. A photo album, piece of jewellery or parental home can mean different things to different heirs. At the same time, assets and debts must be handled under the will and the law. Calm usually arises when everyone knows what exists, who may make decisions and how those decisions are made.",
+        ],
+      },
+      {
+        heading: "Start with the legal basis",
+        paragraphs: [
+          "First check whether there is a will, who the heirs are and whether an executor has been appointed. Also check whether the statutory division applies: children then usually receive a monetary claim against the surviving partner and there is not immediately an ordinary distribution of all assets. The outcome depends on the family situation and the will.",
+          "Before heirs divide goods among themselves, they need insight into debts, ongoing costs and taxes. Beneficial acceptance also brings rules for settlement. Do not give away estate money or distribute valuable items based on an incomplete overview.",
+        ],
+      },
+      {
+        heading: "Agree on one method",
+        paragraphs: [
+          "Prepare an estate inventory together. Record how assets are valued, which documents are available to everyone and how choices will be made. For emotionally valuable items, it can help to first list wishes before assigning values or drawing lots.",
+          "Use one central contact person where possible, but keep all heirs informed. Written summaries after conversations prevent later misunderstandings. If communication is already tense, involve a neutral adviser or mediator in time.",
+        ],
+      },
+      {
+        heading: "Keep the overview",
+        paragraphs: [
+          "The Inheritance Guide helps create structure, collect documents and clarify the steps. This makes the process less dependent on memory, assumptions or emotion.",
+          "Would you like to divide an estate carefully? We help you create a clear route.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "erfenis-aanvaarden-beneficiair-aanvaarden-of-verwerpen-wat-kiest-u",
+    title: "Accepting, beneficially accepting or rejecting an inheritance: what do you choose?",
+    excerpt:
+      "As an heir, you usually have three choices. The safest option depends on the assets, debts and uncertainty in the estate.",
+    category: "afwikkeling",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "As an heir, you generally have three options: accept unconditionally, accept beneficially or reject. The choice has legal consequences. That is why it is wise to first create an initial overview of assets and debts.",
+        ],
+      },
+      {
+        heading: "Unconditional acceptance",
+        paragraphs: [
+          "With unconditional acceptance, you accept the assets and the debts. If the estate turns out negative, you may become personally liable for debts. Certain conduct can also be seen as unconditional acceptance, such as selling estate goods or taking them for yourself.",
+        ],
+      },
+      {
+        heading: "Beneficial acceptance",
+        paragraphs: [
+          "With beneficial acceptance, the estate is settled according to legal rules and you are generally protected against a shortfall. This can be sensible when debts are unclear. It does mean that the estate must be handled carefully and that creditors have to be respected.",
+        ],
+      },
+      {
+        heading: "Rejection",
+        paragraphs: [
+          "If you reject, you are no longer an heir and receive nothing. Rejection can have consequences for your children or other family members who may then move up in the order of succession. Seek advice before making that choice.",
+          "The Inheritance Guide helps separate urgent practical steps from choices with legal consequences, so you can decide with more confidence.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "wat-is-een-verklaring-van-erfrecht-en-wanneer-heeft-u-die-nodig",
+    title: "What is a certificate of inheritance and when do you need one?",
+    excerpt:
+      "A certificate of inheritance is a notarial document showing who the heirs are and who may act for the estate.",
+    category: "afwikkeling",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "A certificate of inheritance is a notarial document stating, among other things, who the heirs are and who is authorised to act on behalf of the estate. Banks and other organisations may ask for it before giving access to accounts or information.",
+        ],
+      },
+      {
+        heading: "What does the notary check?",
+        paragraphs: [
+          "The notary investigates the civil status records, the Central Wills Register, the will if one exists and the position of the heirs. If an executor has been appointed, the certificate can also record that person's authority.",
+          "The certificate does not itself divide the inheritance. It mainly proves who may act and who is involved.",
+        ],
+      },
+      {
+        heading: "Is it always required?",
+        paragraphs: [
+          "Not always. Sometimes a death certificate is enough, especially for simple situations or small balances. For a home, multiple heirs, a will or uncertainty about authority, a certificate is often needed.",
+          "The Inheritance Guide helps determine which organisations need which documents, so you do not request more than necessary but also do not get stuck.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "hoe-weet-u-of-er-een-testament-is",
+    title: "How do you know whether there is a will?",
+    excerpt:
+      "The Central Wills Register records whether a will exists, when it was made and which notary holds it.",
+    category: "afwikkeling",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "After a death, it is important to know whether there is a will. The will can determine who the heirs are, whether an executor has been appointed and which wishes the deceased recorded.",
+        ],
+      },
+      {
+        heading: "The Central Wills Register",
+        paragraphs: [
+          "In the Netherlands, you can ask the Central Wills Register whether someone made a will. The register states whether a will exists, when it was made and at which notary. It does not show the contents of the will.",
+          "If a will exists, a notary can request and assess it. The notary determines who is entitled to receive information about its contents.",
+        ],
+      },
+      {
+        heading: "Why early checking matters",
+        paragraphs: [
+          "Do not assume that old family arrangements or verbal wishes are enough. A will can change who may act and who inherits. Checking early prevents work from being done from the wrong starting point.",
+          "The Inheritance Guide helps include this check in the first steps after death and helps you understand which follow-up questions to ask the notary.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "wat-gebeurt-er-met-een-huis-en-hypotheek-na-overlijden",
+    title: "What happens to a home and mortgage after death?",
+    excerpt:
+      "A home and mortgage usually require careful coordination between heirs, bank, insurer, notary and sometimes an estate agent.",
+    category: "afwikkeling",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "A home often forms a major part of an estate. After death, ownership, mortgage obligations, insurance and practical management must be clarified. Do not assume that the home can immediately be sold, occupied or emptied without checking authority.",
+        ],
+      },
+      {
+        heading: "First establish who may act",
+        paragraphs: [
+          "Check whether there is a will, who the heirs are and whether an executor has been appointed. The Land Registry, bank and notary may need documentation before changes can be made. If there is a surviving partner, the statutory division or the will may affect the position.",
+        ],
+      },
+      {
+        heading: "Mortgage and ongoing costs",
+        paragraphs: [
+          "Mortgage payments, insurance, utilities and maintenance may continue. Inform the bank and insurer in time, but do not cancel essential cover too quickly. A life insurance policy linked to the mortgage can also be relevant.",
+          "The Inheritance Guide helps bring together the documents, contacts and decisions around the home, so the heirs can make careful choices.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "wat-is-een-kindsdeel-en-wanneer-wordt-het-uitbetaald",
+    title: "What is a child's share and when is it paid?",
+    excerpt:
+      "Under the statutory division, children often receive a monetary claim that is not immediately payable.",
+    category: "afwikkeling",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "The term child's share is often used for the part a child is entitled to from a parent's estate. Under the statutory division, the surviving partner receives the assets and debts, while the children receive a monetary claim.",
+        ],
+      },
+      {
+        heading: "Not always immediately payable",
+        paragraphs: [
+          "In many situations, the child's claim is only payable later, for example when the surviving partner dies, becomes bankrupt or enters debt restructuring. A will can contain additional rules. Interest may also be relevant.",
+          "The exact amount depends on the size of the estate, the number of heirs, debts and any provisions in the will.",
+        ],
+      },
+      {
+        heading: "Why recording matters",
+        paragraphs: [
+          "It is important to record the claims clearly, even if no money is paid immediately. This prevents uncertainty at the second death or when family circumstances change.",
+          "The Inheritance Guide helps collect the information needed to calculate and document the position, together with the notary where needed.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "wat-gebeurt-er-met-uw-erfenis-als-u-geen-testament-heeft",
+    title: "What happens to your estate if you do not have a will?",
+    excerpt:
+      "If there is no will, the law decides who inherits. That may fit your wishes, but not always.",
+    category: "voorbereiding",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "If you do not have a will, the law determines who your heirs are. That may fit your wishes, but it does not always do so. The outcome depends on your family situation and relationship status.",
+        ],
+      },
+      {
+        heading: "The legal order",
+        paragraphs: [
+          "Spouses, registered partners and children are in the first group of heirs. If there is a partner and children, the statutory division often applies. If there are no heirs in this group, the law looks at parents, siblings and more distant relatives.",
+          "An unmarried cohabiting partner is not automatically an heir. A stepchild is also not automatically your heir unless you arrange this.",
+        ],
+      },
+      {
+        heading: "When a will may be needed",
+        paragraphs: [
+          "A will can be important if you live together unmarried, have a blended family, want to appoint an executor, want to leave something to someone outside the legal order or want to make specific arrangements for your partner or children.",
+          "The Inheritance Guide helps map out your family, assets, debts and wishes. A notary prepares the will and assesses what is legally possible.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "wat-is-het-verschil-tussen-een-testament-en-een-levenstestament",
+    title: "What is the difference between a will and a living will?",
+    excerpt:
+      "The names are similar, but the documents work at different times and answer different questions.",
+    category: "voorbereiding",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "The names sound similar, but the documents work at different moments. A living will concerns your interests during your lifetime. An ordinary will determines what happens to your estate after your death.",
+        ],
+      },
+      {
+        heading: "The living will",
+        paragraphs: [
+          "In a living will, you can appoint a representative for situations in which you can no longer make certain decisions yourself. Think of banking, managing a home and personal or medical wishes. You can set limits on the power of attorney and record who supervises. The document ends at death; the representative does not automatically become executor.",
+        ],
+      },
+      {
+        heading: "The will",
+        paragraphs: [
+          "In a will, prepared by a notary, you record who your heirs are, what you want to leave and who manages the estate after your death. You can appoint an executor, include a legacy or arrange the position of a partner or stepchild. After death, both the law and the actual contents of the will matter.",
+          "Many people need both documents. A will does not determine who acts for you during life if you can no longer decide. A living will does not determine who inherits your assets after death.",
+          "The Inheritance Guide helps put your situation and wishes in order before you speak with a notary.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "wanneer-is-het-verstandig-om-uw-testament-aan-te-passen",
+    title: "When is it wise to update your will?",
+    excerpt:
+      "A will does not expire with time, but life changes can make an old will produce unintended results.",
+    category: "voorbereiding",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "A will does not expire simply because years pass. That is precisely why an old will can continue to apply unintentionally, even though your life has changed significantly.",
+        ],
+      },
+      {
+        heading: "Moments to review it",
+        paragraphs: [
+          "Marriage, registered partnership, divorce or a new relationship can be reasons to review your will. The same applies to the birth of children or grandchildren, a death in the family, a business, a move abroad or a major change in assets. Also check whether the appointed executor is still available and suitable.",
+          "A divorce or new marriage does not automatically change your will in the way you might expect. Do not rely only on what you intended at the time. Ask a notary to assess how the wording works now.",
+        ],
+      },
+      {
+        heading: "What can you prepare yourself?",
+        paragraphs: [
+          "Write down what has changed since the will was made and what you now want to achieve for your partner, children or others. Bring earlier wills and relevant agreements, such as marital terms or a cohabitation agreement. Also look at your living will: the chosen representative may need updating.",
+          "Changes are made through the notary. Tearing up your own copy does not invalidate a notarial will. The Inheritance Guide helps organise the changes and questions beforehand.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "wie-zorgt-er-voor-uw-minderjarige-kinderen-als-u-overlijdt",
+    title: "Who cares for your minor children if you die?",
+    excerpt:
+      "For parents, this is often the most important estate question: who cares for the children, and who manages what they inherit?",
+    category: "voorbereiding",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "For parents, this is often the most important question about their estate. Who takes over care if you are no longer there? Two different matters are involved: who receives parental authority or guardianship, and who manages the assets the child inherits?",
+        ],
+      },
+      {
+        heading: "Authority and guardianship",
+        paragraphs: [
+          "If one parent dies and the other parent still has parental authority, that parent generally remains responsible. For the situation in which no parent with authority is available, you can appoint a guardian in a will or through the custody register. The appointed person is asked whether they accept guardianship. Discuss your choice in advance and consider a substitute.",
+        ],
+      },
+      {
+        heading: "Your child's inheritance",
+        paragraphs: [
+          "A minor child can inherit, but cannot independently make all decisions about an estate. In a will, you can arrange administration over the child's share and appoint someone to manage it. The person caring for your child and the person managing the assets do not have to be the same person.",
+        ],
+      },
+      {
+        heading: "What helps in practice?",
+        paragraphs: [
+          "In addition to legal arrangements, record practical information: important contacts, school, medical details, insurance and documents. Make sure the information is stored safely and can be found. A Personal Life File from The Inheritance Guide can help create this overview. Appointment of a guardian and testamentary administration are discussed with the notary.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "wat-kunt-u-nu-al-vastleggen-om-uw-nabestaanden-werk-te-besparen",
+    title: "What can you record now to spare your relatives work later?",
+    excerpt:
+      "A clear overview does not remove grief, but it prevents relatives from having to search for important information.",
+    category: "voorbereiding",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "After a death, relatives often need answers most of all. Where are the insurance papers? Which accounts exist? Who needs to be called? A good overview does not take away their grief, but it prevents them from having to search for important information while so much is already coming at them.",
+        ],
+      },
+      {
+        heading: "Start with the basics",
+        paragraphs: [
+          "Record your contact persons, important documents, bank accounts, insurance policies, assets and debts. Add ongoing obligations such as mortgage, rent, subscriptions and loans. Describe where your will or living will can be found and which notary you visited. Do not keep an unsecured password list among papers accessible to everyone.",
+        ],
+      },
+      {
+        heading: "Record your wishes too",
+        paragraphs: [
+          "Think of the funeral, personal belongings and digital accounts. An overview of wishes is valuable for your loved ones, but it does not automatically have the same legal effect as a will. If you want to appoint heirs or change the distribution of your estate, discuss this with a notary.",
+        ],
+      },
+      {
+        heading: "Keep it usable",
+        paragraphs: [
+          "A file no one can find is of little help. Let a trusted person know where the overview is safely stored and update it after important changes. The Inheritance Guide helps you gather this information step by step and identify missing subjects.",
+          "You do not have to arrange everything in one day. Start with the documents relatives will look for first.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "wat-gebeurt-er-met-de-erfenis-van-uw-kinderen-als-uw-partner-later-een-nieuwe-relatie-krijgt",
+    title:
+      "What happens to your children's inheritance if your partner later starts a new relationship?",
+    excerpt:
+      "Many parents want to protect both the surviving partner and the children. A new relationship can make that more complex.",
+    category: "voorbereiding",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "Many parents want to give their partner financial peace after death and also make sure their children ultimately receive what was intended for them. If the surviving partner later starts a new relationship, these wishes can become complex. The outcome depends on the statutory division, ownership, earlier agreements and the will.",
+        ],
+      },
+      {
+        heading: "The children's position",
+        paragraphs: [
+          "Under the statutory division, children receive a monetary claim against the surviving partner after the first death. That claim remains relevant even if the partner later remarries or cohabits. Whether it is payable and whether interest applies must be assessed under the law and the will.",
+          "A new partner does not automatically become heir of the parent who already died. But a later marriage or choices about joint assets can affect what is present at the second death and how complex the settlement becomes.",
+        ],
+      },
+      {
+        heading: "What can you discuss in advance?",
+        paragraphs: [
+          "A notary can discuss interest on children's claims, moments when a claim becomes payable, usufruct, exclusion clauses and other suitable provisions. Not every construction fits every family. A rule that gives children certainty must also remain workable for the surviving partner.",
+          "First map out the home, assets, existing wills and family situation. The Inheritance Guide helps organise interests and questions before choices are legally recorded.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "welke-schulden-horen-bij-een-nalatenschap",
+    title: "Which debts belong to an estate?",
+    excerpt:
+      "A good estate overview includes both assets and debts. Only then can safe next steps be chosen.",
+    category: "afwikkeling",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "When thinking about an estate, people often first think of a house, savings and belongings. For a proper picture, the debts must also be found. Only when both sides are known can you assess the value of the estate and which steps are safe.",
+        ],
+      },
+      {
+        heading: "Think beyond loans",
+        paragraphs: [
+          "A mortgage or personal loan is easy to recognise. But there may also be unpaid bills, credit card debts, tax debts, overdue fixed costs and funeral costs still to be paid. Sometimes there is a claim from children arising from the estate of an earlier deceased parent. A paper gift can also create a debt position. The exact legal treatment differs by item.",
+          "Check bank statements, tax letters, contracts and correspondence. Ask banks and other parties specifically about outstanding obligations. Also allow for amounts that are not yet final, such as tax assessments.",
+        ],
+      },
+      {
+        heading: "What if debts exceed assets?",
+        paragraphs: [
+          "Do not accept the inheritance unconditionally in haste. Beneficial acceptance can protect against a shortfall, but then the estate must be settled according to the rules. Creditors have a different position from heirs who already want to divide goods.",
+          "The Inheritance Guide helps collect financial information and build an overview of assets and debts. Ask legal advice when debts are unclear or when you are unsure whether to accept.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "wat-mag-u-doen-voordat-u-een-erfenis-heeft-aanvaard",
+    title: "What may you do before accepting an inheritance?",
+    excerpt:
+      "You may need to act after a death, but some actions can have legal consequences for acceptance.",
+    category: "afwikkeling",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "After a death, you naturally want to act. The home must remain safe, the funeral must be arranged and bills arrive. Still, caution is needed as long as you have not chosen whether to accept unconditionally, accept beneficially or reject the inheritance.",
+        ],
+      },
+      {
+        heading: "What requires extra attention?",
+        paragraphs: [
+          "Do not sell estate goods and do not take them for yourself. Do not use the deceased person's money as if it is already your inheritance. Such actions can be seen as unconditional acceptance, with possible liability for debts. Paying the funeral from the estate is, according to the Dutch government, an exception in itself.",
+          "You can collect information, make an initial inventory and ensure assets are not lost. Document what you do and why. If immediate action is needed to prevent damage, it is wise to ask legal advice beforehand about the right way to proceed.",
+        ],
+      },
+      {
+        heading: "Decide only after an initial overview",
+        paragraphs: [
+          "Ask whether there is a will and an executor. Investigate bank accounts, loans, outstanding costs and the home. If the financial situation is uncertain, discuss beneficial acceptance with a notary. If rejecting, also consider the position of children who may then become heirs.",
+          "The Inheritance Guide helps separate practical steps from decisions with legal consequences, so you have room to make a considered choice.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "hoe-maakt-u-een-boedelbeschrijving",
+    title: "How do you prepare an estate inventory?",
+    excerpt:
+      "An estate inventory lists the assets and debts and forms the basis for management, tax and distribution.",
+    category: "afwikkeling",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "An estate inventory is an overview of the deceased person's assets and debts. It forms the basis for management, settlement, the tax return and ultimately distribution. A good inventory does not have to start in a complicated way, but it must be built completely and verifiably.",
+        ],
+      },
+      {
+        heading: "Collect information by category",
+        paragraphs: [
+          "Start with bank accounts and cash. Then add the home, investments, vehicles, valuable items and any business interests. On the other side, record the mortgage, loans, unpaid bills, taxes and other obligations. Do not forget digital assets and claims. For every item, make clear which date the value relates to and which document supports that value.",
+          "For a joint account or joint ownership, the full balance or asset does not automatically belong to the estate. Ownership shares and agreements must be investigated. Homes and special assets may have specific valuation rules.",
+        ],
+      },
+      {
+        heading: "Track changes",
+        paragraphs: [
+          "Also record payments and receipts after death. Keep invoices, bank statements and valuations with the overview. Work with one central version, so those involved do not each use different figures. If there is an executor, preparing an estate inventory is usually part of their work. Beneficial acceptance can bring additional settlement rules.",
+          "The Inheritance Guide helps collect and classify the information and identify missing documents. A notary or tax adviser can assess which valuation and form are needed in your situation.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "wat-gebeurt-er-met-bankrekeningen-en-automatische-incassos-na-overlijden",
+    title: "What happens to bank accounts and direct debits after death?",
+    excerpt:
+      "A bank account does not disappear at death, but access and payments must be handled carefully.",
+    category: "afwikkeling",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "A bank account does not disappear at the moment of death. At the same time, not everyone who previously had access may continue using it. What happens depends on the type of account, the relationship with the account holder and the bank's rules.",
+        ],
+      },
+      {
+        heading: "Report the death to the bank",
+        paragraphs: [
+          "The bank does not always automatically learn of the death. After notification, it may block an account in the deceased person's name for certain actions. It usually asks for documents before someone can access the estate on its behalf. With a joint account, the other account holder can often continue using it, but that says nothing yet about which part of the balance belongs to the estate. An ordinary power of attorney ends when the person granting it dies.",
+        ],
+      },
+      {
+        heading: "Check which payments continue",
+        paragraphs: [
+          "Make a list of direct debits, periodic transfers and income. Some costs remain necessary, such as housing costs and insurance. Other subscriptions can be ended. Do not assume that every payment after the date of death automatically stops or must automatically be reversed. Discuss with the bank which payments are possible in the meantime, including funeral costs.",
+          "Keep bank statements around the date of death. They help identify insurance policies, debts and digital subscriptions and determine the size of the estate.",
+          "The Inheritance Guide helps make accounts and ongoing payments clear and coordinate contact with the bank.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "een-kind-onterven-wat-betekent-de-legitieme-portie",
+    title: "Disinheriting a child: what does the forced heirship portion mean?",
+    excerpt:
+      "A disinherited child may still have a monetary claim under the forced heirship rules.",
+    category: "voorbereiding",
+    readingTime: "3 min",
+    sections: [
+      {
+        paragraphs: [
+          "A parent can state in a will that a child is not an heir. That does not remove every right of that child. Under conditions, the disinherited child may claim the forced heirship portion.",
+        ],
+      },
+      {
+        heading: "A right to money, not to items",
+        paragraphs: [
+          "The forced heirship portion is a monetary claim. It does not give a right to a specific piece of jewellery, the home or a seat at the table when household goods are divided. As a starting point, it is half the value of the statutory share the child would have had without a will. The actual calculation can be more complex: certain gifts and debts also play a role.",
+          "The child must claim the forced heirship portion themselves. A five-year period after death applies. When the claim is payable depends partly on the family situation and any provisions in the will. A notary can assess that position.",
+        ],
+      },
+      {
+        heading: "Prevent new uncertainty",
+        paragraphs: [
+          "If you want to disinherit a child, also discuss your intention for your partner and other children. Look at earlier gifts and record relevant documents carefully. After death, relatives should not ignore the will and the information needed for a calculation, even if family members had no contact for years.",
+          "The Inheritance Guide helps map out family relationships, documents and practical next steps. Legal assessment and calculation of the forced heirship portion belong with a notary or inheritance law specialist.",
+        ],
+      },
+    ],
+  },
+];
+
+export const knowledgeArticlesByLang = {
+  nl: knowledgeArticles,
+  en: englishKnowledgeArticles,
+} as const;
+
+export const englishServiceFaqs: Record<string, FaqItem[]> = {
+  bijleven: [
+    {
+      question: "What should I arrange during my lifetime for my estate?",
+      answer:
+        "Good preparation starts with an overview. Map out what you own, which debts and insurance policies you have, where important documents are kept and who your contact persons are. Also think about bank accounts, a home, pensions, digital accounts and personal wishes for later. You can then consider whether legal documents are needed, such as a will or living will. Arranging these matters during your lifetime prevents loved ones from having to find out later what exists and what your wishes were. A personal life file can help bring all this information together in one clear place.",
+    },
+    {
+      question: "Do I need a will and what happens if I do not have one?",
+      answer:
+        "A will is not mandatory. If you do not have one, the law determines who your heirs are and how your estate is divided. That may fit your wishes, but it may not. A will can be important if you live together unmarried, want someone else to inherit, want to disinherit a child, appoint an executor or leave specific assets to someone. A will is always prepared by a notary. It is sensible to first understand what would happen under the law in your situation and then decide whether you want to depart from that.",
+    },
+    {
+      question: "What is the difference between a will and a living will?",
+      answer:
+        "A will determines what happens to your estate after death. You can appoint heirs, include legacies and appoint an executor. A living will is for the period while you are alive but may no longer be able to manage your affairs yourself. It lets you record who may arrange financial, personal or medical matters on your behalf. One document does not replace the other. A will works after death, while a living will can matter during life. Both can be prepared by a notary and can be part of broader preparation for later.",
+    },
+    {
+      question: "Who inherits my estate if I have arranged nothing?",
+      answer:
+        "If you do not have a will, the law determines who your heirs are. Spouses, registered partners and children are in the first group of heirs. If there is a married or registered partner with children, the statutory division usually applies: the surviving partner receives the assets and debts, while the children receive a monetary claim. If there are no heirs in this group, the law looks at parents, siblings and more distant relatives. An unmarried cohabiting partner is not automatically an heir. If you want a different distribution, a will may be needed.",
+    },
+    {
+      question: "What can I record now to make things easier for my loved ones later?",
+      answer:
+        "You can record much more than who inherits from you. Think of an overview of bank accounts, insurance policies, debts, important documents, subscriptions, digital accounts, contact persons and funeral wishes. You can also state where documents can be found and which people your loved ones can approach. A personal life file can bring this information together clearly. For matters with legal effect, such as appointing heirs or an executor, a will is needed. By aligning practical information and legal arrangements, you prevent relatives from having to search unnecessarily after your death.",
+    },
+  ],
+  hulp: [
+    {
+      question: "What should I arrange first after a death?",
+      answer:
+        "After a death, the first matters are those directly related to the death and funeral. For the estate, it is then important to establish whether there is a will, who the heirs are and which assets and debts exist. Do not use estate assets too quickly and do not sell or divide them before it is clear how you want to deal with the inheritance. As an heir, you can choose between unconditional acceptance, beneficial acceptance and rejection. After that, the further inventory and settlement of the estate can begin.",
+    },
+    {
+      question: "How do I find out whether the deceased had a will?",
+      answer:
+        "You can ask the Central Wills Register whether someone made a will. The register shows whether a will exists, when it was made and at which notary. It does not show what is in the will. If a will exists, a notary can request its contents and assess which directly interested parties may be informed. Requesting information from the register is free and can often be done digitally. It is wise to do this early because the will may determine who the heirs are and whether an executor has been appointed.",
+    },
+    {
+      question: "Do I always have to accept an inheritance?",
+      answer:
+        "No. As an heir, you generally have three options. You can accept unconditionally, accept beneficially or reject the inheritance. With unconditional acceptance, you accept both assets and debts. With beneficial acceptance, the estate is settled under legal rules and you are generally protected against a shortfall. With rejection, you are no longer an heir and receive nothing. The right choice depends on the situation. As long as you have not chosen, be careful with estate goods and payments.",
+    },
+    {
+      question: "When do I need a certificate of inheritance?",
+      answer:
+        "A certificate of inheritance is a notarial statement that shows, among other things, who the heirs are and who may act on behalf of the estate. Banks and other organisations may ask for it before giving access to accounts or information. It can also matter when there is a home. You do not need such a certificate in every estate; sometimes a death certificate is enough. Before issuing it, the notary investigates the civil status records, the Central Wills Register and the position of the heirs.",
+    },
+    {
+      question: "Who arranges the settlement of an estate?",
+      answer:
+        "Who settles the estate depends on the situation. If an executor has been appointed in the will and accepts the role, the executor performs the duties assigned to them. If there is no executor, settlement generally lies with the heirs. They can authorise one person to perform certain tasks on their behalf and can also involve a notary or other expert. Beneficial acceptance may also involve formal settlement rules. The Inheritance Guide can help map out the work and keep an overview during settlement.",
+    },
+  ],
+  executeurschap: [
+    {
+      question: "What does an executor do when settling an estate?",
+      answer:
+        "An executor is appointed in a will to carry out work around the estate. An ordinary executor manages the estate, identifies assets and debts and pays debts that must be paid during management. The executor may also deliver legacies and prepare the inheritance tax return. The exact duties depend on the law and on the will. An ordinary executor essentially prepares the estate for final distribution. Once management is complete, the heirs are generally responsible for distributing what remains.",
+    },
+    {
+      question: "What powers does an executor have?",
+      answer:
+        "An executor's powers are determined by law and the will. An ordinary executor may manage estate assets and pay debts that must be paid during management. During this management, the executor represents the heirs for the execution of their task. The heirs cannot simply dispose of goods under the executor's management. The will may contain additional rules and powers. In every estate, it is therefore important to look not only at the title executor, but especially at the exact provisions in the will.",
+    },
+    {
+      question: "May an executor independently divide the inheritance or sell assets?",
+      answer:
+        "An ordinary executor may not automatically divide the estate independently. Final distribution normally lies with the heirs. An executor may sell goods if needed to pay estate debts, subject to any additional conditions in the will. If the deceased also appointed the executor as settlement administrator with broader powers, that person may in some circumstances distribute or transfer assets independently. The will must therefore always be reviewed first. The function title alone does not say enough about what someone may actually do.",
+    },
+    {
+      question:
+        "What is the difference between an executor, testamentary executor and settlement administrator?",
+      answer:
+        "In practice, testamentary executor usually means the executor appointed in a will. The term is mostly an older expression. An ordinary executor manages the estate and handles tasks such as paying debts and preparing the estate for distribution. An executor who is also appointed as settlement administrator can receive broader powers. The will may state that this person may also distribute the estate independently. The real difference is therefore not only the job title, but the powers recorded in the will.",
+    },
+    {
+      question: "What does an executor cost and who pays?",
+      answer:
+        "The executor's fee can be determined in the will. The deceased may have recorded a fixed amount, an hourly rate or no fee. If the will says nothing, Dutch law generally gives the executor a right to one percent of the value of the deceased person's assets on the date of death. The fee and other costs connected with the executor's work are generally paid from the estate. With a professional executor, it is wise to clarify in advance which arrangement applies under the will and which additional costs may arise.",
+    },
+  ],
+  mediation: [
+    {
+      question: "What is estate mediation and when can it help?",
+      answer:
+        "Estate mediation is guidance by an independent mediator when those involved have a conflict about an inheritance or its settlement. The mediator does not decide who is right, but guides the conversations and helps parties find solutions themselves. Mediation can be useful when communication between heirs has broken down, when there is disagreement about distribution or when old family issues complicate settlement. Unlike a judge, a mediator can also address interests and emotions behind the legal dispute. Participation is voluntary and requires willingness to talk.",
+    },
+    {
+      question: "For which inheritance conflicts can mediation be used?",
+      answer:
+        "Mediation can be used for many conflicts around an estate. Examples include disagreement about the division of money or household goods, sale or takeover of a home, valuation of assets, execution of a will or how an executor performs their duties. Tensions around gifts, disinheritance or communication between heirs can also lead to mediation. The conflict does not have to be purely legal. Especially when family relationships and emotions play a major role, mediation can create space to discuss both practical and personal sides.",
+    },
+    {
+      question: "Do all heirs have to participate in mediation?",
+      answer:
+        "Mediation is voluntary. No one can be forced to participate. If a solution affects all heirs, it is usually necessary that all people who must decide on that subject cooperate. Otherwise, an agreement cannot simply be made on behalf of an absent heir. In some situations, mediation can start with part of those involved or certain subjects can be discussed separately. The mediator assesses in advance who should be at the table for a meaningful process. Even if court proceedings have already started, mediation can only take place if the parties agree.",
+    },
+    {
+      question: "What happens if one heir does not want to cooperate?",
+      answer:
+        "Because mediation is voluntary, an heir cannot be forced to participate. If that heir's cooperation is necessary for a complete solution or distribution, the lack of cooperation may mean mediation cannot resolve the whole conflict. It can then be considered whether consultation is possible in another way. If you cannot jointly resolve the distribution of an estate, civil proceedings may ultimately be needed in which a judge decides. Mediation can still be tried later during court proceedings if all parties are open to it.",
+    },
+    {
+      question: "What does estate mediation cost and who pays the mediator?",
+      answer:
+        "There is no fixed general rate for estate mediation. Costs depend on the mediator's hourly rate, the complexity of the conflict, the number of people involved and the number of meetings needed. Agreements are made in advance about the rate and how costs are divided between parties. Often the costs are shared, but parties can make different arrangements. If court proceedings are already pending, the court mediation office can help find a suitable mediator and provide information about rates. Always ask in advance for clear information about fees and possible additional costs.",
+    },
+  ],
+  erfbelasting: [
+    {
+      question: "Do I have to pay inheritance tax on an inheritance?",
+      answer:
+        "Whether you must pay inheritance tax depends on the value of what you inherit and your relationship to the deceased. Each category of heir has an exemption. If you inherit less than or equal to your exemption, you pay no inheritance tax on that acquisition. If you inherit more, tax is calculated on the amount above the exemption. The tax rate also differs by relationship to the deceased. A partner and a child are treated differently from a sibling or friend. Exemptions and rates are adjusted periodically, so the year of death must always be used.",
+    },
+    {
+      question: "When do I have to file an inheritance tax return?",
+      answer:
+        "The Dutch Tax Administration usually sends a letter within a few months after death stating whether an inheritance tax return must be filed. The deadline is in that letter. For deaths in 2026, the filing period is twenty months after the date of death. This is longer than for earlier years. Even if you have not received a letter, filing may be required if you inherit more than your exemption. It is therefore wise not to wait only for a letter, but to check yourself whether a return is needed. Extension may be possible under conditions.",
+    },
+    {
+      question: "How much inheritance tax must I pay and which exemption applies to me?",
+      answer:
+        "The amount of inheritance tax depends on your relationship to the deceased and the value of your acquisition. For 2026, for example, the exemption for a spouse, registered partner or qualifying cohabiting partner is €828,035. For a child, foster child or stepchild, the exemption is €26,230. Parents, grandchildren and other heirs have other amounts. Tax may be due on the part of the inheritance above your exemption. The percentages also differ by category and amount. Because amounts can change each year, always use the year of death as the starting point.",
+    },
+    {
+      question: "Who must file the inheritance tax return?",
+      answer:
+        "If an executor has been appointed in the will, the executor generally files the inheritance tax return for all heirs. If there is no executor, the heirs can decide together who handles the return. One heir can file for all heirs, but in some situations heirs can also file separately. A joint return can be practical because it shows more clearly whether the entire estate has been processed correctly. Even if someone else prepares the return, it remains important that all necessary information about assets, debts and recipients is available and correct.",
+    },
+    {
+      question: "Which assets, debts and costs must be included in the inheritance tax return?",
+      answer:
+        "For the return, the value of the estate must first be determined. This may include bank balances, investments, a home, other assets, claims and possible foreign assets. Against this stand debts such as mortgages, loans and certain outstanding obligations. Normal funeral costs can sometimes be deducted, reduced by any funeral insurance payout. Not every cost arising during settlement is deductible. For example, notary fees for a certificate of inheritance and executor fees are not deductible as funeral costs according to the Tax Administration.",
+    },
+  ],
+};
+
+export const serviceFaqsByLang = {
+  nl: serviceFaqs,
+  en: englishServiceFaqs,
+} as const;

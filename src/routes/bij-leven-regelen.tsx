@@ -4,8 +4,8 @@ import { ContentHero } from "@/components/ContentHero";
 import { FaqSection } from "@/components/FaqSection";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
-import { useT } from "@/lib/i18n";
-import { serviceFaqs } from "@/lib/content";
+import { useLang } from "@/lib/i18n";
+import { serviceFaqsByLang } from "@/lib/content";
 import heroImg from "@/assets/bijleven-hero.jpg";
 
 export const Route = createFileRoute("/bij-leven-regelen")({
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/bij-leven-regelen")({
 });
 
 function BijLevenRegelen() {
-  const t = useT();
+  const { lang, t } = useLang();
   const h = t.bijleven;
 
   return (
@@ -136,7 +136,7 @@ function BijLevenRegelen() {
           <p className="mt-14 text-center font-display text-2xl italic text-accent">“{h.quote}”</p>
         </Reveal>
       </section>
-      <FaqSection items={serviceFaqs.bijleven} />
+      <FaqSection items={serviceFaqsByLang[lang].bijleven} />
     </>
   );
 }

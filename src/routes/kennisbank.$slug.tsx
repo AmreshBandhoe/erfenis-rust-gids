@@ -2,7 +2,8 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/Reveal";
-import { knowledgeArticles } from "@/lib/content";
+import { knowledgeArticles, knowledgeArticlesByLang } from "@/lib/content";
+import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/kennisbank/$slug")({
   loader: ({ params }) => {
@@ -24,8 +25,13 @@ export const Route = createFileRoute("/kennisbank/$slug")({
 });
 
 function KnowledgeArticlePage() {
-  const article = Route.useLoaderData();
-  const category = article.category === "voorbereiding" ? "Voorbereiding" : "Afwikkeling";
+  const loaderArticle = Route.useLoaderData();
+  const { lang, t } = useLang();
+  const h = t.kennisbank;
+  const article =
+    knowledgeArticlesByLang[lang].find((item) => item.slug === loaderArticle.slug) ?? loaderArticle;
+  const category = article.category === "voorbereiding" ? h.categoryPrep : h.categorySettle;
+  const isEnglish = lang === "en";
 
   return (
     <>
@@ -36,7 +42,7 @@ function KnowledgeArticlePage() {
             className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent-ink"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-            Terug naar de kennisbank
+            {h.readMore === "Read more" ? "Back to the knowledge base" : "Terug naar de kennisbank"}
           </Link>
           <div className="mt-10 flex flex-wrap items-center gap-3 text-sm">
             <span className="rounded-full bg-primary px-4 py-1.5 font-semibold uppercase tracking-wide text-primary-foreground">
@@ -44,7 +50,7 @@ function KnowledgeArticlePage() {
             </span>
             <span className="inline-flex items-center gap-1.5 text-muted-foreground">
               <Clock className="h-4 w-4" aria-hidden="true" />
-              {article.readingTime} lezen
+              {article.readingTime} {h.readingTime}
             </span>
           </div>
           <h1 className="mt-6 text-4xl leading-tight text-primary sm:text-5xl md:text-6xl">
@@ -78,11 +84,14 @@ function KnowledgeArticlePage() {
       <section className="on-dark bg-primary py-20 text-primary-foreground">
         <Reveal className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-3xl text-primary-foreground sm:text-4xl">
-            Wilt u weten wat dit voor uw situatie betekent?
+            {isEnglish
+              ? "Would you like to know what this means for your situation?"
+              : "Wilt u weten wat dit voor uw situatie betekent?"}
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/85">
-            Wij helpen u graag om de relevante documenten, vragen en vervolgstappen overzichtelijk
-            in kaart te brengen.
+            {isEnglish
+              ? "We are happy to help you clearly map out the relevant documents, questions and next steps."
+              : "Wij helpen u graag om de relevante documenten, vragen en vervolgstappen overzichtelijk in kaart te brengen."}
           </p>
           <Button
             asChild
@@ -90,7 +99,7 @@ function KnowledgeArticlePage() {
             className="motion-press mt-8 rounded-full bg-accent px-8 py-6 text-accent-foreground hover:bg-accent/90"
           >
             <Link to="/contact">
-              Bespreek uw situatie
+              {isEnglish ? "Discuss your situation" : "Bespreek uw situatie"}
               <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
             </Link>
           </Button>

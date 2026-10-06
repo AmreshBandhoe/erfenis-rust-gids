@@ -4,8 +4,8 @@ import { ContentHero } from "@/components/ContentHero";
 import { Reveal } from "@/components/Reveal";
 import { CtaSection } from "@/components/CtaSection";
 import { FaqSection } from "@/components/FaqSection";
-import { useT } from "@/lib/i18n";
-import { serviceFaqs } from "@/lib/content";
+import { useLang } from "@/lib/i18n";
+import { serviceFaqsByLang } from "@/lib/content";
 import { stagger } from "@/lib/motion";
 import heroImg from "@/assets/hulp-hero.jpg";
 
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/hulp-bij-erfenis")({
 const serviceIcons = [Gavel, HandHeart, Calculator, Users2];
 
 function HulpBijErfenis() {
-  const t = useT();
+  const { lang, t } = useLang();
   const h = t.hulp;
 
   return (
@@ -110,7 +110,7 @@ function HulpBijErfenis() {
         </div>
       </section>
 
-      <FaqSection items={serviceFaqs.hulp} />
+      <FaqSection items={serviceFaqsByLang[lang].hulp} />
 
       <CtaSection title={h.ctaTitle} text={h.ctaText} />
     </>

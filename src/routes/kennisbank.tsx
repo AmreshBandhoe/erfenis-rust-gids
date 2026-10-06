@@ -4,10 +4,10 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { ContentHero } from "@/components/ContentHero";
 import { CtaSection } from "@/components/CtaSection";
-import { useT } from "@/lib/i18n";
+import { useLang } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { DURATION, EASE, stagger } from "@/lib/motion";
-import { knowledgeArticles, type ArticleCategory } from "@/lib/content";
+import { knowledgeArticlesByLang, type ArticleCategory } from "@/lib/content";
 import heroImg from "@/assets/kennisbank-hero.jpg";
 
 export const Route = createFileRoute("/kennisbank")({
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/kennisbank")({
 });
 
 function Kennisbank() {
-  const t = useT();
+  const { lang, t } = useLang();
   const h = t.kennisbank;
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   const [active, setActive] = useState<ArticleCategory | "alle">("alle");
@@ -53,10 +53,10 @@ function Kennisbank() {
     afwikkeling: h.categorySettle,
   };
 
+  const articles = knowledgeArticlesByLang[lang];
+
   const visible =
-    active === "alle"
-      ? knowledgeArticles
-      : knowledgeArticles.filter((article) => article.category === active);
+    active === "alle" ? articles : articles.filter((article) => article.category === active);
 
   return (
     <>

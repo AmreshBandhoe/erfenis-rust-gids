@@ -4,8 +4,8 @@ import { ContentHero } from "@/components/ContentHero";
 import { Reveal } from "@/components/Reveal";
 import { CtaSection } from "@/components/CtaSection";
 import { FaqSection } from "@/components/FaqSection";
-import { useT } from "@/lib/i18n";
-import { serviceFaqs } from "@/lib/content";
+import { useLang } from "@/lib/i18n";
+import { serviceFaqsByLang } from "@/lib/content";
 import { stagger } from "@/lib/motion";
 import heroImg from "@/assets/gids-hero.jpg";
 
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/erfbelasting-aangifte")({
 const topicIcons = [FileText, Coins, CalendarClock];
 
 function ErfbelastingAangifte() {
-  const t = useT();
+  const { lang, t } = useLang();
   const h = t.erfbelasting;
 
   return (
@@ -109,7 +109,7 @@ function ErfbelastingAangifte() {
         </div>
       </section>
 
-      <FaqSection items={serviceFaqs.erfbelasting} />
+      <FaqSection items={serviceFaqsByLang[lang].erfbelasting} />
 
       <CtaSection title={h.ctaTitle} text={h.ctaText} ctaLabel={h.ctaLabel} />
     </>

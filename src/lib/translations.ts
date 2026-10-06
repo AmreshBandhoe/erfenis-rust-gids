@@ -1,6 +1,6 @@
 import type { ContactSubject } from "./contact";
 
-export type Lang = "nl";
+export type Lang = "nl" | "en";
 
 const nl = {
   lang: "nl" as Lang,
@@ -25,6 +25,7 @@ const nl = {
     cta: "Plan een gesprek",
     callCta: "Bel ons",
     openMenu: "Menu openen",
+    languageLabel: "Taal kiezen",
   },
 
   footer: {
@@ -176,10 +177,13 @@ const nl = {
 
     scanEyebrow: "Gratis nalatenschapscheck",
     scanTitle: "Weet u hoe goed uw nalatenschap is geregeld?",
+    scanCompactText: "Beantwoord vijf eenvoudige vragen en ontdek waar u staat.",
+    scanCompactCta: "Start uw gratis nalatenschapscheck",
     scanIntro:
       "Veel mensen denken dat alles duidelijk is, totdat zij zichzelf een paar concrete vragen stellen. Met de gratis Nalatenschapscheck ontdekt u binnen 2 minuten welke zaken al goed geregeld zijn en waar mogelijk nog aandacht nodig is.",
     scanBullets: ["Slechts 5 korte vragen", "Direct inzicht in uw situatie", "Geen verplichtingen"],
     scanCta: "Start uw persoonlijke nalatenschapscheck",
+    servicesMore: "Meer informatie",
     // "U ontvangt" wekte de indruk dat er iets gemaild wordt; de uitslag blijft
     // in de browser en wordt nergens verstuurd.
     scanCardFooter: "U ziet uw persoonlijke overzicht direct op het scherm.",
@@ -640,6 +644,7 @@ const nl = {
     fieldMessagePlaceholder: "Vertel ons kort waar wij u mee kunnen helpen…",
     submitLabel: "Verstuur bericht",
     privacy: "Wij gaan zorgvuldig en vertrouwelijk om met uw gegevens.",
+    privacyLink: "Meer informatie vindt u in ons privacybeleid.",
 
     mapArea: "Ons werkgebied",
     mapNote: "Wij werken door heel Nederland en komen graag bij u thuis langs.",
@@ -831,5 +836,759 @@ const nl = {
   },
 };
 
-export const translations = { nl } as const;
+const en = {
+  ...nl,
+  lang: "en" as Lang,
+  nav: {
+    home: "Home",
+    onzeBegeleiding: "Our guidance",
+    bijLevenRegelen: "Plan ahead",
+    hulpNaOverlijden: "Help after a death",
+    executeurschap: "Executor services",
+    mediation: "Estate mediation",
+    erfbelasting: "Inheritance tax & filing",
+    hulpBijErfenis: "Inheritance support",
+    kennisbank: "Knowledge base",
+    overOns: "About us",
+    onsTeam: "Our team",
+    contact: "Contact",
+    gratisGids: "Free guide",
+  },
+  header: {
+    cta: "Schedule a call",
+    callCta: "Call us",
+    openMenu: "Open menu",
+    languageLabel: "Choose language",
+  },
+  footer: {
+    tagline: "Clarity about your estate. Peace of mind for your loved ones.",
+    quickLinks: "Quick links",
+    contactTitle: "Contact",
+    hours: "Mon-Fri 9:00 AM - 5:00 PM",
+    copyright: "All rights reserved.",
+    copyrightName: "The Inheritance Guide.",
+    privacy: "Privacy policy",
+    terms: "Terms and conditions",
+    slogan: "Your estate, properly arranged",
+  },
+  cta: {
+    defaultTitle: "Take the first step today",
+    defaultText:
+      "Do you want to arrange your estate properly, or do you need help after someone has died? Do not wait until the questions pile up. Tell us what is going on, and together we will see what you need.",
+    defaultLabel: "Schedule a free introductory call",
+    defaultContentHeroLabel: "Request a free consultation",
+  },
+  home: {
+    ...nl.home,
+    heroEyebrow: "Your estate, properly arranged",
+    heroTitle: "The Inheritance Guide",
+    heroIntro:
+      "Personal guidance for preparing your estate and settling an inheritance. We take practical worries off your hands, so you and your loved ones can move forward with peace of mind.",
+    heroCta: "I want to prepare my estate",
+    heroSecondary: "I need help after a death",
+    questionsEyebrow: "Guidance after a death",
+    questionsTitle: "After the farewell, the searching often begins",
+    questionsPrev: "Previous questions",
+    questionsNext: "Next questions",
+    questionsIntro:
+      "A death does not only bring life to a halt. It also brings a long list of questions. In a period of grief, relatives are suddenly expected to keep an overview and take action.",
+    questions: [
+      "Where are the important documents?",
+      "Which organisations need to be informed?",
+      "Who are the heirs, and who may make decisions?",
+      "What happens to subscriptions, accounts and digital assets?",
+      "Which bank accounts, insurance policies and debts exist?",
+      "What happens to the home and its contents?",
+      "When does the inheritance tax return need to be filed?",
+    ],
+    questionsOutro:
+      "The Inheritance Guide helps you map out the entire situation, gives clarity about what needs to be arranged and guides you step by step through settling the estate.",
+    helpEyebrow: "Guidance after a death",
+    helpTitle: "After the farewell, the searching often begins",
+    helpIntro:
+      "A death does not only bring life to a halt. It also brings a long list of questions. In a period of grief, relatives are suddenly expected to keep an overview and take action.",
+    helpNetwork:
+      "The Inheritance Guide helps you map out the entire situation, gives clarity about what needs to be arranged and guides you step by step through settling the estate.",
+    helpItems: [
+      "Where are the important documents?",
+      "Which organisations need to be informed?",
+      "Who are the heirs, and who may make decisions?",
+      "What happens to subscriptions, accounts and digital assets?",
+      "Which bank accounts, insurance policies and debts exist?",
+      "What happens to the home and its contents?",
+      "When does the inheritance tax return need to be filed?",
+    ],
+    helpCta: "View our guidance after a death",
+    prepEyebrow: "Arrange things in advance",
+    prepTitle: "Many worries later can be prevented today",
+    prepIntro:
+      "By clearly recording your estate and personal wishes now, you prevent others from having to search or decide later. Together we map out the important information and documents and bring them together in a personal estate file.",
+    prepItems: [
+      "Overview of your financial and administrative affairs",
+      "Your wishes during illness and after death",
+      "Everything clearly in one place",
+      "Support for your loved ones",
+    ],
+    prepCta: "View the personal estate file",
+    whyEyebrow: "Why The Inheritance Guide?",
+    whyTitle: "Estate planning as a final act of love and care",
+    whyIntro:
+      "No one likes to think about death. Yet it is something we all face eventually. By arranging a number of matters properly now, you prevent uncertainty and unnecessary worry for your loved ones later.",
+    reasons: [
+      {
+        title: "Peace and clarity",
+        text: "Gain clear insight into your estate and know that the important matters have been properly arranged.",
+      },
+      {
+        title: "Prevent conflict",
+        text: "Clear agreements prevent unnecessary disputes and tension within the family.",
+      },
+      {
+        title: "Security for later",
+        text: "Bring your important affairs together clearly, so nothing is forgotten and everything is easy to find.",
+      },
+      {
+        title: "Personal experts",
+        text: "Guidance from experienced specialists who listen carefully to your story.",
+      },
+    ],
+    servicesEyebrow: "Our guidance",
+    servicesTitle: "The Inheritance Guide: one point of contact for your estate",
+    servicesIntro:
+      "Whether you want to arrange matters for later or need to settle an inheritance: The Inheritance Guide maps out what needs to happen, guides you through every step and involves the right specialist where needed. This gives you clarity and one trusted point of contact.",
+    services: [
+      {
+        title: "Plan ahead",
+        text: "Together we map out your personal situation, important documents and wishes, so your estate is arranged with care.",
+        to: "/bij-leven-regelen",
+      },
+      {
+        title: "Help after a death",
+        text: "Practical guidance with settling an estate. We help you step by step, so you know what needs to be arranged.",
+        to: "/hulp-bij-erfenis",
+      },
+      {
+        title: "Executor services",
+        text: "Need an independent executor? We guide the settlement of the estate carefully and according to the wishes of the deceased.",
+        to: "/executeurschap",
+      },
+      {
+        title: "Inheritance tax & filing",
+        text: "We guide you through the inheritance tax return and help ensure a careful and fiscally responsible settlement.",
+        to: "/erfbelasting-aangifte",
+      },
+    ],
+    certTitle: "Our certifications and partners",
+    certifications: [
+      { caption: "ICR Certified Coach Register (ISO 9001 / ISO 17024)" },
+      { caption: "ICA Associate Member (Compliance & Integrity)" },
+      { caption: "ADR Quality Register (ISO 9001 / ISO 17024)" },
+    ],
+    scanEyebrow: "Free estate check",
+    scanTitle: "Do you know how well your estate is arranged?",
+    scanCompactText: "Answer five simple questions and discover where you stand.",
+    scanCompactCta: "Start your free estate check",
+    scanIntro:
+      "Many people think everything is clear until they ask themselves a few concrete questions. With the free Estate Check, you discover in 2 minutes what is already well arranged and what may still need attention.",
+    scanBullets: [
+      "Only 5 short questions",
+      "Immediate insight into your situation",
+      "No obligation",
+    ],
+    scanCta: "Start your personal estate check",
+    servicesMore: "More information",
+    scanCardFooter: "You will see your personal overview directly on screen.",
+    scanCardTitle: "Estate check",
+    scanCardSub: "5 questions · 2 minutes · free",
+    scanCardItems: [
+      "Does your will still match your situation?",
+      "Do you have a living will or power of attorney?",
+      "Can your important documents be found?",
+      "Do your loved ones know your wishes?",
+      "Do you have insight into inheritance tax?",
+    ],
+    finalCtaTitle: "Do not postpone important matters until others have to solve them",
+    finalCtaText:
+      "Whether you are looking ahead or are in the middle of settling an inheritance, a first conversation can quickly bring peace and clarity.",
+    finalCtaText2:
+      "Tell us what is going on. Together we will see which guidance fits your situation.",
+    finalCtaPrimary: "Schedule a free consultation",
+  },
+  hulp: {
+    ...nl.hulp,
+    heroEyebrow: "For relatives & executors",
+    heroTitle: "We take worries off your hands",
+    heroIntro:
+      "Losing a loved one is hard enough. You do not have to carry the burden of settling the inheritance alone. We guide you through every step with warmth and expertise.",
+    introEyebrow: "Guidance for relatives",
+    introTitle: "Calm and clarity in a difficult period",
+    introText:
+      "During a period of grief, a lot comes at you. We bring calm and clarity, take practical matters off your hands and guide you step by step through settling the estate. This leaves room for farewell and healing.",
+    sectionEyebrow: "A heavy task at a heavy moment",
+    sectionTitle: "You do not have to do it alone",
+    sectionText1:
+      "After the loss of a loved one, many things suddenly need to be arranged: first the funeral, then the administration, the home and the inheritance. You have to deal with banks, insurers, notaries and other organisations while you need space for grief.",
+    sectionText2:
+      "We help you keep the overview and guide you step by step. As your steady point of contact, we take practical worries off your hands and involve the right specialists where needed.",
+    burdensTitle: "Where we can support you",
+    burdens: [
+      "Arranging the funeral and related administration",
+      "Informing banks, insurers and government bodies",
+      "Mapping assets, debts and insurance policies",
+      "Cancelling subscriptions, memberships and insurance policies",
+      "Arranging matters around the home and its contents",
+      "Involving notaries, estate agents and other specialists",
+      "Handling digital accounts and online legacy",
+      "Heir research and contact with heirs",
+      "Inheritance tax return and payment",
+      "Distribution of the estate",
+    ],
+    servicesEyebrow: "Tailored to your wishes",
+    servicesTitle: "Choose the guidance that fits you",
+    servicesIntro:
+      "Every estate and every family is different. That is why you can leave certain matters to us or arrange them together with us. We tailor our guidance to what you need.",
+    services: [
+      {
+        title: "Complete settlement of the estate",
+        text: "Would you like to hand over as much of the practical settlement as possible? We keep the overview, maintain contact with all parties involved and make sure the necessary steps are completed with care.",
+      },
+      {
+        title: "Guidance for relatives",
+        text: "Would you like to stay involved, but need clarity and expert support? We guide you step by step, answer your questions and help with the matters that need to be arranged.",
+      },
+      {
+        title: "Inheritance tax and filing",
+        text: "We help collect the necessary information and guide the inheritance tax return. Where specialist tax expertise is needed, we involve a qualified adviser.",
+      },
+      {
+        title: "Mediation in family conflicts",
+        text: "An estate can intensify existing tensions or cause new disagreements. We help clarify interests and agreements and guide the conversation. If needed, we involve a specialised mediator.",
+      },
+    ],
+    ctaTitle: "Leave the worries to us",
+    ctaText:
+      "Schedule a free, no-obligation consultation. We listen to your situation and calmly explain how we can help.",
+  },
+  bijleven: {
+    ...nl.bijleven,
+    heroEyebrow: "Clarity for later starts today",
+    heroTitle: "Your estate fully mapped out",
+    heroIntro:
+      "By recording your personal wishes, important documents and financial information now, you give your loved ones clarity at a moment when they need it most.",
+    heroCta: "Start with a personal consultation",
+    whyEyebrow: "Why arrange it now?",
+    whyTitle: "Will your loved ones know where to begin?",
+    whyText:
+      "As long as you can explain everything yourself, it may not seem like a problem. But in sudden illness or after death, your loved ones have to start searching, while they may not know what has been arranged or what your wishes were.",
+    whyText2:
+      "We help you create a complete overview now, so you stay in control and your loved ones have guidance later.",
+    benefitsTitle: "What it gives you",
+    benefits: [
+      "Prevent uncertainty, conflict and stress for your loved ones",
+      "Save inheritance tax in a fair way",
+      "Stay in control of your assets and care",
+      "The peace of knowing everything is properly recorded",
+    ],
+    overviewEyebrow: "Mapped out together",
+    overviewTitle: "Together we bring everything clearly into view",
+    overviewText:
+      "Your administration, financial affairs and personal wishes are often spread across different places. Think of bank accounts, insurance policies, subscriptions, important documents and contact persons. Together we bring everything together and record what your loved ones need to know later.",
+    overviewListTitle: "What it gives you",
+    overviewList: [
+      "A complete overview of your personal, financial and administrative affairs",
+      "Important information and documents clearly in one place",
+      "Clarity about your wishes during illness and after death",
+      "Less worry and uncertainty for your loved ones",
+      "Peace for yourself, because you know everything is properly recorded",
+    ],
+    checkEyebrow: "Free estate check",
+    checkTitle: "How well is your estate actually arranged?",
+    checkSubtitle: "Take the free estate check",
+    checkText: "Answer five simple questions and discover where you stand.",
+    checkCta: "Start your personal estate check",
+    dossierEyebrow: "Everything in one place",
+    dossierTitle: "Your personal estate file",
+    dossierText1:
+      "Together we map out your assets, debts, insurance policies, important documents, contact persons, heirs and personal wishes. You receive a clear file that helps your loved ones when they need it.",
+    dossierText2:
+      "After preparing it, we discuss what still needs attention. If a will, living will or specialist advice is needed, we help you with the next step.",
+    dossierList: [
+      "Your personal and financial situation clearly mapped out",
+      "Important documents gathered in one clear place",
+      "Insight into assets, debts and insurance policies",
+      "Your wishes and important contact persons recorded",
+      "Personal guidance from start to finish",
+    ],
+    priceTitle: "Complete Estate File for €599",
+    priceItems: [
+      "A complete overview of your personal, financial and administrative affairs",
+      "Full insight into assets, debts and insurance policies",
+      "All important documents clearly in one place",
+      "Your wishes during illness and after death clearly recorded",
+      "Option to prepare a will or living will",
+      "Personal guidance from start to finish",
+      "Clarity for your loved ones",
+    ],
+    priceText: "Do you have questions? We would be happy to meet and explain how we work.",
+    priceCta: "Discuss your situation",
+    quote: "Record today what you may not be able to explain later.",
+    ctaLabel: "Start with a personal consultation",
+  },
+  executeurschap: {
+    ...nl.executeurschap,
+    heroEyebrow: "Independent executor services",
+    heroTitle: "Settlement in trusted hands",
+    heroIntro:
+      "Need an independent executor? We guide the settlement of the estate carefully and fully in line with the wishes of the deceased.",
+    heroCta: "Request a no-obligation consultation",
+    whyEyebrow: "Why an executor?",
+    whyTitle: "A neutral coordinator for the estate",
+    whyText:
+      "As executor, we take responsibility for settling the estate. This gives heirs room to breathe and ensures sensitive decisions are guided by an independent party.",
+    benefitsTitle: "What we arrange for you",
+    benefits: [
+      "Inventory of assets, debts and obligations",
+      "Contact with organisations, banks and the notary",
+      "Management and practical settlement of the estate",
+      "Clear communication with all heirs",
+    ],
+    topicsEyebrow: "Our approach",
+    topicsTitle: "Careful, transparent and in line with the wishes",
+    topics: [
+      {
+        title: "Independent",
+        text: "As a neutral party, we act without personal interest, purely in the interest of the estate and the wishes of the deceased.",
+      },
+      {
+        title: "Fully supported",
+        text: "From administration to distribution: we take practical and legal tasks off your hands.",
+      },
+      {
+        title: "Clear communication",
+        text: "You and the heirs always know where you stand, in plain language and in good time.",
+      },
+    ],
+    ctaTitle: "Need an independent executor?",
+    ctaText:
+      "In a no-obligation conversation, we discuss your situation and explain how we can fulfil the executor role with care.",
+    ctaLabel: "Schedule a no-obligation call",
+  },
+  mediation: {
+    ...nl.mediation,
+    heroEyebrow: "Estate mediation",
+    heroTitle: "Finding a solution together",
+    heroIntro:
+      "Disagreements between heirs? As independent mediators, we guide the conversation toward a solution everyone can support.",
+    heroCta: "Request a no-obligation consultation",
+    whyEyebrow: "Why mediation?",
+    whyTitle: "Prevent a family rupture",
+    whyText:
+      "Emotions can run high around an estate. An independent mediator helps keep the conversation open, remove misunderstandings and reach agreements that do justice to everyone.",
+    benefitsTitle: "What mediation gives you",
+    benefits: [
+      "Room for everyone's story and interests",
+      "Clear agreements about practical and financial matters",
+      "Less risk of escalation or legal proceedings",
+      "A solution that preserves relationships as much as possible",
+    ],
+    topicsEyebrow: "Our approach",
+    topicsTitle: "Calm, confidential and solution-focused",
+    topics: [
+      {
+        title: "Impartial",
+        text: "We do not take sides, but guide the conversation so everyone is heard.",
+      },
+      {
+        title: "Confidential",
+        text: "Everything discussed remains within the mediation. That creates room for honesty.",
+      },
+      {
+        title: "Solution-focused",
+        text: "We work toward concrete, supported agreements that preserve relationships as much as possible.",
+      },
+    ],
+    ctaTitle: "Stuck around an inheritance?",
+    ctaText:
+      "In a no-obligation conversation, we explore whether mediation fits your situation and how we can help.",
+    ctaLabel: "Schedule a no-obligation call",
+  },
+  erfbelasting: {
+    ...nl.erfbelasting,
+    heroEyebrow: "Inheritance tax & filing",
+    heroTitle: "Careful and fiscally responsible",
+    heroIntro:
+      "We guide you through the inheritance tax return and help ensure a careful and fiscally responsible settlement of the estate.",
+    heroCta: "Request a no-obligation consultation",
+    whyEyebrow: "Why guidance?",
+    whyTitle: "Avoid mistakes and do not pay too much",
+    whyText:
+      "The inheritance tax return is subject to strict rules and deadlines. We ensure a correct, timely filing and look at where inheritance tax can be limited within the rules.",
+    benefitsTitle: "What we help you with",
+    benefits: [
+      "Correct and timely inheritance tax filing",
+      "Overview of exemptions and rates",
+      "Valuation of assets and the family home",
+      "Fiscally responsible advice within the rules",
+    ],
+    topicsEyebrow: "Our approach",
+    topicsTitle: "Clear, correct and on time",
+    topics: [
+      {
+        title: "Complete filing",
+        text: "We handle the inheritance tax return from start to finish, so you do not have to worry about it.",
+      },
+      {
+        title: "Tax-aware",
+        text: "We use exemptions and options within the rules, so as much as possible remains for the heirs.",
+      },
+      {
+        title: "Arranged on time",
+        text: "We monitor the Tax Administration's deadlines, so you are not caught by surprise.",
+      },
+    ],
+    ctaTitle: "Need help with the inheritance tax return?",
+    ctaText:
+      "In a no-obligation conversation, we look at your situation and explain how we can handle the filing and settlement for you.",
+    ctaLabel: "Schedule a no-obligation call",
+  },
+  kennisbank: {
+    ...nl.kennisbank,
+    heroEyebrow: "Knowledge & insight",
+    heroTitle: "Inheritance & Estate Knowledge Base",
+    heroIntro:
+      "Practical articles and clear explanations to help you become better informed. Understandable answers to the most frequently asked questions about estates and inheritance.",
+    heroCta: "Ask your question in a free consultation",
+    filterAll: "All articles",
+    filterPrep: "Preparation",
+    filterSettle: "Settlement",
+    categoryPrep: "Preparation",
+    categorySettle: "Settlement",
+    readingTime: "read",
+    readMore: "Read more",
+    articles: [
+      {
+        title: "What exactly does an executor do?",
+        excerpt: "The duties, responsibilities and powers of an executor clearly explained.",
+        category: "afwikkeling" as const,
+        readingTime: "5 min",
+      },
+      {
+        title: "How does inheritance tax work?",
+        excerpt: "Who pays how much, which exemptions apply and how do you file a return?",
+        category: "afwikkeling" as const,
+        readingTime: "6 min",
+      },
+      {
+        title: "Living will: why is it important?",
+        excerpt:
+          "Arrange during your lifetime who may decide on your behalf if you can no longer do so.",
+        category: "voorbereiding" as const,
+        readingTime: "4 min",
+      },
+      {
+        title: "Estate planning in a blended family",
+        excerpt: "Prevent unintended consequences and make sure everyone is treated fairly.",
+        category: "voorbereiding" as const,
+        readingTime: "7 min",
+      },
+      {
+        title: "What to do after a death: the checklist",
+        excerpt: "A clear step-by-step plan for the first days and weeks after a death.",
+        category: "afwikkeling" as const,
+        readingTime: "5 min",
+      },
+      {
+        title: "Crypto and digital assets in an inheritance",
+        excerpt: "How do you deal with cryptocurrency, accounts and digital assets in an estate?",
+        category: "voorbereiding" as const,
+        readingTime: "6 min",
+      },
+      {
+        title: "Gifting during life: saving wisely and fairly",
+        excerpt: "How gifts can reduce inheritance tax, fully within the rules.",
+        category: "voorbereiding" as const,
+        readingTime: "5 min",
+      },
+      {
+        title: "Dividing an inheritance without conflict",
+        excerpt: "Practical tips for dividing an estate fairly and in harmony.",
+        category: "afwikkeling" as const,
+        readingTime: "6 min",
+      },
+    ],
+    ctaTitle: "Prefer personal advice?",
+    ctaText:
+      "Our knowledge base helps you get started, but every situation is different. Feel free to ask your question in a free, no-obligation consultation.",
+  },
+  overOns: {
+    ...nl.overOns,
+    heroEyebrow: "Who we are",
+    heroTitle: "Meet our team of specialists",
+    heroIntro:
+      "At The Inheritance Guide, you are not alone. We work with executors, tax advisers, notaries, mediators, wealth advisers and other experts, each contributing their own expertise to your estate.",
+    teamEyebrow: "Who we are",
+    teamTitle: "Meet our team of specialists",
+    teamIntro:
+      "At The Inheritance Guide, you are not alone. We work with notaries, executors, tax advisers, mediators and other experts, each contributing their own expertise to your estate.",
+    teamPortrait: "Portrait of",
+    team: [
+      {
+        name: "Zainul Habieb",
+        role: "Founder & owner of The Inheritance Guide",
+        bio: "Zainul Habieb is founder and owner of The Inheritance Guide and a certified estate coach. In your file, he brings together the different parts of an estate, keeps the overview and guides clients throughout the entire process. Where specialist knowledge is needed, he ensures the right expert is involved, so clients keep one central point of contact while receiving the right expertise.",
+      },
+      {
+        name: "Gerard van de Kerkhof",
+        role: "Registered mediator & adviser",
+        bio: "Gerard van de Kerkhof is director of the recognised training institute VCM Opleiders. He is a fully certified ADR registered mediator and trainer. Decades of practical experience in mediation, conflict coaching and professional communication help Gerard quickly understand every situation. Within The Inheritance Guide, Gerard advises on estate matters and mediation.",
+      },
+      {
+        name: "Mark van Geffen",
+        role: "Estate tax adviser",
+        bio: "Mark van Geffen is owner of Quintax Belastingadviseurs and a tax adviser. Within The Inheritance Guide, he advises on tax questions around estates, including inheritance tax returns, gift tax and the fiscal consequences of transferring wealth. He helps clients arrange the tax side of their estate carefully and clearly.",
+      },
+      {
+        name: "Hans Sanders",
+        role: "Business & digital estate",
+        bio: "Hans Sanders is managing director of Radeac Accountants & Adviseurs and has broad experience in finance, operations and strategic business issues. He is also an estate coach and executor. Within the estate domain, his specialisms include business succession, business assets and digital legacy.",
+      },
+      {
+        name: "Yussuf Abdi",
+        role: "Lawyer",
+        bio: "Yussuf Abdi is a lawyer and founder of Abdi Juristen. He has broad experience in the legal sector and is known for his personal and careful approach. Within The Inheritance Guide, his legal expertise is available for questions involving rights, liability, representation of interests and other legal aspects around an estate.",
+      },
+      {
+        name: "Errol Moennoe",
+        role: "Pension and wealth adviser",
+        bio: "Errol Moennoe is owner of Hyposervice Finance. As a financial adviser, he brings the financial side of life and legacy into focus for The Inheritance Guide. He advises on mortgages, insurance, pensions and wealth planning. Errol is also active as an executor. That combination makes him a valuable specialist for people who want to arrange their affairs during life and for relatives facing financial choices after a death.",
+      },
+    ],
+    valuesEyebrow: "Our values",
+    valuesTitle: "What we stand for",
+    values: [
+      {
+        title: "Personal attention",
+        text: "Behind every file is a person and a story. We truly listen and take the time for you.",
+      },
+      {
+        title: "Expertise",
+        text: "Deep knowledge of inheritance law and taxation, translated into clear, understandable language.",
+      },
+      {
+        title: "Calm & clarity",
+        text: "We bring overview and calm, so you always know where you stand.",
+      },
+    ],
+  },
+  contact: {
+    ...nl.contact,
+    heroEyebrow: "We listen",
+    heroTitle: "Contact us",
+    heroIntro:
+      "Do you have a question or would you like to discuss your situation without obligation? Feel free to contact us or schedule a call, by phone or simply at your home over coffee.",
+    directEyebrow: "Direct contact",
+    directTitle: "Personal and without obligation",
+    directText:
+      "Do you have a question or would you like to get acquainted? We take the time for your situation and are happy to think along with you.",
+    details: [
+      { label: "Phone", value: "085 - 000 00 00", href: "tel:+31850000000" },
+      { label: "Email", value: "info@erfeniswijzer.nl", href: "mailto:info@erfeniswijzer.nl" },
+      { label: "Service area", value: "All of the Netherlands" },
+      { label: "Availability", value: "Mon-Fri 9:00 AM - 5:00 PM" },
+    ],
+    homeVisitTitle: "Prefer a home visit?",
+    homeVisitText:
+      "In a familiar environment, it is often easier to talk about this sensitive subject. If desired, we are happy to visit you.",
+    formTitle: "Send us a message",
+    formSubtitle: "Fill in the form and we will contact you within one business day.",
+    fieldName: "Name",
+    fieldNamePlaceholder: "Your name",
+    fieldPhone: "Phone",
+    fieldPhonePlaceholder: "06 - 12 34 56 78",
+    fieldEmail: "Email",
+    fieldEmailPlaceholder: "you@email.com",
+    fieldSubject: "What is it about?",
+    subjectOptions: [
+      { value: "hulp-na-overlijden", label: "Help after a death" },
+      { value: "bij-leven-regelen", label: "Plan ahead" },
+      { value: "anders", label: "Other" },
+    ] satisfies readonly { value: ContactSubject; label: string }[],
+    fieldMessage: "Message",
+    fieldMessagePlaceholder: "Tell us briefly how we can help...",
+    submitLabel: "Send message",
+    privacy: "We handle your information carefully and confidentially.",
+    privacyLink: "Read more in our privacy policy.",
+    mapArea: "Our service area",
+    mapNote: "We work throughout the Netherlands and are happy to visit you at home.",
+    mapLink: "See how we can help you",
+    mapTitle: "Map of The Inheritance Guide's service area in the Netherlands",
+    submitPending: "Sending...",
+    toastTitle: "Thank you! Your message has been sent.",
+    toastDesc: "We will contact you personally within one business day.",
+    errorToastTitle: "Sending failed",
+    errorToastDesc:
+      "Something went wrong on our side. Please try again shortly, or email us directly at info@erfeniswijzer.nl.",
+    errorName: "Please enter your name.",
+    errorNameMax: "Name may be at most 100 characters.",
+    errorPhone: "Please enter a valid phone number.",
+    errorPhoneMax: "Phone number may be at most 20 characters.",
+    errorPhoneFormat: "Use only digits and + ( ) - characters.",
+    errorEmail: "Please enter a valid email address.",
+    errorEmailMax: "Email address may be at most 255 characters.",
+    errorSubject: "Please choose an option.",
+    errorMessage: "Tell us briefly how we can help.",
+    errorMessageMax: "Message may be at most 1500 characters.",
+  },
+  gratisGids: {
+    ...nl.gratisGids,
+    heroEyebrow: "Free download",
+    heroTitle: "Download the free Erfeniswijzer Guide",
+    heroIntro:
+      "A practical checklist plus clear explanations of the most important steps around estates and inheritance. This helps you take the first step calmly today.",
+    heroBullets: [
+      "Directly in your inbox - no obligation",
+      "Written in understandable language",
+      "Prepared by experienced specialists",
+    ],
+    formTitle: "Send me the free guide",
+    formSubtitle: "Fill in your name and email address and we will send you the guide directly.",
+    fieldName: "Name",
+    fieldNamePlaceholder: "Your name",
+    fieldEmail: "Email",
+    fieldEmailPlaceholder: "you@email.com",
+    submitLabel: "Download the free guide",
+    privacy: "We handle your information carefully and confidentially.",
+    submitPending: "Sending...",
+    toastTitle: "Done! The guide is on its way.",
+    toastDesc: "You will receive the Erfeniswijzer Guide by email within a few minutes.",
+    errorToastTitle: "Request failed",
+    errorToastDesc:
+      "Something went wrong on our side. Please try again shortly, or email us directly at info@erfeniswijzer.nl.",
+    contentsEyebrow: "A preview",
+    contentsTitle: "What is in the guide?",
+    contentsIntro: "Everything you need to begin with confidence - clear and without jargon.",
+    contents: [
+      {
+        title: "Complete checklist",
+        text: "A step-by-step overview of everything you can arrange, so nothing is overlooked.",
+      },
+      {
+        title: "Explanation per document",
+        text: "Clear explanation of wills, living wills and powers of attorney in plain language.",
+      },
+      {
+        title: "Reducing inheritance tax",
+        text: "Practical tips to reduce inheritance tax fairly and within the rules.",
+      },
+      {
+        title: "Talking with family",
+        text: "Guidance for discussing inheritance openly and without unnecessary tension.",
+      },
+    ],
+    errorName: "Please enter your name.",
+    errorNameMax: "Name may be at most 100 characters.",
+    errorEmail: "Please enter a valid email address.",
+    errorEmailMax: "Email address may be at most 255 characters.",
+  },
+  bedankt: {
+    ...nl.bedankt,
+    heroTitle: "Thank you",
+    heroIntro:
+      "Your message has reached us safely. We appreciate that you took this step, and we will calmly go through it with you.",
+    stepsEyebrow: "What happens now?",
+    stepsTitle: "You do not need to do anything else for now",
+    steps: [
+      {
+        title: "Your message has been noted",
+        text: "We have received your details and will review them personally.",
+      },
+      {
+        title: "Personal contact",
+        text: "Within one business day, we will contact you calmly and without obligation.",
+      },
+      {
+        title: "Looking ahead together",
+        text: "We discuss your situation and wishes, and explain how we can relieve you.",
+      },
+    ],
+    ctaKennisbank: "Read our knowledge base",
+    ctaHome: "Back to home",
+  },
+  check: {
+    ...nl.check,
+    heroEyebrow: "Free estate check",
+    heroTitle: "How well is your estate actually arranged?",
+    heroIntro:
+      "Answer five simple questions and discover where you stand. You will see your result directly on screen.",
+    startLabel: "Start your personal estate check",
+    disclaimer:
+      "The check is free and without obligation. Your answers remain in your own browser and are not stored or sent.",
+    progressLabel: "Question",
+    ofLabel: "of",
+    back: "Previous question",
+    restart: "Start again",
+    answerYes: "Yes",
+    answerPartly: "Partly",
+    answerNo: "No, not yet",
+    questions: [
+      {
+        title: "Do you have a will that fits your current situation?",
+        help: "Think of changes such as a new relationship, children, a home or your own business.",
+        advice:
+          "Record who inherits what. An up-to-date will prevents uncertainty and ensures your wishes are truly carried out.",
+      },
+      {
+        title: "Have you arranged a living will or power of attorney?",
+        help: "This records who may decide about your finances and care if you temporarily cannot do so yourself.",
+        advice:
+          "With a living will, you stay in control, even at moments when you can no longer decide for yourself.",
+      },
+      {
+        title: "Can your important documents be found clearly in one place?",
+        help: "Policies, bank details, subscriptions, passwords and contact persons.",
+        advice:
+          "Bring your documents and details together in one file, so your loved ones do not have to search later.",
+      },
+      {
+        title: "Do your loved ones know your wishes during illness and after your death?",
+        help: "From medical wishes to the funeral and personal belongings.",
+        advice:
+          "Put your wishes in writing and discuss them. That gives your loved ones support at a difficult moment.",
+      },
+      {
+        title: "Have you thought about inheritance tax and a fair distribution?",
+        help: "Think of lifetime gifts, exemptions and distribution among heirs.",
+        advice:
+          "Timely advice can fairly reduce inheritance tax and prevent discussion among heirs.",
+      },
+    ],
+    resultEyebrow: "Your result",
+    scoreSuffix: "out of 5 points",
+    levels: [
+      {
+        title: "There is still a lot to gain",
+        text: "At the moment, little has been recorded. That means your loved ones may have to sort out a lot later. The good news: with a few steps, you can quickly bring calm and clarity.",
+      },
+      {
+        title: "You are well on your way",
+        text: "Part of it is arranged, but important points still lack clarity. Those points often create uncertainty for relatives later.",
+      },
+      {
+        title: "Your affairs are well arranged",
+        text: "You have recorded the most important matters. A periodic review remains wise, because your situation and the rules can change.",
+      },
+    ],
+    adviceTitle: "Where you can still improve",
+    allGoodTitle: "Nicely arranged",
+    allGoodText:
+      "You have all five topics in order. We would be happy to look along once to see whether everything still fits your current situation.",
+    ctaTitle: "Would you like to know what fits your situation?",
+    ctaText:
+      "In a no-obligation consultation, we calmly discuss your result and explain which steps make sense.",
+    ctaPrimary: "Request a free consultation",
+    ctaSecondary: "View the Personal Life File",
+  },
+} satisfies typeof nl;
+
+export const translations = { nl, en } as const;
 export type Translations = typeof nl;

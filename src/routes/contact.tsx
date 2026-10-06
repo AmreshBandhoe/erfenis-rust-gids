@@ -327,7 +327,7 @@ function Contact() {
                         to="/privacybeleid"
                         className="underline underline-offset-2 hover:text-primary"
                       >
-                        Meer informatie vindt u in ons privacybeleid.
+                        {h.privacyLink}
                       </Link>
                     </p>
                   </form>

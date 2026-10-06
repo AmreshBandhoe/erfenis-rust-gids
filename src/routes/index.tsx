@@ -171,19 +171,15 @@ function Index() {
       <section className="bg-primary py-16 text-primary-foreground">
         <Reveal className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center sm:px-6">
           <div>
-            <h2 className="text-3xl text-primary-foreground sm:text-4xl">
-              Hoe goed is uw nalatenschap eigenlijk geregeld?
-            </h2>
-            <p className="mt-3 text-lg text-primary-foreground/85">
-              Beantwoord vijf eenvoudige vragen en ontdek waar u staat
-            </p>
+            <h2 className="text-3xl text-primary-foreground sm:text-4xl">{h.scanTitle}</h2>
+            <p className="mt-3 text-lg text-primary-foreground/85">{h.scanCompactText}</p>
           </div>
           <Button
             asChild
             size="lg"
             className="motion-press rounded-full bg-accent px-8 py-6 text-base text-accent-foreground shadow-lg hover:bg-accent/90"
           >
-            <Link to="/nalatenschapscheck">Start uw gratis nalatenschapscheck</Link>
+            <Link to="/nalatenschapscheck">{h.scanCompactCta}</Link>
           </Button>
         </Reveal>
       </section>
@@ -275,14 +271,12 @@ function Index() {
                     <div className="motion-icon flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
                       <Icon className="h-7 w-7" strokeWidth={1.6} />
                     </div>
-                    <h3 className="mt-6 text-xl leading-snug text-primary">
-                      {service.title}
-                    </h3>
+                    <h3 className="mt-6 text-xl leading-snug text-primary">{service.title}</h3>
                     <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                       {service.text}
                     </p>
                     <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-ink">
-                      Meer informatie
+                      {h.servicesMore}
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>
                   </Link>

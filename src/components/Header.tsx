@@ -58,6 +58,45 @@ function Brand({ onClick, condensed = false }: { onClick?: () => void; condensed
 const navLinkClass =
   "relative text-[0.95rem] font-medium text-foreground/80 transition-colors hover:text-primary";
 
+function LanguageToggle({ compact = false }: { compact?: boolean }) {
+  const { lang, setLang, t } = useLang();
+  const options = [
+    { lang: "nl" as const, label: "NL" },
+    { lang: "en" as const, label: "EN" },
+  ];
+
+  return (
+    <div
+      className={`inline-flex rounded-full border border-border/70 bg-secondary/70 p-1 ${
+        compact ? "w-full" : ""
+      }`}
+      role="group"
+      aria-label={t.header.languageLabel}
+    >
+      {options.map((option) => {
+        const active = lang === option.lang;
+        return (
+          <button
+            key={option.lang}
+            type="button"
+            onClick={() => setLang(option.lang)}
+            className={`motion-press rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
+              compact ? "flex-1" : ""
+            } ${
+              active
+                ? "bg-primary text-primary-foreground shadow-sm"
+                : "text-foreground/70 hover:text-primary"
+            }`}
+            aria-pressed={active}
+          >
+            {option.label}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
 function DesktopLink({ item }: { item: NavLeaf }) {
   return (
     <Link
@@ -218,9 +257,11 @@ export function Header() {
           >
             <Link to="/contact">{t.header.cta}</Link>
           </Button>
+          <LanguageToggle />
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
+          <LanguageToggle />
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button
@@ -269,7 +310,8 @@ export function Header() {
                   ),
                 )}
               </nav>
-              <div className="mt-8">
+              <div className="mt-8 space-y-4">
+                <LanguageToggle compact />
                 <SheetClose asChild>
                   <Button
                     asChild
